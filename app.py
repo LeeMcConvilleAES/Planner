@@ -82,6 +82,41 @@ a.job:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
 div[data-testid="stHorizontalBlock"]{gap:6px}
 .stButton button{font-family:'Figtree',sans-serif!important;font-size:11px!important;border-radius:5px!important}
 div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-radius:6px;padding:6px 10px}
+
+/* ── Pill buttons (clickable jobs) ────────────────────────── */
+.pill-day-header{background:#0d823b;color:white;text-align:center;padding:7px 5px;font-weight:700;font-size:12px;border-radius:5px 5px 0 0;margin-bottom:0}
+.pill-day-header.wknd{background:#546270}
+.pill-day-header small{font-weight:400;opacity:.8;font-size:10px;display:block}
+.pill-section-del{background:#f0fdf4;color:#166534;border-top:2px solid #0d823b;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:2px 0 4px 0;border-radius:0 0 3px 3px}
+.pill-section-col{background:#eff6ff;color:#1e40af;border-top:2px solid #3b82f6;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:6px 0 4px 0;border-radius:0 0 3px 3px}
+.pill-veh{background:#fffbeb;border:1px solid #fde68a;font-size:9px;color:#92400e;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
+.pill-hol{background:#eff6ff;border:1px solid #bfdbfe;font-size:9px;color:#1e40af;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
+.pill-empty{color:#d1d5db;font-size:10px;text-align:center;padding:6px;font-style:italic}
+
+/* Style Streamlit buttons to look like pills. We use marker divs and :has() */
+/* Default pill (enquiry) */
+div[data-testid="stMarkdownContainer"]:has(.marker-pill) + div[data-testid="stButton"] button{
+    background:white !important;border:1px solid #e2e6ea !important;color:#40424a !important;
+    text-align:left !important;padding:6px 8px !important;height:auto !important;
+    font-size:11px !important;line-height:1.35 !important;white-space:pre-line !important;
+    box-shadow:none !important;margin-bottom:3px !important;
+}
+div[data-testid="stMarkdownContainer"]:has(.marker-pill) + div[data-testid="stButton"] button:hover{
+    transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1) !important;border-color:#0d823b !important;
+}
+/* Booked Delivery = green */
+div[data-testid="stMarkdownContainer"]:has(.marker-pill-booked-del) + div[data-testid="stButton"] button{
+    background:#d1fae5 !important;border-color:#6ee7b7 !important;color:#064e3b !important;font-weight:600 !important;
+}
+/* Booked Collection = red */
+div[data-testid="stMarkdownContainer"]:has(.marker-pill-booked-col) + div[data-testid="stButton"] button{
+    background:#fee2e2 !important;border-color:#fca5a5 !important;color:#7f1d1d !important;font-weight:600 !important;
+}
+/* Enquiry pill text */
+div[data-testid="stMarkdownContainer"]:has(.marker-pill-enquiry) + div[data-testid="stButton"] button{
+    font-weight:500 !important;
+}
+.marker-pill,.marker-pill-booked-del,.marker-pill-booked-col,.marker-pill-enquiry,.marker-pill-enquiry-del,.marker-pill-enquiry-col{display:none}
 </style>
 """, unsafe_allow_html=True)
 
@@ -220,9 +255,9 @@ def get_default_data():
     return data
 
 # ─────────────────────────────────────────────────────────────
-# JOB CARD HTML
+# JOB CARD HTML (display only — clicking handled by buttons below)
 # ─────────────────────────────────────────────────────────────
-def job_html(job, clickable=False):
+def job_html(job):
     is_b = job['status'] == 'booked'
     col_cls = 'col-job' if job.get('col') == 'col' else 'del-job'
     state_cls = 'booked' if is_b else 'enquiry'
@@ -234,9 +269,6 @@ def job_html(job, clickable=False):
         loads += f'<div class="jload"><span>📦 {l.get("desc","—")}</span>{drv}</div>'
     notes = f'<div class="jnotes">{job["notes"]}</div>' if job.get('notes') else ''
     inner = f'{badge}<div class="jcust">{job["customer"]}</div>{loads}<div class="jpost">📍 {job["postcode"]}</div>{notes}'
-    if clickable:
-        # Clicking sets ?edit=<id> which opens the edit dialog
-        return f'<a class="{cls}" href="?edit={job["id"]}" target="_self">{inner}</a>'
     return f'<div class="{cls}">{inner}</div>'
 
 # ─────────────────────────────────────────────────────────────
@@ -452,47 +484,88 @@ if not readonly:
             save_data(data); st.success('Saved')
 
 # ─────────────────────────────────────────────────────────────
-# BUILD THE PLANNER TABLE (HTML — matches screenshot)
+# BUILD THE PLANNER (Streamlit columns + buttons styled as pills)
 # ─────────────────────────────────────────────────────────────
 vehs = wd.get('vehicles', [])
 hols = wd.get('holidays', [])
 
-html = '<table class="planner-table"><thead><tr>'
+# Day headers row (HTML for tight green banner look)
+header_html = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:0">'
 for di, dn in enumerate(DAYS):
     wknd = ' wknd' if di == 5 else ''
-    html += f'<th class="day-th{wknd}" colspan="2">{dn}<br/><small>{get_day_label(offset, di)}</small></th>'
-html += '</tr><tr class="veh-row">'
-for di in range(6):
-    dv = [v for v in vehs if v['day'] == di]
-    dh = [h for h in hols if di in h.get('days', [])]
-    info = ''
-    if dv: info += ' · '.join([f"🚛 {v['reg']} ({v['note']})" for v in dv])
-    if dh: info += (' · ' if info else '') + ' · '.join([f"🏖 {h['name']}" for h in dh])
-    if info:
-        html += f'<td colspan="2">{info}</td>'
-    else:
-        html += '<td colspan="2" style="background:#f9fafb;height:3px;border:none"></td>'
-html += '</tr><tr>'
-for di in range(6):
-    html += '<th class="col-sub-th del-th">Deliveries</th><th class="col-sub-th col-th">Collections</th>'
-html += '</tr></thead><tbody><tr>'
-for di in range(6):
-    dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
-    cols = [j for j in fj if j['day'] == di and j['col'] == 'col']
-    html += '<td class="jobs-cell del">'
-    html += ''.join([job_html(j, clickable=not readonly) for j in dels]) if dels else '<div class="empty-cell">—</div>'
-    html += '</td><td class="jobs-cell col">'
-    html += ''.join([job_html(j, clickable=not readonly) for j in cols]) if cols else '<div class="empty-cell">—</div>'
-    html += '</td>'
-html += '</tr></tbody></table>'
+    header_html += f'<div class="pill-day-header{wknd}">{dn}<small>{get_day_label(offset, di)}</small></div>'
+header_html += '</div>'
+st.markdown(header_html, unsafe_allow_html=True)
 
-st.markdown(html, unsafe_allow_html=True)
+# Daily grid — 6 columns, each with vehicle/holiday bar, Del section, Col section
+day_cols = st.columns(6)
+for di, col in enumerate(day_cols):
+    with col:
+        # Vehicle / holiday bars
+        dv = [v for v in vehs if v['day'] == di]
+        dh = [h for h in hols if di in h.get('days', [])]
+        if dv:
+            veh_text = ' · '.join([f"🚛 {v['reg']} ({v['note']})" for v in dv])
+            st.markdown(f'<div class="pill-veh">{veh_text}</div>', unsafe_allow_html=True)
+        if dh:
+            hol_text = ' · '.join([f"🏖 {h['name']}" for h in dh])
+            st.markdown(f'<div class="pill-hol">{hol_text}</div>', unsafe_allow_html=True)
+
+        # Deliveries section
+        st.markdown('<div class="pill-section-del">Deliveries</div>', unsafe_allow_html=True)
+        dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
+        if not dels:
+            st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
+        else:
+            for j in dels:
+                # Build the multi-line label (Streamlit buttons support \n)
+                badge = '🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY'
+                lines = [badge, j['customer']]
+                for l in j['loads']:
+                    drv = f"  ·  {l['driver']}" if l.get('driver') else ""
+                    lines.append(f"📦 {l.get('desc','—')}{drv}")
+                lines.append(f"📍 {j['postcode']}")
+                if j.get('notes'):
+                    lines.append(j['notes'])
+                label = "\n".join(lines)
+
+                # Marker div for CSS targeting
+                marker_cls = 'marker-pill marker-pill-' + ('booked-del' if j['status']=='booked' else 'enquiry')
+                st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
+
+                if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
+                    st.session_state.editing_id = j['id']
+                    st.rerun()
+
+        # Collections section
+        st.markdown('<div class="pill-section-col">Collections</div>', unsafe_allow_html=True)
+        cols2 = [j for j in fj if j['day'] == di and j['col'] == 'col']
+        if not cols2:
+            st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
+        else:
+            for j in cols2:
+                badge = '🔴 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY'
+                lines = [badge, j['customer']]
+                for l in j['loads']:
+                    drv = f"  ·  {l['driver']}" if l.get('driver') else ""
+                    lines.append(f"📦 {l.get('desc','—')}{drv}")
+                lines.append(f"📍 {j['postcode']}")
+                if j.get('notes'):
+                    lines.append(j['notes'])
+                label = "\n".join(lines)
+
+                marker_cls = 'marker-pill marker-pill-' + ('booked-col' if j['status']=='booked' else 'enquiry')
+                st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
+
+                if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
+                    st.session_state.editing_id = j['id']
+                    st.rerun()
 
 if not readonly:
     st.caption('💡 Click any job pill above to edit its details.')
 
 # ─────────────────────────────────────────────────────────────
-# EDIT DIALOG — opens when a pill is clicked (?edit=<id>)
+# EDIT DIALOG — opens when a pill button is clicked
 # ─────────────────────────────────────────────────────────────
 def find_job(jid):
     for j in wd.get('jobs', []):
@@ -524,7 +597,6 @@ def edit_dialog(job):
         if keep and ld:
             new_loads.append({'desc': ld, 'driver': dr.upper()})
 
-    # Add an extra blank load row
     st.markdown('_Add another load:_')
     ac1, ac2 = st.columns([3, 1.2])
     add_desc = ac1.text_input('New load', placeholder='e.g. 24ft, Chem Loo…', key=f'eladd_{job["id"]}')
@@ -544,28 +616,27 @@ def edit_dialog(job):
             job['notes'] = notes
             job['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
             save_data(data)
-            st.query_params.clear()
+            st.session_state.editing_id = None
             st.rerun()
     if b2.button('🗑 Delete', use_container_width=True):
         wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
         save_data(data)
-        st.query_params.clear()
+        st.session_state.editing_id = None
         st.rerun()
     if b3.button('Cancel', use_container_width=True):
-        st.query_params.clear()
+        st.session_state.editing_id = None
         st.rerun()
 
 # Open the dialog if a pill was clicked and editing is unlocked
-edit_id = st.query_params.get('edit')
-if edit_id and not readonly:
-    job_to_edit = find_job(edit_id)
-    if job_to_edit:
-        edit_dialog(job_to_edit)
+if 'editing_id' not in st.session_state:
+    st.session_state.editing_id = None
+
+if st.session_state.editing_id and not readonly:
+    jt = find_job(st.session_state.editing_id)
+    if jt:
+        edit_dialog(jt)
     else:
-        st.query_params.clear()
-elif edit_id and readonly:
-    # Clicked while locked — clear it so it doesn't linger
-    st.query_params.clear()
+        st.session_state.editing_id = None
 
 # persist any inline edits
 save_data(data)
