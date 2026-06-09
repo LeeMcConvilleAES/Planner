@@ -48,14 +48,26 @@ html,body,[class*="css"]{font-family:'Figtree',sans-serif!important}
 .jobs-cell.del{background:#fafffe}
 .jobs-cell.col{background:#f8faff}
 
-.job{border-radius:5px;padding:5px 7px;margin-bottom:4px;border:1px solid #e2e6ea;background:white}
-.job.booked{background:#d1fae5;border-color:#6ee7b7}
+.job{border-radius:5px;padding:5px 7px;margin-bottom:4px;border:1px solid #e2e6ea;background:white;display:block;text-decoration:none}
+a.job{cursor:pointer;transition:transform .1s,box-shadow .1s}
+a.job:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+/* Deliveries booked = green */
+.job.booked.del-job{background:#d1fae5;border-color:#6ee7b7}
+.job.booked.del-job .jcust{color:#064e3b}
+.job.booked.del-job .jpost{color:#065f46}
+.job.booked.del-job .jload{color:#065f46}
+/* Collections booked = red */
+.job.booked.col-job{background:#fee2e2;border-color:#fca5a5}
+.job.booked.col-job .jcust{color:#7f1d1d}
+.job.booked.col-job .jpost{color:#991b1b}
+.job.booked.col-job .jload{color:#991b1b}
+.job.booked.col-job .dchip{background:rgba(220,38,38,.12);color:#991b1b;border-color:rgba(220,38,38,.3)}
+.job.booked.col-job .bkdb{background:#dc2626}
 .jcust{font-weight:700;font-size:11px;color:#1a2e1a}
 .job.enquiry .jcust{color:#40424a}
 .jpost{font-size:9px;font-weight:600;color:#065f46;margin-top:2px}
 .job.enquiry .jpost{color:#374151}
 .jload{font-size:9px;color:#4b5563;font-weight:600;padding:1px 0;display:flex;align-items:center;justify-content:space-between}
-.job.booked .jload{color:#065f46}
 .dchip{display:inline-block;background:rgba(13,130,59,.15);color:#065f46;border-radius:3px;padding:0 5px;font-size:8px;font-weight:700;min-width:22px;text-align:center;border:1px solid rgba(13,130,59,.2)}
 .job.enquiry .dchip{background:rgba(245,158,11,.15);color:#92400e;border-color:rgba(245,158,11,.3)}
 .enqb{font-size:7px;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:2px;padding:0 4px;margin-bottom:2px;display:inline-block}
@@ -210,16 +222,22 @@ def get_default_data():
 # ─────────────────────────────────────────────────────────────
 # JOB CARD HTML
 # ─────────────────────────────────────────────────────────────
-def job_html(job):
+def job_html(job, clickable=False):
     is_b = job['status'] == 'booked'
-    cls = 'job booked' if is_b else 'job enquiry'
+    col_cls = 'col-job' if job.get('col') == 'col' else 'del-job'
+    state_cls = 'booked' if is_b else 'enquiry'
+    cls = f'job {state_cls} {col_cls}'
     badge = '<span class="bkdb">BOOKED</span>' if is_b else '<span class="enqb">ENQUIRY</span>'
     loads = ''
     for l in job['loads']:
         drv = f'<span class="dchip">{l["driver"]}</span>' if l.get('driver') else ''
         loads += f'<div class="jload"><span>📦 {l.get("desc","—")}</span>{drv}</div>'
     notes = f'<div class="jnotes">{job["notes"]}</div>' if job.get('notes') else ''
-    return f'<div class="{cls}">{badge}<div class="jcust">{job["customer"]}</div>{loads}<div class="jpost">📍 {job["postcode"]}</div>{notes}</div>'
+    inner = f'{badge}<div class="jcust">{job["customer"]}</div>{loads}<div class="jpost">📍 {job["postcode"]}</div>{notes}'
+    if clickable:
+        # Clicking sets ?edit=<id> which opens the edit dialog
+        return f'<a class="{cls}" href="?edit={job["id"]}" target="_self">{inner}</a>'
+    return f'<div class="{cls}">{inner}</div>'
 
 # ─────────────────────────────────────────────────────────────
 # SESSION STATE
@@ -346,7 +364,8 @@ with tb2:
 with tb3:
     st.markdown(f'''<div class="legend-row" style="justify-content:flex-end">
       <b style="color:#0d823b;font-size:11px">{week_range_label(offset)}</b>
-      <div class="legend-item"><span class="legend-sw" style="background:#d1fae5;border-color:#6ee7b7"></span><b style="color:#065f46">Booked</b></div>
+      <div class="legend-item"><span class="legend-sw" style="background:#d1fae5;border-color:#6ee7b7"></span><b style="color:#065f46">Booked (Del)</b></div>
+      <div class="legend-item"><span class="legend-sw" style="background:#fee2e2;border-color:#fca5a5"></span><b style="color:#991b1b">Booked (Col)</b></div>
       <div class="legend-item"><span class="legend-sw" style="background:white;border-color:#d1d5db"></span><span style="color:#6b7280">Enquiry</span></div>
     </div>''', unsafe_allow_html=True)
 
@@ -461,33 +480,92 @@ for di in range(6):
     dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
     cols = [j for j in fj if j['day'] == di and j['col'] == 'col']
     html += '<td class="jobs-cell del">'
-    html += ''.join([job_html(j) for j in dels]) if dels else '<div class="empty-cell">—</div>'
+    html += ''.join([job_html(j, clickable=not readonly) for j in dels]) if dels else '<div class="empty-cell">—</div>'
     html += '</td><td class="jobs-cell col">'
-    html += ''.join([job_html(j) for j in cols]) if cols else '<div class="empty-cell">—</div>'
+    html += ''.join([job_html(j, clickable=not readonly) for j in cols]) if cols else '<div class="empty-cell">—</div>'
     html += '</td>'
 html += '</tr></tbody></table>'
 
 st.markdown(html, unsafe_allow_html=True)
 
+if not readonly:
+    st.caption('💡 Click any job pill above to edit its details.')
+
 # ─────────────────────────────────────────────────────────────
-# EDIT / DELETE (team mode) — compact controls below grid
+# EDIT DIALOG — opens when a pill is clicked (?edit=<id>)
 # ─────────────────────────────────────────────────────────────
-if not readonly and fj:
+def find_job(jid):
+    for j in wd.get('jobs', []):
+        if j['id'] == jid:
+            return j
+    return None
+
+@st.dialog("Edit Job")
+def edit_dialog(job):
+    c1, c2 = st.columns(2)
+    cust = c1.text_input('Customer', value=job['customer'])
+    post = c2.text_input('Postcode', value=job['postcode'])
+    c3, c4 = st.columns(2)
+    ctype = c3.selectbox('Type', ['Delivery', 'Collection'],
+                         index=0 if job['col'] == 'del' else 1)
+    dsel = c4.selectbox('Day', DAYS, index=job['day'])
+    c5, c6 = st.columns(2)
+    ssel = c5.selectbox('Status', ['Enquiry', 'Booked'],
+                        index=0 if job['status'] == 'enquiry' else 1)
+    notes = c6.text_input('Notes', value=job.get('notes', ''))
+
+    st.markdown('**Loads & Driver Initials**')
+    new_loads = []
+    for i, l in enumerate(job['loads']):
+        lc1, lc2, lc3 = st.columns([3, 1.2, 0.6])
+        ld = lc1.text_input(f'Load {i+1}', value=l.get('desc', ''), key=f'el_{job["id"]}_{i}')
+        dr = lc2.text_input(f'Driver {i+1}', value=l.get('driver', ''), key=f'ed_{job["id"]}_{i}', max_chars=5)
+        keep = lc3.checkbox('Keep', value=True, key=f'ek_{job["id"]}_{i}', label_visibility='hidden')
+        if keep and ld:
+            new_loads.append({'desc': ld, 'driver': dr.upper()})
+
+    # Add an extra blank load row
+    st.markdown('_Add another load:_')
+    ac1, ac2 = st.columns([3, 1.2])
+    add_desc = ac1.text_input('New load', placeholder='e.g. 24ft, Chem Loo…', key=f'eladd_{job["id"]}')
+    add_drv = ac2.text_input('New driver', placeholder='CR2', key=f'edadd_{job["id"]}', max_chars=5)
+    if add_desc:
+        new_loads.append({'desc': add_desc, 'driver': add_drv.upper()})
+
     st.divider()
-    st.markdown('**Quick actions** — change status or remove a job')
-    for j in fj:
-        cc1, cc2, cc3 = st.columns([4, 1.2, 1])
-        day_name = DAYS[j['day']]
-        col_name = 'Delivery' if j['col'] == 'del' else 'Collection'
-        cc1.markdown(f"<span style='font-size:12px'>**{j['customer']}** · {j['postcode']} · {day_name} {col_name} · {len(j['loads'])} load(s)</span>", unsafe_allow_html=True)
-        with cc2:
-            if st.button(f"↔ {'Enquiry' if j['status']=='booked' else 'Book'}", key=f"t{j['id']}", use_container_width=True):
-                j['status'] = 'enquiry' if j['status'] == 'booked' else 'booked'
-                save_data(data); st.rerun()
-        with cc3:
-            if st.button('🗑', key=f"d{j['id']}", use_container_width=True):
-                wd['jobs'] = [x for x in wd['jobs'] if x['id'] != j['id']]
-                save_data(data); st.rerun()
+    b1, b2, b3 = st.columns([1, 1, 1])
+    if b1.button('💾 Save', type='primary', use_container_width=True):
+        if cust and post:
+            job['customer'] = cust
+            job['postcode'] = post
+            job['col'] = 'del' if ctype == 'Delivery' else 'col'
+            job['day'] = DAYS.index(dsel)
+            job['status'] = ssel.lower()
+            job['notes'] = notes
+            job['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
+            save_data(data)
+            st.query_params.clear()
+            st.rerun()
+    if b2.button('🗑 Delete', use_container_width=True):
+        wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
+        save_data(data)
+        st.query_params.clear()
+        st.rerun()
+    if b3.button('Cancel', use_container_width=True):
+        st.query_params.clear()
+        st.rerun()
+
+# Open the dialog if a pill was clicked and editing is unlocked
+edit_id = st.query_params.get('edit')
+if edit_id and not readonly:
+    job_to_edit = find_job(edit_id)
+    if job_to_edit:
+        edit_dialog(job_to_edit)
+    else:
+        st.query_params.clear()
+elif edit_id and readonly:
+    # Clicked while locked — clear it so it doesn't linger
+    st.query_params.clear()
 
 # persist any inline edits
 save_data(data)
