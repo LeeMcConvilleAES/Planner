@@ -434,33 +434,83 @@ fj = [j for j in jobs if matches(j)]
 # ADD JOB / VEHICLES / HOLIDAYS (team mode only)
 # ─────────────────────────────────────────────────────────────
 if not readonly:
+    # Track how many load rows are currently shown for Add New Job
+    if 'nj_load_count' not in st.session_state:
+        st.session_state.nj_load_count = 1
+
     with st.expander('➕ Add New Job'):
-        with st.form('addjob', clear_on_submit=True):
-            c1, c2, c3, c4 = st.columns(4)
-            cust = c1.text_input('Customer *')
-            post = c2.text_input('Postcode *')
-            ctype = c3.selectbox('Type', ['Delivery', 'Collection'])
-            dsel = c4.selectbox('Day', DAYS)
-            c5, c6 = st.columns(2)
-            ssel = c5.selectbox('Status', ['Enquiry', 'Booked'])
-            notes = c6.text_input('Notes')
-            st.markdown('**Loads & Driver Initials** (fill as many as needed)')
-            lc = st.columns(4)
-            loads_in = []
-            for i in range(4):
-                with lc[i]:
-                    ld = st.text_input(f'Load {i+1}', placeholder='24ft, Chem Loo…', key=f'ld{i}')
-                    dr = st.text_input(f'Driver {i+1}', placeholder='CR2', key=f'dr{i}', max_chars=5)
-                    if ld: loads_in.append({'desc': ld, 'driver': dr.upper()})
-            if st.form_submit_button('Add Job', type='primary') and cust and post:
+        # NOT inside st.form so the "+ Add Load" button can trigger reruns
+        c1, c2, c3, c4 = st.columns(4)
+        cust = c1.text_input('Customer *', key='nj_cust')
+        post = c2.text_input('Postcode *', key='nj_post')
+        ctype = c3.selectbox('Type', ['Delivery', 'Collection'], key='nj_ctype')
+        dsel = c4.selectbox('Day', DAYS, key='nj_dsel')
+
+        c5, c6 = st.columns(2)
+        ssel = c5.selectbox('Status', ['Enquiry', 'Booked'], key='nj_ssel')
+        notes = c6.text_input('Notes', key='nj_notes', placeholder='e.g. pre 7am, 2-man')
+
+        c7, c8, c9 = st.columns([1, 1, 2])
+        wide = c7.checkbox('🚧 Wide Load', key='nj_wide')
+        completed = c8.checkbox('✅ Completed', key='nj_completed')
+        price = c9.text_input('💷 Quoted Price (team only)', key='nj_price',
+                              placeholder='e.g. £450 — hidden from customers')
+
+        st.markdown(f'**Loads & Driver Initials**  ·  {st.session_state.nj_load_count} of 10')
+        for i in range(st.session_state.nj_load_count):
+            lc1, lc2 = st.columns([3, 1])
+            lc1.text_input(f'Load {i+1}', placeholder='24ft, Chem Loo, Staircase…', key=f'nj_ld{i}')
+            lc2.text_input(f'Driver {i+1}', placeholder='CR2', key=f'nj_dr{i}', max_chars=5)
+
+        bb1, bb2, bb3 = st.columns([1, 1, 4])
+        with bb1:
+            if st.session_state.nj_load_count < 10:
+                if st.button('+ Add Load', key='nj_add_load_btn', use_container_width=True):
+                    st.session_state.nj_load_count += 1
+                    st.rerun()
+        with bb2:
+            if st.session_state.nj_load_count > 1:
+                if st.button('– Remove Last', key='nj_rem_load_btn', use_container_width=True):
+                    last = st.session_state.nj_load_count - 1
+                    # Clear values from removed row
+                    for k in (f'nj_ld{last}', f'nj_dr{last}'):
+                        if k in st.session_state:
+                            del st.session_state[k]
+                    st.session_state.nj_load_count -= 1
+                    st.rerun()
+
+        st.divider()
+        if st.button('💾 Add Job', type='primary', key='nj_submit', use_container_width=True):
+            if cust and post:
+                loads_in = []
+                for i in range(st.session_state.nj_load_count):
+                    ld = st.session_state.get(f'nj_ld{i}', '').strip()
+                    dr = st.session_state.get(f'nj_dr{i}', '').strip().upper()
+                    if ld:
+                        loads_in.append({'desc': ld, 'driver': dr})
                 wd['jobs'].append({
-                    'id': f'j-{st.session_state.next_id}', 'customer': cust, 'postcode': post,
-                    'col': 'del' if ctype == 'Delivery' else 'col', 'day': DAYS.index(dsel),
-                    'status': ssel.lower(), 'notes': notes,
-                    'loads': loads_in if loads_in else [{'desc': '', 'driver': ''}]
+                    'id': f'j-{st.session_state.next_id}',
+                    'customer': cust, 'postcode': post,
+                    'col': 'del' if ctype == 'Delivery' else 'col',
+                    'day': DAYS.index(dsel),
+                    'status': ssel.lower(),
+                    'notes': notes,
+                    'loads': loads_in if loads_in else [{'desc': '', 'driver': ''}],
+                    'wide_load': wide,
+                    'completed': completed,
+                    'price': price,
                 })
                 st.session_state.next_id += 1
-                save_data(data); st.success(f'Added {cust}'); st.rerun()
+                save_data(data)
+                # Reset form state
+                for k in list(st.session_state.keys()):
+                    if k.startswith('nj_'):
+                        del st.session_state[k]
+                st.session_state.nj_load_count = 1
+                st.success(f'✓ Added {cust}')
+                st.rerun()
+            else:
+                st.error('Customer and Postcode are required')
 
     with st.expander('🚛 Vehicles  &  🏖 Holidays'):
         vcol, hcol = st.columns(2)
@@ -549,14 +599,22 @@ for di in range(6):
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
             for j in dels:
-                badge = '🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY'
-                lines = [badge, j['customer']]
+                # Build the multi-line label
+                tags = []
+                tags.append('🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
+                if j.get('wide_load'): tags.append('🚧 WIDE')
+                if j.get('completed'): tags.append('✅ DONE')
+                lines = [' · '.join(tags)]
+                lines.append(j['customer'])
                 for l in j['loads']:
                     drv = f"  ·  {l['driver']}" if l.get('driver') else ""
                     lines.append(f"📦 {l.get('desc','—')}{drv}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
                     lines.append(j['notes'])
+                # Price only visible in team mode
+                if not readonly and j.get('price'):
+                    lines.append(f"💷 {j['price']}")
                 label = "\n".join(lines)
                 marker_cls = 'marker-pill marker-pill-' + ('booked-del' if j['status']=='booked' else 'enquiry')
                 st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
@@ -570,14 +628,20 @@ for di in range(6):
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
             for j in cols2:
-                badge = '🔴 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY'
-                lines = [badge, j['customer']]
+                tags = []
+                tags.append('🔴 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
+                if j.get('wide_load'): tags.append('🚧 WIDE')
+                if j.get('completed'): tags.append('✅ DONE')
+                lines = [' · '.join(tags)]
+                lines.append(j['customer'])
                 for l in j['loads']:
                     drv = f"  ·  {l['driver']}" if l.get('driver') else ""
                     lines.append(f"📦 {l.get('desc','—')}{drv}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
                     lines.append(j['notes'])
+                if not readonly and j.get('price'):
+                    lines.append(f"💷 {j['price']}")
                 label = "\n".join(lines)
                 marker_cls = 'marker-pill marker-pill-' + ('booked-col' if j['status']=='booked' else 'enquiry')
                 st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
@@ -611,22 +675,51 @@ def edit_dialog(job):
                         index=0 if job['status'] == 'enquiry' else 1)
     notes = c6.text_input('Notes', value=job.get('notes', ''))
 
-    st.markdown('**Loads & Driver Initials**')
+    # New optional fields
+    c7, c8, c9 = st.columns([1, 1, 2])
+    wide = c7.checkbox('🚧 Wide Load', value=job.get('wide_load', False), key=f'ew_{job["id"]}')
+    completed = c8.checkbox('✅ Completed', value=job.get('completed', False), key=f'ec_{job["id"]}')
+    price = c9.text_input('💷 Quoted Price (team only)',
+                          value=job.get('price', ''),
+                          key=f'ep_{job["id"]}',
+                          placeholder='e.g. £450 — hidden from customers')
+
+    st.markdown('**Loads & Driver Initials** (up to 10)')
+
+    # Track how many load rows are visible in this edit session
+    edit_count_key = f'edit_load_count_{job["id"]}'
+    if edit_count_key not in st.session_state:
+        st.session_state[edit_count_key] = max(1, len(job['loads']))
+
+    # Limit to 10
+    if st.session_state[edit_count_key] > 10:
+        st.session_state[edit_count_key] = 10
+
     new_loads = []
-    for i, l in enumerate(job['loads']):
-        lc1, lc2, lc3 = st.columns([3, 1.2, 0.6])
-        ld = lc1.text_input(f'Load {i+1}', value=l.get('desc', ''), key=f'el_{job["id"]}_{i}')
-        dr = lc2.text_input(f'Driver {i+1}', value=l.get('driver', ''), key=f'ed_{job["id"]}_{i}', max_chars=5)
-        keep = lc3.checkbox('Keep', value=True, key=f'ek_{job["id"]}_{i}', label_visibility='hidden')
-        if keep and ld:
+    for i in range(st.session_state[edit_count_key]):
+        lc1, lc2 = st.columns([3, 1])
+        existing_desc = job['loads'][i]['desc'] if i < len(job['loads']) else ''
+        existing_drv = job['loads'][i].get('driver', '') if i < len(job['loads']) else ''
+        ld = lc1.text_input(f'Load {i+1}', value=existing_desc, key=f'el_{job["id"]}_{i}')
+        dr = lc2.text_input(f'Driver {i+1}', value=existing_drv, key=f'ed_{job["id"]}_{i}', max_chars=5)
+        if ld:
             new_loads.append({'desc': ld, 'driver': dr.upper()})
 
-    st.markdown('_Add another load:_')
-    ac1, ac2 = st.columns([3, 1.2])
-    add_desc = ac1.text_input('New load', placeholder='e.g. 24ft, Chem Loo…', key=f'eladd_{job["id"]}')
-    add_drv = ac2.text_input('New driver', placeholder='CR2', key=f'edadd_{job["id"]}', max_chars=5)
-    if add_desc:
-        new_loads.append({'desc': add_desc, 'driver': add_drv.upper()})
+    ab1, ab2, _ = st.columns([1, 1, 4])
+    with ab1:
+        if st.session_state[edit_count_key] < 10:
+            if st.button('+ Add Load', key=f'add_l_{job["id"]}', use_container_width=True):
+                st.session_state[edit_count_key] += 1
+                st.rerun()
+    with ab2:
+        if st.session_state[edit_count_key] > 1:
+            if st.button('– Remove Last', key=f'rem_l_{job["id"]}', use_container_width=True):
+                last = st.session_state[edit_count_key] - 1
+                for k in (f'el_{job["id"]}_{last}', f'ed_{job["id"]}_{last}'):
+                    if k in st.session_state:
+                        del st.session_state[k]
+                st.session_state[edit_count_key] -= 1
+                st.rerun()
 
     st.divider()
     b1, b2, b3 = st.columns([1, 1, 1])
@@ -639,15 +732,25 @@ def edit_dialog(job):
             job['status'] = ssel.lower()
             job['notes'] = notes
             job['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
+            job['wide_load'] = wide
+            job['completed'] = completed
+            job['price'] = price
             save_data(data)
+            # Clear the edit counter for this job so it resets next time
+            if edit_count_key in st.session_state:
+                del st.session_state[edit_count_key]
             st.session_state.editing_id = None
             st.rerun()
     if b2.button('🗑 Delete', use_container_width=True):
         wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
         save_data(data)
+        if edit_count_key in st.session_state:
+            del st.session_state[edit_count_key]
         st.session_state.editing_id = None
         st.rerun()
     if b3.button('Cancel', use_container_width=True):
+        if edit_count_key in st.session_state:
+            del st.session_state[edit_count_key]
         st.session_state.editing_id = None
         st.rerun()
 
