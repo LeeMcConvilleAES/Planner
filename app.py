@@ -9,6 +9,12 @@ try:
 except ImportError:
     GSPREAD_AVAILABLE = False
 
+try:
+    from streamlit_autorefresh import st_autorefresh
+    AUTOREFRESH_AVAILABLE = True
+except ImportError:
+    AUTOREFRESH_AVAILABLE = False
+
 st.set_page_config(page_title="AES Transport Planner", page_icon="🚛", layout="wide", initial_sidebar_state="collapsed")
 
 DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat/Sun']
@@ -240,6 +246,17 @@ def get_edit_password():
         return "aes2025"   # fallback if no secret set (change via Streamlit secrets)
 
 readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_unlocked)
+
+# ── Auto-refresh ONLY in read-only view ──────────────────────
+# Refreshes every 30s so viewers always see the latest from the Sheet.
+# Session state (incl. edit unlock) survives this, so editors are unaffected.
+# We skip it entirely when editing so no one loses what they're typing.
+if readonly and AUTOREFRESH_AVAILABLE:
+    st_autorefresh(interval=30000, key='ro_refresh')
+    # Pull fresh data from the Sheet on each auto-refresh tick
+    st.session_state.data = load_data()
+    data = st.session_state.data
+    data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
 
 # ─────────────────────────────────────────────────────────────
 # HEADER
