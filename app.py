@@ -223,13 +223,23 @@ if 'data' not in st.session_state:
 if 'offset' not in st.session_state:
     st.session_state.offset = 0
 if 'mode' not in st.session_state:
-    st.session_state.mode = 'team'
+    st.session_state.mode = 'readonly'   # everyone starts in view-only
+if 'edit_unlocked' not in st.session_state:
+    st.session_state.edit_unlocked = False
 if 'next_id' not in st.session_state:
     st.session_state.next_id = 5000
 
 data = st.session_state.data
 data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
-readonly = st.session_state.mode == 'readonly'
+
+# Edit is only allowed if the correct password has been entered this session
+def get_edit_password():
+    try:
+        return st.secrets["edit_password"]
+    except Exception:
+        return "aes2025"   # fallback if no secret set (change via Streamlit secrets)
+
+readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_unlocked)
 
 # ─────────────────────────────────────────────────────────────
 # HEADER
@@ -252,6 +262,31 @@ with mc1:
 with mc2:
     if st.button('👁 Read Only', type='primary' if readonly else 'secondary', use_container_width=True):
         st.session_state.mode = 'readonly'; st.rerun()
+
+# Password gate: if they want Team Edit but haven't unlocked yet, ask for the password
+if st.session_state.mode == 'team' and not st.session_state.edit_unlocked:
+    with st.container():
+        st.warning('🔒 Editing is password protected. Enter the team password to make changes.')
+        pc1, pc2, pc_sp = st.columns([2, 1, 7])
+        with pc1:
+            pw = st.text_input('Edit password', type='password', label_visibility='collapsed', placeholder='Enter password…')
+        with pc2:
+            if st.button('Unlock', type='primary', use_container_width=True):
+                if pw == get_edit_password():
+                    st.session_state.edit_unlocked = True
+                    st.rerun()
+                else:
+                    st.error('Incorrect password')
+        st.caption('Viewing is open to everyone — only editing requires the password.')
+
+# Show a lock/unlock indicator + logout when unlocked
+if st.session_state.edit_unlocked:
+    lc1, lc_sp = st.columns([2, 10])
+    with lc1:
+        if st.button('🔓 Editing unlocked — Lock again', use_container_width=True):
+            st.session_state.edit_unlocked = False
+            st.session_state.mode = 'readonly'
+            st.rerun()
 
 # ─────────────────────────────────────────────────────────────
 # WEEK NAVIGATION
