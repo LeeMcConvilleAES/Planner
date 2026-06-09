@@ -93,30 +93,35 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 .pill-hol{background:#eff6ff;border:1px solid #bfdbfe;font-size:9px;color:#1e40af;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
 .pill-empty{color:#d1d5db;font-size:10px;text-align:center;padding:6px;font-style:italic}
 
-/* Style Streamlit buttons to look like pills. We use marker divs and :has() */
-/* Default pill (enquiry) */
-div[data-testid="stMarkdownContainer"]:has(.marker-pill) + div[data-testid="stButton"] button{
-    background:white !important;border:1px solid #e2e6ea !important;color:#40424a !important;
+/* Style the Streamlit button that immediately follows a marker div to look like a coloured pill.
+   We target element-container siblings because Streamlit wraps each component in one. */
+div[data-testid="element-container"]:has(.marker-pill) + div[data-testid="element-container"] button{
     text-align:left !important;padding:6px 8px !important;height:auto !important;
     font-size:11px !important;line-height:1.35 !important;white-space:pre-line !important;
     box-shadow:none !important;margin-bottom:3px !important;
+    background:white !important;border:1px solid #e2e6ea !important;color:#40424a !important;
 }
-div[data-testid="stMarkdownContainer"]:has(.marker-pill) + div[data-testid="stButton"] button:hover{
-    transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1) !important;border-color:#0d823b !important;
+div[data-testid="element-container"]:has(.marker-pill) + div[data-testid="element-container"] button:hover{
+    transform:translateY(-1px) !important;
+    box-shadow:0 2px 8px rgba(0,0,0,.1) !important;
+    border-color:#0d823b !important;
 }
-/* Booked Delivery = green */
-div[data-testid="stMarkdownContainer"]:has(.marker-pill-booked-del) + div[data-testid="stButton"] button{
-    background:#d1fae5 !important;border-color:#6ee7b7 !important;color:#064e3b !important;font-weight:600 !important;
+/* Booked Delivery = GREEN */
+div[data-testid="element-container"]:has(.marker-pill-booked-del) + div[data-testid="element-container"] button{
+    background:#d1fae5 !important;
+    border:1px solid #6ee7b7 !important;
+    color:#064e3b !important;
+    font-weight:600 !important;
 }
-/* Booked Collection = red */
-div[data-testid="stMarkdownContainer"]:has(.marker-pill-booked-col) + div[data-testid="stButton"] button{
-    background:#fee2e2 !important;border-color:#fca5a5 !important;color:#7f1d1d !important;font-weight:600 !important;
+/* Booked Collection = RED */
+div[data-testid="element-container"]:has(.marker-pill-booked-col) + div[data-testid="element-container"] button{
+    background:#fee2e2 !important;
+    border:1px solid #fca5a5 !important;
+    color:#7f1d1d !important;
+    font-weight:600 !important;
 }
-/* Enquiry pill text */
-div[data-testid="stMarkdownContainer"]:has(.marker-pill-enquiry) + div[data-testid="stButton"] button{
-    font-weight:500 !important;
-}
-.marker-pill,.marker-pill-booked-del,.marker-pill-booked-col,.marker-pill-enquiry,.marker-pill-enquiry-del,.marker-pill-enquiry-col{display:none}
+/* Enquiry (both columns) = WHITE — already default */
+.marker-pill,.marker-pill-booked-del,.marker-pill-booked-col,.marker-pill-enquiry{display:none}
 </style>
 """, unsafe_allow_html=True)
 
