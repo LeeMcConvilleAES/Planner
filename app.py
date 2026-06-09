@@ -1,111 +1,86 @@
 import streamlit as st
 import json
-import gspread
-from google.oauth2.service_account import Credentials
 from datetime import datetime, timedelta
-import pandas as pd
 
-st.set_page_config(
-    page_title="AES Transport Planner",
-    page_icon="🚛",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+try:
+    import gspread
+    from google.oauth2.service_account import Credentials
+    GSPREAD_AVAILABLE = True
+except ImportError:
+    GSPREAD_AVAILABLE = False
 
-# ── Styling ──────────────────────────────────────────────────
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
-html, body, [class*="css"] { font-family: 'Figtree', sans-serif; }
-.main .block-container { padding: 0 !important; max-width: 100% !important; }
-.aes-header {
-    background: #0d823b; padding: 12px 20px; display: flex;
-    align-items: center; justify-content: space-between;
-    margin-bottom: 0;
-}
-.aes-header h1 { color: white; font-size: 18px; font-weight: 700; margin: 0; }
-.aes-header p { color: rgba(255,255,255,.75); font-size: 11px; margin: 0; }
-.week-nav-bar {
-    background: #065f46; padding: 8px 20px;
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-}
-.day-header-del {
-    background: #0d823b; color: white; padding: 6px 10px;
-    font-weight: 700; font-size: 13px; border-radius: 5px 5px 0 0;
-    text-align: center;
-}
-.day-header-wknd {
-    background: #546270; color: white; padding: 6px 10px;
-    font-weight: 700; font-size: 13px; border-radius: 5px 5px 0 0;
-    text-align: center;
-}
-.section-del {
-    background: #f0fdf4; border-top: 2px solid #0d823b;
-    padding: 3px 6px; font-size: 10px; font-weight: 700;
-    color: #166534; text-transform: uppercase; letter-spacing: .5px;
-}
-.section-col {
-    background: #eff6ff; border-top: 2px solid #3b82f6;
-    padding: 3px 6px; font-size: 10px; font-weight: 700;
-    color: #1e40af; text-transform: uppercase; letter-spacing: .5px;
-}
-.job-booked {
-    background: #d1fae5; border: 1px solid #6ee7b7;
-    border-radius: 5px; padding: 6px 8px; margin-bottom: 4px;
-}
-.job-enquiry {
-    background: white; border: 1px solid #e2e6ea;
-    border-radius: 5px; padding: 6px 8px; margin-bottom: 4px;
-}
-.job-customer { font-weight: 700; font-size: 12px; color: #1a2e1a; }
-.job-enquiry .job-customer { color: #40424a; }
-.job-postcode { font-size: 10px; font-weight: 600; color: #065f46; margin-top: 2px; }
-.job-enquiry .job-postcode { color: #374151; }
-.job-load { font-size: 10px; color: #4b5563; padding: 1px 0; }
-.job-notes { font-size: 9px; color: #9ca3af; font-style: italic; }
-.badge-booked {
-    display: inline-block; background: #059669; color: white;
-    font-size: 8px; font-weight: 700; border-radius: 2px;
-    padding: 0 4px; margin-bottom: 2px;
-}
-.badge-enquiry {
-    display: inline-block; background: #fef3c7; color: #92400e;
-    border: 1px solid #fcd34d; font-size: 8px; font-weight: 700;
-    border-radius: 2px; padding: 0 4px; margin-bottom: 2px;
-}
-.veh-bar {
-    background: #fffbeb; border-bottom: 1px solid #fde68a;
-    padding: 3px 8px; font-size: 10px; color: #92400e; font-weight: 700;
-}
-.hol-bar {
-    background: #eff6ff; border-bottom: 1px solid #bfdbfe;
-    padding: 3px 8px; font-size: 10px; color: #1e40af; font-weight: 700;
-}
-.driver-chip {
-    display: inline-block; background: rgba(13,130,59,.15); color: #065f46;
-    border: 1px solid rgba(13,130,59,.2); border-radius: 3px;
-    padding: 0 5px; font-size: 9px; font-weight: 700; margin-left: 4px;
-}
-div[data-testid="stHorizontalBlock"] > div { padding: 0 4px !important; }
-.stButton button {
-    font-family: 'Figtree', sans-serif !important;
-    font-size: 11px !important;
-}
-</style>
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="AES Transport Planner", page_icon="🚛", layout="wide", initial_sidebar_state="collapsed")
 
 DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat/Sun']
 
-# ── Google Sheets connection ──────────────────────────────────
+# ─────────────────────────────────────────────────────────────
+# STYLING — match the HTML version exactly
+# ─────────────────────────────────────────────────────────────
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+html,body,[class*="css"]{font-family:'Figtree',sans-serif!important}
+#MainMenu,footer,header[data-testid="stHeader"]{display:none}
+.main .block-container{padding:0!important;max-width:100%!important}
+.block-container{padding-top:0!important}
+
+.aes-hdr{background:#0d823b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-radius:0}
+.aes-hdr-title{color:white;font-weight:700;font-size:15px;letter-spacing:.2px;margin:0}
+.aes-hdr-sub{color:rgba(255,255,255,.75);font-size:10px;margin:0}
+.mode-tag{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:5px;padding:4px 12px;color:white;font-size:11px;font-weight:700}
+
+.planner-table{border-collapse:collapse;width:100%;table-layout:fixed;margin-top:6px}
+.planner-table th,.planner-table td{border:1px solid #e2e6ea;vertical-align:top}
+.day-th{background:#0d823b;color:white;text-align:center;padding:7px 5px;font-weight:700;font-size:12px}
+.day-th.wknd{background:#546270}
+.day-th small{font-weight:400;opacity:.8;font-size:10px}
+.col-sub-th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 6px;text-align:center}
+.del-th{background:#f0fdf4;color:#166534;border-bottom:2px solid #0d823b}
+.col-th{background:#eff6ff;color:#1e40af;border-bottom:2px solid #3b82f6}
+.veh-row td{background:#fffbeb;font-size:9px;color:#92400e;font-weight:700;padding:3px 8px;text-align:center;border-bottom:1px solid #fde68a}
+.jobs-cell{padding:5px;vertical-align:top;min-height:90px}
+.jobs-cell.del{background:#fafffe}
+.jobs-cell.col{background:#f8faff}
+
+.job{border-radius:5px;padding:5px 7px;margin-bottom:4px;border:1px solid #e2e6ea;background:white}
+.job.booked{background:#d1fae5;border-color:#6ee7b7}
+.jcust{font-weight:700;font-size:11px;color:#1a2e1a}
+.job.enquiry .jcust{color:#40424a}
+.jpost{font-size:9px;font-weight:600;color:#065f46;margin-top:2px}
+.job.enquiry .jpost{color:#374151}
+.jload{font-size:9px;color:#4b5563;font-weight:600;padding:1px 0;display:flex;align-items:center;justify-content:space-between}
+.job.booked .jload{color:#065f46}
+.dchip{display:inline-block;background:rgba(13,130,59,.15);color:#065f46;border-radius:3px;padding:0 5px;font-size:8px;font-weight:700;min-width:22px;text-align:center;border:1px solid rgba(13,130,59,.2)}
+.job.enquiry .dchip{background:rgba(245,158,11,.15);color:#92400e;border-color:rgba(245,158,11,.3)}
+.enqb{font-size:7px;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:2px;padding:0 4px;margin-bottom:2px;display:inline-block}
+.bkdb{font-size:7px;font-weight:700;background:#059669;color:white;border-radius:2px;padding:0 4px;margin-bottom:2px;display:inline-block}
+.jnotes{font-size:8px;color:#9ca3af;font-style:italic;margin-top:2px}
+.empty-cell{color:#d1d5db;font-size:9px;text-align:center;padding:10px 4px}
+
+.legend-row{display:flex;align-items:center;gap:14px;padding:6px 4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px}
+.legend-sw{width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+
+div[data-testid="stHorizontalBlock"]{gap:6px}
+.stButton button{font-family:'Figtree',sans-serif!important;font-size:11px!important;border-radius:5px!important}
+div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-radius:6px;padding:6px 10px}
+</style>
+""", unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────
+# GOOGLE SHEETS
+# ─────────────────────────────────────────────────────────────
 def get_sheet():
+    if not GSPREAD_AVAILABLE:
+        return None
     try:
-        creds_dict = st.secrets["gcp_service_account"]
-        scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+        creds_dict = dict(st.secrets["gcp_service_account"])
+        scopes = ["https://www.googleapis.com/auth/spreadsheets",
+                  "https://www.googleapis.com/auth/drive"]
         creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
         client = gspread.authorize(creds)
-        sheet = client.open("AES Transport Planner").sheet1
-        return sheet
-    except Exception as e:
+        return client.open("AES Transport Planner").sheet1
+    except Exception:
         return None
 
 def load_data():
@@ -115,35 +90,56 @@ def load_data():
             val = sheet.cell(1, 1).value
             if val and val.strip():
                 return json.loads(val)
-        except:
+        except Exception:
             pass
     return get_default_data()
 
-def save_data(data):
+def save_data(d):
     sheet = get_sheet()
     if sheet:
         try:
-            sheet.update_cell(1, 1, json.dumps(data))
+            sheet.update_cell(1, 1, json.dumps(d))
             return True
-        except:
+        except Exception:
             return False
     return False
 
-# ── Default seed data ─────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────
+# WEEK HELPERS
+# ─────────────────────────────────────────────────────────────
+def get_monday(offset):
+    d = datetime.now()
+    return (d - timedelta(days=d.weekday()) + timedelta(weeks=offset)).replace(hour=0, minute=0, second=0, microsecond=0)
+
+def week_key(offset):
+    return get_monday(offset).strftime('%Y-%m-%d')
+
+def week_range_label(offset):
+    mon = get_monday(offset); fri = mon + timedelta(days=4)
+    return f"{mon.strftime('%-d %b')} – {fri.strftime('%-d %b %Y')}"
+
+def week_tab_label(offset):
+    if offset == 0: return 'This Week'
+    if offset == -1: return 'Last Week'
+    if offset == 1: return 'Next Week'
+    return get_monday(offset).strftime('%-d %b')
+
+def get_day_label(offset, di):
+    if di == 5: return 'Sat/Sun'
+    return (get_monday(offset) + timedelta(days=di)).strftime('%-d %b')
+
+def get_week_data(data, offset):
+    k = week_key(offset)
+    if k not in data['weeks']:
+        data['weeks'][k] = {'jobs': [], 'vehicles': [], 'holidays': []}
+    return data['weeks'][k]
+
+# ─────────────────────────────────────────────────────────────
+# DEFAULT SEED DATA
+# ─────────────────────────────────────────────────────────────
 def get_default_data():
-    def wk(offset):
-        d = datetime.now()
-        day = d.weekday()
-        mon = d - timedelta(days=day) + timedelta(weeks=offset)
-        return mon.strftime('%Y-%m-%d')
-
-    data = {
-        'weekOffsets': [-1, 0, 1, 2, 3],
-        'weekOffset': 0,
-        'weeks': {}
-    }
-
-    w0 = wk(0)
+    data = {'weekOffsets': [-1, 0, 1, 2, 3], 'weeks': {}}
+    w0 = week_key(0)
     data['weeks'][w0] = {
         'jobs': [
             {'id':'w0-1','customer':'Jones Homes','loads':[{'desc':'Solar Loo','driver':'RS1'}],'postcode':'WA4 3EN','col':'del','day':0,'status':'booked','notes':''},
@@ -151,18 +147,18 @@ def get_default_data():
             {'id':'w0-3','customer':'Wright Build','loads':[{'desc':'Chem Loo','driver':'RS1'}],'postcode':'WN2 4NU','col':'del','day':0,'status':'booked','notes':''},
             {'id':'w0-4','customer':'GreanPower','loads':[{'desc':'20kva','driver':'AP3'}],'postcode':'Etihad','col':'del','day':0,'status':'enquiry','notes':'Awaiting PO'},
             {'id':'w0-5','customer':'A Connolly','loads':[{'desc':'24ft','driver':'DF2'},{'desc':'24ft','driver':'DF3'},{'desc':'24ft','driver':'CR2'},{'desc':'24ft','driver':'CR3'}],'postcode':'L8 0TU–L8 4TF','col':'col','day':0,'status':'booked','notes':'Site Move'},
-            {'id':'w0-6','customer':'A Connolly','loads':[{'desc':'24ft','driver':'DF1'},{'desc':'24ft','driver':'IB1'}],'postcode':'WA3 6RG–L8 4TF','col':'col','day':0,'status':'booked','notes':'Site Move'},
+            {'id':'w0-6','customer':'A Connolly','loads':[{'desc':'24ft','driver':'DF1'},{'desc':'24ft','driver':'IB1'}],'postcode':'WA3 6RG–L8','col':'col','day':0,'status':'booked','notes':'Site Move'},
             {'id':'w0-7','customer':'Stuart Energy','loads':[{'desc':'24ft','driver':''},{'desc':'24ft','driver':''},{'desc':'24ft','driver':''},{'desc':'24ft','driver':''}],'postcode':'WN8 9TB','col':'col','day':0,'status':'booked','notes':''},
             {'id':'w0-8','customer':'Everton FC','loads':[{'desc':'6x Chem Loo','driver':''}],'postcode':'L3 0BW','col':'col','day':0,'status':'booked','notes':''},
-            {'id':'w0-9','customer':'A Connolly','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'WN8 9TB–L8 4TF','col':'col','day':0,'status':'booked','notes':'Site Move'},
+            {'id':'w0-9','customer':'A Connolly','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'WN8 9TB','col':'col','day':0,'status':'booked','notes':'Site Move'},
             {'id':'w0-10','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NW1 4NR','col':'del','day':1,'status':'booked','notes':'W&D 2 man'},
-            {'id':'w0-11','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NN12 8TN/PO18','col':'del','day':1,'status':'booked','notes':'W&D 2 man'},
+            {'id':'w0-11','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NN12 8TN','col':'del','day':1,'status':'booked','notes':'W&D 2 man'},
             {'id':'w0-12','customer':'Huyton Gate','loads':[{'desc':'2x Chemi Loo','driver':''},{'desc':'1x Disabled','driver':''}],'postcode':'L34 4AJ','col':'col','day':1,'status':'enquiry','notes':'TBC'},
-            {'id':'w0-13','customer':'John Reilly','loads':[{'desc':'10ft Store Exchange','driver':'CR2'}],'postcode':'M38 9XE','col':'del','day':2,'status':'booked','notes':''},
+            {'id':'w0-13','customer':'John Reilly','loads':[{'desc':'10ft Store Exch','driver':'CR2'}],'postcode':'M38 9XE','col':'del','day':2,'status':'booked','notes':''},
             {'id':'w0-14','customer':'HolmePatrick Dev','loads':[{'desc':'24ft','driver':'DF1'},{'desc':'24ft','driver':'AP1'},{'desc':'Staircase','driver':'RB1'}],'postcode':'LA1 3JJ','col':'del','day':2,'status':'booked','notes':''},
             {'id':'w0-15','customer':'Chandos','loads':[{'desc':'24ft','driver':'IB2'}],'postcode':'WA8 3UJ','col':'del','day':2,'status':'booked','notes':''},
             {'id':'w0-16','customer':'Zenex Ltd','loads':[{'desc':'32ft','driver':'DF1'},{'desc':'32ft RB','driver':''}],'postcode':'RG10 0SD','col':'del','day':2,'status':'enquiry','notes':'Confirm vehicle'},
-            {'id':'w0-17','customer':'John Reilly','loads':[{'desc':'10ft Store Exchange','driver':'CR3'}],'postcode':'M38 9XE','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-17','customer':'John Reilly','loads':[{'desc':'10ft Store Exch','driver':'CR3'}],'postcode':'M38 9XE','col':'col','day':2,'status':'booked','notes':''},
             {'id':'w0-18','customer':'A Connolly','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'OL10 3EG','col':'col','day':2,'status':'booked','notes':''},
             {'id':'w0-19','customer':'Perfect Associates','loads':[{'desc':'20ft Store','driver':'IB1'}],'postcode':'SL4 1NJ','col':'col','day':2,'status':'booked','notes':''},
             {'id':'w0-20','customer':'2x Empty IBC','loads':[{'desc':'IBC','driver':'RS1'}],'postcode':'L31 0BP','col':'col','day':2,'status':'booked','notes':''},
@@ -189,8 +185,7 @@ def get_default_data():
         ],
         'holidays': [{'id':1,'name':'AL Unsworth','days':[1,2,3,4]}]
     }
-
-    w1 = wk(1)
+    w1 = week_key(1)
     data['weeks'][w1] = {
         'jobs': [
             {'id':'w1-1','customer':'H H Smith','loads':[{'desc':'2+1','driver':'CR2'}],'postcode':'SK2 7AF','col':'del','day':0,'status':'booked','notes':''},
@@ -206,335 +201,241 @@ def get_default_data():
     }
     return data
 
-# ── Week helpers ──────────────────────────────────────────────
-def get_monday(offset):
-    d = datetime.now()
-    day = d.weekday()
-    return (d - timedelta(days=day) + timedelta(weeks=offset)).replace(hour=0,minute=0,second=0,microsecond=0)
-
-def week_key(offset):
-    return get_monday(offset).strftime('%Y-%m-%d')
-
-def week_range_label(offset):
-    mon = get_monday(offset)
-    fri = mon + timedelta(days=4)
-    return f"{mon.strftime('%-d %b')} – {fri.strftime('%-d %b %Y')}"
-
-def week_tab_label(offset):
-    if offset == 0: return 'This Week'
-    if offset == -1: return 'Last Week'
-    if offset == 1: return 'Next Week'
-    return get_monday(offset).strftime('%-d %b')
-
-def get_day_label(offset, day_idx):
-    if day_idx == 5: return 'Sat/Sun'
-    mon = get_monday(offset)
-    d = mon + timedelta(days=day_idx)
-    return d.strftime('%-d %b')
-
-def get_week_data(data, offset):
-    k = week_key(offset)
-    if k not in data['weeks']:
-        data['weeks'][k] = {'jobs': [], 'vehicles': [], 'holidays': []}
-    return data['weeks'][k]
-
-# ── Job card HTML ─────────────────────────────────────────────
-def job_html(job, readonly=False):
-    is_booked = job['status'] == 'booked'
-    cls = 'job-booked' if is_booked else 'job-enquiry'
-    badge = '<span class="badge-booked">BOOKED</span>' if is_booked else '<span class="badge-enquiry">ENQUIRY</span>'
-    loads_html = ''
+# ─────────────────────────────────────────────────────────────
+# JOB CARD HTML
+# ─────────────────────────────────────────────────────────────
+def job_html(job):
+    is_b = job['status'] == 'booked'
+    cls = 'job booked' if is_b else 'job enquiry'
+    badge = '<span class="bkdb">BOOKED</span>' if is_b else '<span class="enqb">ENQUIRY</span>'
+    loads = ''
     for l in job['loads']:
-        drv = f'<span class="driver-chip">{l["driver"]}</span>' if l.get('driver') else ''
-        loads_html += f'<div class="job-load">📦 {l.get("desc","—")}{drv}</div>'
-    notes = f'<div class="job-notes">{job["notes"]}</div>' if job.get('notes') else ''
-    return f'''<div class="{cls}">
-        {badge}
-        <div class="job-customer">{job["customer"]}</div>
-        {loads_html}
-        <div class="job-postcode">📍 {job["postcode"]}</div>
-        {notes}
-    </div>'''
+        drv = f'<span class="dchip">{l["driver"]}</span>' if l.get('driver') else ''
+        loads += f'<div class="jload"><span>📦 {l.get("desc","—")}</span>{drv}</div>'
+    notes = f'<div class="jnotes">{job["notes"]}</div>' if job.get('notes') else ''
+    return f'<div class="{cls}">{badge}<div class="jcust">{job["customer"]}</div>{loads}<div class="jpost">📍 {job["postcode"]}</div>{notes}</div>'
 
-# ── Session state ─────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────
+# SESSION STATE
+# ─────────────────────────────────────────────────────────────
 if 'data' not in st.session_state:
     st.session_state.data = load_data()
-if 'current_offset' not in st.session_state:
-    st.session_state.current_offset = 0
+if 'offset' not in st.session_state:
+    st.session_state.offset = 0
 if 'mode' not in st.session_state:
     st.session_state.mode = 'team'
-if 'show_add_job' not in st.session_state:
-    st.session_state.show_add_job = False
-if 'add_job_day' not in st.session_state:
-    st.session_state.add_job_day = 0
-if 'add_job_col' not in st.session_state:
-    st.session_state.add_job_col = 'del'
-if 'edit_job_id' not in st.session_state:
-    st.session_state.edit_job_id = None
 if 'next_id' not in st.session_state:
-    st.session_state.next_id = 1000
+    st.session_state.next_id = 5000
 
 data = st.session_state.data
+data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+readonly = st.session_state.mode == 'readonly'
 
-# ── Header ────────────────────────────────────────────────────
-st.markdown('''<div class="aes-header">
-    <div>
-        <h1>🚛 AINSCOUGH ENVIRONMENTAL SERVICES</h1>
-        <p>Transport Planner</p>
-    </div>
+# ─────────────────────────────────────────────────────────────
+# HEADER
+# ─────────────────────────────────────────────────────────────
+mode_label = '👁 READ ONLY' if readonly else '✏ TEAM EDIT'
+st.markdown(f'''<div class="aes-hdr">
+  <div style="display:flex;align-items:center;gap:10px">
+    <span style="font-size:22px">🚛</span>
+    <div><p class="aes-hdr-title">AINSCOUGH ENVIRONMENTAL SERVICES</p>
+    <p class="aes-hdr-sub">Transport Planner</p></div>
+  </div>
+  <span class="mode-tag">{mode_label}</span>
 </div>''', unsafe_allow_html=True)
 
-# ── Mode toggle ───────────────────────────────────────────────
-col_mode1, col_mode2, col_spacer = st.columns([1,1,8])
-with col_mode1:
-    if st.button('✏ Team Edit' if st.session_state.mode != 'team' else '✏ Team Edit ✓',
-                 type='primary' if st.session_state.mode == 'team' else 'secondary',
-                 use_container_width=True):
-        st.session_state.mode = 'team'
-        st.rerun()
-with col_mode2:
-    if st.button('👁 Read Only' if st.session_state.mode != 'readonly' else '👁 Read Only ✓',
-                 type='primary' if st.session_state.mode == 'readonly' else 'secondary',
-                 use_container_width=True):
-        st.session_state.mode = 'readonly'
-        st.rerun()
+# Mode toggle
+mc1, mc2, mc_sp = st.columns([1.3, 1.3, 9])
+with mc1:
+    if st.button('✏ Team Edit', type='primary' if not readonly else 'secondary', use_container_width=True):
+        st.session_state.mode = 'team'; st.rerun()
+with mc2:
+    if st.button('👁 Read Only', type='primary' if readonly else 'secondary', use_container_width=True):
+        st.session_state.mode = 'readonly'; st.rerun()
 
-if st.session_state.mode == 'readonly':
-    st.info('👁 **Read-Only Mode** — Viewing live availability. Share this page with partner businesses.')
-
-st.divider()
-
-# ── Week navigation ───────────────────────────────────────────
-offsets = data.get('weekOffsets', [-1,0,1,2,3])
-week_cols = st.columns(len(offsets) + 3)
-
-with week_cols[0]:
-    if st.button('‹', help='Previous week'):
-        new_off = st.session_state.current_offset - 1
-        if new_off not in offsets:
-            offsets.insert(0, new_off)
-            data['weekOffsets'] = offsets
-        st.session_state.current_offset = new_off
-        st.rerun()
-
+# ─────────────────────────────────────────────────────────────
+# WEEK NAVIGATION
+# ─────────────────────────────────────────────────────────────
+offsets = data['weekOffsets']
+nav = st.columns([0.5] + [1.3]*len(offsets) + [0.5, 1.2])
+with nav[0]:
+    if st.button('‹', use_container_width=True):
+        no = st.session_state.offset - 1
+        if no not in offsets: offsets.insert(0, no)
+        st.session_state.offset = no; st.rerun()
 for i, off in enumerate(offsets):
-    with week_cols[i+1]:
-        label = week_tab_label(off)
-        is_active = off == st.session_state.current_offset
-        btn_type = 'primary' if is_active else 'secondary'
-        if st.button(f"**{label}**\n{week_range_label(off)}" if is_active else f"{label}\n{week_range_label(off)}",
-                     key=f'wk_{off}', type=btn_type, use_container_width=True):
-            st.session_state.current_offset = off
-            st.rerun()
+    with nav[i+1]:
+        active = off == st.session_state.offset
+        if st.button(f"{week_tab_label(off)}\n{week_range_label(off)}", key=f'w{off}',
+                     type='primary' if active else 'secondary', use_container_width=True):
+            st.session_state.offset = off; st.rerun()
+with nav[len(offsets)+1]:
+    if st.button('›', use_container_width=True):
+        no = st.session_state.offset + 1
+        if no not in offsets: offsets.append(no)
+        st.session_state.offset = no; st.rerun()
+with nav[len(offsets)+2]:
+    if st.button('＋ Add Week', use_container_width=True):
+        no = max(offsets) + 1
+        offsets.append(no); st.session_state.offset = no; st.rerun()
 
-with week_cols[len(offsets)+1]:
-    if st.button('›', help='Next week'):
-        new_off = st.session_state.current_offset + 1
-        if new_off not in offsets:
-            offsets.append(new_off)
-            data['weekOffsets'] = offsets
-        st.session_state.current_offset = new_off
-        st.rerun()
-
-with week_cols[len(offsets)+2]:
-    if st.button('＋ Week', help='Add a new week', type='secondary'):
-        new_off = max(offsets) + 1
-        offsets.append(new_off)
-        data['weekOffsets'] = offsets
-        st.session_state.current_offset = new_off
-        st.rerun()
-
-offset = st.session_state.current_offset
+offset = st.session_state.offset
 wd = get_week_data(data, offset)
-
-st.markdown(f"### 📅 {week_range_label(offset)}")
-
-# ── Stats ─────────────────────────────────────────────────────
 jobs = wd.get('jobs', [])
+
+# ─────────────────────────────────────────────────────────────
+# TOOLBAR: search, filter, legend, stats
+# ─────────────────────────────────────────────────────────────
+tb1, tb2, tb3 = st.columns([3, 1.2, 2])
+with tb1:
+    search = st.text_input('Search', placeholder='🔍 Search customer or postcode…', label_visibility='collapsed')
+with tb2:
+    status_filter = st.selectbox('Status', ['All statuses', 'Booked', 'Enquiry'], label_visibility='collapsed')
+with tb3:
+    st.markdown(f'''<div class="legend-row" style="justify-content:flex-end">
+      <b style="color:#0d823b;font-size:11px">{week_range_label(offset)}</b>
+      <div class="legend-item"><span class="legend-sw" style="background:#d1fae5;border-color:#6ee7b7"></span><b style="color:#065f46">Booked</b></div>
+      <div class="legend-item"><span class="legend-sw" style="background:white;border-color:#d1d5db"></span><span style="color:#6b7280">Enquiry</span></div>
+    </div>''', unsafe_allow_html=True)
+
 total = len(jobs)
 booked = len([j for j in jobs if j['status'] == 'booked'])
 enquiry = len([j for j in jobs if j['status'] == 'enquiry'])
-total_loads = sum(len(j.get('loads',[])) for j in jobs)
+total_loads = sum(len(j.get('loads', [])) for j in jobs)
+m1, m2, m3, m4 = st.columns(4)
+m1.metric("Jobs", total); m2.metric("Booked", booked)
+m3.metric("Enquiries", enquiry); m4.metric("Total Loads", total_loads)
 
-s1,s2,s3,s4,s5 = st.columns(5)
-s1.metric("Total Jobs", total)
-s2.metric("Booked", booked)
-s3.metric("Enquiries", enquiry)
-s4.metric("Total Loads", total_loads)
-s5.metric("Week", week_range_label(offset))
-
-# ── Search & filter ───────────────────────────────────────────
-fc1, fc2 = st.columns([3,1])
-with fc1:
-    search = st.text_input('🔍 Search', placeholder='Customer or postcode…', label_visibility='collapsed')
-with fc2:
-    status_filter = st.selectbox('Status', ['All', 'Booked', 'Enquiry'], label_visibility='collapsed')
-
-def job_matches(j):
+# Filter
+def matches(j):
     if status_filter == 'Booked' and j['status'] != 'booked': return False
     if status_filter == 'Enquiry' and j['status'] != 'enquiry': return False
     if search:
         q = search.lower()
         if q not in j['customer'].lower() and q not in j['postcode'].lower(): return False
     return True
+fj = [j for j in jobs if matches(j)]
 
-filtered_jobs = [j for j in jobs if job_matches(j)]
-
-# ── Add / Edit job form ───────────────────────────────────────
-readonly = st.session_state.mode == 'readonly'
-
+# ─────────────────────────────────────────────────────────────
+# ADD JOB / VEHICLES / HOLIDAYS (team mode only)
+# ─────────────────────────────────────────────────────────────
 if not readonly:
-    with st.expander('➕ Add New Job', expanded=st.session_state.show_add_job):
-        with st.form('add_job_form', clear_on_submit=True):
-            fc1,fc2,fc3,fc4 = st.columns(4)
-            with fc1: cust = st.text_input('Customer *')
-            with fc2: post = st.text_input('Postcode *')
-            with fc3: col_type = st.selectbox('Type', ['Delivery','Collection'])
-            with fc4: day_sel = st.selectbox('Day', DAYS)
-
-            fc5,fc6 = st.columns(2)
-            with fc5: status_sel = st.selectbox('Status', ['Enquiry','Booked'])
-            with fc6: notes_inp = st.text_input('Notes')
-
-            st.markdown('**Loads & Driver Initials**')
-            lc1,lc2,lc3,lc4 = st.columns(4)
-            loads_list = []
-            for i,(lc,label) in enumerate([(lc1,'Load 1'),(lc2,'Load 2'),(lc3,'Load 3'),(lc4,'Load 4')]):
-                with lc:
-                    ld = st.text_input(f'Load {i+1}', placeholder='e.g. 24ft, Chem Loo', key=f'ld_{i}')
-                    dr = st.text_input(f'Driver {i+1}', placeholder='e.g. CR2', key=f'dr_{i}', max_chars=5)
-                    if ld: loads_list.append({'desc': ld, 'driver': dr.upper()})
-
-            submitted = st.form_submit_button('Add Job', type='primary')
-            if submitted and cust and post:
-                if not loads_list:
-                    loads_list = [{'desc': '', 'driver': ''}]
-                new_job = {
-                    'id': f'j-{st.session_state.next_id}',
-                    'customer': cust,
-                    'postcode': post,
-                    'col': 'del' if col_type == 'Delivery' else 'col',
-                    'day': DAYS.index(day_sel),
-                    'status': status_sel.lower(),
-                    'notes': notes_inp,
-                    'loads': loads_list
-                }
+    with st.expander('➕ Add New Job'):
+        with st.form('addjob', clear_on_submit=True):
+            c1, c2, c3, c4 = st.columns(4)
+            cust = c1.text_input('Customer *')
+            post = c2.text_input('Postcode *')
+            ctype = c3.selectbox('Type', ['Delivery', 'Collection'])
+            dsel = c4.selectbox('Day', DAYS)
+            c5, c6 = st.columns(2)
+            ssel = c5.selectbox('Status', ['Enquiry', 'Booked'])
+            notes = c6.text_input('Notes')
+            st.markdown('**Loads & Driver Initials** (fill as many as needed)')
+            lc = st.columns(4)
+            loads_in = []
+            for i in range(4):
+                with lc[i]:
+                    ld = st.text_input(f'Load {i+1}', placeholder='24ft, Chem Loo…', key=f'ld{i}')
+                    dr = st.text_input(f'Driver {i+1}', placeholder='CR2', key=f'dr{i}', max_chars=5)
+                    if ld: loads_in.append({'desc': ld, 'driver': dr.upper()})
+            if st.form_submit_button('Add Job', type='primary') and cust and post:
+                wd['jobs'].append({
+                    'id': f'j-{st.session_state.next_id}', 'customer': cust, 'postcode': post,
+                    'col': 'del' if ctype == 'Delivery' else 'col', 'day': DAYS.index(dsel),
+                    'status': ssel.lower(), 'notes': notes,
+                    'loads': loads_in if loads_in else [{'desc': '', 'driver': ''}]
+                })
                 st.session_state.next_id += 1
-                wd['jobs'].append(new_job)
-                save_data(data)
-                st.success(f'✓ Job added for {cust}')
-                st.rerun()
+                save_data(data); st.success(f'Added {cust}'); st.rerun()
 
-# ── Vehicles & Holidays ───────────────────────────────────────
-if not readonly:
-    with st.expander('🚛 Vehicles / PMI / MOT  |  🏖 Staff Holidays'):
-        vc1, vc2 = st.columns(2)
-        with vc1:
-            st.markdown('**🚛 Vehicle Bookings**')
-            vehs = wd.get('vehicles', [])
-            for v in vehs:
-                vc_a, vc_b, vc_c, vc_d = st.columns([2,2,2,1])
-                with vc_a: st.text(f"{v['reg']} – {v['name']}")
-                with vc_b:
-                    new_day = st.selectbox('Day', DAYS, index=v['day'], key=f"vd_{v['id']}", label_visibility='collapsed')
-                    v['day'] = DAYS.index(new_day)
-                with vc_c:
-                    new_note = st.text_input('Note', value=v['note'], key=f"vn_{v['id']}", label_visibility='collapsed')
-                    v['note'] = new_note
-                with vc_d:
-                    if st.button('✕', key=f"dv_{v['id']}"):
-                        wd['vehicles'] = [x for x in vehs if x['id'] != v['id']]
-                        save_data(data); st.rerun()
+    with st.expander('🚛 Vehicles  &  🏖 Holidays'):
+        vcol, hcol = st.columns(2)
+        with vcol:
+            st.markdown('**🚛 Vehicles / PMI / MOT**')
+            for v in wd.get('vehicles', []):
+                a, b, c, d = st.columns([2, 2, 2, 0.6])
+                v['reg'] = a.text_input('Reg', value=v['reg'], key=f"vr{v['id']}", label_visibility='collapsed')
+                nd = b.selectbox('Day', DAYS, index=v['day'], key=f"vd{v['id']}", label_visibility='collapsed')
+                v['day'] = DAYS.index(nd)
+                v['note'] = c.text_input('Note', value=v['note'], key=f"vn{v['id']}", label_visibility='collapsed')
+                if d.button('✕', key=f"vx{v['id']}"):
+                    wd['vehicles'] = [x for x in wd['vehicles'] if x['id'] != v['id']]
+                    save_data(data); st.rerun()
             if st.button('+ Add Vehicle'):
-                wd['vehicles'].append({'id': st.session_state.next_id, 'reg':'', 'name':'', 'day':0, 'note':''})
-                st.session_state.next_id += 1
-                save_data(data); st.rerun()
-
-        with vc2:
+                wd['vehicles'].append({'id': st.session_state.next_id, 'reg': '', 'name': '', 'day': 0, 'note': ''})
+                st.session_state.next_id += 1; save_data(data); st.rerun()
+        with hcol:
             st.markdown('**🏖 Staff Holidays**')
-            hols = wd.get('holidays', [])
-            for h in hols:
-                ha, hb = st.columns([3,1])
-                with ha:
-                    new_name = st.text_input('Name', value=h['name'], key=f"hn_{h['id']}", label_visibility='collapsed')
-                    h['name'] = new_name
-                    day_checks = st.multiselect('Days off', DAYS, default=[DAYS[d] for d in h['days'] if d < len(DAYS)], key=f"hd_{h['id']}", label_visibility='collapsed')
-                    h['days'] = [DAYS.index(d) for d in day_checks]
-                with hb:
-                    if st.button('✕', key=f"dh_{h['id']}"):
-                        wd['holidays'] = [x for x in hols if x['id'] != h['id']]
-                        save_data(data); st.rerun()
+            for h in wd.get('holidays', []):
+                a, b = st.columns([3, 0.6])
+                h['name'] = a.text_input('Name', value=h['name'], key=f"hn{h['id']}", label_visibility='collapsed')
+                if b.button('✕', key=f"hx{h['id']}"):
+                    wd['holidays'] = [x for x in wd['holidays'] if x['id'] != h['id']]
+                    save_data(data); st.rerun()
+                dsel2 = st.multiselect('Days', DAYS, default=[DAYS[d] for d in h['days'] if d < 6], key=f"hd{h['id']}", label_visibility='collapsed')
+                h['days'] = [DAYS.index(x) for x in dsel2]
             if st.button('+ Add Person'):
-                wd['holidays'].append({'id': st.session_state.next_id, 'name':'', 'days':[]})
-                st.session_state.next_id += 1
-                save_data(data); st.rerun()
+                wd['holidays'].append({'id': st.session_state.next_id, 'name': '', 'days': []})
+                st.session_state.next_id += 1; save_data(data); st.rerun()
+        if st.button('💾 Save', type='primary'):
+            save_data(data); st.success('Saved')
 
-        if st.button('💾 Save Vehicles & Holidays', type='primary'):
-            save_data(data)
-            st.success('Saved!')
-
-st.divider()
-
-# ── Main planner grid ─────────────────────────────────────────
-cols = st.columns(6)
+# ─────────────────────────────────────────────────────────────
+# BUILD THE PLANNER TABLE (HTML — matches screenshot)
+# ─────────────────────────────────────────────────────────────
 vehs = wd.get('vehicles', [])
 hols = wd.get('holidays', [])
 
-for di, (col, day_name) in enumerate(zip(cols, DAYS)):
-    with col:
-        day_label = get_day_label(offset, di)
-        day_vehs = [v for v in vehs if v['day'] == di]
-        day_hols = [h for h in hols if di in h.get('days', [])]
-        day_dels = [j for j in filtered_jobs if j['day'] == di and j['col'] == 'del']
-        day_cols = [j for j in filtered_jobs if j['day'] == di and j['col'] == 'col']
+html = '<table class="planner-table"><thead><tr>'
+for di, dn in enumerate(DAYS):
+    wknd = ' wknd' if di == 5 else ''
+    html += f'<th class="day-th{wknd}" colspan="2">{dn}<br/><small>{get_day_label(offset, di)}</small></th>'
+html += '</tr><tr class="veh-row">'
+for di in range(6):
+    dv = [v for v in vehs if v['day'] == di]
+    dh = [h for h in hols if di in h.get('days', [])]
+    info = ''
+    if dv: info += ' · '.join([f"🚛 {v['reg']} ({v['note']})" for v in dv])
+    if dh: info += (' · ' if info else '') + ' · '.join([f"🏖 {h['name']}" for h in dh])
+    if info:
+        html += f'<td colspan="2">{info}</td>'
+    else:
+        html += '<td colspan="2" style="background:#f9fafb;height:3px;border:none"></td>'
+html += '</tr><tr>'
+for di in range(6):
+    html += '<th class="col-sub-th del-th">Deliveries</th><th class="col-sub-th col-th">Collections</th>'
+html += '</tr></thead><tbody><tr>'
+for di in range(6):
+    dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
+    cols = [j for j in fj if j['day'] == di and j['col'] == 'col']
+    html += '<td class="jobs-cell del">'
+    html += ''.join([job_html(j) for j in dels]) if dels else '<div class="empty-cell">—</div>'
+    html += '</td><td class="jobs-cell col">'
+    html += ''.join([job_html(j) for j in cols]) if cols else '<div class="empty-cell">—</div>'
+    html += '</td>'
+html += '</tr></tbody></table>'
 
-        hdr_cls = 'day-header-wknd' if di == 5 else 'day-header-del'
-        st.markdown(f'<div class="{hdr_cls}">{day_name}<br/><small style="font-weight:400;opacity:.8">{day_label}</small></div>', unsafe_allow_html=True)
+st.markdown(html, unsafe_allow_html=True)
 
-        if day_vehs:
-            veh_text = ' · '.join([f"🚛 {v['reg']} ({v['note']})" for v in day_vehs])
-            st.markdown(f'<div class="veh-bar">{veh_text}</div>', unsafe_allow_html=True)
-        if day_hols:
-            hol_text = ' · '.join([f"🏖 {h['name']}" for h in day_hols])
-            st.markdown(f'<div class="hol-bar">{hol_text}</div>', unsafe_allow_html=True)
+# ─────────────────────────────────────────────────────────────
+# EDIT / DELETE (team mode) — compact controls below grid
+# ─────────────────────────────────────────────────────────────
+if not readonly and fj:
+    st.divider()
+    st.markdown('**Quick actions** — change status or remove a job')
+    for j in fj:
+        cc1, cc2, cc3 = st.columns([4, 1.2, 1])
+        day_name = DAYS[j['day']]
+        col_name = 'Delivery' if j['col'] == 'del' else 'Collection'
+        cc1.markdown(f"<span style='font-size:12px'>**{j['customer']}** · {j['postcode']} · {day_name} {col_name} · {len(j['loads'])} load(s)</span>", unsafe_allow_html=True)
+        with cc2:
+            if st.button(f"↔ {'Enquiry' if j['status']=='booked' else 'Book'}", key=f"t{j['id']}", use_container_width=True):
+                j['status'] = 'enquiry' if j['status'] == 'booked' else 'booked'
+                save_data(data); st.rerun()
+        with cc3:
+            if st.button('🗑', key=f"d{j['id']}", use_container_width=True):
+                wd['jobs'] = [x for x in wd['jobs'] if x['id'] != j['id']]
+                save_data(data); st.rerun()
 
-        # Deliveries
-        st.markdown('<div class="section-del">Deliveries</div>', unsafe_allow_html=True)
-        if day_dels:
-            for job in day_dels:
-                st.markdown(job_html(job, readonly), unsafe_allow_html=True)
-                if not readonly:
-                    bc1, bc2 = st.columns(2)
-                    with bc1:
-                        new_status = 'enquiry' if job['status'] == 'booked' else 'booked'
-                        if st.button(f"↔ {'Enquiry' if job['status']=='booked' else 'Book'}", key=f"ts_{job['id']}", use_container_width=True):
-                            job['status'] = new_status
-                            save_data(data); st.rerun()
-                    with bc2:
-                        if st.button('🗑', key=f"del_{job['id']}", use_container_width=True):
-                            wd['jobs'] = [j for j in wd['jobs'] if j['id'] != job['id']]
-                            save_data(data); st.rerun()
-        else:
-            st.markdown('<div style="color:#d1d5db;font-size:10px;text-align:center;padding:8px">—</div>', unsafe_allow_html=True)
-
-        # Collections
-        st.markdown('<div class="section-col">Collections</div>', unsafe_allow_html=True)
-        if day_cols:
-            for job in day_cols:
-                st.markdown(job_html(job, readonly), unsafe_allow_html=True)
-                if not readonly:
-                    bc1, bc2 = st.columns(2)
-                    with bc1:
-                        new_status = 'enquiry' if job['status'] == 'booked' else 'booked'
-                        if st.button(f"↔ {'Enquiry' if job['status']=='booked' else 'Book'}", key=f"ts_{job['id']}", use_container_width=True):
-                            job['status'] = new_status
-                            save_data(data); st.rerun()
-                    with bc2:
-                        if st.button('🗑', key=f"del_{job['id']}", use_container_width=True):
-                            wd['jobs'] = [j for j in wd['jobs'] if j['id'] != job['id']]
-                            save_data(data); st.rerun()
-        else:
-            st.markdown('<div style="color:#d1d5db;font-size:10px;text-align:center;padding:8px">—</div>', unsafe_allow_html=True)
-
-# ── Auto save on any interaction ──────────────────────────────
+# persist any inline edits
 save_data(data)
