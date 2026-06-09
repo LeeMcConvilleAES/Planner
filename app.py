@@ -93,34 +93,40 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 .pill-hol{background:#eff6ff;border:1px solid #bfdbfe;font-size:9px;color:#1e40af;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
 .pill-empty{color:#d1d5db;font-size:10px;text-align:center;padding:6px;font-style:italic}
 
-/* Style the Streamlit button that immediately follows a marker div to look like a coloured pill.
-   We target element-container siblings because Streamlit wraps each component in one. */
-div[data-testid="element-container"]:has(.marker-pill) + div[data-testid="element-container"] button{
-    text-align:left !important;padding:6px 8px !important;height:auto !important;
-    font-size:11px !important;line-height:1.35 !important;white-space:pre-line !important;
-    box-shadow:none !important;margin-bottom:3px !important;
-    background:white !important;border:1px solid #e2e6ea !important;color:#40424a !important;
+/* Base pill button look (applies to every job button) */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button{
+    text-align:left !important;
+    padding:6px 8px !important;
+    height:auto !important;
+    font-size:11px !important;
+    line-height:1.35 !important;
+    white-space:pre-line !important;
+    box-shadow:none !important;
+    margin-bottom:3px !important;
+    background:white !important;
+    border:1px solid #e2e6ea !important;
+    color:#40424a !important;
 }
-div[data-testid="element-container"]:has(.marker-pill) + div[data-testid="element-container"] button:hover{
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button:hover{
     transform:translateY(-1px) !important;
     box-shadow:0 2px 8px rgba(0,0,0,.1) !important;
     border-color:#0d823b !important;
 }
-/* Booked Delivery = GREEN */
-div[data-testid="element-container"]:has(.marker-pill-booked-del) + div[data-testid="element-container"] button{
+/* 🟢 Booked DELIVERY = GREEN shading */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-del) + div button{
     background:#d1fae5 !important;
     border:1px solid #6ee7b7 !important;
     color:#064e3b !important;
     font-weight:600 !important;
 }
-/* Booked Collection = RED */
-div[data-testid="element-container"]:has(.marker-pill-booked-col) + div[data-testid="element-container"] button{
+/* 🔴 Booked COLLECTION = RED shading */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-col) + div button{
     background:#fee2e2 !important;
     border:1px solid #fca5a5 !important;
     color:#7f1d1d !important;
     font-weight:600 !important;
 }
-/* Enquiry (both columns) = WHITE — already default */
+/* ⚪ Enquiry (both columns) — stays clear white (default above) */
 .marker-pill,.marker-pill-booked-del,.marker-pill-booked-col,.marker-pill-enquiry{display:none}
 </style>
 """, unsafe_allow_html=True)
