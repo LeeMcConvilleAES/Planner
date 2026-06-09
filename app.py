@@ -484,41 +484,60 @@ if not readonly:
             save_data(data); st.success('Saved')
 
 # ─────────────────────────────────────────────────────────────
-# BUILD THE PLANNER (Streamlit columns + buttons styled as pills)
+# BUILD THE PLANNER (12 sub-columns: Del+Col side by side per day)
 # ─────────────────────────────────────────────────────────────
 vehs = wd.get('vehicles', [])
 hols = wd.get('holidays', [])
 
-# Day headers row (HTML for tight green banner look)
-header_html = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:0">'
+# Row 1: day banners (6 cols, each spans 2 sub-columns visually)
+hdr = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:0">'
 for di, dn in enumerate(DAYS):
     wknd = ' wknd' if di == 5 else ''
-    header_html += f'<div class="pill-day-header{wknd}">{dn}<small>{get_day_label(offset, di)}</small></div>'
-header_html += '</div>'
-st.markdown(header_html, unsafe_allow_html=True)
+    hdr += f'<div class="pill-day-header{wknd}">{dn}<small>{get_day_label(offset, di)}</small></div>'
+hdr += '</div>'
+st.markdown(hdr, unsafe_allow_html=True)
 
-# Daily grid — 6 columns, each with vehicle/holiday bar, Del section, Col section
-day_cols = st.columns(6)
-for di, col in enumerate(day_cols):
-    with col:
-        # Vehicle / holiday bars
-        dv = [v for v in vehs if v['day'] == di]
-        dh = [h for h in hols if di in h.get('days', [])]
-        if dv:
-            veh_text = ' · '.join([f"🚛 {v['reg']} ({v['note']})" for v in dv])
-            st.markdown(f'<div class="pill-veh">{veh_text}</div>', unsafe_allow_html=True)
-        if dh:
-            hol_text = ' · '.join([f"🏖 {h['name']}" for h in dh])
-            st.markdown(f'<div class="pill-hol">{hol_text}</div>', unsafe_allow_html=True)
+# Row 2: vehicle / holiday bars (6 cols)
+vh_row = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:2px">'
+any_vh = False
+for di in range(6):
+    dv = [v for v in vehs if v['day'] == di]
+    dh = [h for h in hols if di in h.get('days', [])]
+    info_bits = []
+    if dv: info_bits += [f"🚛 {v['reg']} ({v['note']})" for v in dv]
+    if dh: info_bits += [f"🏖 {h['name']}" for h in dh]
+    if info_bits:
+        any_vh = True
+        vh_row += f'<div class="pill-veh">{" · ".join(info_bits)}</div>'
+    else:
+        vh_row += '<div></div>'
+vh_row += '</div>'
+if any_vh:
+    st.markdown(vh_row, unsafe_allow_html=True)
 
-        # Deliveries section
-        st.markdown('<div class="pill-section-del">Deliveries</div>', unsafe_allow_html=True)
-        dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
+# Row 3: Del/Col sub-headers (12 cols)
+sub_hdr = '<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:4px">'
+for di in range(6):
+    sub_hdr += '<div class="pill-section-del" style="margin:0">Deliveries</div>'
+    sub_hdr += '<div class="pill-section-col" style="margin:0">Collections</div>'
+sub_hdr += '</div>'
+st.markdown(sub_hdr, unsafe_allow_html=True)
+
+# Row 4: the actual pill buttons — 12 streamlit columns, paired per day
+sub_cols = st.columns(12)
+for di in range(6):
+    del_col = sub_cols[di * 2]
+    col_col = sub_cols[di * 2 + 1]
+
+    dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
+    cols2 = [j for j in fj if j['day'] == di and j['col'] == 'col']
+
+    # Deliveries column
+    with del_col:
         if not dels:
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
             for j in dels:
-                # Build the multi-line label (Streamlit buttons support \n)
                 badge = '🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY'
                 lines = [badge, j['customer']]
                 for l in j['loads']:
@@ -528,18 +547,14 @@ for di, col in enumerate(day_cols):
                 if j.get('notes'):
                     lines.append(j['notes'])
                 label = "\n".join(lines)
-
-                # Marker div for CSS targeting
                 marker_cls = 'marker-pill marker-pill-' + ('booked-del' if j['status']=='booked' else 'enquiry')
                 st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
-
                 if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
                     st.session_state.editing_id = j['id']
                     st.rerun()
 
-        # Collections section
-        st.markdown('<div class="pill-section-col">Collections</div>', unsafe_allow_html=True)
-        cols2 = [j for j in fj if j['day'] == di and j['col'] == 'col']
+    # Collections column
+    with col_col:
         if not cols2:
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
@@ -553,10 +568,8 @@ for di, col in enumerate(day_cols):
                 if j.get('notes'):
                     lines.append(j['notes'])
                 label = "\n".join(lines)
-
                 marker_cls = 'marker-pill marker-pill-' + ('booked-col' if j['status']=='booked' else 'enquiry')
                 st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
-
                 if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
                     st.session_state.editing_id = j['id']
                     st.rerun()
