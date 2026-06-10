@@ -136,37 +136,48 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 # ─────────────────────────────────────────────────────────────
 def get_sheet():
     if not GSPREAD_AVAILABLE:
-        return None
+        return None, "gspread library not installed — check requirements.txt"
     try:
         creds_dict = dict(st.secrets["gcp_service_account"])
+    except Exception as e:
+        return None, f"Google secrets not configured in Streamlit settings ({e})"
+    try:
         scopes = ["https://www.googleapis.com/auth/spreadsheets",
                   "https://www.googleapis.com/auth/drive"]
         creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
         client = gspread.authorize(creds)
-        return client.open("AES Transport Planner").sheet1
-    except Exception:
-        return None
+        return client.open("AES Transport Planner").sheet1, None
+    except Exception as e:
+        return None, f"Could not open Google Sheet 'AES Transport Planner': {e}"
 
 def load_data():
-    sheet = get_sheet()
-    if sheet:
-        try:
-            val = sheet.cell(1, 1).value
-            if val and val.strip():
-                return json.loads(val)
-        except Exception:
-            pass
+    sheet, err = get_sheet()
+    if sheet is None:
+        st.session_state.sheet_error = err
+        return get_default_data()
+    try:
+        val = sheet.cell(1, 1).value
+        st.session_state.sheet_error = None
+        if val and val.strip():
+            return json.loads(val)
+    except Exception as e:
+        st.session_state.sheet_error = f"Load failed: {e}"
     return get_default_data()
 
 def save_data(d):
-    sheet = get_sheet()
-    if sheet:
-        try:
-            sheet.update_cell(1, 1, json.dumps(d))
-            return True
-        except Exception:
-            return False
-    return False
+    """Save to Google Sheets. Returns (success: bool, error: str|None)."""
+    sheet, err = get_sheet()
+    if sheet is None:
+        st.session_state.last_save = {'ok': False, 'ts': datetime.now(), 'err': err}
+        return False, err
+    try:
+        sheet.update_cell(1, 1, json.dumps(d))
+        st.session_state.last_save = {'ok': True, 'ts': datetime.now(), 'err': None}
+        return True, None
+    except Exception as e:
+        msg = f"Save to Sheet failed: {e}"
+        st.session_state.last_save = {'ok': False, 'ts': datetime.now(), 'err': msg}
+        return False, msg
 
 # ─────────────────────────────────────────────────────────────
 # WEEK HELPERS
@@ -331,6 +342,26 @@ st.markdown(f'''<div class="aes-hdr">
   </div>
   <span class="mode-tag">{mode_label}</span>
 </div>''', unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────
+# SYNC STATUS BANNER — VERY visible so saves are never silent
+# ─────────────────────────────────────────────────────────────
+sheet_err = st.session_state.get('sheet_error')
+last_save = st.session_state.get('last_save')
+
+if sheet_err:
+    st.error(f"🔴 **NOT CONNECTED TO GOOGLE SHEETS** — Changes will NOT be saved and will be lost on refresh.\n\n"
+             f"Reason: {sheet_err}\n\n"
+             f"Fix this in Streamlit Cloud → Settings → Secrets. The service account must be invited as Editor on the 'AES Transport Planner' sheet.")
+elif last_save:
+    ts = last_save['ts'].strftime('%H:%M:%S')
+    if last_save['ok']:
+        st.success(f"✅ Connected to Google Sheets — last saved {ts}", icon=None)
+    else:
+        st.error(f"🔴 **LAST SAVE FAILED at {ts}** — {last_save['err']}")
+else:
+    if not readonly:
+        st.info(f"🔵 Connected — make a change to confirm saving works")
 
 # Mode toggle
 mc1, mc2, mc_sp = st.columns([1.3, 1.3, 9])
@@ -765,5 +796,32 @@ if st.session_state.editing_id and not readonly:
     else:
         st.session_state.editing_id = None
 
-# persist any inline edits
-save_data(data)
+# ─────────────────────────────────────────────────────────────
+# MANUAL SAVE + RELOAD buttons (team only)
+# These exist so you're never relying on silent auto-saves
+# ─────────────────────────────────────────────────────────────
+if not readonly:
+    st.divider()
+    sb1, sb2, sb3, sb_sp = st.columns([1.5, 1.5, 1.5, 6])
+    with sb1:
+        if st.button('💾 Save Now', type='primary', use_container_width=True, key='manual_save'):
+            ok, err = save_data(data)
+            if ok:
+                st.success(f"✅ Saved successfully at {datetime.now().strftime('%H:%M:%S')}")
+            else:
+                st.error(f"🔴 Save FAILED — {err}")
+            st.rerun()
+    with sb2:
+        if st.button('🔄 Reload from Sheet', use_container_width=True, key='manual_reload',
+                     help='Discard local changes and pull fresh from Google Sheets'):
+            st.session_state.data = load_data()
+            st.success('Reloaded from Sheet')
+            st.rerun()
+    with sb3:
+        if st.button('🩺 Test Connection', use_container_width=True, key='test_conn',
+                     help='Check if Google Sheets connection is working'):
+            sheet, err = get_sheet()
+            if sheet:
+                st.success('✅ Connection OK — saves will work')
+            else:
+                st.error(f'🔴 Connection failed — {err}')
