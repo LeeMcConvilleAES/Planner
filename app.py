@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import uuid
 from datetime import datetime, timedelta
 
 try:
@@ -150,19 +151,41 @@ def get_sheet():
     except Exception as e:
         return None, f"Could not open Google Sheet 'AES Transport Planner': {e}"
 
+def new_job_id():
+    """Generate a globally unique job ID — never collides between team members."""
+    return f"j-{uuid.uuid4().hex[:10]}"
+
+def dedupe_job_ids(d):
+    """Make sure every job across every week has a unique ID. Reassigns duplicates.
+    This is a safety net for any historical data that already had clashes."""
+    if not d or 'weeks' not in d:
+        return d
+    seen = set()
+    fixed = 0
+    for wk_key, wk in d['weeks'].items():
+        for job in wk.get('jobs', []):
+            jid = job.get('id', '')
+            if not jid or jid in seen:
+                job['id'] = new_job_id()
+                fixed += 1
+            seen.add(job['id'])
+    if fixed > 0:
+        st.session_state['dedupe_count'] = fixed
+    return d
+
 def load_data():
     sheet, err = get_sheet()
     if sheet is None:
         st.session_state.sheet_error = err
-        return get_default_data()
+        return dedupe_job_ids(get_default_data())
     try:
         val = sheet.cell(1, 1).value
         st.session_state.sheet_error = None
         if val and val.strip():
-            return json.loads(val)
+            return dedupe_job_ids(json.loads(val))
     except Exception as e:
         st.session_state.sheet_error = f"Load failed: {e}"
-    return get_default_data()
+    return dedupe_job_ids(get_default_data())
 
 def save_data(d):
     """Save to Google Sheets. Returns (success: bool, error: str|None)."""
@@ -363,6 +386,15 @@ else:
     if not readonly:
         st.info(f"🔵 Connected — make a change to confirm saving works")
 
+# Notify if we just auto-fixed duplicate IDs (one-off cleanup from older app version)
+if st.session_state.get('dedupe_count', 0) > 0:
+    n = st.session_state['dedupe_count']
+    st.warning(f"🔧 Auto-repaired {n} duplicate job ID(s) caused by an older version of the app. "
+               "No data was lost — all jobs are intact, just with fresh unique IDs. "
+               "This will not happen again. Please click 💾 Save Now at the bottom to save the repaired IDs.")
+    # Only show once per session
+    del st.session_state['dedupe_count']
+
 # Mode toggle
 mc1, mc2, mc_sp = st.columns([1.3, 1.3, 9])
 with mc1:
@@ -520,7 +552,7 @@ if not readonly:
                     if ld:
                         loads_in.append({'desc': ld, 'driver': dr})
                 wd['jobs'].append({
-                    'id': f'j-{st.session_state.next_id}',
+                    'id': new_job_id(),
                     'customer': cust, 'postcode': post,
                     'col': 'del' if ctype == 'Delivery' else 'col',
                     'day': DAYS.index(dsel),
@@ -531,7 +563,6 @@ if not readonly:
                     'completed': completed,
                     'price': price,
                 })
-                st.session_state.next_id += 1
                 save_data(data)
                 # Reset form state
                 for k in list(st.session_state.keys()):
