@@ -479,13 +479,23 @@ with nav[n_btns + 1]:
 
 with nav[n_btns + 2]:
     jump_labels = [f"{week_tab_label(o)} · {week_range_label(o)}" for o in offsets]
-    selected_jump = st.selectbox('Jump to week', jump_labels,
-                                 index=current_idx, key='wk_jump',
-                                 label_visibility='collapsed')
-    new_idx = jump_labels.index(selected_jump)
-    if offsets[new_idx] != st.session_state.offset:
-        st.session_state.offset = offsets[new_idx]
-        st.rerun()
+
+    # Keep the dropdown in sync with the actual current offset,
+    # so navigating with the ‹ › buttons or clicking a pill doesn't
+    # cause the dropdown to fight us and force the week back.
+    expected_label = jump_labels[current_idx]
+    if st.session_state.get('wk_jump') != expected_label:
+        st.session_state['wk_jump'] = expected_label
+
+    def _on_week_jump_change():
+        chosen = st.session_state.get('wk_jump')
+        if chosen in jump_labels:
+            st.session_state.offset = offsets[jump_labels.index(chosen)]
+
+    st.selectbox('Jump to week', jump_labels,
+                 key='wk_jump',
+                 label_visibility='collapsed',
+                 on_change=_on_week_jump_change)
 
 with nav[n_btns + 3]:
     if st.button('＋ Add Week', use_container_width=True, help='Add a future week'):
