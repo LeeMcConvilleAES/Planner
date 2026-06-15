@@ -431,29 +431,68 @@ if st.session_state.edit_unlocked:
 
 # ─────────────────────────────────────────────────────────────
 # WEEK NAVIGATION
+# Show a window of 5 week tabs centered on the current one, plus
+# a Jump-To dropdown for any other week. Stops the row from
+# squashing when many weeks have been added.
 # ─────────────────────────────────────────────────────────────
-offsets = data['weekOffsets']
-nav = st.columns([0.5] + [1.3]*len(offsets) + [0.5, 1.2])
+offsets = sorted(data['weekOffsets'])
+if st.session_state.offset not in offsets:
+    offsets.append(st.session_state.offset)
+    offsets.sort()
+    data['weekOffsets'] = offsets
+
+current_idx = offsets.index(st.session_state.offset)
+WINDOW = 5
+start_idx = max(0, current_idx - 2)
+end_idx = min(len(offsets), start_idx + WINDOW)
+start_idx = max(0, end_idx - WINDOW)
+visible_offsets = offsets[start_idx:end_idx]
+
+n_btns = len(visible_offsets)
+# Layout: ‹  [up to 5 week buttons]  ›  | Jump-to dropdown | + Add Week
+nav = st.columns([0.4] + [1.3] * n_btns + [0.4, 2.5, 1.2])
 with nav[0]:
-    if st.button('‹', use_container_width=True):
+    if st.button('‹', use_container_width=True, help='Previous week'):
         no = st.session_state.offset - 1
-        if no not in offsets: offsets.insert(0, no)
-        st.session_state.offset = no; st.rerun()
-for i, off in enumerate(offsets):
-    with nav[i+1]:
+        if no not in offsets:
+            data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
+
+for i, off in enumerate(visible_offsets):
+    with nav[i + 1]:
         active = off == st.session_state.offset
-        if st.button(f"{week_tab_label(off)}\n{week_range_label(off)}", key=f'w{off}',
-                     type='primary' if active else 'secondary', use_container_width=True):
-            st.session_state.offset = off; st.rerun()
-with nav[len(offsets)+1]:
-    if st.button('›', use_container_width=True):
+        if st.button(f"{week_tab_label(off)}\n{week_range_label(off)}",
+                     key=f'wkbtn_{off}',
+                     type='primary' if active else 'secondary',
+                     use_container_width=True):
+            st.session_state.offset = off
+            st.rerun()
+
+with nav[n_btns + 1]:
+    if st.button('›', use_container_width=True, help='Next week'):
         no = st.session_state.offset + 1
-        if no not in offsets: offsets.append(no)
-        st.session_state.offset = no; st.rerun()
-with nav[len(offsets)+2]:
-    if st.button('＋ Add Week', use_container_width=True):
+        if no not in offsets:
+            data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
+
+with nav[n_btns + 2]:
+    jump_labels = [f"{week_tab_label(o)} · {week_range_label(o)}" for o in offsets]
+    selected_jump = st.selectbox('Jump to week', jump_labels,
+                                 index=current_idx, key='wk_jump',
+                                 label_visibility='collapsed')
+    new_idx = jump_labels.index(selected_jump)
+    if offsets[new_idx] != st.session_state.offset:
+        st.session_state.offset = offsets[new_idx]
+        st.rerun()
+
+with nav[n_btns + 3]:
+    if st.button('＋ Add Week', use_container_width=True, help='Add a future week'):
         no = max(offsets) + 1
-        offsets.append(no); st.session_state.offset = no; st.rerun()
+        data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
 
 offset = st.session_state.offset
 wd = get_week_data(data, offset)
@@ -507,7 +546,11 @@ if not readonly:
         cust = c1.text_input('Customer *', key='nj_cust')
         post = c2.text_input('Postcode *', key='nj_post')
         ctype = c3.selectbox('Type', ['Delivery', 'Collection'], key='nj_ctype')
-        dsel = c4.selectbox('Day', DAYS, key='nj_dsel')
+        # Default the date to the currently-selected week's Monday so it
+        # naturally lands where they're viewing
+        default_date = get_monday(st.session_state.offset).date()
+        date_pick = c4.date_input('Date 📅', value=default_date, key='nj_date',
+                                  help='Pick the specific date — the job will be added to the right week automatically')
 
         c5, c6 = st.columns(2)
         ssel = c5.selectbox('Status', ['Enquiry', 'Booked'], key='nj_ssel')
@@ -551,11 +594,30 @@ if not readonly:
                     dr = st.session_state.get(f'nj_dr{i}', '').strip().upper()
                     if ld:
                         loads_in.append({'desc': ld, 'driver': dr})
-                wd['jobs'].append({
+
+                # Work out which week + day from the picked date
+                picked = date_pick
+                # Monday of the week that contains the picked date
+                picked_monday = picked - timedelta(days=picked.weekday())
+                # Monday of THIS week (current week)
+                today_monday = get_monday(0).date()
+                # Offset in weeks (negative = past, positive = future)
+                target_offset = (picked_monday - today_monday).days // 7
+                # Day index: 0=Mon ... 4=Fri, 5=Sat/Sun (Sat=5,Sun=6 both go to slot 5)
+                target_day = picked.weekday()
+                if target_day >= 5:
+                    target_day = 5
+
+                # Make sure that week exists in our nav + data
+                if target_offset not in data['weekOffsets']:
+                    data['weekOffsets'].append(target_offset)
+                target_wd = get_week_data(data, target_offset)
+
+                target_wd['jobs'].append({
                     'id': new_job_id(),
                     'customer': cust, 'postcode': post,
                     'col': 'del' if ctype == 'Delivery' else 'col',
-                    'day': DAYS.index(dsel),
+                    'day': target_day,
                     'status': ssel.lower(),
                     'notes': notes,
                     'loads': loads_in if loads_in else [{'desc': '', 'driver': ''}],
@@ -569,7 +631,9 @@ if not readonly:
                     if k.startswith('nj_'):
                         del st.session_state[k]
                 st.session_state.nj_load_count = 1
-                st.success(f'✓ Added {cust}')
+                # Jump to the week the job was added to so the user can see it
+                st.session_state.offset = target_offset
+                st.success(f'✓ Added {cust} on {picked.strftime("%A %-d %b %Y")}')
                 st.rerun()
             else:
                 st.error('Customer and Postcode are required')
