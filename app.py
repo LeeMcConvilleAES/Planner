@@ -157,6 +157,29 @@ def new_job_id():
     """Generate a globally unique job ID — never collides between team members."""
     return f"j-{uuid.uuid4().hex[:10]}"
 
+def move_job(jobs_list, job_id, direction):
+    """Move a job up (-1) or down (+1) within its day+col group in the list.
+    Returns True if a swap actually happened."""
+    idx = next((i for i, j in enumerate(jobs_list) if j['id'] == job_id), None)
+    if idx is None:
+        return False
+    j = jobs_list[idx]
+    day = j.get('day')
+    col = j.get('col')
+    if direction == -1:
+        # Find the nearest earlier job in the same day+col bucket and swap
+        for i in range(idx - 1, -1, -1):
+            if jobs_list[i].get('day') == day and jobs_list[i].get('col') == col:
+                jobs_list[idx], jobs_list[i] = jobs_list[i], jobs_list[idx]
+                return True
+        return False
+    else:
+        for i in range(idx + 1, len(jobs_list)):
+            if jobs_list[i].get('day') == day and jobs_list[i].get('col') == col:
+                jobs_list[idx], jobs_list[i] = jobs_list[i], jobs_list[idx]
+                return True
+        return False
+
 def dedupe_job_ids(d):
     """Make sure every job across every week has a unique ID. Reassigns duplicates.
     This is a safety net for any historical data that already had clashes."""
@@ -736,7 +759,7 @@ for di in range(6):
         if not dels:
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
-            for j in dels:
+            for idx_in_cell, j in enumerate(dels):
                 # Build the multi-line label
                 tags = []
                 tags.append('🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
@@ -759,13 +782,28 @@ for di in range(6):
                 if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
                     st.session_state.editing_id = j['id']
                     st.rerun()
+                # ▲ ▼ reorder controls (edit mode only)
+                if not readonly:
+                    uc1, uc2 = st.columns(2)
+                    with uc1:
+                        if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == 0), help='Move up'):
+                            if move_job(wd['jobs'], j['id'], -1):
+                                save_data(data)
+                                st.rerun()
+                    with uc2:
+                        if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == len(dels) - 1), help='Move down'):
+                            if move_job(wd['jobs'], j['id'], 1):
+                                save_data(data)
+                                st.rerun()
 
     # Collections column
     with col_col:
         if not cols2:
             st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
         else:
-            for j in cols2:
+            for idx_in_cell, j in enumerate(cols2):
                 tags = []
                 tags.append('🔴 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
                 if j.get('wide_load'): tags.append('🚧 WIDE')
@@ -786,6 +824,21 @@ for di in range(6):
                 if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
                     st.session_state.editing_id = j['id']
                     st.rerun()
+                # ▲ ▼ reorder controls (edit mode only)
+                if not readonly:
+                    uc1, uc2 = st.columns(2)
+                    with uc1:
+                        if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == 0), help='Move up'):
+                            if move_job(wd['jobs'], j['id'], -1):
+                                save_data(data)
+                                st.rerun()
+                    with uc2:
+                        if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == len(cols2) - 1), help='Move down'):
+                            if move_job(wd['jobs'], j['id'], 1):
+                                save_data(data)
+                                st.rerun()
 
 if not readonly:
     st.caption('💡 Click any job pill above to edit its details.')
