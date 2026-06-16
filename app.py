@@ -94,7 +94,9 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 .pill-hol{background:#eff6ff;border:1px solid #bfdbfe;font-size:9px;color:#1e40af;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
 .pill-empty{color:#d1d5db;font-size:10px;text-align:center;padding:6px;font-style:italic}
 
-/* Base pill button look (applies to every job button) */
+/* Base pill button look (applies to every job button)
+   Note: 'color' is NOT marked !important so that markdown :red[] in labels
+   can override per-token colours (used for driver initials). */
 [data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button{
     text-align:left !important;
     padding:6px 8px !important;
@@ -106,7 +108,7 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
     margin-bottom:3px !important;
     background:white !important;
     border:1px solid #e2e6ea !important;
-    color:#40424a !important;
+    color:#40424a;
 }
 [data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button:hover{
     transform:translateY(-1px) !important;
@@ -117,14 +119,14 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 [data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-del) + div button{
     background:#d1fae5 !important;
     border:1px solid #6ee7b7 !important;
-    color:#064e3b !important;
+    color:#064e3b;
     font-weight:600 !important;
 }
 /* 🔴 Booked COLLECTION = RED shading */
 [data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-col) + div button{
     background:#fee2e2 !important;
     border:1px solid #fca5a5 !important;
-    color:#7f1d1d !important;
+    color:#7f1d1d;
     font-weight:600 !important;
 }
 /* ⚪ Enquiry (both columns) — stays clear white (default above) */
@@ -743,7 +745,7 @@ for di in range(6):
                 lines = [' · '.join(tags)]
                 lines.append(j['customer'])
                 for l in j['loads']:
-                    drv = f"  ·  {l['driver']}" if l.get('driver') else ""
+                    drv = f"  ·  :red[**{l['driver']}**]" if l.get('driver') else ""
                     lines.append(f"📦 {l.get('desc','—')}{drv}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
@@ -771,7 +773,7 @@ for di in range(6):
                 lines = [' · '.join(tags)]
                 lines.append(j['customer'])
                 for l in j['loads']:
-                    drv = f"  ·  {l['driver']}" if l.get('driver') else ""
+                    drv = f"  ·  :red[**{l['driver']}**]" if l.get('driver') else ""
                     lines.append(f"📦 {l.get('desc','—')}{drv}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
@@ -799,13 +801,20 @@ def find_job(jid):
 
 @st.dialog("Edit Job")
 def edit_dialog(job):
+    # Work out the job's current date from its week + day
+    current_offset = st.session_state.offset
+    job_day_idx = min(job.get('day', 0), 5)
+    # If it's Sat/Sun (day=5), show Saturday by default for picker
+    current_job_date = get_monday(current_offset).date() + timedelta(days=job_day_idx)
+
     c1, c2 = st.columns(2)
     cust = c1.text_input('Customer', value=job['customer'])
     post = c2.text_input('Postcode', value=job['postcode'])
     c3, c4 = st.columns(2)
     ctype = c3.selectbox('Type', ['Delivery', 'Collection'],
                          index=0 if job['col'] == 'del' else 1)
-    dsel = c4.selectbox('Day', DAYS, index=job['day'])
+    new_date = c4.date_input('Date 📅', value=current_job_date, key=f'edate_{job["id"]}',
+                              help='Change the date to move this job — it will land on the correct week/day automatically')
     c5, c6 = st.columns(2)
     ssel = c5.selectbox('Status', ['Enquiry', 'Booked'],
                         index=0 if job['status'] == 'enquiry' else 1)
@@ -861,16 +870,39 @@ def edit_dialog(job):
     b1, b2, b3 = st.columns([1, 1, 1])
     if b1.button('💾 Save', type='primary', use_container_width=True):
         if cust and post:
+            # Work out target week + day from the picked date
+            picked_monday = new_date - timedelta(days=new_date.weekday())
+            today_monday = get_monday(0).date()
+            new_offset = (picked_monday - today_monday).days // 7
+            new_day = new_date.weekday()
+            if new_day >= 5:
+                new_day = 5
+
+            # Update job fields (mutates the dict in place)
             job['customer'] = cust
             job['postcode'] = post
             job['col'] = 'del' if ctype == 'Delivery' else 'col'
-            job['day'] = DAYS.index(dsel)
+            job['day'] = new_day
             job['status'] = ssel.lower()
             job['notes'] = notes
             job['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
             job['wide_load'] = wide
             job['completed'] = completed
             job['price'] = price
+
+            # If the date moves to a different week, relocate the job
+            if new_offset != current_offset:
+                # Remove from current week
+                wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
+                # Make sure new week exists
+                if new_offset not in data['weekOffsets']:
+                    data['weekOffsets'].append(new_offset)
+                # Add to new week
+                target_wd = get_week_data(data, new_offset)
+                target_wd['jobs'].append(job)
+                # Jump the planner to the new week so the user sees it land
+                st.session_state.offset = new_offset
+
             save_data(data)
             # Clear the edit counter for this job so it resets next time
             if edit_count_key in st.session_state:
