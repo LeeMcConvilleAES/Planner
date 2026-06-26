@@ -209,19 +209,41 @@ def dedupe_job_ids(d):
         st.session_state['dedupe_count'] = fixed
     return d
 
+def cleanup_old_weeks(d, keep_weeks_back=2):
+    """Remove weeks older than `keep_weeks_back` past weeks to free up storage.
+    Keeps the current week, last 2 weeks, and all future weeks."""
+    if not d or 'weeks' not in d:
+        return d
+    today_monday = get_monday(0)
+    cutoff = today_monday - timedelta(weeks=keep_weeks_back)
+    cutoff_key = cutoff.strftime('%Y-%m-%d')
+
+    to_remove = [wk for wk in list(d['weeks'].keys()) if wk < cutoff_key]
+    for wk in to_remove:
+        del d['weeks'][wk]
+
+    if 'weekOffsets' in d:
+        d['weekOffsets'] = sorted(set(o for o in d['weekOffsets'] if o >= -keep_weeks_back))
+        if not d['weekOffsets']:
+            d['weekOffsets'] = [-1, 0, 1, 2, 3]
+
+    if to_remove:
+        st.session_state['cleanup_count'] = len(to_remove)
+    return d
+
 def load_data():
     sheet, err = get_sheet()
     if sheet is None:
         st.session_state.sheet_error = err
-        return dedupe_job_ids(get_default_data())
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
     try:
         val = sheet.cell(1, 1).value
         st.session_state.sheet_error = None
         if val and val.strip():
-            return dedupe_job_ids(json.loads(val))
+            return cleanup_old_weeks(dedupe_job_ids(json.loads(val)))
     except Exception as e:
         st.session_state.sheet_error = f"Load failed: {e}"
-    return dedupe_job_ids(get_default_data())
+    return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
 
 def save_data(d):
     """Save to Google Sheets. Returns (success: bool, error: str|None).
@@ -421,16 +443,26 @@ def get_edit_password():
 
 readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_unlocked)
 
-# ── Auto-refresh ONLY in read-only view ──────────────────────
-# Refreshes every 30s so viewers always see the latest from the Sheet.
-# Session state (incl. edit unlock) survives this, so editors are unaffected.
-# We skip it entirely when editing so no one loses what they're typing.
-if readonly and AUTOREFRESH_AVAILABLE:
-    st_autorefresh(interval=30000, key='ro_refresh')
-    # Pull fresh data from the Sheet on each auto-refresh tick
-    st.session_state.data = load_data()
-    data = st.session_state.data
-    data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+# ── Auto-refresh ─────────────────────────────────────────────
+# Read-only viewers refresh every 30s so they always see latest changes.
+# Team editors refresh every 90s — less aggressive — and ONLY when the
+# Edit Job dialog isn't open (otherwise typing/editing would be disrupted).
+# Session state (incl. edit unlock and form drafts) survives auto-refresh.
+if AUTOREFRESH_AVAILABLE:
+    dialog_open = bool(st.session_state.get('editing_id'))
+    if readonly:
+        st_autorefresh(interval=30000, key='ro_refresh')
+        st.session_state.data = load_data()
+        data = st.session_state.data
+        data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+    elif not dialog_open:
+        # Team mode auto-refresh — only while no dialog open
+        st_autorefresh(interval=90000, key='team_refresh')
+        # Don't overwrite local data if user has unsaved form edits — Streamlit
+        # widget keys preserve their values across reruns anyway, so it's safe.
+        st.session_state.data = load_data()
+        data = st.session_state.data
+        data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
 
 # ─────────────────────────────────────────────────────────────
 # HEADER
@@ -481,6 +513,13 @@ if st.session_state.get('dedupe_count', 0) > 0:
                "This will not happen again. Please click 💾 Save Now at the bottom to save the repaired IDs.")
     # Only show once per session
     del st.session_state['dedupe_count']
+
+# Notify if old weeks were auto-cleaned
+if st.session_state.get('cleanup_count', 0) > 0:
+    n = st.session_state['cleanup_count']
+    st.info(f"🧹 Auto-archived {n} old week(s) from more than 2 weeks ago to keep storage healthy. "
+            "Click 💾 Save Now at the bottom to commit the cleanup to the Sheet.")
+    del st.session_state['cleanup_count']
 
 # Mode toggle
 mc1, mc2, mc_sp = st.columns([1.3, 1.3, 9])
