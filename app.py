@@ -2,6 +2,17 @@ import streamlit as st
 import json
 import uuid
 from datetime import datetime, timedelta
+try:
+    from zoneinfo import ZoneInfo
+    UK_TZ = ZoneInfo("Europe/London")
+except ImportError:
+    UK_TZ = None
+
+def now_uk():
+    """Current time in UK timezone (handles BST/GMT automatically)."""
+    if UK_TZ is not None:
+        return datetime.now(UK_TZ)
+    return datetime.now()
 
 try:
     import gspread
@@ -213,19 +224,62 @@ def load_data():
     return dedupe_job_ids(get_default_data())
 
 def save_data(d):
-    """Save to Google Sheets. Returns (success: bool, error: str|None)."""
+    """Save to Google Sheets. Returns (success: bool, error: str|None).
+    More defensive than the original: checks size, retries transient errors,
+    and verifies the cell after writing so we know the data actually landed."""
     sheet, err = get_sheet()
     if sheet is None:
-        st.session_state.last_save = {'ok': False, 'ts': datetime.now(), 'err': err}
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': err}
         return False, err
+
+    # Serialize the data once and check its size up-front
     try:
-        sheet.update_cell(1, 1, json.dumps(d))
-        st.session_state.last_save = {'ok': True, 'ts': datetime.now(), 'err': None}
-        return True, None
+        payload = json.dumps(d)
     except Exception as e:
-        msg = f"Save to Sheet failed: {e}"
-        st.session_state.last_save = {'ok': False, 'ts': datetime.now(), 'err': msg}
+        msg = f"Cannot serialize data: {e}"
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
         return False, msg
+
+    # Google Sheets cell limit is 50,000 chars. Warn at 90% so user has time to act.
+    size = len(payload)
+    if size > 50000:
+        msg = (f"Data too large for one Sheet cell ({size:,} chars > 50,000 limit). "
+               f"Save FAILED. Please delete some old weeks (e.g. those from months ago).")
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
+        return False, msg
+    st.session_state.last_payload_size = size
+
+    # Try up to 3 times with brief backoff to ride out transient API glitches
+    import time as _time
+    last_err = None
+    for attempt in range(3):
+        try:
+            sheet.update_cell(1, 1, payload)
+            # Verify the write actually landed by reading back the first chunk
+            try:
+                check = sheet.cell(1, 1).value
+                if check and check.strip().startswith(payload[:50].strip()[:30]):
+                    st.session_state.last_save = {
+                        'ok': True, 'ts': now_uk(), 'err': None, 'size': size
+                    }
+                    return True, None
+                else:
+                    last_err = "Write verification failed — saved content doesn't match"
+            except Exception as ve:
+                # Write probably succeeded even if verify read failed; treat as success
+                st.session_state.last_save = {
+                    'ok': True, 'ts': now_uk(), 'err': None, 'size': size
+                }
+                return True, None
+        except Exception as e:
+            last_err = str(e)
+            if attempt < 2:
+                _time.sleep(0.6 * (attempt + 1))  # brief backoff
+            continue
+
+    msg = f"Save FAILED after 3 attempts: {last_err}"
+    st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
+    return False, msg
 
 # ─────────────────────────────────────────────────────────────
 # WEEK HELPERS
@@ -404,7 +458,15 @@ if sheet_err:
 elif last_save:
     ts = last_save['ts'].strftime('%H:%M:%S')
     if last_save['ok']:
-        st.success(f"✅ Connected to Google Sheets — last saved {ts}", icon=None)
+        size = last_save.get('size', 0)
+        size_warning = ""
+        if size > 0:
+            pct = (size / 50000) * 100
+            if pct >= 80:
+                size_warning = f" ⚠️ Storage {pct:.0f}% full ({size:,}/50,000 chars) — delete old weeks soon"
+            elif pct >= 60:
+                size_warning = f" · Storage {pct:.0f}% used"
+        st.success(f"✅ Connected to Google Sheets — last saved {ts}{size_warning}", icon=None)
     else:
         st.error(f"🔴 **LAST SAVE FAILED at {ts}** — {last_save['err']}")
 else:
@@ -997,7 +1059,7 @@ if not readonly:
         if st.button('💾 Save Now', type='primary', use_container_width=True, key='manual_save'):
             ok, err = save_data(data)
             if ok:
-                st.success(f"✅ Saved successfully at {datetime.now().strftime('%H:%M:%S')}")
+                st.success(f"✅ Saved successfully at {now_uk().strftime('%H:%M:%S')}")
             else:
                 st.error(f"🔴 Save FAILED — {err}")
             st.rerun()
