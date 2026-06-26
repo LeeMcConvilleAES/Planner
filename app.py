@@ -232,18 +232,39 @@ def cleanup_old_weeks(d, keep_weeks_back=2):
     return d
 
 def load_data():
+    """Load data from Sheet. CRITICAL: never falls back to defaults if we
+    already have data in session — that would let a transient API error
+    wipe future weeks when the user next clicks save."""
     sheet, err = get_sheet()
+
+    # If we can't even get a Sheet handle, keep whatever we have in session
     if sheet is None:
         st.session_state.sheet_error = err
+        if st.session_state.get('data'):
+            st.session_state.sheet_error = (err or "") + " — keeping existing data in memory; "\
+                "DO NOT click 💾 Save Now until this connection is restored."
+            return st.session_state['data']
         return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
+
+    # Try to read the cell
     try:
         val = sheet.cell(1, 1).value
         st.session_state.sheet_error = None
         if val and val.strip():
             return cleanup_old_weeks(dedupe_job_ids(json.loads(val)))
+        # Empty cell — only use default if we have absolutely nothing
+        if st.session_state.get('data'):
+            return st.session_state['data']
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
     except Exception as e:
-        st.session_state.sheet_error = f"Load failed: {e}"
-    return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
+        # Transient read failure — DO NOT overwrite good data with defaults.
+        # Hold onto what we have and warn the user not to save.
+        st.session_state.sheet_error = (f"Read from Sheet failed: {e} — "
+            "keeping existing data in memory; DO NOT click 💾 Save Now until "
+            "this is resolved or you'll risk overwriting good data.")
+        if st.session_state.get('data'):
+            return st.session_state['data']
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
 
 def save_data(d):
     """Save to Google Sheets. Returns (success: bool, error: str|None).
@@ -444,25 +465,30 @@ def get_edit_password():
 readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_unlocked)
 
 # ── Auto-refresh ─────────────────────────────────────────────
-# Read-only viewers refresh every 30s so they always see latest changes.
-# Team editors refresh every 90s — less aggressive — and ONLY when the
-# Edit Job dialog isn't open (otherwise typing/editing would be disrupted).
-# Session state (incl. edit unlock and form drafts) survives auto-refresh.
+# Read-only viewers refresh every 30s so they always see the latest.
+# Team editors refresh every 90s and ONLY when the Edit Job dialog isn't open
+# (otherwise typing/editing would be disrupted).
+#
+# IMPORTANT: load_data() is ONLY called when an actual auto-refresh tick fires,
+# NOT on every script rerun. Previously it was reloading on every button click /
+# keystroke, which (a) hit the Sheets API far too often and (b) widened the
+# window for a transient API hiccup to drop us back to default data.
 if AUTOREFRESH_AVAILABLE:
     dialog_open = bool(st.session_state.get('editing_id'))
     if readonly:
-        st_autorefresh(interval=30000, key='ro_refresh')
-        st.session_state.data = load_data()
-        data = st.session_state.data
-        data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+        new_tick = st_autorefresh(interval=30000, key='ro_refresh')
+        if st.session_state.get('ro_tick') != new_tick:
+            st.session_state['ro_tick'] = new_tick
+            st.session_state.data = load_data()
     elif not dialog_open:
-        # Team mode auto-refresh — only while no dialog open
-        st_autorefresh(interval=90000, key='team_refresh')
-        # Don't overwrite local data if user has unsaved form edits — Streamlit
-        # widget keys preserve their values across reruns anyway, so it's safe.
-        st.session_state.data = load_data()
-        data = st.session_state.data
-        data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+        new_tick = st_autorefresh(interval=90000, key='team_refresh')
+        if st.session_state.get('team_tick') != new_tick:
+            st.session_state['team_tick'] = new_tick
+            st.session_state.data = load_data()
+
+# Always re-bind local 'data' to the current session value
+data = st.session_state.data
+data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
 
 # ─────────────────────────────────────────────────────────────
 # HEADER
@@ -744,12 +770,7 @@ if not readonly:
                 if target_day >= 5:
                     target_day = 5
 
-                # Make sure that week exists in our nav + data
-                if target_offset not in data['weekOffsets']:
-                    data['weekOffsets'].append(target_offset)
-                target_wd = get_week_data(data, target_offset)
-
-                target_wd['jobs'].append({
+                new_job = {
                     'id': new_job_id(),
                     'customer': cust, 'postcode': post,
                     'col': 'del' if ctype == 'Delivery' else 'col',
@@ -760,17 +781,30 @@ if not readonly:
                     'wide_load': wide,
                     'completed': completed,
                     'price': price,
-                })
-                save_data(data)
-                # Reset form state
-                for k in list(st.session_state.keys()):
-                    if k.startswith('nj_'):
-                        del st.session_state[k]
-                st.session_state.nj_load_count = 1
-                # Jump to the week the job was added to so the user can see it
-                st.session_state.offset = target_offset
-                st.success(f'✓ Added {cust} on {picked.strftime("%A %-d %b %Y")}')
-                st.rerun()
+                }
+
+                # CONCURRENCY-SAFE: pull fresh data from the Sheet first, then
+                # append our new job and save. Stops two team members each adding
+                # a job at the same time from overwriting each other's work.
+                fresh = load_data()
+                if target_offset not in fresh.get('weekOffsets', []):
+                    fresh.setdefault('weekOffsets', []).append(target_offset)
+                target_wd = get_week_data(fresh, target_offset)
+                target_wd['jobs'].append(new_job)
+                ok, err = save_data(fresh)
+                if ok:
+                    st.session_state.data = fresh
+                    # Reset form state
+                    for k in list(st.session_state.keys()):
+                        if k.startswith('nj_'):
+                            del st.session_state[k]
+                    st.session_state.nj_load_count = 1
+                    # Jump to the week the job was added to so the user can see it
+                    st.session_state.offset = target_offset
+                    st.success(f'✓ Added {cust} on {picked.strftime("%A %-d %b %Y")}')
+                    st.rerun()
+                else:
+                    st.error(f'🔴 Could not save the new job: {err}')
             else:
                 st.error('Customer and Postcode are required')
 
