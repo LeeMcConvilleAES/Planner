@@ -192,19 +192,33 @@ def move_job(jobs_list, job_id, direction):
         return False
 
 def dedupe_job_ids(d):
-    """Make sure every job across every week has a unique ID. Reassigns duplicates.
-    This is a safety net for any historical data that already had clashes."""
+    """Make sure every job, vehicle, and holiday across every week has a unique ID.
+    Reassigns duplicates. Safety net for any historical data that had clashes."""
     if not d or 'weeks' not in d:
         return d
-    seen = set()
+    seen_jobs = set()
+    seen_vehs = set()
+    seen_hols = set()
     fixed = 0
     for wk_key, wk in d['weeks'].items():
         for job in wk.get('jobs', []):
             jid = job.get('id', '')
-            if not jid or jid in seen:
+            if not jid or jid in seen_jobs:
                 job['id'] = new_job_id()
                 fixed += 1
-            seen.add(job['id'])
+            seen_jobs.add(job['id'])
+        for veh in wk.get('vehicles', []):
+            vid = veh.get('id')
+            if vid is None or vid in seen_vehs:
+                veh['id'] = new_job_id()
+                fixed += 1
+            seen_vehs.add(veh['id'])
+        for hol in wk.get('holidays', []):
+            hid = hol.get('id')
+            if hid is None or hid in seen_hols:
+                hol['id'] = new_job_id()
+                fixed += 1
+            seen_hols.add(hol['id'])
     if fixed > 0:
         st.session_state['dedupe_count'] = fixed
     return d
@@ -822,8 +836,8 @@ if not readonly:
                     wd['vehicles'] = [x for x in wd['vehicles'] if x['id'] != v['id']]
                     save_data(data); st.rerun()
             if st.button('+ Add Vehicle'):
-                wd['vehicles'].append({'id': st.session_state.next_id, 'reg': '', 'name': '', 'day': 0, 'note': ''})
-                st.session_state.next_id += 1; save_data(data); st.rerun()
+                wd['vehicles'].append({'id': new_job_id(), 'reg': '', 'name': '', 'day': 0, 'note': ''})
+                save_data(data); st.rerun()
         with hcol:
             st.markdown('**🏖 Staff Holidays**')
             for h in wd.get('holidays', []):
@@ -835,8 +849,8 @@ if not readonly:
                 dsel2 = st.multiselect('Days', DAYS, default=[DAYS[d] for d in h['days'] if d < 6], key=f"hd{h['id']}", label_visibility='collapsed')
                 h['days'] = [DAYS.index(x) for x in dsel2]
             if st.button('+ Add Person'):
-                wd['holidays'].append({'id': st.session_state.next_id, 'name': '', 'days': []})
-                st.session_state.next_id += 1; save_data(data); st.rerun()
+                wd['holidays'].append({'id': new_job_id(), 'name': '', 'days': []})
+                save_data(data); st.rerun()
         if st.button('💾 Save', type='primary'):
             save_data(data); st.success('Saved')
 
