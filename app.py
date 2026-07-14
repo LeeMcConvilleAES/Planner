@@ -168,6 +168,26 @@ def new_job_id():
     """Generate a globally unique job ID — never collides between team members."""
     return f"j-{uuid.uuid4().hex[:10]}"
 
+def find_job_across_weeks(d, job_id):
+    """Search every week for a job with the given ID.
+    Returns (job_dict, containing_week_dict) or (None, None) if not found."""
+    for wk_key, wk in d.get('weeks', {}).items():
+        for j in wk.get('jobs', []):
+            if j.get('id') == job_id:
+                return j, wk
+    return None, None
+
+def find_week_offset_for_job(d, job_id):
+    """Return the week-offset that contains the given job, or None if not found."""
+    today_monday = get_monday(0)
+    for wk_key, wk in d.get('weeks', {}).items():
+        for j in wk.get('jobs', []):
+            if j.get('id') == job_id:
+                # week_key is a Monday date string; compute offset from today
+                wk_monday = datetime.strptime(wk_key, '%Y-%m-%d').date()
+                return (wk_monday - today_monday.date()).days // 7
+    return None
+
 def move_job(jobs_list, job_id, direction):
     """Move a job up (-1) or down (+1) within its day+col group in the list.
     Returns True if a swap actually happened."""
@@ -937,15 +957,28 @@ for di in range(6):
                     with uc1:
                         if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
                                      disabled=(idx_in_cell == 0), help='Move up'):
-                            if move_job(wd['jobs'], j['id'], -1):
-                                save_data(data)
-                                st.rerun()
+                            # Reload fresh, move by ID, save — preserves other users' concurrent work
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], -1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
                     with uc2:
                         if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
                                      disabled=(idx_in_cell == len(dels) - 1), help='Move down'):
-                            if move_job(wd['jobs'], j['id'], 1):
-                                save_data(data)
-                                st.rerun()
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], 1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
 
     # Collections column
     with col_col:
@@ -979,15 +1012,27 @@ for di in range(6):
                     with uc1:
                         if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
                                      disabled=(idx_in_cell == 0), help='Move up'):
-                            if move_job(wd['jobs'], j['id'], -1):
-                                save_data(data)
-                                st.rerun()
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], -1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
                     with uc2:
                         if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
                                      disabled=(idx_in_cell == len(cols2) - 1), help='Move down'):
-                            if move_job(wd['jobs'], j['id'], 1):
-                                save_data(data)
-                                st.rerun()
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], 1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
 
 if not readonly:
     st.caption('💡 Click any job pill above to edit its details.')
@@ -1080,44 +1125,67 @@ def edit_dialog(job):
             if new_day >= 5:
                 new_day = 5
 
-            # Update job fields (mutates the dict in place)
-            job['customer'] = cust
-            job['postcode'] = post
-            job['col'] = 'del' if ctype == 'Delivery' else 'col'
-            job['day'] = new_day
-            job['status'] = ssel.lower()
-            job['notes'] = notes
-            job['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
-            job['wide_load'] = wide
-            job['completed'] = completed
-            job['price'] = price
+            # CONCURRENCY-SAFE: reload the latest data, find THIS job by ID
+            # across all weeks, apply the edit to that fresh copy, then save.
+            # This stops us from wiping any jobs other team members added
+            # between when we opened the dialog and when we clicked Save.
+            fresh = load_data()
+            found, source_wk = find_job_across_weeks(fresh, job['id'])
+            if found is None:
+                st.error("This job no longer exists in the Sheet — it may have been deleted by someone else. Your changes were not saved.")
+                if edit_count_key in st.session_state:
+                    del st.session_state[edit_count_key]
+                st.session_state.editing_id = None
+                st.session_state.data = fresh
+                st.rerun()
 
-            # If the date moves to a different week, relocate the job
+            # Apply all edits to the fresh copy of the job
+            found['customer'] = cust
+            found['postcode'] = post
+            found['col'] = 'del' if ctype == 'Delivery' else 'col'
+            found['day'] = new_day
+            found['status'] = ssel.lower()
+            found['notes'] = notes
+            found['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
+            found['wide_load'] = wide
+            found['completed'] = completed
+            found['price'] = price
+
+            # If date moves to a different week, relocate the job in fresh data
             if new_offset != current_offset:
-                # Remove from current week
-                wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
+                # Remove the job wherever it currently lives in fresh data
+                source_wk['jobs'] = [x for x in source_wk['jobs'] if x['id'] != job['id']]
                 # Make sure new week exists
-                if new_offset not in data['weekOffsets']:
-                    data['weekOffsets'].append(new_offset)
-                # Add to new week
-                target_wd = get_week_data(data, new_offset)
-                target_wd['jobs'].append(job)
-                # Jump the planner to the new week so the user sees it land
+                if new_offset not in fresh.get('weekOffsets', []):
+                    fresh.setdefault('weekOffsets', []).append(new_offset)
+                # Add to target week
+                target_wd = get_week_data(fresh, new_offset)
+                target_wd['jobs'].append(found)
                 st.session_state.offset = new_offset
 
-            save_data(data)
-            # Clear the edit counter for this job so it resets next time
+            ok, err = save_data(fresh)
+            if ok:
+                st.session_state.data = fresh
+                if edit_count_key in st.session_state:
+                    del st.session_state[edit_count_key]
+                st.session_state.editing_id = None
+                st.rerun()
+            else:
+                st.error(f'🔴 Save failed: {err}')
+    if b2.button('🗑 Delete', use_container_width=True):
+        # Reload fresh, remove this job by ID from wherever it lives, save
+        fresh = load_data()
+        for wk in fresh.get('weeks', {}).values():
+            wk['jobs'] = [x for x in wk.get('jobs', []) if x.get('id') != job['id']]
+        ok, err = save_data(fresh)
+        if ok:
+            st.session_state.data = fresh
             if edit_count_key in st.session_state:
                 del st.session_state[edit_count_key]
             st.session_state.editing_id = None
             st.rerun()
-    if b2.button('🗑 Delete', use_container_width=True):
-        wd['jobs'] = [x for x in wd['jobs'] if x['id'] != job['id']]
-        save_data(data)
-        if edit_count_key in st.session_state:
-            del st.session_state[edit_count_key]
-        st.session_state.editing_id = None
-        st.rerun()
+        else:
+            st.error(f'🔴 Delete failed: {err}')
     if b3.button('Cancel', use_container_width=True):
         if edit_count_key in st.session_state:
             del st.session_state[edit_count_key]
@@ -1143,10 +1211,14 @@ if not readonly:
     st.divider()
     sb1, sb2, sb3, sb_sp = st.columns([1.5, 1.5, 1.5, 6])
     with sb1:
-        if st.button('💾 Save Now', type='primary', use_container_width=True, key='manual_save'):
-            ok, err = save_data(data)
+        if st.button('💾 Save Now', type='primary', use_container_width=True, key='manual_save',
+                     help='Force-save current in-memory data to the Sheet. Only use this if you have unsaved local changes such as the auto-repair banner asking you to save.'):
+            # Save whatever is currently in session (needed for dedupe/cleanup commits).
+            # Ordinary edits already save themselves via reload-merge, so this button
+            # is only really for confirming safety-net repairs.
+            ok, err = save_data(st.session_state.data)
             if ok:
-                st.success(f"✅ Saved successfully at {now_uk().strftime('%H:%M:%S')}")
+                st.success(f"✅ Saved at {now_uk().strftime('%H:%M:%S')}")
             else:
                 st.error(f"🔴 Save FAILED — {err}")
             st.rerun()
