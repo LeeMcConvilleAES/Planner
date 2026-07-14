@@ -500,22 +500,28 @@ readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_u
 
 # ── Auto-refresh ─────────────────────────────────────────────
 # Read-only viewers refresh every 30s so they always see the latest.
-# Team editors refresh every 90s and ONLY when the Edit Job dialog isn't open
-# (otherwise typing/editing would be disrupted).
+# Team editors refresh every 45s — often enough to feel live — but PAUSED
+# while the Edit Job dialog is open (otherwise typing would be disrupted).
 #
 # IMPORTANT: load_data() is ONLY called when an actual auto-refresh tick fires,
 # NOT on every script rerun. Previously it was reloading on every button click /
 # keystroke, which (a) hit the Sheets API far too often and (b) widened the
 # window for a transient API hiccup to drop us back to default data.
+autorefresh_active = False
+autorefresh_secs = 0
 if AUTOREFRESH_AVAILABLE:
     dialog_open = bool(st.session_state.get('editing_id'))
     if readonly:
         new_tick = st_autorefresh(interval=30000, key='ro_refresh')
+        autorefresh_active = True
+        autorefresh_secs = 30
         if st.session_state.get('ro_tick') != new_tick:
             st.session_state['ro_tick'] = new_tick
             st.session_state.data = load_data()
     elif not dialog_open:
-        new_tick = st_autorefresh(interval=90000, key='team_refresh')
+        new_tick = st_autorefresh(interval=45000, key='team_refresh')
+        autorefresh_active = True
+        autorefresh_secs = 45
         if st.session_state.get('team_tick') != new_tick:
             st.session_state['team_tick'] = new_tick
             st.session_state.data = load_data()
@@ -558,12 +564,14 @@ elif last_save:
                 size_warning = f" ⚠️ Storage {pct:.0f}% full ({size:,}/50,000 chars) — delete old weeks soon"
             elif pct >= 60:
                 size_warning = f" · Storage {pct:.0f}% used"
-        st.success(f"✅ Connected to Google Sheets — last saved {ts}{size_warning}", icon=None)
+        live_ind = f" · 🔄 auto-refresh every {autorefresh_secs}s" if autorefresh_active else ""
+        st.success(f"✅ Connected to Google Sheets — last saved {ts}{size_warning}{live_ind}", icon=None)
     else:
         st.error(f"🔴 **LAST SAVE FAILED at {ts}** — {last_save['err']}")
 else:
     if not readonly:
-        st.info(f"🔵 Connected — make a change to confirm saving works")
+        live_ind = f" · 🔄 auto-refresh every {autorefresh_secs}s active" if autorefresh_active else ""
+        st.info(f"🔵 Connected — make a change to confirm saving works{live_ind}")
 
 # Notify if we just auto-fixed duplicate IDs (one-off cleanup from older app version)
 if st.session_state.get('dedupe_count', 0) > 0:
