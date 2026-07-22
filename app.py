@@ -98,7 +98,27 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
 /* ── Pill buttons (clickable jobs) ────────────────────────── */
 .pill-day-header{background:#0d823b;color:white;text-align:center;padding:7px 5px;font-weight:700;font-size:12px;border-radius:5px 5px 0 0;margin-bottom:0}
 .pill-day-header.wknd{background:#546270}
+.pill-day-header.atcap{background:#dc2626}
 .pill-day-header small{font-weight:400;opacity:.8;font-size:10px;display:block}
+.cap-banner{background:#dc2626;color:white;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;padding:3px 4px;border-radius:0 0 3px 3px}
+/* At Capacity toggle buttons — red fill when ON, white when OFF */
+[data-testid="stVerticalBlock"] > div:has(.marker-cap-on) + div button{
+    background:#dc2626 !important;
+    border:1px solid #b91c1c !important;
+    color:#ffffff !important;
+    font-weight:700 !important;
+    font-size:10px !important;
+    padding:3px 4px !important;
+}
+[data-testid="stVerticalBlock"] > div:has(.marker-cap-off) + div button{
+    background:#ffffff !important;
+    border:1px solid #d1d5db !important;
+    color:#6b7280 !important;
+    font-weight:600 !important;
+    font-size:10px !important;
+    padding:3px 4px !important;
+}
+.marker-cap-on,.marker-cap-off{display:none}
 .pill-section-del{background:#f0fdf4;color:#166534;border-top:2px solid #0d823b;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:2px 0 4px 0;border-radius:0 0 3px 3px}
 .pill-section-col{background:#eff6ff;color:#1e40af;border-top:2px solid #3b82f6;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:6px 0 4px 0;border-radius:0 0 3px 3px}
 .pill-veh{background:#fffbeb;border:1px solid #fde68a;font-size:9px;color:#92400e;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
@@ -887,14 +907,48 @@ if not readonly:
 # ─────────────────────────────────────────────────────────────
 vehs = wd.get('vehicles', [])
 hols = wd.get('holidays', [])
+# Days marked "At Capacity" for this week (list of day indices 0-5)
+at_capacity = wd.setdefault('capacity', [])
 
 # Row 1: day banners (6 cols, each spans 2 sub-columns visually)
 hdr = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:0">'
 for di, dn in enumerate(DAYS):
-    wknd = ' wknd' if di == 5 else ''
-    hdr += f'<div class="pill-day-header{wknd}">{dn}<small>{get_day_label(offset, di)}</small></div>'
+    cls = 'pill-day-header'
+    if di in at_capacity:
+        cls += ' atcap'
+    elif di == 5:
+        cls += ' wknd'
+    cap_line = '<div class="cap-banner">🚫 At Capacity</div>' if di in at_capacity else ''
+    hdr += (f'<div><div class="{cls}">{dn}<small>{get_day_label(offset, di)}</small></div>'
+            f'{cap_line}</div>')
 hdr += '</div>'
 st.markdown(hdr, unsafe_allow_html=True)
+
+# Row 1b: At Capacity toggle buttons (team edit only)
+if not readonly:
+    cap_cols = st.columns(6)
+    for di, ccol in enumerate(cap_cols):
+        with ccol:
+            is_cap = di in at_capacity
+            marker = 'marker-cap-on' if is_cap else 'marker-cap-off'
+            st.markdown(f'<div class="{marker}"></div>', unsafe_allow_html=True)
+            label = '🚫 At Capacity' if is_cap else '＋ Mark At Capacity'
+            if st.button(label, key=f'cap_{offset}_{di}', use_container_width=True,
+                         help='Toggle this day as full / not full'):
+                # Reload-merge so we don't overwrite other users' concurrent work
+                _fresh = load_data()
+                _fwd = get_week_data(_fresh, offset)
+                _caps = _fwd.setdefault('capacity', [])
+                if di in _caps:
+                    _caps.remove(di)
+                else:
+                    _caps.append(di)
+                _ok, _err = save_data(_fresh)
+                if _ok:
+                    st.session_state.data = _fresh
+                    st.rerun()
+                else:
+                    st.error(f'Could not update capacity: {_err}')
 
 # Row 2: vehicle / holiday bars (6 cols)
 vh_row = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:2px">'
