@@ -135,8 +135,8 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
     height:auto !important;
     min-height:0 !important;
     font-size:11px !important;
-    line-height:1.3 !important;
-    white-space:normal !important;
+    line-height:1.4 !important;
+    white-space:pre-wrap !important;
     overflow-wrap:anywhere !important;
     word-break:break-word !important;
     box-shadow:none !important;
@@ -145,12 +145,12 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
     border:1px solid #e2e6ea !important;
     color:#40424a;
 }
-/* Make the inner markdown of the button wrap too (Streamlit wraps label in a <p>) */
+/* Make the inner markdown of the button preserve line breaks and wrap */
 [data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button p{
-    white-space:normal !important;
+    white-space:pre-wrap !important;
     overflow-wrap:anywhere !important;
     word-break:break-word !important;
-    line-height:1.3 !important;
+    line-height:1.4 !important;
     margin:0 !important;
 }
 [data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button div{
@@ -1013,13 +1013,16 @@ for di in range(6):
                 if j.get('wide_load'): tags.append('🚧 WIDE')
                 if j.get('completed'): tags.append('✅ DONE')
                 lines = [' · '.join(tags)]
-                lines.append(j['customer'])
+                lines.append(f"**{j['customer']}**")
                 for l in j['loads']:
-                    drv = f"  ·  :red[**{l['driver']}**]" if l.get('driver') else ""
-                    lines.append(f"📦 {l.get('desc','—')}{drv}")
+                    desc = l.get('desc', '—') or '—'
+                    if l.get('driver'):
+                        lines.append(f"📦 {desc} → :red[**{l['driver']}**]")
+                    else:
+                        lines.append(f"📦 {desc}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
-                    lines.append(j['notes'])
+                    lines.append(f"📝 {j['notes']}")
                 # Price only visible in team mode
                 if not readonly and j.get('price'):
                     lines.append(f"💷 {j['price']}")
@@ -1069,13 +1072,16 @@ for di in range(6):
                 if j.get('wide_load'): tags.append('🚧 WIDE')
                 if j.get('completed'): tags.append('✅ DONE')
                 lines = [' · '.join(tags)]
-                lines.append(j['customer'])
+                lines.append(f"**{j['customer']}**")
                 for l in j['loads']:
-                    drv = f"  ·  :red[**{l['driver']}**]" if l.get('driver') else ""
-                    lines.append(f"📦 {l.get('desc','—')}{drv}")
+                    desc = l.get('desc', '—') or '—'
+                    if l.get('driver'):
+                        lines.append(f"📦 {desc} → :red[**{l['driver']}**]")
+                    else:
+                        lines.append(f"📦 {desc}")
                 lines.append(f"📍 {j['postcode']}")
                 if j.get('notes'):
-                    lines.append(j['notes'])
+                    lines.append(f"📝 {j['notes']}")
                 if not readonly and j.get('price'):
                     lines.append(f"💷 {j['price']}")
                 label = "\n".join(lines)
