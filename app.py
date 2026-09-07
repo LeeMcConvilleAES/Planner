@@ -119,6 +119,7 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
     padding:3px 4px !important;
 }
 .marker-cap-on,.marker-cap-off{display:none}
+
 .pill-section-del{background:#f0fdf4;color:#166534;border-top:2px solid #0d823b;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:2px 0 4px 0;border-radius:0 0 3px 3px}
 .pill-section-col{background:#eff6ff;color:#1e40af;border-top:2px solid #3b82f6;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:6px 0 4px 0;border-radius:0 0 3px 3px}
 .pill-veh{background:#fffbeb;border:1px solid #fde68a;font-size:9px;color:#92400e;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
@@ -132,14 +133,29 @@ div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-rad
     text-align:left !important;
     padding:6px 8px !important;
     height:auto !important;
+    min-height:0 !important;
     font-size:11px !important;
-    line-height:1.35 !important;
-    white-space:pre-line !important;
+    line-height:1.3 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
     box-shadow:none !important;
     margin-bottom:3px !important;
     background:white !important;
     border:1px solid #e2e6ea !important;
     color:#40424a;
+}
+/* Make the inner markdown of the button wrap too (Streamlit wraps label in a <p>) */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button p{
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    line-height:1.3 !important;
+    margin:0 !important;
+}
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button div{
+    display:block !important;
+    width:100% !important;
 }
 [data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button:hover{
     transform:translateY(-1px) !important;
