@@ -42,7 +42,7 @@ html,body,[class*="css"]{font-family:'Figtree',sans-serif!important}
 .main .block-container{padding:0!important;max-width:100%!important}
 .block-container{padding-top:0!important}
 
-.aes-hdr{background:#0d823b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-radius:0}
+.aes-hdr{background:#22c55e;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-radius:0}
 .aes-hdr-title{color:white;font-weight:700;font-size:15px;letter-spacing:.2px;margin:0}
 .aes-hdr-sub{color:rgba(255,255,255,.75);font-size:10px;margin:0}
 .mode-tag{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:5px;padding:4px 12px;color:white;font-size:11px;font-weight:700}
