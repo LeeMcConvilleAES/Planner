@@ -1,0 +1,1322 @@
+import streamlit as st
+import json
+import uuid
+from datetime import datetime, timedelta
+try:
+    from zoneinfo import ZoneInfo
+    UK_TZ = ZoneInfo("Europe/London")
+except ImportError:
+    UK_TZ = None
+
+def now_uk():
+    """Current time in UK timezone (handles BST/GMT automatically)."""
+    if UK_TZ is not None:
+        return datetime.now(UK_TZ)
+    return datetime.now()
+
+try:
+    import gspread
+    from google.oauth2.service_account import Credentials
+    GSPREAD_AVAILABLE = True
+except ImportError:
+    GSPREAD_AVAILABLE = False
+
+try:
+    from streamlit_autorefresh import st_autorefresh
+    AUTOREFRESH_AVAILABLE = True
+except ImportError:
+    AUTOREFRESH_AVAILABLE = False
+
+st.set_page_config(page_title="AES Transport Planner", page_icon="🚛", layout="wide", initial_sidebar_state="collapsed")
+
+DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat/Sun']
+
+# ─────────────────────────────────────────────────────────────
+# STYLING — match the HTML version exactly
+# ─────────────────────────────────────────────────────────────
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+html,body,[class*="css"]{font-family:'Figtree',sans-serif!important}
+#MainMenu,footer,header[data-testid="stHeader"]{display:none}
+.main .block-container{padding:0!important;max-width:100%!important}
+.block-container{padding-top:0!important}
+
+.aes-hdr{background:#22c55e;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-radius:0}
+.aes-hdr-title{color:white;font-weight:700;font-size:15px;letter-spacing:.2px;margin:0}
+.aes-hdr-sub{color:rgba(255,255,255,.75);font-size:10px;margin:0}
+.mode-tag{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:5px;padding:4px 12px;color:white;font-size:11px;font-weight:700}
+
+.planner-table{border-collapse:collapse;width:100%;table-layout:fixed;margin-top:6px}
+.planner-table th,.planner-table td{border:1px solid #e2e6ea;vertical-align:top}
+.day-th{background:#0d823b;color:white;text-align:center;padding:7px 5px;font-weight:700;font-size:12px}
+.day-th.wknd{background:#546270}
+.day-th small{font-weight:400;opacity:.8;font-size:10px}
+.col-sub-th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 6px;text-align:center}
+.del-th{background:#f0fdf4;color:#166534;border-bottom:2px solid #0d823b}
+.col-th{background:#eff6ff;color:#1e40af;border-bottom:2px solid #3b82f6}
+.veh-row td{background:#fffbeb;font-size:9px;color:#92400e;font-weight:700;padding:3px 8px;text-align:center;border-bottom:1px solid #fde68a}
+.jobs-cell{padding:5px;vertical-align:top;min-height:90px}
+.jobs-cell.del{background:#fafffe}
+.jobs-cell.col{background:#f8faff}
+
+.job{border-radius:5px;padding:5px 7px;margin-bottom:4px;border:1px solid #e2e6ea;background:white;display:block;text-decoration:none}
+a.job{cursor:pointer;transition:transform .1s,box-shadow .1s}
+a.job:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+/* Deliveries booked = green */
+.job.booked.del-job{background:#d1fae5;border-color:#6ee7b7}
+.job.booked.del-job .jcust{color:#064e3b}
+.job.booked.del-job .jpost{color:#065f46}
+.job.booked.del-job .jload{color:#065f46}
+/* Collections booked = red */
+.job.booked.col-job{background:#fee2e2;border-color:#fca5a5}
+.job.booked.col-job .jcust{color:#7f1d1d}
+.job.booked.col-job .jpost{color:#991b1b}
+.job.booked.col-job .jload{color:#991b1b}
+.job.booked.col-job .dchip{background:rgba(220,38,38,.12);color:#991b1b;border-color:rgba(220,38,38,.3)}
+.job.booked.col-job .bkdb{background:#dc2626}
+.jcust{font-weight:700;font-size:11px;color:#1a2e1a}
+.job.enquiry .jcust{color:#40424a}
+.jpost{font-size:9px;font-weight:600;color:#065f46;margin-top:2px}
+.job.enquiry .jpost{color:#374151}
+.jload{font-size:9px;color:#4b5563;font-weight:600;padding:1px 0;display:flex;align-items:center;justify-content:space-between}
+.dchip{display:inline-block;background:rgba(13,130,59,.15);color:#065f46;border-radius:3px;padding:0 5px;font-size:8px;font-weight:700;min-width:22px;text-align:center;border:1px solid rgba(13,130,59,.2)}
+.job.enquiry .dchip{background:rgba(245,158,11,.15);color:#92400e;border-color:rgba(245,158,11,.3)}
+.enqb{font-size:7px;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:2px;padding:0 4px;margin-bottom:2px;display:inline-block}
+.bkdb{font-size:7px;font-weight:700;background:#059669;color:white;border-radius:2px;padding:0 4px;margin-bottom:2px;display:inline-block}
+.jnotes{font-size:8px;color:#9ca3af;font-style:italic;margin-top:2px}
+.empty-cell{color:#d1d5db;font-size:9px;text-align:center;padding:10px 4px}
+
+.legend-row{display:flex;align-items:center;gap:14px;padding:6px 4px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px}
+.legend-sw{width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+
+div[data-testid="stHorizontalBlock"]{gap:6px}
+.stButton button{font-family:'Figtree',sans-serif!important;font-size:11px!important;border-radius:5px!important}
+div[data-testid="stMetric"]{background:white;border:1px solid #e2e6ea;border-radius:6px;padding:6px 10px}
+
+/* ── Pill buttons (clickable jobs) ────────────────────────── */
+.pill-day-header{background:#0d823b;color:white;text-align:center;padding:7px 5px;font-weight:700;font-size:12px;border-radius:5px 5px 0 0;margin-bottom:0}
+.pill-day-header.wknd{background:#546270}
+.pill-day-header.atcap{background:#dc2626}
+.pill-day-header small{font-weight:400;opacity:.8;font-size:10px;display:block}
+.cap-banner{background:#dc2626;color:white;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;padding:3px 4px;border-radius:0 0 3px 3px}
+/* At Capacity toggle buttons — red fill when ON, white when OFF */
+[data-testid="stVerticalBlock"] > div:has(.marker-cap-on) + div button{
+    background:#dc2626 !important;
+    border:1px solid #b91c1c !important;
+    color:#ffffff !important;
+    font-weight:700 !important;
+    font-size:10px !important;
+    padding:3px 4px !important;
+}
+[data-testid="stVerticalBlock"] > div:has(.marker-cap-off) + div button{
+    background:#ffffff !important;
+    border:1px solid #d1d5db !important;
+    color:#6b7280 !important;
+    font-weight:600 !important;
+    font-size:10px !important;
+    padding:3px 4px !important;
+}
+.marker-cap-on,.marker-cap-off{display:none}
+
+.pill-section-del{background:#f0fdf4;color:#166534;border-top:2px solid #0d823b;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:2px 0 4px 0;border-radius:0 0 3px 3px}
+.pill-section-col{background:#eff6ff;color:#1e40af;border-top:2px solid #3b82f6;padding:4px 6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:center;margin:6px 0 4px 0;border-radius:0 0 3px 3px}
+.pill-veh{background:#fffbeb;border:1px solid #fde68a;font-size:9px;color:#92400e;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
+.pill-hol{background:#eff6ff;border:1px solid #bfdbfe;font-size:9px;color:#1e40af;font-weight:700;padding:3px 6px;text-align:center;border-radius:3px;margin:2px 0}
+.pill-empty{color:#d1d5db;font-size:10px;text-align:center;padding:6px;font-style:italic}
+
+/* Base pill button look (applies to every job button)
+   Note: 'color' is NOT marked !important so that markdown :red[] in labels
+   can override per-token colours (used for driver initials). */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button{
+    text-align:left !important;
+    padding:6px 8px !important;
+    height:auto !important;
+    min-height:0 !important;
+    font-size:11px !important;
+    line-height:1.4 !important;
+    white-space:pre-wrap !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    box-shadow:none !important;
+    margin-bottom:3px !important;
+    background:white !important;
+    border:1px solid #e2e6ea !important;
+    color:#40424a;
+}
+/* Make the inner markdown of the button preserve line breaks and wrap */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button p{
+    white-space:pre-wrap !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+    line-height:1.4 !important;
+    margin:0 !important;
+}
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button div{
+    display:block !important;
+    width:100% !important;
+}
+[data-testid="stVerticalBlock"] > div:has(.marker-pill) + div button:hover{
+    transform:translateY(-1px) !important;
+    box-shadow:0 2px 8px rgba(0,0,0,.1) !important;
+    border-color:#0d823b !important;
+}
+/* 🟢 Booked DELIVERY = GREEN shading */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-del) + div button{
+    background:#d1fae5 !important;
+    border:1px solid #6ee7b7 !important;
+    color:#064e3b;
+    font-weight:600 !important;
+}
+/* 🔴 Booked COLLECTION = RED shading */
+[data-testid="stVerticalBlock"] > div:has(.marker-pill-booked-col) + div button{
+    background:#fee2e2 !important;
+    border:1px solid #fca5a5 !important;
+    color:#7f1d1d;
+    font-weight:600 !important;
+}
+/* ⚪ Enquiry (both columns) — stays clear white (default above) */
+.marker-pill,.marker-pill-booked-del,.marker-pill-booked-col,.marker-pill-enquiry{display:none}
+</style>
+""", unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────
+# GOOGLE SHEETS
+# ─────────────────────────────────────────────────────────────
+def get_sheet():
+    if not GSPREAD_AVAILABLE:
+        return None, "gspread library not installed — check requirements.txt"
+    try:
+        creds_dict = dict(st.secrets["gcp_service_account"])
+    except Exception as e:
+        return None, f"Google secrets not configured in Streamlit settings ({e})"
+    try:
+        scopes = ["https://www.googleapis.com/auth/spreadsheets",
+                  "https://www.googleapis.com/auth/drive"]
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+        client = gspread.authorize(creds)
+        return client.open("AES Transport Planner").sheet1, None
+    except Exception as e:
+        return None, f"Could not open Google Sheet 'AES Transport Planner': {e}"
+
+def new_job_id():
+    """Generate a globally unique job ID — never collides between team members."""
+    return f"j-{uuid.uuid4().hex[:10]}"
+
+def find_job_across_weeks(d, job_id):
+    """Search every week for a job with the given ID.
+    Returns (job_dict, containing_week_dict) or (None, None) if not found."""
+    for wk_key, wk in d.get('weeks', {}).items():
+        for j in wk.get('jobs', []):
+            if j.get('id') == job_id:
+                return j, wk
+    return None, None
+
+def find_week_offset_for_job(d, job_id):
+    """Return the week-offset that contains the given job, or None if not found."""
+    today_monday = get_monday(0)
+    for wk_key, wk in d.get('weeks', {}).items():
+        for j in wk.get('jobs', []):
+            if j.get('id') == job_id:
+                # week_key is a Monday date string; compute offset from today
+                wk_monday = datetime.strptime(wk_key, '%Y-%m-%d').date()
+                return (wk_monday - today_monday.date()).days // 7
+    return None
+
+def move_job(jobs_list, job_id, direction):
+    """Move a job up (-1) or down (+1) within its day+col group in the list.
+    Returns True if a swap actually happened."""
+    idx = next((i for i, j in enumerate(jobs_list) if j['id'] == job_id), None)
+    if idx is None:
+        return False
+    j = jobs_list[idx]
+    day = j.get('day')
+    col = j.get('col')
+    if direction == -1:
+        # Find the nearest earlier job in the same day+col bucket and swap
+        for i in range(idx - 1, -1, -1):
+            if jobs_list[i].get('day') == day and jobs_list[i].get('col') == col:
+                jobs_list[idx], jobs_list[i] = jobs_list[i], jobs_list[idx]
+                return True
+        return False
+    else:
+        for i in range(idx + 1, len(jobs_list)):
+            if jobs_list[i].get('day') == day and jobs_list[i].get('col') == col:
+                jobs_list[idx], jobs_list[i] = jobs_list[i], jobs_list[idx]
+                return True
+        return False
+
+def dedupe_job_ids(d):
+    """Make sure every job, vehicle, and holiday across every week has a unique ID.
+    Reassigns duplicates. Safety net for any historical data that had clashes."""
+    if not d or 'weeks' not in d:
+        return d
+    seen_jobs = set()
+    seen_vehs = set()
+    seen_hols = set()
+    fixed = 0
+    for wk_key, wk in d['weeks'].items():
+        for job in wk.get('jobs', []):
+            jid = job.get('id', '')
+            if not jid or jid in seen_jobs:
+                job['id'] = new_job_id()
+                fixed += 1
+            seen_jobs.add(job['id'])
+        for veh in wk.get('vehicles', []):
+            vid = veh.get('id')
+            if vid is None or vid in seen_vehs:
+                veh['id'] = new_job_id()
+                fixed += 1
+            seen_vehs.add(veh['id'])
+        for hol in wk.get('holidays', []):
+            hid = hol.get('id')
+            if hid is None or hid in seen_hols:
+                hol['id'] = new_job_id()
+                fixed += 1
+            seen_hols.add(hol['id'])
+    if fixed > 0:
+        st.session_state['dedupe_count'] = fixed
+    return d
+
+def cleanup_old_weeks(d, keep_weeks_back=2):
+    """Remove weeks older than `keep_weeks_back` past weeks to free up storage.
+    Keeps the current week, last 2 weeks, and all future weeks."""
+    if not d or 'weeks' not in d:
+        return d
+    today_monday = get_monday(0)
+    cutoff = today_monday - timedelta(weeks=keep_weeks_back)
+    cutoff_key = cutoff.strftime('%Y-%m-%d')
+
+    to_remove = [wk for wk in list(d['weeks'].keys()) if wk < cutoff_key]
+    for wk in to_remove:
+        del d['weeks'][wk]
+
+    if 'weekOffsets' in d:
+        d['weekOffsets'] = sorted(set(o for o in d['weekOffsets'] if o >= -keep_weeks_back))
+        if not d['weekOffsets']:
+            d['weekOffsets'] = [-1, 0, 1, 2, 3]
+
+    if to_remove:
+        st.session_state['cleanup_count'] = len(to_remove)
+    return d
+
+def load_data():
+    """Load data from Sheet. CRITICAL: never falls back to defaults if we
+    already have data in session — that would let a transient API error
+    wipe future weeks when the user next clicks save."""
+    sheet, err = get_sheet()
+
+    # If we can't even get a Sheet handle, keep whatever we have in session
+    if sheet is None:
+        st.session_state.sheet_error = err
+        if st.session_state.get('data'):
+            st.session_state.sheet_error = (err or "") + " — keeping existing data in memory; "\
+                "DO NOT click 💾 Save Now until this connection is restored."
+            return st.session_state['data']
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
+
+    # Try to read the cell
+    try:
+        val = sheet.cell(1, 1).value
+        st.session_state.sheet_error = None
+        if val and val.strip():
+            return cleanup_old_weeks(dedupe_job_ids(json.loads(val)))
+        # Empty cell — only use default if we have absolutely nothing
+        if st.session_state.get('data'):
+            return st.session_state['data']
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
+    except Exception as e:
+        # Transient read failure — DO NOT overwrite good data with defaults.
+        # Hold onto what we have and warn the user not to save.
+        st.session_state.sheet_error = (f"Read from Sheet failed: {e} — "
+            "keeping existing data in memory; DO NOT click 💾 Save Now until "
+            "this is resolved or you'll risk overwriting good data.")
+        if st.session_state.get('data'):
+            return st.session_state['data']
+        return cleanup_old_weeks(dedupe_job_ids(get_default_data()))
+
+def save_data(d):
+    """Save to Google Sheets. Returns (success: bool, error: str|None).
+    More defensive than the original: checks size, retries transient errors,
+    and verifies the cell after writing so we know the data actually landed."""
+    sheet, err = get_sheet()
+    if sheet is None:
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': err}
+        return False, err
+
+    # Serialize the data once and check its size up-front
+    try:
+        payload = json.dumps(d)
+    except Exception as e:
+        msg = f"Cannot serialize data: {e}"
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
+        return False, msg
+
+    # Google Sheets cell limit is 50,000 chars. Warn at 90% so user has time to act.
+    size = len(payload)
+    if size > 50000:
+        msg = (f"Data too large for one Sheet cell ({size:,} chars > 50,000 limit). "
+               f"Save FAILED. Please delete some old weeks (e.g. those from months ago).")
+        st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
+        return False, msg
+    st.session_state.last_payload_size = size
+
+    # Try up to 3 times with brief backoff to ride out transient API glitches
+    import time as _time
+    last_err = None
+    for attempt in range(3):
+        try:
+            sheet.update_cell(1, 1, payload)
+            # Verify the write actually landed by reading back the first chunk
+            try:
+                check = sheet.cell(1, 1).value
+                if check and check.strip().startswith(payload[:50].strip()[:30]):
+                    st.session_state.last_save = {
+                        'ok': True, 'ts': now_uk(), 'err': None, 'size': size
+                    }
+                    return True, None
+                else:
+                    last_err = "Write verification failed — saved content doesn't match"
+            except Exception as ve:
+                # Write probably succeeded even if verify read failed; treat as success
+                st.session_state.last_save = {
+                    'ok': True, 'ts': now_uk(), 'err': None, 'size': size
+                }
+                return True, None
+        except Exception as e:
+            last_err = str(e)
+            if attempt < 2:
+                _time.sleep(0.6 * (attempt + 1))  # brief backoff
+            continue
+
+    msg = f"Save FAILED after 3 attempts: {last_err}"
+    st.session_state.last_save = {'ok': False, 'ts': now_uk(), 'err': msg}
+    return False, msg
+
+# ─────────────────────────────────────────────────────────────
+# WEEK HELPERS
+# ─────────────────────────────────────────────────────────────
+def get_monday(offset):
+    d = datetime.now()
+    return (d - timedelta(days=d.weekday()) + timedelta(weeks=offset)).replace(hour=0, minute=0, second=0, microsecond=0)
+
+def week_key(offset):
+    return get_monday(offset).strftime('%Y-%m-%d')
+
+def week_range_label(offset):
+    mon = get_monday(offset); fri = mon + timedelta(days=4)
+    return f"{mon.strftime('%-d %b')} – {fri.strftime('%-d %b %Y')}"
+
+def week_tab_label(offset):
+    if offset == 0: return 'This Week'
+    if offset == -1: return 'Last Week'
+    if offset == 1: return 'Next Week'
+    return get_monday(offset).strftime('%-d %b')
+
+def get_day_label(offset, di):
+    if di == 5: return 'Sat/Sun'
+    return (get_monday(offset) + timedelta(days=di)).strftime('%-d %b')
+
+def get_week_data(data, offset):
+    k = week_key(offset)
+    if k not in data['weeks']:
+        data['weeks'][k] = {'jobs': [], 'vehicles': [], 'holidays': []}
+    return data['weeks'][k]
+
+# ─────────────────────────────────────────────────────────────
+# DEFAULT SEED DATA
+# ─────────────────────────────────────────────────────────────
+def get_default_data():
+    data = {'weekOffsets': [-1, 0, 1, 2, 3], 'weeks': {}}
+    w0 = week_key(0)
+    data['weeks'][w0] = {
+        'jobs': [
+            {'id':'w0-1','customer':'Jones Homes','loads':[{'desc':'Solar Loo','driver':'RS1'}],'postcode':'WA4 3EN','col':'del','day':0,'status':'booked','notes':''},
+            {'id':'w0-2','customer':'MBC','loads':[{'desc':'Boss Unit','driver':'RS2'}],'postcode':'M14 4AH','col':'col','day':0,'status':'booked','notes':''},
+            {'id':'w0-3','customer':'Wright Build','loads':[{'desc':'Chem Loo','driver':'RS1'}],'postcode':'WN2 4NU','col':'del','day':0,'status':'booked','notes':''},
+            {'id':'w0-4','customer':'GreanPower','loads':[{'desc':'20kva','driver':'AP3'}],'postcode':'Etihad','col':'del','day':0,'status':'enquiry','notes':'Awaiting PO'},
+            {'id':'w0-5','customer':'A Connolly','loads':[{'desc':'24ft','driver':'DF2'},{'desc':'24ft','driver':'DF3'},{'desc':'24ft','driver':'CR2'},{'desc':'24ft','driver':'CR3'}],'postcode':'L8 0TU–L8 4TF','col':'col','day':0,'status':'booked','notes':'Site Move'},
+            {'id':'w0-6','customer':'A Connolly','loads':[{'desc':'24ft','driver':'DF1'},{'desc':'24ft','driver':'IB1'}],'postcode':'WA3 6RG–L8','col':'col','day':0,'status':'booked','notes':'Site Move'},
+            {'id':'w0-7','customer':'Stuart Energy','loads':[{'desc':'24ft','driver':''},{'desc':'24ft','driver':''},{'desc':'24ft','driver':''},{'desc':'24ft','driver':''}],'postcode':'WN8 9TB','col':'col','day':0,'status':'booked','notes':''},
+            {'id':'w0-8','customer':'Everton FC','loads':[{'desc':'6x Chem Loo','driver':''}],'postcode':'L3 0BW','col':'col','day':0,'status':'booked','notes':''},
+            {'id':'w0-9','customer':'A Connolly','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'WN8 9TB','col':'col','day':0,'status':'booked','notes':'Site Move'},
+            {'id':'w0-10','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NW1 4NR','col':'del','day':1,'status':'booked','notes':'W&D 2 man'},
+            {'id':'w0-11','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NN12 8TN','col':'del','day':1,'status':'booked','notes':'W&D 2 man'},
+            {'id':'w0-12','customer':'Huyton Gate','loads':[{'desc':'2x Chemi Loo','driver':''},{'desc':'1x Disabled','driver':''}],'postcode':'L34 4AJ','col':'col','day':1,'status':'enquiry','notes':'TBC'},
+            {'id':'w0-13','customer':'John Reilly','loads':[{'desc':'10ft Store Exch','driver':'CR2'}],'postcode':'M38 9XE','col':'del','day':2,'status':'booked','notes':''},
+            {'id':'w0-14','customer':'HolmePatrick Dev','loads':[{'desc':'24ft','driver':'DF1'},{'desc':'24ft','driver':'AP1'},{'desc':'Staircase','driver':'RB1'}],'postcode':'LA1 3JJ','col':'del','day':2,'status':'booked','notes':''},
+            {'id':'w0-15','customer':'Chandos','loads':[{'desc':'24ft','driver':'IB2'}],'postcode':'WA8 3UJ','col':'del','day':2,'status':'booked','notes':''},
+            {'id':'w0-16','customer':'Zenex Ltd','loads':[{'desc':'32ft','driver':'DF1'},{'desc':'32ft RB','driver':''}],'postcode':'RG10 0SD','col':'del','day':2,'status':'enquiry','notes':'Confirm vehicle'},
+            {'id':'w0-17','customer':'John Reilly','loads':[{'desc':'10ft Store Exch','driver':'CR3'}],'postcode':'M38 9XE','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-18','customer':'A Connolly','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'OL10 3EG','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-19','customer':'Perfect Associates','loads':[{'desc':'20ft Store','driver':'IB1'}],'postcode':'SL4 1NJ','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-20','customer':'2x Empty IBC','loads':[{'desc':'IBC','driver':'RS1'}],'postcode':'L31 0BP','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-21','customer':'M Group','loads':[{'desc':'24ft','driver':'CR1'},{'desc':'32ft','driver':'IB1'},{'desc':'Staircase','driver':'AP1'},{'desc':'Water Barrel x2','driver':'AP1'},{'desc':'HT','driver':'AP1'}],'postcode':'ST10 4LJ','col':'col','day':2,'status':'booked','notes':''},
+            {'id':'w0-22','customer':'GreanPower','loads':[{'desc':'40kva','driver':'RB1'}],'postcode':'Trafford Park','col':'col','day':2,'status':'enquiry','notes':''},
+            {'id':'w0-23','customer':'Artium','loads':[{'desc':'32ft','driver':'DF1'},{'desc':'32ft','driver':'DF2'},{'desc':'32ft','driver':'RB1'},{'desc':'32ft','driver':'RB2'},{'desc':'32ft','driver':'IB2'},{'desc':'32ft','driver':'IB1'},{'desc':'Staircase','driver':'RS1'},{'desc':'Staircase','driver':'RS1'}],'postcode':'LS9 8EX','col':'del','day':3,'status':'booked','notes':''},
+            {'id':'w0-24','customer':'HolmePatrick Dev','loads':[{'desc':'2+1','driver':'CR1'},{'desc':'Smoking Shelter','driver':'CR1'}],'postcode':'LA1 3JJ','col':'del','day':3,'status':'booked','notes':''},
+            {'id':'w0-25','customer':'M Group','loads':[{'desc':'24ft off','driver':'AP2'},{'desc':'24ft Can','driver':'IB3'},{'desc':'32ft','driver':'CR2'}],'postcode':'PR8 4QQ','col':'col','day':3,'status':'booked','notes':''},
+            {'id':'w0-26','customer':'Redfern Energy','loads':[{'desc':'20ft Store','driver':'CR4'}],'postcode':'M31 4BR','col':'col','day':3,'status':'booked','notes':''},
+            {'id':'w0-27','customer':'GreanPower','loads':[{'desc':'60kva','driver':'AP1'}],'postcode':'Cardiff','col':'col','day':3,'status':'booked','notes':''},
+            {'id':'w0-28','customer':'Lowbery','loads':[{'desc':'20ft Store','driver':'DF2'}],'postcode':'M31 4AY','col':'del','day':4,'status':'booked','notes':'9-11am'},
+            {'id':'w0-29','customer':'MCI Developments','loads':[{'desc':'32ft','driver':'DF1'},{'desc':'32ft','driver':'RB1'},{'desc':'32ft','driver':'IB1'},{'desc':'Staircase','driver':'ROB'}],'postcode':'ST5 6AT','col':'del','day':4,'status':'booked','notes':''},
+            {'id':'w0-30','customer':'Rowland Homes','loads':[{'desc':'Boss Unit','driver':''}],'postcode':'PR25 5KP','col':'del','day':4,'status':'enquiry','notes':''},
+            {'id':'w0-31','customer':'CLC','loads':[{'desc':'10ft','driver':'CR2'}],'postcode':'L36 2QX','col':'col','day':4,'status':'booked','notes':''},
+            {'id':'w0-32','customer':'Pinnington','loads':[{'desc':'24ft','driver':'CR1'}],'postcode':'LA14 5UG','col':'col','day':4,'status':'booked','notes':''},
+            {'id':'w0-33','customer':'M Group','loads':[{'desc':'20ft','driver':'RB2'}],'postcode':'FY5 4LH','col':'col','day':4,'status':'booked','notes':''},
+            {'id':'w0-34','customer':'Event Structures','loads':[{'desc':'20ft','driver':''}],'postcode':'NN12 8TN','col':'del','day':5,'status':'booked','notes':'Weekend crew'},
+            {'id':'w0-35','customer':'MCI Developments','loads':[{'desc':'32ft','driver':''},{'desc':'32ft RB1','driver':''},{'desc':'Staircase','driver':''}],'postcode':'ST5 6AT','col':'col','day':5,'status':'booked','notes':''},
+        ],
+        'vehicles': [
+            {'id':1,'reg':'CXE & DRAG','name':'Scania','day':3,'note':'PMI'},
+            {'id':2,'reg':'BXZ','name':'Scania','day':4,'note':'PMI'},
+            {'id':3,'reg':'JRO','name':'Bardsley','day':0,'note':'MOT'},
+        ],
+        'holidays': [{'id':1,'name':'AL Unsworth','days':[1,2,3,4]}]
+    }
+    w1 = week_key(1)
+    data['weeks'][w1] = {
+        'jobs': [
+            {'id':'w1-1','customer':'H H Smith','loads':[{'desc':'2+1','driver':'CR2'}],'postcode':'SK2 7AF','col':'del','day':0,'status':'booked','notes':''},
+            {'id':'w1-2','customer':'H H Smith','loads':[{'desc':'2+1','driver':'IB2'}],'postcode':'M45 7GJ','col':'col','day':0,'status':'booked','notes':''},
+            {'id':'w1-3','customer':'M Group','loads':[{'desc':'20ft','driver':''},{'desc':'20ft Store','driver':''},{'desc':'Waste Barrel','driver':''}],'postcode':'LA2 8FG','col':'col','day':1,'status':'booked','notes':''},
+            {'id':'w1-4','customer':'A Connolly','loads':[{'desc':'20ft','driver':''},{'desc':'20ft','driver':''}],'postcode':'SK9-OL10','col':'col','day':1,'status':'booked','notes':''},
+            {'id':'w1-5','customer':'Event Structure','loads':[{'desc':'20ft','driver':''}],'postcode':'M31 4QZ','col':'col','day':1,'status':'booked','notes':''},
+            {'id':'w1-6','customer':'MCC Construction','loads':[{'desc':'32ft','driver':''}],'postcode':'SK12 1NW','col':'del','day':2,'status':'booked','notes':'Pre 7am'},
+            {'id':'w1-7','customer':'LCC Highways','loads':[{'desc':'20ft','driver':''},{'desc':'20ft','driver':''},{'desc':'20ft','driver':''}],'postcode':'PR5 4AR','col':'col','day':2,'status':'booked','notes':''},
+        ],
+        'vehicles': [{'id':1,'reg':'JRO','name':'Bardsley','day':0,'note':'MOT'},{'id':2,'reg':'ZFY','name':'Bardsley','day':3,'note':'PMI'}],
+        'holidays': [{'id':1,'name':'AL Unsworth','days':[0,1,2,3,4]}]
+    }
+    return data
+
+# ─────────────────────────────────────────────────────────────
+# JOB CARD HTML (display only — clicking handled by buttons below)
+# ─────────────────────────────────────────────────────────────
+def job_html(job):
+    is_b = job['status'] == 'booked'
+    col_cls = 'col-job' if job.get('col') == 'col' else 'del-job'
+    state_cls = 'booked' if is_b else 'enquiry'
+    cls = f'job {state_cls} {col_cls}'
+    badge = '<span class="bkdb">BOOKED</span>' if is_b else '<span class="enqb">ENQUIRY</span>'
+    loads = ''
+    for l in job['loads']:
+        drv = f'<span class="dchip">{l["driver"]}</span>' if l.get('driver') else ''
+        loads += f'<div class="jload"><span>📦 {l.get("desc","—")}</span>{drv}</div>'
+    notes = f'<div class="jnotes">{job["notes"]}</div>' if job.get('notes') else ''
+    inner = f'{badge}<div class="jcust">{job["customer"]}</div>{loads}<div class="jpost">📍 {job["postcode"]}</div>{notes}'
+    return f'<div class="{cls}">{inner}</div>'
+
+# ─────────────────────────────────────────────────────────────
+# SESSION STATE
+# ─────────────────────────────────────────────────────────────
+if 'data' not in st.session_state:
+    st.session_state.data = load_data()
+if 'offset' not in st.session_state:
+    st.session_state.offset = 0
+if 'mode' not in st.session_state:
+    st.session_state.mode = 'readonly'   # everyone starts in view-only
+if 'edit_unlocked' not in st.session_state:
+    st.session_state.edit_unlocked = False
+if 'next_id' not in st.session_state:
+    st.session_state.next_id = 5000
+
+data = st.session_state.data
+data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+
+# Edit is only allowed if the correct password has been entered this session
+def get_edit_password():
+    try:
+        return st.secrets["edit_password"]
+    except Exception:
+        return "aes2025"   # fallback if no secret set (change via Streamlit secrets)
+
+readonly = (st.session_state.mode == 'readonly') or (not st.session_state.edit_unlocked)
+
+# ── Auto-refresh ─────────────────────────────────────────────
+# Read-only viewers refresh every 30s so they always see the latest.
+# Team editors refresh every 45s — often enough to feel live — but PAUSED
+# while the Edit Job dialog is open (otherwise typing would be disrupted).
+#
+# IMPORTANT: load_data() is ONLY called when an actual auto-refresh tick fires,
+# NOT on every script rerun. Previously it was reloading on every button click /
+# keystroke, which (a) hit the Sheets API far too often and (b) widened the
+# window for a transient API hiccup to drop us back to default data.
+autorefresh_active = False
+autorefresh_secs = 0
+if AUTOREFRESH_AVAILABLE:
+    dialog_open = bool(st.session_state.get('editing_id'))
+    if readonly:
+        new_tick = st_autorefresh(interval=30000, key='ro_refresh')
+        autorefresh_active = True
+        autorefresh_secs = 30
+        if st.session_state.get('ro_tick') != new_tick:
+            st.session_state['ro_tick'] = new_tick
+            st.session_state.data = load_data()
+    elif not dialog_open:
+        new_tick = st_autorefresh(interval=45000, key='team_refresh')
+        autorefresh_active = True
+        autorefresh_secs = 45
+        if st.session_state.get('team_tick') != new_tick:
+            st.session_state['team_tick'] = new_tick
+            st.session_state.data = load_data()
+
+# Always re-bind local 'data' to the current session value
+data = st.session_state.data
+data.setdefault('weekOffsets', [-1, 0, 1, 2, 3])
+
+# ─────────────────────────────────────────────────────────────
+# HEADER
+# ─────────────────────────────────────────────────────────────
+mode_label = '👁 READ ONLY' if readonly else '✏ TEAM EDIT'
+st.markdown(f'''<div class="aes-hdr">
+  <div style="display:flex;align-items:center;gap:10px">
+    <span style="font-size:22px">🚛</span>
+    <div><p class="aes-hdr-title">AINSCOUGH ENVIRONMENTAL SERVICES</p>
+    <p class="aes-hdr-sub">Transport Planner</p></div>
+  </div>
+  <span class="mode-tag">{mode_label}</span>
+</div>''', unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────
+# SYNC STATUS BANNER — VERY visible so saves are never silent
+# ─────────────────────────────────────────────────────────────
+sheet_err = st.session_state.get('sheet_error')
+last_save = st.session_state.get('last_save')
+
+if sheet_err:
+    st.error(f"🔴 **NOT CONNECTED TO GOOGLE SHEETS** — Changes will NOT be saved and will be lost on refresh.\n\n"
+             f"Reason: {sheet_err}\n\n"
+             f"Fix this in Streamlit Cloud → Settings → Secrets. The service account must be invited as Editor on the 'AES Transport Planner' sheet.")
+elif last_save:
+    ts = last_save['ts'].strftime('%H:%M:%S')
+    if last_save['ok']:
+        size = last_save.get('size', 0)
+        size_warning = ""
+        if size > 0:
+            pct = (size / 50000) * 100
+            if pct >= 80:
+                size_warning = f" ⚠️ Storage {pct:.0f}% full ({size:,}/50,000 chars) — delete old weeks soon"
+            elif pct >= 60:
+                size_warning = f" · Storage {pct:.0f}% used"
+        live_ind = f" · 🔄 auto-refresh every {autorefresh_secs}s" if autorefresh_active else ""
+        st.success(f"✅ Connected to Google Sheets — last saved {ts}{size_warning}{live_ind}", icon=None)
+    else:
+        st.error(f"🔴 **LAST SAVE FAILED at {ts}** — {last_save['err']}")
+else:
+    if not readonly:
+        live_ind = f" · 🔄 auto-refresh every {autorefresh_secs}s active" if autorefresh_active else ""
+        st.info(f"🔵 Connected — make a change to confirm saving works{live_ind}")
+
+# Notify if we just auto-fixed duplicate IDs (one-off cleanup from older app version)
+if st.session_state.get('dedupe_count', 0) > 0:
+    n = st.session_state['dedupe_count']
+    st.warning(f"🔧 Auto-repaired {n} duplicate job ID(s) caused by an older version of the app. "
+               "No data was lost — all jobs are intact, just with fresh unique IDs. "
+               "This will not happen again. Please click 💾 Save Now at the bottom to save the repaired IDs.")
+    # Only show once per session
+    del st.session_state['dedupe_count']
+
+# Notify if old weeks were auto-cleaned
+if st.session_state.get('cleanup_count', 0) > 0:
+    n = st.session_state['cleanup_count']
+    st.info(f"🧹 Auto-archived {n} old week(s) from more than 2 weeks ago to keep storage healthy. "
+            "Click 💾 Save Now at the bottom to commit the cleanup to the Sheet.")
+    del st.session_state['cleanup_count']
+
+# Mode toggle
+mc1, mc2, mc_sp = st.columns([1.3, 1.3, 9])
+with mc1:
+    if st.button('✏ Team Edit', type='primary' if not readonly else 'secondary', use_container_width=True):
+        st.session_state.mode = 'team'; st.rerun()
+with mc2:
+    if st.button('👁 Read Only', type='primary' if readonly else 'secondary', use_container_width=True):
+        st.session_state.mode = 'readonly'; st.rerun()
+
+# Password gate: if they want Team Edit but haven't unlocked yet, ask for the password
+if st.session_state.mode == 'team' and not st.session_state.edit_unlocked:
+    with st.container():
+        st.warning('🔒 Editing is password protected. Enter the team password to make changes.')
+        pc1, pc2, pc_sp = st.columns([2, 1, 7])
+        with pc1:
+            pw = st.text_input('Edit password', type='password', label_visibility='collapsed', placeholder='Enter password…')
+        with pc2:
+            if st.button('Unlock', type='primary', use_container_width=True):
+                if pw == get_edit_password():
+                    st.session_state.edit_unlocked = True
+                    st.rerun()
+                else:
+                    st.error('Incorrect password')
+        st.caption('Viewing is open to everyone — only editing requires the password.')
+
+# Show a lock/unlock indicator + logout when unlocked
+if st.session_state.edit_unlocked:
+    lc1, lc_sp = st.columns([2, 10])
+    with lc1:
+        if st.button('🔓 Editing unlocked — Lock again', use_container_width=True):
+            st.session_state.edit_unlocked = False
+            st.session_state.mode = 'readonly'
+            st.rerun()
+
+# ─────────────────────────────────────────────────────────────
+# WEEK NAVIGATION
+# Show a window of 5 week tabs centered on the current one, plus
+# a Jump-To dropdown for any other week. Stops the row from
+# squashing when many weeks have been added.
+# ─────────────────────────────────────────────────────────────
+offsets = sorted(data['weekOffsets'])
+if st.session_state.offset not in offsets:
+    offsets.append(st.session_state.offset)
+    offsets.sort()
+    data['weekOffsets'] = offsets
+
+current_idx = offsets.index(st.session_state.offset)
+WINDOW = 5
+start_idx = max(0, current_idx - 2)
+end_idx = min(len(offsets), start_idx + WINDOW)
+start_idx = max(0, end_idx - WINDOW)
+visible_offsets = offsets[start_idx:end_idx]
+
+n_btns = len(visible_offsets)
+# Layout: ‹  [up to 5 week buttons]  ›  | Jump-to dropdown | + Add Week
+nav = st.columns([0.4] + [1.3] * n_btns + [0.4, 2.5, 1.2])
+with nav[0]:
+    if st.button('‹', use_container_width=True, help='Previous week'):
+        no = st.session_state.offset - 1
+        if no not in offsets:
+            data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
+
+for i, off in enumerate(visible_offsets):
+    with nav[i + 1]:
+        active = off == st.session_state.offset
+        if st.button(f"{week_tab_label(off)}\n{week_range_label(off)}",
+                     key=f'wkbtn_{off}',
+                     type='primary' if active else 'secondary',
+                     use_container_width=True):
+            st.session_state.offset = off
+            st.rerun()
+
+with nav[n_btns + 1]:
+    if st.button('›', use_container_width=True, help='Next week'):
+        no = st.session_state.offset + 1
+        if no not in offsets:
+            data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
+
+with nav[n_btns + 2]:
+    jump_labels = [f"{week_tab_label(o)} · {week_range_label(o)}" for o in offsets]
+
+    # Keep the dropdown in sync with the actual current offset,
+    # so navigating with the ‹ › buttons or clicking a pill doesn't
+    # cause the dropdown to fight us and force the week back.
+    expected_label = jump_labels[current_idx]
+    if st.session_state.get('wk_jump') != expected_label:
+        st.session_state['wk_jump'] = expected_label
+
+    def _on_week_jump_change():
+        chosen = st.session_state.get('wk_jump')
+        if chosen in jump_labels:
+            st.session_state.offset = offsets[jump_labels.index(chosen)]
+
+    st.selectbox('Jump to week', jump_labels,
+                 key='wk_jump',
+                 label_visibility='collapsed',
+                 on_change=_on_week_jump_change)
+
+with nav[n_btns + 3]:
+    if st.button('＋ Add Week', use_container_width=True, help='Add a future week'):
+        no = max(offsets) + 1
+        data['weekOffsets'].append(no)
+        st.session_state.offset = no
+        st.rerun()
+
+offset = st.session_state.offset
+wd = get_week_data(data, offset)
+jobs = wd.get('jobs', [])
+
+# ─────────────────────────────────────────────────────────────
+# TOOLBAR: search, filter, legend, stats
+# ─────────────────────────────────────────────────────────────
+tb1, tb2, tb3 = st.columns([3, 1.2, 2])
+with tb1:
+    search = st.text_input('Search', placeholder='🔍 Search customer or postcode…', label_visibility='collapsed')
+with tb2:
+    status_filter = st.selectbox('Status', ['All statuses', 'Booked', 'Enquiry'], label_visibility='collapsed')
+with tb3:
+    st.markdown(f'''<div class="legend-row" style="justify-content:flex-end">
+      <b style="color:#0d823b;font-size:11px">{week_range_label(offset)}</b>
+      <div class="legend-item"><span class="legend-sw" style="background:#d1fae5;border-color:#6ee7b7"></span><b style="color:#065f46">Booked (Del)</b></div>
+      <div class="legend-item"><span class="legend-sw" style="background:#fee2e2;border-color:#fca5a5"></span><b style="color:#991b1b">Booked (Col)</b></div>
+      <div class="legend-item"><span class="legend-sw" style="background:white;border-color:#d1d5db"></span><span style="color:#6b7280">Enquiry</span></div>
+    </div>''', unsafe_allow_html=True)
+
+total = len(jobs)
+booked = len([j for j in jobs if j['status'] == 'booked'])
+enquiry = len([j for j in jobs if j['status'] == 'enquiry'])
+total_loads = sum(len(j.get('loads', [])) for j in jobs)
+m1, m2, m3, m4 = st.columns(4)
+m1.metric("Jobs", total); m2.metric("Booked", booked)
+m3.metric("Enquiries", enquiry); m4.metric("Total Loads", total_loads)
+
+# Filter
+def matches(j):
+    if status_filter == 'Booked' and j['status'] != 'booked': return False
+    if status_filter == 'Enquiry' and j['status'] != 'enquiry': return False
+    if search:
+        q = search.lower()
+        if q not in j['customer'].lower() and q not in j['postcode'].lower(): return False
+    return True
+fj = [j for j in jobs if matches(j)]
+
+# ─────────────────────────────────────────────────────────────
+# ADD JOB / VEHICLES / HOLIDAYS (team mode only)
+# ─────────────────────────────────────────────────────────────
+if not readonly:
+    # Track how many load rows are currently shown for Add New Job
+    if 'nj_load_count' not in st.session_state:
+        st.session_state.nj_load_count = 1
+
+    with st.expander('➕ Add New Job'):
+        # NOT inside st.form so the "+ Add Load" button can trigger reruns
+        c1, c2, c3, c4 = st.columns(4)
+        cust = c1.text_input('Customer *', key='nj_cust')
+        post = c2.text_input('Postcode *', key='nj_post')
+        ctype = c3.selectbox('Type', ['Delivery', 'Collection'], key='nj_ctype')
+        # Default the date to the currently-selected week's Monday so it
+        # naturally lands where they're viewing
+        default_date = get_monday(st.session_state.offset).date()
+        date_pick = c4.date_input('Date 📅', value=default_date, key='nj_date',
+                                  help='Pick the specific date — the job will be added to the right week automatically')
+
+        c5, c6 = st.columns(2)
+        ssel = c5.selectbox('Status', ['Enquiry', 'Booked'], key='nj_ssel')
+        notes = c6.text_input('Notes', key='nj_notes', placeholder='e.g. pre 7am, 2-man')
+
+        c7, c8, c9 = st.columns([1, 1, 2])
+        wide = c7.checkbox('🚧 Wide Load', key='nj_wide')
+        completed = c8.checkbox('✅ Completed', key='nj_completed')
+        price = c9.text_input('💷 Quoted Price (team only)', key='nj_price',
+                              placeholder='e.g. £450 — hidden from customers')
+
+        st.markdown(f'**Loads & Driver Initials**  ·  {st.session_state.nj_load_count} of 10')
+        for i in range(st.session_state.nj_load_count):
+            lc1, lc2 = st.columns([3, 1])
+            lc1.text_input(f'Load {i+1}', placeholder='24ft, Chem Loo, Staircase…', key=f'nj_ld{i}')
+            lc2.text_input(f'Driver {i+1}', placeholder='CR2', key=f'nj_dr{i}', max_chars=5)
+
+        bb1, bb2, bb3 = st.columns([1, 1, 4])
+        with bb1:
+            if st.session_state.nj_load_count < 10:
+                if st.button('+ Add Load', key='nj_add_load_btn', use_container_width=True):
+                    st.session_state.nj_load_count += 1
+                    st.rerun()
+        with bb2:
+            if st.session_state.nj_load_count > 1:
+                if st.button('– Remove Last', key='nj_rem_load_btn', use_container_width=True):
+                    last = st.session_state.nj_load_count - 1
+                    # Clear values from removed row
+                    for k in (f'nj_ld{last}', f'nj_dr{last}'):
+                        if k in st.session_state:
+                            del st.session_state[k]
+                    st.session_state.nj_load_count -= 1
+                    st.rerun()
+
+        st.divider()
+        if st.button('💾 Add Job', type='primary', key='nj_submit', use_container_width=True):
+            if cust and post:
+                loads_in = []
+                for i in range(st.session_state.nj_load_count):
+                    ld = st.session_state.get(f'nj_ld{i}', '').strip()
+                    dr = st.session_state.get(f'nj_dr{i}', '').strip().upper()
+                    if ld:
+                        loads_in.append({'desc': ld, 'driver': dr})
+
+                # Work out which week + day from the picked date
+                picked = date_pick
+                # Monday of the week that contains the picked date
+                picked_monday = picked - timedelta(days=picked.weekday())
+                # Monday of THIS week (current week)
+                today_monday = get_monday(0).date()
+                # Offset in weeks (negative = past, positive = future)
+                target_offset = (picked_monday - today_monday).days // 7
+                # Day index: 0=Mon ... 4=Fri, 5=Sat/Sun (Sat=5,Sun=6 both go to slot 5)
+                target_day = picked.weekday()
+                if target_day >= 5:
+                    target_day = 5
+
+                new_job = {
+                    'id': new_job_id(),
+                    'customer': cust, 'postcode': post,
+                    'col': 'del' if ctype == 'Delivery' else 'col',
+                    'day': target_day,
+                    'status': ssel.lower(),
+                    'notes': notes,
+                    'loads': loads_in if loads_in else [{'desc': '', 'driver': ''}],
+                    'wide_load': wide,
+                    'completed': completed,
+                    'price': price,
+                }
+
+                # CONCURRENCY-SAFE: pull fresh data from the Sheet first, then
+                # append our new job and save. Stops two team members each adding
+                # a job at the same time from overwriting each other's work.
+                fresh = load_data()
+                if target_offset not in fresh.get('weekOffsets', []):
+                    fresh.setdefault('weekOffsets', []).append(target_offset)
+                target_wd = get_week_data(fresh, target_offset)
+                target_wd['jobs'].append(new_job)
+                ok, err = save_data(fresh)
+                if ok:
+                    st.session_state.data = fresh
+                    # Reset form state
+                    for k in list(st.session_state.keys()):
+                        if k.startswith('nj_'):
+                            del st.session_state[k]
+                    st.session_state.nj_load_count = 1
+                    # Jump to the week the job was added to so the user can see it
+                    st.session_state.offset = target_offset
+                    st.success(f'✓ Added {cust} on {picked.strftime("%A %-d %b %Y")}')
+                    st.rerun()
+                else:
+                    st.error(f'🔴 Could not save the new job: {err}')
+            else:
+                st.error('Customer and Postcode are required')
+
+    with st.expander('🚛 Vehicles  &  🏖 Holidays'):
+        vcol, hcol = st.columns(2)
+        with vcol:
+            st.markdown('**🚛 Vehicles / PMI / MOT**')
+            for v in wd.get('vehicles', []):
+                a, b, c, d = st.columns([2, 2, 2, 0.6])
+                v['reg'] = a.text_input('Reg', value=v['reg'], key=f"vr{v['id']}", label_visibility='collapsed')
+                nd = b.selectbox('Day', DAYS, index=v['day'], key=f"vd{v['id']}", label_visibility='collapsed')
+                v['day'] = DAYS.index(nd)
+                v['note'] = c.text_input('Note', value=v['note'], key=f"vn{v['id']}", label_visibility='collapsed')
+                if d.button('✕', key=f"vx{v['id']}"):
+                    wd['vehicles'] = [x for x in wd['vehicles'] if x['id'] != v['id']]
+                    save_data(data); st.rerun()
+            if st.button('+ Add Vehicle'):
+                wd['vehicles'].append({'id': new_job_id(), 'reg': '', 'name': '', 'day': 0, 'note': ''})
+                save_data(data); st.rerun()
+        with hcol:
+            st.markdown('**🏖 Staff Holidays**')
+            for h in wd.get('holidays', []):
+                a, b = st.columns([3, 0.6])
+                h['name'] = a.text_input('Name', value=h['name'], key=f"hn{h['id']}", label_visibility='collapsed')
+                if b.button('✕', key=f"hx{h['id']}"):
+                    wd['holidays'] = [x for x in wd['holidays'] if x['id'] != h['id']]
+                    save_data(data); st.rerun()
+                dsel2 = st.multiselect('Days', DAYS, default=[DAYS[d] for d in h['days'] if d < 6], key=f"hd{h['id']}", label_visibility='collapsed')
+                h['days'] = [DAYS.index(x) for x in dsel2]
+            if st.button('+ Add Person'):
+                wd['holidays'].append({'id': new_job_id(), 'name': '', 'days': []})
+                save_data(data); st.rerun()
+        if st.button('💾 Save', type='primary'):
+            save_data(data); st.success('Saved')
+
+# ─────────────────────────────────────────────────────────────
+# BUILD THE PLANNER (12 sub-columns: Del+Col side by side per day)
+# ─────────────────────────────────────────────────────────────
+vehs = wd.get('vehicles', [])
+hols = wd.get('holidays', [])
+# Days marked "At Capacity" for this week (list of day indices 0-5)
+at_capacity = wd.setdefault('capacity', [])
+
+# Row 1: day banners (6 cols, each spans 2 sub-columns visually)
+hdr = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:0">'
+for di, dn in enumerate(DAYS):
+    cls = 'pill-day-header'
+    if di in at_capacity:
+        cls += ' atcap'
+    elif di == 5:
+        cls += ' wknd'
+    cap_line = '<div class="cap-banner">🚫 At Capacity</div>' if di in at_capacity else ''
+    hdr += (f'<div><div class="{cls}">{dn}<small>{get_day_label(offset, di)}</small></div>'
+            f'{cap_line}</div>')
+hdr += '</div>'
+st.markdown(hdr, unsafe_allow_html=True)
+
+# Row 1b: At Capacity toggle buttons (team edit only)
+if not readonly:
+    cap_cols = st.columns(6)
+    for di, ccol in enumerate(cap_cols):
+        with ccol:
+            is_cap = di in at_capacity
+            marker = 'marker-cap-on' if is_cap else 'marker-cap-off'
+            st.markdown(f'<div class="{marker}"></div>', unsafe_allow_html=True)
+            label = '🚫 At Capacity' if is_cap else '＋ Mark At Capacity'
+            if st.button(label, key=f'cap_{offset}_{di}', use_container_width=True,
+                         help='Toggle this day as full / not full'):
+                # Reload-merge so we don't overwrite other users' concurrent work
+                _fresh = load_data()
+                _fwd = get_week_data(_fresh, offset)
+                _caps = _fwd.setdefault('capacity', [])
+                if di in _caps:
+                    _caps.remove(di)
+                else:
+                    _caps.append(di)
+                _ok, _err = save_data(_fresh)
+                if _ok:
+                    st.session_state.data = _fresh
+                    st.rerun()
+                else:
+                    st.error(f'Could not update capacity: {_err}')
+
+# Row 2: vehicle / holiday bars (6 cols)
+vh_row = '<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:2px">'
+any_vh = False
+for di in range(6):
+    dv = [v for v in vehs if v['day'] == di]
+    dh = [h for h in hols if di in h.get('days', [])]
+    info_bits = []
+    if dv: info_bits += [f"🚛 {v['reg']} ({v['note']})" for v in dv]
+    if dh: info_bits += [f"🏖 {h['name']}" for h in dh]
+    if info_bits:
+        any_vh = True
+        vh_row += f'<div class="pill-veh">{" · ".join(info_bits)}</div>'
+    else:
+        vh_row += '<div></div>'
+vh_row += '</div>'
+if any_vh:
+    st.markdown(vh_row, unsafe_allow_html=True)
+
+# Row 3: Del/Col sub-headers (12 cols)
+sub_hdr = '<div style="display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:4px">'
+for di in range(6):
+    sub_hdr += '<div class="pill-section-del" style="margin:0">Deliveries</div>'
+    sub_hdr += '<div class="pill-section-col" style="margin:0">Collections</div>'
+sub_hdr += '</div>'
+st.markdown(sub_hdr, unsafe_allow_html=True)
+
+# Row 4: the actual pill buttons — 12 streamlit columns, paired per day
+sub_cols = st.columns(12)
+for di in range(6):
+    del_col = sub_cols[di * 2]
+    col_col = sub_cols[di * 2 + 1]
+
+    dels = [j for j in fj if j['day'] == di and j['col'] == 'del']
+    cols2 = [j for j in fj if j['day'] == di and j['col'] == 'col']
+
+    # Deliveries column
+    with del_col:
+        if not dels:
+            st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
+        else:
+            for idx_in_cell, j in enumerate(dels):
+                # Build the multi-line label
+                tags = []
+                tags.append('🟢 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
+                if j.get('wide_load'): tags.append('🚧 WIDE')
+                if j.get('completed'): tags.append('✅ DONE')
+                lines = [' · '.join(tags)]
+                lines.append(f"**{j['customer']}**")
+                for l in j['loads']:
+                    desc = l.get('desc', '—') or '—'
+                    if l.get('driver'):
+                        lines.append(f"📦 {desc} → :red[**{l['driver']}**]")
+                    else:
+                        lines.append(f"📦 {desc}")
+                lines.append(f"📍 {j['postcode']}")
+                if j.get('notes'):
+                    lines.append(f"📝 {j['notes']}")
+                # Price only visible in team mode
+                if not readonly and j.get('price'):
+                    lines.append(f"💷 {j['price']}")
+                label = "\n".join(lines)
+                marker_cls = 'marker-pill marker-pill-' + ('booked-del' if j['status']=='booked' else 'enquiry')
+                st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
+                if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
+                    st.session_state.editing_id = j['id']
+                    st.rerun()
+                # ▲ ▼ reorder controls (edit mode only)
+                if not readonly:
+                    uc1, uc2 = st.columns(2)
+                    with uc1:
+                        if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == 0), help='Move up'):
+                            # Reload fresh, move by ID, save — preserves other users' concurrent work
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], -1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
+                    with uc2:
+                        if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == len(dels) - 1), help='Move down'):
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], 1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
+
+    # Collections column
+    with col_col:
+        if not cols2:
+            st.markdown('<div class="pill-empty">—</div>', unsafe_allow_html=True)
+        else:
+            for idx_in_cell, j in enumerate(cols2):
+                tags = []
+                tags.append('🔴 BOOKED' if j['status'] == 'booked' else '🟡 ENQUIRY')
+                if j.get('wide_load'): tags.append('🚧 WIDE')
+                if j.get('completed'): tags.append('✅ DONE')
+                lines = [' · '.join(tags)]
+                lines.append(f"**{j['customer']}**")
+                for l in j['loads']:
+                    desc = l.get('desc', '—') or '—'
+                    if l.get('driver'):
+                        lines.append(f"📦 {desc} → :red[**{l['driver']}**]")
+                    else:
+                        lines.append(f"📦 {desc}")
+                lines.append(f"📍 {j['postcode']}")
+                if j.get('notes'):
+                    lines.append(f"📝 {j['notes']}")
+                if not readonly and j.get('price'):
+                    lines.append(f"💷 {j['price']}")
+                label = "\n".join(lines)
+                marker_cls = 'marker-pill marker-pill-' + ('booked-col' if j['status']=='booked' else 'enquiry')
+                st.markdown(f'<div class="{marker_cls}"></div>', unsafe_allow_html=True)
+                if st.button(label, key=f"pill_{j['id']}", use_container_width=True, disabled=readonly):
+                    st.session_state.editing_id = j['id']
+                    st.rerun()
+                # ▲ ▼ reorder controls (edit mode only)
+                if not readonly:
+                    uc1, uc2 = st.columns(2)
+                    with uc1:
+                        if st.button('▲', key=f"up_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == 0), help='Move up'):
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], -1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
+                    with uc2:
+                        if st.button('▼', key=f"dn_{j['id']}", use_container_width=True,
+                                     disabled=(idx_in_cell == len(cols2) - 1), help='Move down'):
+                            _fresh = load_data()
+                            _fj, _wk = find_job_across_weeks(_fresh, j['id'])
+                            if _fj is not None and move_job(_wk['jobs'], j['id'], 1):
+                                _ok, _err = save_data(_fresh)
+                                if _ok:
+                                    st.session_state.data = _fresh
+                                    st.rerun()
+                                else:
+                                    st.error(f'Move failed: {_err}')
+
+if not readonly:
+    st.caption('💡 Click any job pill above to edit its details.')
+
+# ─────────────────────────────────────────────────────────────
+# EDIT DIALOG — opens when a pill button is clicked
+# ─────────────────────────────────────────────────────────────
+def find_job(jid):
+    for j in wd.get('jobs', []):
+        if j['id'] == jid:
+            return j
+    return None
+
+@st.dialog("Edit Job")
+def edit_dialog(job):
+    # Work out the job's current date from its week + day
+    current_offset = st.session_state.offset
+    job_day_idx = min(job.get('day', 0), 5)
+    # If it's Sat/Sun (day=5), show Saturday by default for picker
+    current_job_date = get_monday(current_offset).date() + timedelta(days=job_day_idx)
+
+    c1, c2 = st.columns(2)
+    cust = c1.text_input('Customer', value=job['customer'])
+    post = c2.text_input('Postcode', value=job['postcode'])
+    c3, c4 = st.columns(2)
+    ctype = c3.selectbox('Type', ['Delivery', 'Collection'],
+                         index=0 if job['col'] == 'del' else 1)
+    new_date = c4.date_input('Date 📅', value=current_job_date, key=f'edate_{job["id"]}',
+                              help='Change the date to move this job — it will land on the correct week/day automatically')
+    c5, c6 = st.columns(2)
+    ssel = c5.selectbox('Status', ['Enquiry', 'Booked'],
+                        index=0 if job['status'] == 'enquiry' else 1)
+    notes = c6.text_input('Notes', value=job.get('notes', ''))
+
+    # New optional fields
+    c7, c8, c9 = st.columns([1, 1, 2])
+    wide = c7.checkbox('🚧 Wide Load', value=job.get('wide_load', False), key=f'ew_{job["id"]}')
+    completed = c8.checkbox('✅ Completed', value=job.get('completed', False), key=f'ec_{job["id"]}')
+    price = c9.text_input('💷 Quoted Price (team only)',
+                          value=job.get('price', ''),
+                          key=f'ep_{job["id"]}',
+                          placeholder='e.g. £450 — hidden from customers')
+
+    st.markdown('**Loads & Driver Initials** (up to 10)')
+
+    # Track how many load rows are visible in this edit session
+    edit_count_key = f'edit_load_count_{job["id"]}'
+    if edit_count_key not in st.session_state:
+        st.session_state[edit_count_key] = max(1, len(job['loads']))
+
+    # Limit to 10
+    if st.session_state[edit_count_key] > 10:
+        st.session_state[edit_count_key] = 10
+
+    new_loads = []
+    for i in range(st.session_state[edit_count_key]):
+        lc1, lc2 = st.columns([3, 1])
+        existing_desc = job['loads'][i]['desc'] if i < len(job['loads']) else ''
+        existing_drv = job['loads'][i].get('driver', '') if i < len(job['loads']) else ''
+        ld = lc1.text_input(f'Load {i+1}', value=existing_desc, key=f'el_{job["id"]}_{i}')
+        dr = lc2.text_input(f'Driver {i+1}', value=existing_drv, key=f'ed_{job["id"]}_{i}', max_chars=5)
+        if ld:
+            new_loads.append({'desc': ld, 'driver': dr.upper()})
+
+    ab1, ab2, _ = st.columns([1, 1, 4])
+    with ab1:
+        if st.session_state[edit_count_key] < 10:
+            if st.button('+ Add Load', key=f'add_l_{job["id"]}', use_container_width=True):
+                st.session_state[edit_count_key] += 1
+                st.rerun()
+    with ab2:
+        if st.session_state[edit_count_key] > 1:
+            if st.button('– Remove Last', key=f'rem_l_{job["id"]}', use_container_width=True):
+                last = st.session_state[edit_count_key] - 1
+                for k in (f'el_{job["id"]}_{last}', f'ed_{job["id"]}_{last}'):
+                    if k in st.session_state:
+                        del st.session_state[k]
+                st.session_state[edit_count_key] -= 1
+                st.rerun()
+
+    st.divider()
+    b1, b2, b3 = st.columns([1, 1, 1])
+    if b1.button('💾 Save', type='primary', use_container_width=True):
+        if cust and post:
+            # Work out target week + day from the picked date
+            picked_monday = new_date - timedelta(days=new_date.weekday())
+            today_monday = get_monday(0).date()
+            new_offset = (picked_monday - today_monday).days // 7
+            new_day = new_date.weekday()
+            if new_day >= 5:
+                new_day = 5
+
+            # CONCURRENCY-SAFE: reload the latest data, find THIS job by ID
+            # across all weeks, apply the edit to that fresh copy, then save.
+            # This stops us from wiping any jobs other team members added
+            # between when we opened the dialog and when we clicked Save.
+            fresh = load_data()
+            found, source_wk = find_job_across_weeks(fresh, job['id'])
+            if found is None:
+                st.error("This job no longer exists in the Sheet — it may have been deleted by someone else. Your changes were not saved.")
+                if edit_count_key in st.session_state:
+                    del st.session_state[edit_count_key]
+                st.session_state.editing_id = None
+                st.session_state.data = fresh
+                st.rerun()
+
+            # Apply all edits to the fresh copy of the job
+            found['customer'] = cust
+            found['postcode'] = post
+            found['col'] = 'del' if ctype == 'Delivery' else 'col'
+            found['day'] = new_day
+            found['status'] = ssel.lower()
+            found['notes'] = notes
+            found['loads'] = new_loads if new_loads else [{'desc': '', 'driver': ''}]
+            found['wide_load'] = wide
+            found['completed'] = completed
+            found['price'] = price
+
+            # If date moves to a different week, relocate the job in fresh data
+            if new_offset != current_offset:
+                # Remove the job wherever it currently lives in fresh data
+                source_wk['jobs'] = [x for x in source_wk['jobs'] if x['id'] != job['id']]
+                # Make sure new week exists
+                if new_offset not in fresh.get('weekOffsets', []):
+                    fresh.setdefault('weekOffsets', []).append(new_offset)
+                # Add to target week
+                target_wd = get_week_data(fresh, new_offset)
+                target_wd['jobs'].append(found)
+                st.session_state.offset = new_offset
+
+            ok, err = save_data(fresh)
+            if ok:
+                st.session_state.data = fresh
+                if edit_count_key in st.session_state:
+                    del st.session_state[edit_count_key]
+                st.session_state.editing_id = None
+                st.rerun()
+            else:
+                st.error(f'🔴 Save failed: {err}')
+    if b2.button('🗑 Delete', use_container_width=True):
+        # Reload fresh, remove this job by ID from wherever it lives, save
+        fresh = load_data()
+        for wk in fresh.get('weeks', {}).values():
+            wk['jobs'] = [x for x in wk.get('jobs', []) if x.get('id') != job['id']]
+        ok, err = save_data(fresh)
+        if ok:
+            st.session_state.data = fresh
+            if edit_count_key in st.session_state:
+                del st.session_state[edit_count_key]
+            st.session_state.editing_id = None
+            st.rerun()
+        else:
+            st.error(f'🔴 Delete failed: {err}')
+    if b3.button('Cancel', use_container_width=True):
+        if edit_count_key in st.session_state:
+            del st.session_state[edit_count_key]
+        st.session_state.editing_id = None
+        st.rerun()
+
+# Open the dialog if a pill was clicked and editing is unlocked
+if 'editing_id' not in st.session_state:
+    st.session_state.editing_id = None
+
+if st.session_state.editing_id and not readonly:
+    jt = find_job(st.session_state.editing_id)
+    if jt:
+        edit_dialog(jt)
+    else:
+        st.session_state.editing_id = None
+
+# ─────────────────────────────────────────────────────────────
+# MANUAL SAVE + RELOAD buttons (team only)
+# These exist so you're never relying on silent auto-saves
+# ─────────────────────────────────────────────────────────────
+if not readonly:
+    st.divider()
+    sb1, sb2, sb3, sb_sp = st.columns([1.5, 1.5, 1.5, 6])
+    with sb1:
+        if st.button('💾 Save Now', type='primary', use_container_width=True, key='manual_save',
+                     help='Force-save current in-memory data to the Sheet. Only use this if you have unsaved local changes such as the auto-repair banner asking you to save.'):
+            # Save whatever is currently in session (needed for dedupe/cleanup commits).
+            # Ordinary edits already save themselves via reload-merge, so this button
+            # is only really for confirming safety-net repairs.
+            ok, err = save_data(st.session_state.data)
+            if ok:
+                st.success(f"✅ Saved at {now_uk().strftime('%H:%M:%S')}")
+            else:
+                st.error(f"🔴 Save FAILED — {err}")
+            st.rerun()
+    with sb2:
+        if st.button('🔄 Reload from Sheet', use_container_width=True, key='manual_reload',
+                     help='Discard local changes and pull fresh from Google Sheets'):
+            st.session_state.data = load_data()
+            st.success('Reloaded from Sheet')
+            st.rerun()
+    with sb3:
+        if st.button('🩺 Test Connection', use_container_width=True, key='test_conn',
+                     help='Check if Google Sheets connection is working'):
+            sheet, err = get_sheet()
+            if sheet:
+                st.success('✅ Connection OK — saves will work')
+            else:
+                st.error(f'🔴 Connection failed — {err}')
