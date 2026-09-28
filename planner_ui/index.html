@@ -214,6 +214,12 @@ html,body{height:100%;overflow:auto}
 .rc{display:grid;grid-template-columns:16px minmax(0,1fr) 14px;gap:5px;align-items:start;border:1px solid;padding:5px 6px}
 .rc[draggable="true"]{cursor:grab}
 .rc.dragging{opacity:.35}
+.runset{display:inline-flex;align-items:center;gap:6px}
+.runset select{font:inherit;font-size:12px;padding:2px 4px;border:1px solid #bab6b6;background:#fff;border-radius:3px}
+.runset b{font-weight:800;min-width:34px}
+.vrows .muted{color:#9b9797}
+.vrows .allrow td{background:#f4f2f2}
+.warnline{color:#c0261a;font-weight:700}
 .card.ins-above{box-shadow:0 -5px 0 0 #0d823b}
 .card.ins-below{box-shadow:0 5px 0 0 #0d823b}
 .card.dragging{opacity:.35}
@@ -650,9 +656,35 @@ function addEnquiry(){
   build(ARGS);
   return true;
 }
+function setRunFromCard(sel){
+  /* V2.5: the RUN cell on a job card. Driver + number = CR1, DF3, SUB2. None takes the load off its run. */
+  var cell = sel.closest('.runset'), drv = cell.querySelector('.rs-drv').value, num = +cell.querySelector('.rs-num').value || 1;
+  var key = sel.getAttribute('data-set-drv') || sel.getAttribute('data-set-run');
+  var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) return;
+  var targets = key === '*' ? j.loads : j.loads.filter(function(l){ return l.id === key; });
+  if (!drv) { if (sel.hasAttribute('data-set-run')) return; targets.forEach(function(l){ move(l.id, null); }); }
+  else targets.forEach(function(l){ var k = l.job.day + '|' + drv; S.extraRuns[k] = Math.max(S.extraRuns[k] || 0, num); move(l.id, { drv:drv, run:num }); });
+  render();
+  if (!S.warn) commit(key === '*' ? 'planned job from card' : 'planned load from card');
+}
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
-  var rows = j.loads.map(function(l, i){ var c = codeOf(l); return '<tr><td>' + (i + 1) + '</td><td>' + esc(l.desc) + '</td><td>' + esc(l.ref) + '</td><td>' + (c ? c + (l.movedFrom ? ' (moved from ' + fFull(l.movedFrom) + ')' : '') : 'Not Planned') + '</td><td>' + esc(l.state) + '</td></tr>'; }).join('');
+  var canSet = isTeam() && j.status !== 'e';
+  var runCell = function(l){
+    var c = codeOf(l), moved = l.movedFrom ? ' <span class="muted">(moved from ' + fFull(l.movedFrom) + ')</span>' : '';
+    if (!canSet) return (c ? c + moved : 'Not Planned');
+    var drvs = '<option value="">None</option>' + RESOURCES.map(function(r){ return '<option value="' + r.ini + '"' + (r.ini === l.driver ? ' selected' : '') + '>' + esc(r.ini) + '</option>'; }).join('');
+    var nums = ''; for (var n = 1; n <= 6; n++) nums += '<option value="' + n + '"' + (n === (l.run || 1) ? ' selected' : '') + '>' + n + '</option>';
+    return '<span class="runset"><select class="rs-drv" data-set-drv="' + esc(l.id) + '" title="Driver">' + drvs + '</select>' +
+      '<select class="rs-num" data-set-run="' + esc(l.id) + '" title="Run number"' + (l.driver ? '' : ' disabled') + '>' + nums + '</select>' +
+      (c ? '<b>' + c + '</b>' : '<span class="muted">Not Planned</span>') + '</span>' + moved;
+  };
+  var rows = j.loads.map(function(l, i){ return '<tr><td>' + (i + 1) + '</td><td>' + esc(l.desc) + '</td><td>' + esc(l.ref) + '</td><td>' + runCell(l) + '</td><td>' + esc(l.state) + '</td></tr>'; }).join('');
+  if (canSet && j.loads.length > 1) {
+    var allDrv = '<option value="">None</option>' + RESOURCES.map(function(r){ return '<option value="' + r.ini + '">' + esc(r.ini) + '</option>'; }).join('');
+    var allNum = ''; for (var m = 1; m <= 6; m++) allNum += '<option value="' + m + '">' + m + '</option>';
+    rows += '<tr class="allrow"><td></td><td colspan="2">Whole job</td><td><span class="runset"><select class="rs-drv" data-set-drv="*" title="Driver for every load">' + allDrv + '</select><select class="rs-num" data-set-run="*" title="Run number for every load" disabled>' + allNum + '</select><span class="muted">Sets every load</span></span></td><td></td></tr>';
+  }
   var row = function(k, v){ return v ? '<div class="k">' + k + '</div><div>' + v + '</div>' : ''; };
   return '<div class="ov" data-act="closeBg"><div class="panel view" role="dialog" aria-label="Job details">' +
     '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
@@ -662,7 +694,8 @@ function renderView(){
       row('STATUS', esc(j.state) + (j.converted ? ', converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') : '')) +
       row('NOTES', esc(j.notes)) + row('STACKING', esc(j.destack)) +
       '<div class="k">LOADS</div><div><table><tr><th>#</th><th>UNIT</th><th>AES JOB</th><th>RUN</th><th>STATE</th></tr>' + rows + '</table></div>' +
-      (j.status === 'e' ? row('EDITING', isTeam() ? 'Close and click the card again to edit.' : 'Unlock Team Edit to edit or delete this enquiry.') : row('FROM BIG CHANGE', 'This card is read only here: change the job in Big Change and it updates within ten minutes.')) +
+      (j.status === 'e' ? row('EDITING', isTeam() ? 'Close and click the card again to edit.' : 'Unlock Team Edit to edit or delete this enquiry.') : row('FROM BIG CHANGE', canSet ? 'Pick a driver and run number to plan a load from here. It goes straight onto that run in the day view, deliveries ahead of collections.' : 'This card is read only here: change the job in Big Change and it updates within ten minutes.')) +
+      (S.warn && canSet ? row('', '<span class="warnline">' + esc(S.warn) + '</span>') : '') +
     '</div></div></div>';
 }
 function renderVh(){
@@ -779,6 +812,7 @@ document.addEventListener('change', function(e){
   else if (id === 'vd') S.vehDraft.drv = val;
   else if (id === 'vf' || id === 'vto') { if (saneDate(val)) { setRange(S.vehDraft, id === 'vf' ? 'from' : 'to', val); syncDates('v', S.vehDraft); } return; }
   else if (e.target.hasAttribute('data-start')) { S.runStart[e.target.getAttribute('data-start')] = val; render(); commit('run start time'); return; }
+  else if (e.target.hasAttribute('data-set-drv') || e.target.hasAttribute('data-set-run')) { setRunFromCard(e.target); return; }
   else return;
   render();
 });

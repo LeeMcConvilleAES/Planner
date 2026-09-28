@@ -1,6 +1,6 @@
-# AES Transport Planner V2.4
+# AES Transport Planner V2.5
 
-Version 2.4, 28 September 2026. V2.4: the header shows "Big Change Checked X Mins Ago" from `data/feed_heartbeat.json`, which Ken (V19.3 and later) writes after every check whether or not the jobs changed; the hint next to Vehicles & Holidays has gone; CONVERTED is purple; the holidays and vehicle bookings panel lists only the week on show, with a count of any others. V2.3: in Team Edit, cards on the week view can be dragged up and down within a day's lane; the order is saved per day and lane and changes nothing but the display. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
+Version 2.5, 28 September 2026. V2.5: in Team Edit a job card's RUN column has a driver and run number picker per load, plus a Whole Job row, so CR1 or DF3 can be set from the card; it writes the same run entry the day view uses, so the day view shows it and can still reorder it. V2.4: the header shows "Big Change Checked X Mins Ago" from `data/feed_heartbeat.json`, which Ken (V19.3 and later) writes after every check whether or not the jobs changed; the hint next to Vehicles & Holidays has gone; CONVERTED is purple; the holidays and vehicle bookings panel lists only the week on show, with a count of any others. V2.3: in Team Edit, cards on the week view can be dragged up and down within a day's lane; the order is saved per day and lane and changes nothing but the display. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
 
 Jobs come from Big Change. Ken checks every ten minutes, writes `data/bigchange_jobs.json` in this repo when the jobs changed and `data/feed_heartbeat.json` every time; the app reads both and never edits them. The app owns `data/planner.json`: runs (keyed by Big Change job id), run start times, capacity days, holidays, vehicle bookings, enquiries, conversions and the week view card order. Both files are read and written through the GitHub contents API.
 
@@ -38,6 +38,7 @@ If `data/planner.json` does not exist, the app reads the Google Sheet once and w
 - Every load is allocated on its own; a drop lands in front of the first card whose midpoint is below the pointer, or at the end of the run.
 - Deliveries always before collections on a run; a site move orders like a collection.
 - Enquiries can never be put on a run. Matches from Ken, sure and likely, convert on their own on every page load.
+- Run from the card: in Team Edit, open a booked job and pick a driver and run number per load (or for the whole job). None takes the load off its run. Deliveries slot ahead of collections on that run; the day view shows the result and can reorder it.
 - Week view card order: in Team Edit a card can be dragged above or below another card in the same day and lane (top half of the target lands before it, bottom half after). It is saved in `card_order` and affects nothing but the display.
 - A job Big Change moved keeps its run for the old day and shows MOVED until it is re-planned. A job Big Change dropped is listed under the day for 7 days.
 - SUB is the sub-contractor column: SUB1, SUB2, one run per subbie wagon, no bed check.

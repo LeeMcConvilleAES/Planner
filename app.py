@@ -1,5 +1,10 @@
 """AES Transport Planner
-Version 2.4
+Version 2.5
+
+2.5: in Team Edit a job card's RUN column has a driver and run number picker
+per load (and a Whole Job row), so CR1 or DF3 can be set without opening the
+day view. It writes the same run entry the day view does, so the day view
+shows it and can still reorder it.
 
 2.4: the header says "Big Change Checked X Mins Ago" from the heartbeat Ken
 writes after every check (data/feed_heartbeat.json, Ken V19.3), not from the
@@ -63,7 +68,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.4"
+VERSION = "2.5"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
