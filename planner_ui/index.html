@@ -214,6 +214,10 @@ html,body{height:100%;overflow:auto}
 .rc{display:grid;grid-template-columns:16px minmax(0,1fr) 14px;gap:5px;align-items:start;border:1px solid;padding:5px 6px}
 .rc[draggable="true"]{cursor:grab}
 .rc.dragging{opacity:.35}
+.card.ins-above{box-shadow:0 -5px 0 0 #0d823b}
+.card.ins-below{box-shadow:0 5px 0 0 #0d823b}
+.card.dragging{opacity:.35}
+.card[draggable="true"]{cursor:grab}
 .rc.ins-above{box-shadow:0 -5px 0 0 #0d823b}
 .rc.ins-below{box-shadow:0 5px 0 0 #0d823b}
 .rbody.over .rc{transition:box-shadow .06s}
@@ -356,7 +360,7 @@ function plannerOut(){
     capacity:S.caps.slice().sort(), holidays:S.hols.map(function(h){ return { id:h.id, driver:h.drv, from:h.from, to:h.to }; }),
     vehicle_bookings:S.vehs.map(function(v){ return { id:v.id, reg:v.reg, type:v.type, driver:v.drv || '', from:v.from, to:v.to }; }),
     enquiries:P.enquiries || [], conversions:P.conversions || {}, dismissed_matches:P.dismissed_matches || [],
-    card_notes:P.card_notes || {}, migration:P.migration || null };
+    card_notes:P.card_notes || {}, card_order:P.card_order || {}, migration:P.migration || null };
 }
 function commit(what){
   if (!ARGS || !ARGS.can_edit) return;
@@ -437,6 +441,18 @@ function tagSet(j){
     (j.destack ? '<span class="tag t-slot" title="' + esc(j.destack) + '">+ DESTACK</span>' : ''); }
 function kind(j){ return j.status === 'e' ? 'k-e' : (j.col === 'del' ? 'k-bd' : j.col === 'move' ? 'k-mv' : 'k-bc') + (j.state === 'complete' ? ' is-done' : ''); }
 
+function laneOrder(list, iso, lane){
+  /* the office's own order for a day's lane, from planner.json; anything new goes at the end */
+  var order = ((P.card_order || {})[iso + '|' + lane]) || [], pos = {}; order.forEach(function(id, i){ pos[id] = i; });
+  return list.slice().sort(function(a, b){ var pa = pos[a.id] != null ? pos[a.id] : 1e9, pb = pos[b.id] != null ? pos[b.id] : 1e9; return pa - pb; });
+}
+function reorderCard(id, lane, beforeId){
+  var el = document.querySelector('[data-lane="' + lane + '"]'); if (!el) return false;
+  var ids = Array.prototype.slice.call(el.querySelectorAll('[data-card]')).map(function(c){ return c.getAttribute('data-card'); }).filter(function(x){ return x !== id; });
+  if (!el.querySelector('[data-card="' + id + '"]')) return false;      // only within the same day and lane
+  var at = beforeId ? ids.indexOf(beforeId) : -1; if (at < 0) ids.push(id); else ids.splice(at, 0, id);
+  P.card_order = P.card_order || {}; P.card_order[lane] = ids; return true;
+}
 function jobCard(j){
   var loads = j.loads.map(function(l){
     var c = codeOf(l), lg = legacyOf(l);
@@ -444,7 +460,7 @@ function jobCard(j){
     return '<div class="ld"><span>' + esc(l.desc) + '</span>' + right + '</div>' + (l.movedFrom ? '<div class="flagline">MOVED FROM ' + fFull(l.movedFrom).toUpperCase() + ': RE-PLAN</div>' : '');
   }).join('');
   var po = j.customerPo ? '<span>PO ' + esc(j.customerPo) + '</span>' : '<span class="tag t-nopo">NO PO</span>';
-  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
+  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '"' + (isTeam() ? ' draggable="true"' : '') + ' data-card="' + esc(j.id) + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
     '<div class="post">' + esc(j.postcode) + '</div>' +
@@ -479,8 +495,8 @@ function renderMain(){
   var names = ['Monday','Tuesday','Wednesday','Thursday','Friday','Sat / Sun'];
   var days = names.map(function(name, i){
     var isos = dayIsos(w, i), cap = S.caps.indexOf(isos[0]) >= 0, wk = i === 5, today = isos.indexOf(TODAY) >= 0;
-    var dels = shown.filter(function(j){ return j.day === i && j.col === 'del'; });
-    var cols = shown.filter(function(j){ return j.day === i && j.col !== 'del'; });
+    var dels = laneOrder(shown.filter(function(j){ return j.day === i && j.col === 'del'; }), isos[0], 'del');
+    var cols = laneOrder(shown.filter(function(j){ return j.day === i && j.col !== 'del'; }), isos[0], 'col');
     var unpl = 0; jobs.forEach(function(j){ if (j.day === i) j.loads.forEach(function(l){ if (!onRun(l)) unpl++; }); });
     var date = i < 5 ? fDay(isos[0]) : dObj(isos[0]).getUTCDate() + ' to ' + fDay(isos[1]);
     var st = stripText(isos);
@@ -494,8 +510,8 @@ function renderMain(){
       '<button class="strip' + (st ? ' has' : '') + '" data-act="openVhDay" data-v="' + i + '" title="' + esc(stTitle || 'Add A Holiday Or Vehicle Booking') + '">' + (st || '+ Holiday / Vehicle Booking') + '</button>' +
       droppedFor(isos) +
       '<div class="subs"><div class="sub d"><span>DELIVERIES</span><span>' + dels.length + '</span></div><div class="sub c"><span>COLL. &amp; MOVES</span><span>' + cols.length + '</span></div></div>' +
-      '<div class="lanes"><div class="lane">' + (dels.length ? dels.map(jobCard).join('') : '<div class="empty">None</div>') + '</div>' +
-      '<div class="lane">' + (cols.length ? cols.map(jobCard).join('') : '<div class="empty">None</div>') + '</div></div></div>';
+      '<div class="lanes"><div class="lane" data-lane="' + isos[0] + '|del">' + (dels.length ? dels.map(jobCard).join('') : '<div class="empty">None</div>') + '</div>' +
+      '<div class="lane" data-lane="' + isos[0] + '|col">' + (cols.length ? cols.map(jobCard).join('') : '<div class="empty">None</div>') + '</div></div></div>';
   }).join('');
 
   var likelyBar = '';
@@ -766,12 +782,14 @@ document.addEventListener('keydown', function(e){
 /* drag and drop, Team Edit only */
 function clearOver(){ document.querySelectorAll('.over').forEach(function(el){ el.classList.remove('over'); }); }
 document.addEventListener('dragstart', function(e){
+  var k = e.target.closest && e.target.closest('[data-card][draggable="true"]');
+  if (k) { S.dragCard = k.getAttribute('data-card'); e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', S.dragCard); } catch (x) {} setTimeout(function(){ k.classList.add('dragging'); }, 0); return; }
   var c = e.target.closest && e.target.closest('[data-load][draggable="true"]'); if (!c) return;
   S.dragId = c.getAttribute('data-load'); e.dataTransfer.effectAllowed = 'move';
   try { e.dataTransfer.setData('text/plain', S.dragId); } catch (x) {}
   setTimeout(function(){ c.classList.add('dragging'); }, 0);
 });
-document.addEventListener('dragend', function(){ S.dragId = null; clearOver(); document.querySelectorAll('.ins-above,.ins-below').forEach(function(el){ el.classList.remove('ins-above','ins-below'); }); document.querySelectorAll('.dragging').forEach(function(el){ el.classList.remove('dragging'); }); });
+document.addEventListener('dragend', function(){ S.dragId = null; S.dragCard = null; clearOver(); document.querySelectorAll('.ins-above,.ins-below').forEach(function(el){ el.classList.remove('ins-above','ins-below'); }); document.querySelectorAll('.dragging').forEach(function(el){ el.classList.remove('dragging'); }); });
 function insertPoint(rbody, y, dragId){
   /* the card the dragged load will go in front of, judged by card midpoints, so a
      drop anywhere in the run (on a card, in a gap, below the last card) lands where
@@ -780,7 +798,20 @@ function insertPoint(rbody, y, dragId){
   for (var i = 0; i < cards.length; i++) { var r = cards[i].getBoundingClientRect(); if (y < r.top + r.height / 2) return cards[i]; }
   return null;
 }
+function cardInsertPoint(lane, y, dragId){
+  var cards = Array.prototype.slice.call(lane.querySelectorAll('[data-card]')).filter(function(c){ return c.getAttribute('data-card') !== dragId; });
+  for (var i = 0; i < cards.length; i++) { var r = cards[i].getBoundingClientRect(); if (y < r.top + r.height / 2) return cards[i]; }
+  return null;
+}
 document.addEventListener('dragover', function(e){
+  if (S.dragCard) {
+    var ln = e.target.closest && e.target.closest('[data-lane]'); if (!ln || !ln.querySelector('[data-card="' + S.dragCard + '"]')) return;
+    e.preventDefault(); e.dataTransfer.dropEffect = 'move';
+    document.querySelectorAll('.ins-above,.ins-below').forEach(function(el){ el.classList.remove('ins-above','ins-below'); });
+    var at = cardInsertPoint(ln, e.clientY, S.dragCard), all = ln.querySelectorAll('[data-card]');
+    if (at) at.classList.add('ins-above'); else if (all.length) all[all.length - 1].classList.add('ins-below');
+    return;
+  }
   if (!S.dragId) return; var z = e.target.closest && e.target.closest('[data-drop]'); if (!z) return;
   e.preventDefault(); e.dataTransfer.dropEffect = 'move';
   var zone = z.getAttribute('data-drop') === 'card' ? z.closest('.rbody') : z;
@@ -792,6 +823,12 @@ document.addEventListener('dragover', function(e){
   }
 });
 document.addEventListener('drop', function(e){
+  if (S.dragCard) {
+    var ln = e.target.closest && e.target.closest('[data-lane]'); var cid = S.dragCard; S.dragCard = null; if (!ln) return;
+    e.preventDefault(); var at = cardInsertPoint(ln, e.clientY, cid);
+    if (reorderCard(cid, ln.getAttribute('data-lane'), at ? at.getAttribute('data-card') : null)) { render(); commit('reordered cards'); }
+    return;
+  }
   if (!S.dragId) return; var z = e.target.closest && e.target.closest('[data-drop]'); if (!z) return;
   e.preventDefault(); var id = S.dragId; S.dragId = null; var kindZ = z.getAttribute('data-drop');
   if (kindZ === 'pool') move(id, null);

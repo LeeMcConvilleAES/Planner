@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 2.2
+Version 2.3
+
+2.3: in Team Edit the office can drag cards up and down a day's lane on the
+week view. The order is kept in planner.json (card_order) per day and lane and
+changes nothing else: not runs, not Big Change.
 
 2.2: enquiries convert on their own. Every load of the page applies the
 matches Ken lists in the feed, sure and likely alike, and writes planner.json,
@@ -53,7 +57,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.2"
+VERSION = "2.3"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -97,7 +101,7 @@ def empty_planner():
     return {"version": 1, "updated_at": "", "updated_by": "", "resources": SEED_RESOURCES,
             "vehicles": SEED_VEHICLES, "runs": {}, "run_starts": {}, "capacity": [],
             "holidays": [], "vehicle_bookings": [], "enquiries": [], "conversions": {},
-            "dismissed_matches": [], "card_notes": {}, "migration": None}
+            "dismissed_matches": [], "card_notes": {}, "card_order": {}, "migration": None}
 
 
 # ===== GitHub

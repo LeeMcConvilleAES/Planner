@@ -1,8 +1,8 @@
-# AES Transport Planner V2.2
+# AES Transport Planner V2.3
 
-Version 2.2, 28 September 2026. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
+Version 2.3, 28 September 2026. V2.3: in Team Edit, cards on the week view can be dragged up and down within a day's lane; the order is saved per day and lane and changes nothing but the display. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
 
-Jobs come from Big Change. Ken writes `data/bigchange_jobs.json` in this repo every ten minutes; the app reads it and never edits it. The app owns `data/planner.json`: runs (keyed by Big Change job id), run start times, capacity days, holidays, vehicle bookings, enquiries and conversions. Both files are read and written through the GitHub contents API.
+Jobs come from Big Change. Ken writes `data/bigchange_jobs.json` in this repo every ten minutes; the app reads it and never edits it. The app owns `data/planner.json`: runs (keyed by Big Change job id), run start times, capacity days, holidays, vehicle bookings, enquiries, conversions and the week view card order. Both files are read and written through the GitHub contents API.
 
 ## Files
 
@@ -37,7 +37,8 @@ If `data/planner.json` does not exist, the app reads the Google Sheet once and w
 
 - Every load is allocated on its own; a drop lands in front of the first card whose midpoint is below the pointer, or at the end of the run.
 - Deliveries always before collections on a run; a site move orders like a collection.
-- Enquiries can never be put on a run. A sure match from Ken converts on its own when editing is unlocked; a likely match is offered with Confirm and Dismiss.
+- Enquiries can never be put on a run. Matches from Ken, sure and likely, convert on their own on every page load.
+- Week view card order: in Team Edit a card can be dragged above or below another card in the same day and lane (top half of the target lands before it, bottom half after). It is saved in `card_order` and affects nothing but the display.
 - A job Big Change moved keeps its run for the old day and shows MOVED until it is re-planned. A job Big Change dropped is listed under the day for 7 days.
 - SUB is the sub-contractor column: SUB1, SUB2, one run per subbie wagon, no bed check.
 
