@@ -334,8 +334,7 @@ function build(args){
   LIKELY = []; var applied = 0;
   (FEED.enquiry_matches || []).forEach(function(m){
     if (!enqIds[m.enquiry_id] || conv[m.enquiry_id] || dismissed.indexOf(m.enquiry_id + '|' + m.bigchange_card) >= 0) return;
-    if (m.level === 'sure') { if (args.can_edit) { convertEnquiry(m, 'ken'); applied++; } }
-    else LIKELY.push(m);
+    LIKELY.push(m);
   });
   return applied;
 }
@@ -445,12 +444,12 @@ function jobCard(j){
     return '<div class="ld"><span>' + esc(l.desc) + '</span>' + right + '</div>' + (l.movedFrom ? '<div class="flagline">MOVED FROM ' + fFull(l.movedFrom).toUpperCase() + ': RE-PLAN</div>' : '');
   }).join('');
   var po = j.customerPo ? '<span>PO ' + esc(j.customerPo) + '</span>' : '<span class="tag t-nopo">NO PO</span>';
-  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click to edit this enquiry' : 'Click to view') + '">' +
+  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
     '<div class="post">' + esc(j.postcode) + '</div>' +
     (j.status === 'e' ? '' : '<div class="ref"><span>JOB ' + esc(j.ref) + '</span></div><div class="ref">' + po + '</div>') +
-    (j.status === 'e' && isTeam() ? '<button class="mini" style="background:#c0261a" data-act="delEnq" data-v="' + esc(j.id) + '">Delete enquiry</button>' : '') +
+
     (j.notes ? '<div class="notes">' + esc(j.notes) + '</div>' : '') +
     (isTeam() && j.price ? '<div class="price">' + esc(j.price) + '</div>' : '') + '</div>';
 }
@@ -472,7 +471,7 @@ function renderMain(){
   var nLoads = shown.reduce(function(n, j){ return n + j.loads.length; }, 0);
 
   var weeks = [0,1,2,3,4].map(function(i){
-    var m = weekMon(i), f = isoAdd(m, 4); var tab = i === 0 ? 'Last week' : i === 1 ? 'This week' : i === 2 ? 'Next week' : fDay(m);
+    var m = weekMon(i), f = isoAdd(m, 4); var tab = i === 0 ? 'Last Week' : i === 1 ? 'This Week' : i === 2 ? 'Next Week' : fDay(m);
     var range = dObj(m).getUTCMonth() === dObj(f).getUTCMonth() ? dObj(m).getUTCDate() + ' to ' + fDay(f) : fDay(m) + ' to ' + fDay(f);
     return '<button class="wk' + (i === w ? ' on' : '') + '" data-act="week" data-v="' + i + '"><b>' + tab + '</b><span>' + range + '</span></button>';
   }).join('');
@@ -487,22 +486,20 @@ function renderMain(){
     var st = stripText(isos);
     var stTitle = st.replace(/<[^>]+>/g, '');
     return '<div class="day' + (today ? ' today' : '') + '">' +
-      '<button class="dh' + (cap ? ' cap' : '') + (wk ? ' wkend' : '') + '" data-act="openDay" data-v="' + i + '" title="Open route planner">' +
+      '<button class="dh' + (cap ? ' cap' : '') + (wk ? ' wkend' : '') + '" data-act="openDay" data-v="' + i + '" title="Open Route Planner">' +
         '<div class="r1"><b>' + name + '</b><span>' + date + '</span></div>' +
         '<div class="r2"><span class="flag-today">' + (cap ? 'AT CAPACITY' : today ? 'TODAY' : '') + '</span>' +
         '<span class="' + (unpl ? 'plan-red' : 'plan-grey') + '">' + (unpl ? unpl + ' TO PLAN ›' : 'ROUTES ›') + '</span></div></button>' +
-      (isTeam() ? '<button class="capbtn' + (cap ? ' on' : '') + '" data-act="cap" data-v="' + isos[0] + '">' + (cap ? 'At capacity: clear' : '+ Mark at capacity') + '</button>' : '') +
-      '<button class="strip' + (st ? ' has' : '') + '" data-act="openVhDay" data-v="' + i + '" title="' + esc(stTitle || 'Add a holiday or vehicle booking') + '">' + (st || '+ Holiday / vehicle booking') + '</button>' +
+      (isTeam() ? '<button class="capbtn' + (cap ? ' on' : '') + '" data-act="cap" data-v="' + isos[0] + '">' + (cap ? 'At Capacity: Clear' : '+ Mark At Capacity') + '</button>' : '') +
+      '<button class="strip' + (st ? ' has' : '') + '" data-act="openVhDay" data-v="' + i + '" title="' + esc(stTitle || 'Add A Holiday Or Vehicle Booking') + '">' + (st || '+ Holiday / Vehicle Booking') + '</button>' +
       droppedFor(isos) +
       '<div class="subs"><div class="sub d"><span>DELIVERIES</span><span>' + dels.length + '</span></div><div class="sub c"><span>COLL. &amp; MOVES</span><span>' + cols.length + '</span></div></div>' +
       '<div class="lanes"><div class="lane">' + (dels.length ? dels.map(jobCard).join('') : '<div class="empty">None</div>') + '</div>' +
       '<div class="lane">' + (cols.length ? cols.map(jobCard).join('') : '<div class="empty">None</div>') + '</div></div></div>';
   }).join('');
 
-  var likelyBar = LIKELY.filter(function(m){ return weekIndexOf(m.day) === w; }).map(function(m){
-    return '<div class="notice"><span class="pill">ENQUIRY</span><span>Enquiry <b>' + esc(m.enquiry_customer) + '</b> on ' + fFull(m.day) + ' looks like <b>' + esc(m.bigchange_customer) + '</b> in Big Change (' + esc(m.why) + ').' +
-      (isTeam() ? ' <button class="coll" data-act="matchOk" data-v="' + esc(m.enquiry_id + '|' + m.bigchange_card) + '">Confirm</button> <button class="coll" data-act="matchNo" data-v="' + esc(m.enquiry_id + '|' + m.bigchange_card) + '">Dismiss</button>' : ' Unlock editing to confirm or dismiss.') + '</span></div>'; }).join('');
-  var sureWait = !isTeam() && (FEED.enquiry_matches || []).some(function(m){ return m.level === 'sure' && (P.enquiries || []).some(function(q){ return q.id === m.enquiry_id; }); });
+  var likelyBar = '';
+  var sureWait = false;
   var legacyBar = (sureWait ? '<div class="notice"><span class="pill">ENQUIRY</span><span>Big Change now covers an enquiry. Unlock editing and it converts on its own.</span></div>' : '') + likelyBar + (legacy.length ? '<div class="notice"><span class="pill">CHECK</span><span><b>' + legacy.length + ' loads</b> carry driver codes that aren\'t BigChange resources (' + Object.keys(legacyCodes).join(', ') + '). They show in amber and wait in the job pool to be re-allocated.</span></div>' : '');
 
   document.getElementById('app').innerHTML =
@@ -510,17 +507,17 @@ function renderMain(){
       '<div class="title"><b>Transport Planner</b><span class="ver">V' + esc(ARGS.version || '2') + '</span></div>' +
       feedCell() +
       (ARGS.notice ? '<div class="hcell" style="color:' + (ARGS.notice_kind === 'error' ? '#c0261a' : '#605d5d') + '">' + esc(ARGS.notice) + '</div>' : '') +
-      (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team edit password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
+      (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team Edit Password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
       '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
-    (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; holidays</button><div class="hint">Click a day header to plan its routes. Every change saves to GitHub as you make it.</div></div>' : '') +
+    (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button><div class="hint">Click a day header to plan its routes. Every change saves to GitHub as you make it.</div></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
       '<button class="nav" data-act="week" data-v="' + Math.min(4, w + 1) + '" aria-label="Next week">›</button>' +
-      '<div class="tbtn" style="min-width:190px;justify-content:space-between;gap:12px;font-weight:600;border-right:1px solid #bab6b6">Jump to week<span>▾</span></div><button class="tbtn">+ Add week</button></div>' +
+      '<div class="tbtn" style="min-width:190px;justify-content:space-between;gap:12px;font-weight:600;border-right:1px solid #bab6b6">Jump To Week<span>▾</span></div><button class="tbtn">+ Add Week</button></div>' +
     '<div class="metrics">' +
       [['Jobs', shown.length], ['Booked', booked], ['Enquiries', shown.length - booked], ['Loads', nLoads]].map(function(m){ return '<div class="metric"><div class="l">' + m[0] + '</div><div class="v">' + m[1] + '</div></div>'; }).join('') +
       '<div class="metric' + (toPlan ? ' alert' : '') + '"><div class="l">To plan</div><div class="v">' + toPlan + '</div></div>' +
-      '<div class="tools"><div class="search"><input id="q" value="' + esc(S.query) + '" placeholder="Search job ref, PO, customer or postcode" aria-label="Search"><select id="flt" aria-label="Status filter"><option value="all"' + (S.filter === 'all' ? ' selected' : '') + '>All statuses</option><option value="b"' + (S.filter === 'b' ? ' selected' : '') + '>Booked</option><option value="e"' + (S.filter === 'e' ? ' selected' : '') + '>Enquiry</option></select></div>' +
-      '<div class="legend"><span><i class="sw" style="background:#dcf2e3;border:1px solid #0d823b"></i>Booked delivery</span><span><i class="sw" style="background:#ece9fb;border:1px solid #5a4fcf"></i>Site move</span><span><i class="sw" style="background:#fde3de;border:1px solid #c0261a"></i>Booked collection</span><span><i class="sw" style="background:#fff;border:1px dashed #605d5d"></i>Enquiry</span><span><b style="color:#c0261a;font-size:10px;letter-spacing:.08em">PLAN</b>Not on a run</span></div></div></div>' +
+      '<div class="tools"><div class="search"><input id="q" value="' + esc(S.query) + '" placeholder="Search Job Ref, PO, Customer Or Postcode" aria-label="Search"><select id="flt" aria-label="Status filter"><option value="all"' + (S.filter === 'all' ? ' selected' : '') + '>All Statuses</option><option value="b"' + (S.filter === 'b' ? ' selected' : '') + '>Booked</option><option value="e"' + (S.filter === 'e' ? ' selected' : '') + '>Enquiry</option></select></div>' +
+      '<div class="legend"><span><i class="sw" style="background:#dcf2e3;border:1px solid #0d823b"></i>Booked Delivery</span><span><i class="sw" style="background:#ece9fb;border:1px solid #5a4fcf"></i>Site Move</span><span><i class="sw" style="background:#fde3de;border:1px solid #c0261a"></i>Booked Collection</span><span><i class="sw" style="background:#fff;border:1px dashed #605d5d"></i>Enquiry</span><span><b style="color:#c0261a;font-size:10px;letter-spacing:.08em">PLAN</b>Not On A Run</span></div></div></div>' +
     legacyBar + '<div class="grid">' + days + '</div>';
 }
 
@@ -547,7 +544,7 @@ function loadCard(l, inRun, order){
   var cls = kind(j) + (lg ? ' legacyc' : '') + (enqRun ? ' enqrun' : '');
   if (!inRun) return '<div class="lc ' + cls + '"' + drag + ' data-load="' + l.id + '">' + inner + '</div>';
   return '<div class="rc ' + cls + '"' + drag + ' data-load="' + l.id + '" data-drop="card"><span class="ord">' + order + '</span><div class="body">' + inner + '</div>' +
-    (team ? '<button class="x" data-act="unassign" data-v="' + l.id + '" title="Back to job pool" aria-label="Back to job pool">×</button>' : '<span></span>') + '</div>';
+    (team ? '<button class="x" data-act="unassign" data-v="' + l.id + '" title="Back To Job Pool" aria-label="Back To Job Pool">×</button>' : '<span></span>') + '</div>';
 }
 
 function renderModal(){
@@ -576,27 +573,27 @@ function renderModal(){
       return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + '>' + r.ini + (ri + 1) + '</span></div>' +
         (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Sum of unit lengths against the bed length (placeholder figures)"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
         '<div class="rbody" data-drop="run" data-drv="' + r.ini + '" data-run="' + (ri + 1) + '">' +
-        (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop loads here' : 'No loads') + '</div>') + '</div></div>';
+        (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div></div>';
     }).join('');
     return '<div class="dcol' + (u ? ' away' : '') + (r.sub ? ' subcol' : '') + '"><div class="dhd"><div class="av' + (r.sub ? ' av-sub' : '') + '">' + r.ini + '</div><div class="n"><b>' + esc(r.name) + '</b><span>' +
-      (n ? n + ' load' + (n > 1 ? 's' : '') + ' · ' + runs.length + ' run' + (runs.length > 1 ? 's' : '') : 'No loads yet') + '</span>' +
-      '<div class="vrow">' + (r.sub ? '<small>Subbie wagons</small>' : v ? '<span class="plate">' + esc(v.reg) + '</span><small>' + (v.bed || DEFAULT_BED) + 'ft</small>' : '<small>No vehicle set</small>') + '</div></div></div>' +
+      (n ? n + ' load' + (n > 1 ? 's' : '') + ' · ' + runs.length + ' run' + (runs.length > 1 ? 's' : '') : 'No Loads Yet') + '</span>' +
+      '<div class="vrow">' + (r.sub ? '<small>Subbie Wagons</small>' : v ? '<span class="plate">' + esc(v.reg) + '</span><small>' + (v.bed || DEFAULT_BED) + 'ft</small>' : '<small>No Vehicle Set</small>') + '</div></div></div>' +
       (u ? '<div class="awayb"><b>' + u.text + '</b><span>' + esc(u.sub) + '</span></div>' : '') +
-      '<div class="runs">' + runHtml + (team ? '<button class="addrun" data-act="addRun" data-v="' + r.ini + '">+ Add run</button>' : '') + '</div></div>';
+      '<div class="runs">' + runHtml + (team ? '<button class="addrun" data-act="addRun" data-v="' + r.ini + '">+ Add Run</button>' : '') + '</div></div>';
   }).join('');
 
   var seg = [['all','ALL'],['del','DEL'],['col','COL']].map(function(s){ return '<button class="' + (S.poolFilter === s[0] ? 'on' : '') + '" data-act="poolF" data-v="' + s[0] + '">' + s[1] + '</button>'; }).join('');
 
   m.innerHTML = '<div class="ov" data-act="closeBg"><div class="panel rp" role="dialog" aria-label="Route planner">' +
     '<div class="ph"><div class="t"><div class="eyebrow">ROUTE PLANNER</div><h2>' + names[day] + ' · ' + date + '</h2></div>' +
-      '<div class="cell">' + (all.length - pool.length) + ' of ' + all.length + ' loads on a run</div>' +
+      '<div class="cell">' + (all.length - pool.length) + ' of ' + all.length + ' Loads On A Run</div>' +
       '<button class="done" data-act="close">DONE</button></div>' +
     (S.warn ? '<div class="warn" role="alert">' + esc(S.warn) + '</div>' : '') +
     (!team ? '<div class="viewonly">VIEW ONLY. Switch to Team Edit to move loads, add runs or set start times.</div>' : '') +
     '<div class="pool"><div class="poolhd"><span class="lbl">JOB POOL</span><span class="cnt">' + pool.length + '</span>' +
       '<span class="h">Every load is allocated separately. Top to bottom is the run order. Deliveries always go before collections. Enquiries stay here until confirmed.</span>' +
-      '<div class="seg">' + seg + '</div><button class="coll" data-act="poolToggle">' + (S.poolOpen ? 'Hide pool' : 'Show pool (' + pool.length + ')') + '</button></div>' +
-      (S.poolOpen ? '<div class="poolbody" data-drop="pool">' + (poolShown.length ? poolShown.map(function(l){ return loadCard(l, false); }).join('') : '<div class="allgood">' + (pool.length ? 'Nothing in this filter.' : 'Every load for this day is on a run.') + '</div>') + '</div>' : '') + '</div>' +
+      '<div class="seg">' + seg + '</div><button class="coll" data-act="poolToggle">' + (S.poolOpen ? 'Hide Pool' : 'Show Pool (' + pool.length + ')') + '</button></div>' +
+      (S.poolOpen ? '<div class="poolbody" data-drop="pool">' + (poolShown.length ? poolShown.map(function(l){ return loadCard(l, false); }).join('') : '<div class="allgood">' + (pool.length ? 'Nothing In This Filter.' : 'Every Load For This Day Is On A Run.') + '</div>') + '</div>' : '') + '</div>' +
     '<div class="drivers">' + cols + '</div></div></div>';
 }
 
@@ -611,12 +608,12 @@ function renderEnq(){
     '<div class="form e">' +
       '<label><span>TYPE OF JOB</span><select id="ec">' + opt('del', 'Delivery') + opt('col', 'Collection') + opt('move', 'Site Move') + '</select><em></em></label>' +
       '<label><span>DATE</span><input type="date" id="ed" min="2024-01-01" max="2030-12-31" value="' + d.date + '"><em>' + fFull(d.date) + '</em></label>' +
-      '<label><span>CUSTOMER</span><input id="ecu" value="' + esc(d.customer) + '" placeholder="Customer name"><em></em></label>' +
-      '<label><span>POSTCODE</span><input id="ep" value="' + esc(d.postcode) + '" placeholder="Site postcode" style="text-transform:uppercase"><em></em></label>' +
+      '<label><span>CUSTOMER</span><input id="ecu" value="' + esc(d.customer) + '" placeholder="Customer Name"><em></em></label>' +
+      '<label><span>POSTCODE</span><input id="ep" value="' + esc(d.postcode) + '" placeholder="Site Postcode" style="text-transform:uppercase"><em></em></label>' +
       '<label style="grid-column:1 / -1"><span>ITEMS, ONE PER LINE</span><textarea id="ei" rows="3" placeholder="32ft office&#10;20ft store&#10;2+1 toilet">' + esc(d.items) + '</textarea><em>' + (n ? n + ' load' + (n > 1 ? 's' : '') : 'Each line is one load on the wagon') + '</em></label>' +
       '<label style="grid-column:1 / -1"><span>NOTES</span><input id="en" value="' + esc(d.notes) + '" placeholder="Anything the driver or Ken should know"><em></em></label>' +
-      '<button class="go" data-act="addEnq"' + (ok ? '' : ' disabled') + '>' + (S.enqEdit ? 'Save enquiry for ' : '+ Add enquiry to ') + fFull(d.date) + '</button>' +
-      (S.enqEdit ? '<button class="go" style="background:#c0261a" data-act="delEnq" data-v="' + esc(S.enqEdit) + '">Delete this enquiry</button>' : '') + '</div></div></div>';
+      '<button class="go" data-act="addEnq"' + (ok ? '' : ' disabled') + '>' + (S.enqEdit ? 'Save Enquiry For ' : '+ Add Enquiry To ') + fFull(d.date) + '</button>' +
+      (S.enqEdit ? '<button class="go" style="background:#c0261a" data-act="delEnq" data-v="' + esc(S.enqEdit) + '">Delete This Enquiry</button>' : '') + '</div></div></div>';
 }
 function addEnquiry(){
   var d = S.enqDraft, items = d.items.split(/\n+/).map(function(t){ return t.trim(); }).filter(Boolean);
@@ -635,7 +632,7 @@ function addEnquiry(){
 }
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
-  var rows = j.loads.map(function(l, i){ var c = codeOf(l); return '<tr><td>' + (i + 1) + '</td><td>' + esc(l.desc) + '</td><td>' + esc(l.ref) + '</td><td>' + (c ? c + (l.movedFrom ? ' (moved from ' + fFull(l.movedFrom) + ')' : '') : 'not planned') + '</td><td>' + esc(l.state) + '</td></tr>'; }).join('');
+  var rows = j.loads.map(function(l, i){ var c = codeOf(l); return '<tr><td>' + (i + 1) + '</td><td>' + esc(l.desc) + '</td><td>' + esc(l.ref) + '</td><td>' + (c ? c + (l.movedFrom ? ' (moved from ' + fFull(l.movedFrom) + ')' : '') : 'Not Planned') + '</td><td>' + esc(l.state) + '</td></tr>'; }).join('');
   var row = function(k, v){ return v ? '<div class="k">' + k + '</div><div>' + v + '</div>' : ''; };
   return '<div class="ov" data-act="closeBg"><div class="panel view" role="dialog" aria-label="Job details">' +
     '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
@@ -665,20 +662,20 @@ function renderVh(){
       '<div class="cell" style="white-space:normal;max-width:330px">Anyone off pulses orange in the route planner on those days. Booking a registered vehicle fills in its driver.</div>' +
       '<button class="done" data-act="close">DONE</button></div>' +
     '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>DRIVER HOLIDAYS</b><span>' + S.hols.length + ' booked</span></div>' +
-      (hols || '<div class="none">No holidays booked.</div>') +
+      (hols || '<div class="none">No Holidays Booked.</div>') +
       '<div class="form h"><label><span>DRIVER</span><select id="hd">' + opts(d.drv) + '</select><em></em></label>' +
       '<label><span>FROM</span><input type="date" id="hf" min="2024-01-01" max="2030-12-31" value="' + d.from + '"><em>' + fFull(d.from) + '</em></label>' +
       '<label><span>TO</span><input type="date" id="ht" min="2024-01-01" max="2030-12-31" value="' + d.to + '"><em>' + fFull(d.to) + '</em></label>' +
-      '<button class="go" data-act="addHol">+ Add holiday</button></div></div>' +
+      '<button class="go" data-act="addHol">+ Add Holiday</button></div></div>' +
     '<div class="vhcol"><div class="sechd"><b>VEHICLE BOOKINGS</b><span>' + S.vehs.length + ' booked</span></div>' +
-      (vehs || '<div class="none">No vehicle bookings.</div>') +
+      (vehs || '<div class="none">No Vehicle Bookings.</div>') +
       '<div class="reg"><span class="k">REGISTER</span>' + reg + '</div>' +
       '<div class="form v"><label><span>VEHICLE</span><input id="vr" list="regs" value="' + esc(v.reg) + '" placeholder="Reg" style="text-transform:uppercase" autocomplete="off"><datalist id="regs">' + VEHICLES.map(function(x){ return '<option value="' + x.reg + '">'; }).join('') + '</datalist><em>' + (v.reg.trim() ? (known ? 'On register' : 'Not on register') : '') + '</em></label>' +
       '<label><span>TYPE</span><select id="vt">' + types + '</select><em></em></label>' +
       '<label><span>DRIVER AFFECTED</span><select id="vd">' + opts(v.drv, true) + '</select><em>' + (known && known.driver && known.driver === v.drv ? 'From register' : '') + '</em></label>' +
       '<label><span>FROM</span><input type="date" id="vf" min="2024-01-01" max="2030-12-31" value="' + v.from + '"><em>' + fFull(v.from) + '</em></label>' +
       '<label><span>TO</span><input type="date" id="vto" min="2024-01-01" max="2030-12-31" value="' + v.to + '"><em>' + fFull(v.to) + '</em></label>' +
-      '<button class="go" data-act="addVeh"' + (v.reg.trim() ? '' : ' disabled') + '>+ Add vehicle booking</button></div></div></div></div></div>';
+      '<button class="go" data-act="addVeh"' + (v.reg.trim() ? '' : ' disabled') + '>+ Add Vehicle Booking</button></div></div></div></div></div>';
 }
 
 function render(){

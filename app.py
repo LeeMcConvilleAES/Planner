@@ -1,5 +1,11 @@
 """AES Transport Planner
-Version 2.1
+Version 2.2
+
+2.2: enquiries convert on their own. Every load of the page applies the
+matches Ken lists in the feed, sure and likely alike, and writes planner.json,
+so nobody has to be in Team Edit for it to happen and there is no Confirm or
+Dismiss. An enquiry is deleted only from inside its edit form. Labels are in
+Title Case.
 
 2.1: the password box sits in the planner header, the migration report is
 no longer shown on the page (it stays in planner.json), and clicking a card
@@ -47,7 +53,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.1"
+VERSION = "2.2"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -315,7 +321,40 @@ def load_all():
         sha = write_file(PLANNER_PATH, planner, None, "Planner: first planner.json" + (" (migrated from the Sheet)" if blob else ""))
     for k, v in empty_planner().items():
         planner.setdefault(k, v)
+    if apply_enquiry_matches(feed, planner):
+        planner["updated_at"] = now_uk().isoformat(timespec="seconds")
+        planner["updated_by"] = "ken"
+        sha = write_file(PLANNER_PATH, planner, sha, "Planner: enquiries converted from Big Change")
     return feed, planner, sha
+
+
+def apply_enquiry_matches(feed, planner):
+    """Convert every enquiry Ken says Big Change now covers. Pure; returns the
+    number converted. The enquiry's notes and items are appended to the card
+    as card_notes, and the conversion is recorded so it never repeats."""
+    matches = (feed or {}).get("enquiry_matches") or []
+    if not matches:
+        return 0
+    enqs = {q.get("id"): q for q in planner.get("enquiries", []) if isinstance(q, dict)}
+    conv = planner.setdefault("conversions", {})
+    notes = planner.setdefault("card_notes", {})
+    done_cards = {c.get("card") for c in conv.values() if isinstance(c, dict)}
+    n = 0
+    for m in matches:
+        eid, card = m.get("enquiry_id"), m.get("bigchange_card")
+        if not eid or not card or eid in conv or eid not in enqs or card in done_cards:
+            continue
+        q = enqs[eid]
+        conv[eid] = {"card": card, "at": now_uk().isoformat(timespec="seconds"), "by": "ken",
+                     "level": m.get("level", ""), "why": m.get("why", ""), "enquiry_customer": q.get("customer", "")}
+        note = " / ".join(x for x in [q.get("notes", ""), "enquiry: " + ", ".join(q.get("items") or []) if q.get("items") else ""] if x)
+        if note:
+            notes[card] = " / ".join(x for x in [notes.get(card, ""), note] if x)
+        done_cards.add(card)
+        n += 1
+    if n:
+        planner["enquiries"] = [q for q in planner.get("enquiries", []) if not (isinstance(q, dict) and q.get("id") in conv)]
+    return n
 
 
 def get_edit_password():
