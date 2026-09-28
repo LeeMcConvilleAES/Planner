@@ -1,0 +1,758 @@
+{
+ "version": 1,
+ "updated_at": "2026-09-28T13:07:15+01:00",
+ "updated_by": "first run",
+ "resources": [
+  {
+   "ini": "CR",
+   "name": "Colin Rogers",
+   "reg": "BV73 EWG"
+  },
+  {
+   "ini": "DF",
+   "name": "Darren Fishwick",
+   "reg": "YK25 CXE"
+  },
+  {
+   "ini": "RB",
+   "name": "Rob Brown",
+   "reg": "FJ74 YYD"
+  },
+  {
+   "ini": "RS",
+   "name": "Rob Sawyer",
+   "reg": "FJ74 YYD"
+  },
+  {
+   "ini": "SL",
+   "name": "Ste Longworth",
+   "reg": "MV75 BXZ"
+  },
+  {
+   "ini": "DB",
+   "name": "Danny Ball",
+   "reg": "J25 AES"
+  },
+  {
+   "ini": "AU",
+   "name": "Alan Unsworth",
+   "reg": "PN25 FKS"
+  },
+  {
+   "ini": "SUB",
+   "name": "Sub-Contractor",
+   "reg": "",
+   "sub": true
+  }
+ ],
+ "vehicles": [
+  {
+   "reg": "BV73 EWG",
+   "driver": "CR",
+   "bed_ft": 32,
+   "note": ""
+  },
+  {
+   "reg": "YK25 CXE",
+   "driver": "DF",
+   "bed_ft": 32,
+   "note": ""
+  },
+  {
+   "reg": "FJ74 YYD",
+   "driver": "RB",
+   "bed_ft": 32,
+   "note": "also Rob Sawyer"
+  },
+  {
+   "reg": "MV75 BXZ",
+   "driver": "SL",
+   "bed_ft": 32,
+   "note": ""
+  },
+  {
+   "reg": "J25 AES",
+   "driver": "DB",
+   "bed_ft": 32,
+   "note": ""
+  },
+  {
+   "reg": "PN25 FKS",
+   "driver": "AU",
+   "bed_ft": 32,
+   "note": ""
+  }
+ ],
+ "runs": {
+  "196563899": {
+   "day": "2026-09-28",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "198746396": {
+   "day": "2026-09-29",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "198746482": {
+   "day": "2026-09-29",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "198746483": {
+   "day": "2026-09-30",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "198746485": {
+   "day": "2026-09-30",
+   "driver": "DF",
+   "run": 2,
+   "seq": 1
+  },
+  "198746487": {
+   "day": "2026-09-30",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "198746488": {
+   "day": "2026-09-30",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "198895624": {
+   "day": "2026-10-02",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "198895721": {
+   "day": "2026-10-02",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "198895811": {
+   "day": "2026-10-02",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "198895923": {
+   "day": "2026-10-02",
+   "driver": "RS",
+   "run": 2,
+   "seq": 1
+  },
+  "198545752": {
+   "day": "2026-09-28",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "198545773": {
+   "day": "2026-09-28",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "198545774": {
+   "day": "2026-09-28",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "198545776": {
+   "day": "2026-09-28",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "198545778": {
+   "day": "2026-09-28",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "199367481": {
+   "day": "2026-09-28",
+   "driver": "SL",
+   "run": 3,
+   "seq": 1
+  },
+  "199119688": {
+   "day": "2026-09-29",
+   "driver": "RB",
+   "run": 2,
+   "seq": 1
+  },
+  "199119800": {
+   "day": "2026-09-29",
+   "driver": "DF",
+   "run": 2,
+   "seq": 1
+  },
+  "199119851": {
+   "day": "2026-09-29",
+   "driver": "DB",
+   "run": 2,
+   "seq": 1
+  },
+  "199209894": {
+   "day": "2026-10-01",
+   "driver": "RB",
+   "run": 2,
+   "seq": 1
+  },
+  "199209987": {
+   "day": "2026-10-01",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "199210075": {
+   "day": "2026-10-01",
+   "driver": "RS",
+   "run": 2,
+   "seq": 1
+  },
+  "199210127": {
+   "day": "2026-10-01",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "199211439": {
+   "day": "2026-09-30",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "199211478": {
+   "day": "2026-09-30",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "199211542": {
+   "day": "2026-09-30",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "199344117": {
+   "day": "2026-10-02",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "199344121": {
+   "day": "2026-10-02",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "199344122": {
+   "day": "2026-10-02",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "199344123": {
+   "day": "2026-10-02",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "199344068": {
+   "day": "2026-10-01",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "199344114": {
+   "day": "2026-10-01",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "199344115": {
+   "day": "2026-10-01",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "197819843": {
+   "day": "2026-09-29",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "197819966": {
+   "day": "2026-09-29",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "197820111": {
+   "day": "2026-09-29",
+   "driver": "DB",
+   "run": 1,
+   "seq": 1
+  },
+  "199622648": {
+   "day": "2026-09-29",
+   "driver": "SL",
+   "run": 3,
+   "seq": 1
+  },
+  "199949439": {
+   "day": "2026-09-29",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "199922270": {
+   "day": "2026-09-29",
+   "driver": "RS",
+   "run": 3,
+   "seq": 1
+  },
+  "200022233": {
+   "day": "2026-09-29",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "199949867": {
+   "day": "2026-09-29",
+   "driver": "RS",
+   "run": 2,
+   "seq": 1
+  },
+  "199246660": {
+   "day": "2026-10-05",
+   "driver": "DF",
+   "run": 2,
+   "seq": 1
+  },
+  "199342309": {
+   "day": "2026-10-05",
+   "driver": "SL",
+   "run": 3,
+   "seq": 1
+  },
+  "199674911": {
+   "day": "2026-10-08",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "199674952": {
+   "day": "2026-10-08",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "199674953": {
+   "day": "2026-10-08",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "199674954": {
+   "day": "2026-10-08",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "199674955": {
+   "day": "2026-10-08",
+   "driver": "DF",
+   "run": 2,
+   "seq": 1
+  },
+  "199674958": {
+   "day": "2026-10-08",
+   "driver": "RB",
+   "run": 2,
+   "seq": 1
+  },
+  "199674959": {
+   "day": "2026-10-08",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "199674961": {
+   "day": "2026-10-08",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "199927479": {
+   "day": "2026-10-05",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "199927560": {
+   "day": "2026-10-05",
+   "driver": "DF",
+   "run": 1,
+   "seq": 1
+  },
+  "199927615": {
+   "day": "2026-10-05",
+   "driver": "RB",
+   "run": 1,
+   "seq": 1
+  },
+  "199927677": {
+   "day": "2026-10-05",
+   "driver": "SL",
+   "run": 1,
+   "seq": 1
+  },
+  "199937124": {
+   "day": "2026-10-05",
+   "driver": "CR",
+   "run": 1,
+   "seq": 1
+  },
+  "199937283": {
+   "day": "2026-10-05",
+   "driver": "RS",
+   "run": 1,
+   "seq": 1
+  },
+  "199937344": {
+   "day": "2026-10-05",
+   "driver": "CR",
+   "run": 2,
+   "seq": 1
+  },
+  "200167784": {
+   "day": "2026-10-07",
+   "driver": "SL",
+   "run": 2,
+   "seq": 1
+  },
+  "200276118": {
+   "day": "2026-10-07",
+   "driver": "CR",
+   "run": 3,
+   "seq": 1
+  }
+ },
+ "run_starts": {},
+ "capacity": [
+  "2026-09-14",
+  "2026-09-16",
+  "2026-09-17",
+  "2026-09-15",
+  "2026-09-25",
+  "2026-09-24",
+  "2026-09-22",
+  "2026-09-21",
+  "2026-09-23",
+  "2026-09-28",
+  "2026-10-07"
+ ],
+ "holidays": [],
+ "vehicle_bookings": [
+  {
+   "id": "v-2026-09-14-CXE & TRAILER",
+   "reg": "CXE & TRAILER",
+   "type": "MOT",
+   "driver": "",
+   "from": "2026-09-17",
+   "to": "2026-09-17"
+  },
+  {
+   "id": "v-2026-09-14-WGF",
+   "reg": "WGF",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-09-14",
+   "to": "2026-09-14"
+  },
+  {
+   "id": "v-2026-09-14-FKS",
+   "reg": "PN25 FKS",
+   "type": "SERVICE",
+   "driver": "AU",
+   "from": "2026-09-18",
+   "to": "2026-09-18"
+  },
+  {
+   "id": "v-2026-09-14-AES",
+   "reg": "J25 AES",
+   "type": "SERVICE",
+   "driver": "DB",
+   "from": "2026-09-15",
+   "to": "2026-09-15"
+  },
+  {
+   "id": "v-2026-09-21-FXJ",
+   "reg": "FXJ",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-09-24",
+   "to": "2026-09-24"
+  },
+  {
+   "id": "v-2026-09-21-JRO",
+   "reg": "JRO",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-09-25",
+   "to": "2026-09-25"
+  },
+  {
+   "id": "v-2026-09-21-FKT",
+   "reg": "FKT",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-09-25",
+   "to": "2026-09-25"
+  },
+  {
+   "id": "v-2026-09-28-AES",
+   "reg": "J25 AES",
+   "type": "SERVICE",
+   "driver": "DB",
+   "from": "2026-09-30",
+   "to": "2026-09-30"
+  },
+  {
+   "id": "v-2026-09-28-BXZ",
+   "reg": "MV75 BXZ",
+   "type": "SERVICE",
+   "driver": "SL",
+   "from": "2026-10-01",
+   "to": "2026-10-01"
+  },
+  {
+   "id": "v-2026-09-28-EWG",
+   "reg": "BV73 EWG",
+   "type": "MOT",
+   "driver": "CR",
+   "from": "2026-09-30",
+   "to": "2026-09-30"
+  },
+  {
+   "id": "v-2026-09-28-JRO",
+   "reg": "JRO",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-10-02",
+   "to": "2026-10-02"
+  },
+  {
+   "id": "v-2026-10-05-YYD",
+   "reg": "FJ74 YYD",
+   "type": "MOT",
+   "driver": "RB",
+   "from": "2026-10-09",
+   "to": "2026-10-09"
+  }
+ ],
+ "enquiries": [
+  {
+   "id": "e-j-f444a4569d",
+   "day": "2026-10-01",
+   "col": "del",
+   "customer": "JAKE",
+   "postcode": "L34 6JN",
+   "po": "",
+   "items": [
+    "24FT"
+   ],
+   "notes": "",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-283ff335f9",
+   "day": "2026-09-28",
+   "col": "col",
+   "customer": "WELFARE 4 HIRE",
+   "postcode": "CW5",
+   "po": "",
+   "items": [
+    "DAY RATE - TOWING"
+   ],
+   "notes": "Not in Big Change.",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-b04987b425",
+   "day": "2026-09-30",
+   "col": "col",
+   "customer": "HCC CONSTRUCTION",
+   "postcode": "SK1 1YA",
+   "po": "",
+   "items": [
+    "10FT STORE"
+   ],
+   "notes": "Not in Big Change.",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-cfe2675e3b",
+   "day": "2026-10-01",
+   "col": "col",
+   "customer": "PETE",
+   "postcode": "BL3 4JJ",
+   "po": "",
+   "items": [
+    "BOSS UNIT"
+   ],
+   "notes": "",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-20b8f73029",
+   "day": "2026-10-07",
+   "col": "col",
+   "customer": "Aldapoint",
+   "postcode": "L33 7SG",
+   "po": "",
+   "items": [
+    "32ft",
+    "32ft",
+    "32ft",
+    "32ft",
+    "32ft"
+   ],
+   "notes": "Not in Big Change.",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-c616925d0c",
+   "day": "2026-10-07",
+   "col": "col",
+   "customer": "Britcon",
+   "postcode": "IPSWICH-YORK",
+   "po": "",
+   "items": [
+    "32ft shower block"
+   ],
+   "notes": "Not in Big Change. NIght Out",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-b126433d97",
+   "day": "2026-10-12",
+   "col": "col",
+   "customer": "Aldapoint",
+   "postcode": "L33 7SG",
+   "po": "",
+   "items": [
+    "32ft",
+    "32ft",
+    "32ft",
+    "32ft",
+    "32ft"
+   ],
+   "notes": "Not in Big Change.",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-687b71b4a9",
+   "day": "2026-10-31",
+   "col": "col",
+   "customer": "MCC",
+   "postcode": "SK12 1NW",
+   "po": "",
+   "items": [
+    "4+2"
+   ],
+   "notes": "Not in Big Change. PRE 7AM",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-0d0f799c55",
+   "day": "2026-10-27",
+   "col": "col",
+   "customer": "WINSTANLEY",
+   "postcode": "WA2 0QJ",
+   "po": "",
+   "items": [
+    "10FT STORE"
+   ],
+   "notes": "Not in Big Change.",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  },
+  {
+   "id": "e-j-3646ba72bb",
+   "day": "2026-10-28",
+   "col": "col",
+   "customer": "PETE",
+   "postcode": "HX6 1HL",
+   "po": "",
+   "items": [
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT",
+    "20FT",
+    "20FT",
+    "STAIRCASE"
+   ],
+   "notes": "",
+   "created_at": "2026-09-28T13:07:15+01:00",
+   "created_by": "migration"
+  }
+ ],
+ "conversions": {},
+ "dismissed_matches": [],
+ "card_notes": {},
+ "migration": {
+  "at": "2026-09-28T13:07:15+01:00",
+  "summary": "Migrated from the Sheet on 28/09/2026 13:07: 35 booked jobs matched to Big Change, 61 run entries, 10 enquiries kept, 0 holidays, 12 vehicle bookings, 11 capacity days; 0 driver codes not placed.",
+  "report": [
+   "week 2026-09-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-14: holiday '' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-21: holiday 'ste      ////      colin' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-21: holiday 'ste' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-21: holiday '' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-21: holiday '' not migrated (no driver match), re-enter by hand",
+   "week 2026-09-21: holiday '' not migrated (no driver match), re-enter by hand",
+   "2026-09-28 stoneleigh park and ragley hall: the Sheet had more loads than Big Change (2 vs 1), code DF1 not placed",
+   "2026-09-28 John Reilly Civil Engineering Ltd: the Sheet had more loads than Big Change (7 vs 6), code CR1 not placed",
+   "2026-09-29 A Connolly: the Sheet had more loads than Big Change (4 vs 3), code RB3 not placed",
+   "2026-09-29 DLP SERVICES: the Sheet had more loads than Big Change (3 vs 1), code SL3 not placed",
+   "2026-09-29 DLP SERVICES: the Sheet had more loads than Big Change (3 vs 1), code SL3 not placed",
+   "2026-09-28 WELFARE 4 HIRE CW5: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "2026-09-30 HCC CONSTRUCTION SK1 1YA: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "2026-10-05 BROOKHOUSE CONTRACTING: the Sheet had more loads than Big Change (3 vs 1), code RB2 not placed",
+   "2026-10-05 BROOKHOUSE CONTRACTING: the Sheet had more loads than Big Change (3 vs 1), code RB2 not placed",
+   "2026-10-07 Aldapoint L33 7SG: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "2026-10-05 GRS Contractors: the Sheet had more loads than Big Change (4 vs 3), code RS2 not placed",
+   "2026-10-07 Britcon Ipswich-York: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "2026-10-12 Aldapoint L33 7SG: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "week 2026-10-19: holiday 'rob sawyer - servicing W4H' not migrated (no driver match), re-enter by hand",
+   "2026-10-31 MCC SK12 1NW: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "2026-10-27 WINSTANLEY WA2 0QJ: booked in the Sheet but not in Big Change, kept as an enquiry",
+   "week 2026-10-26: holiday 'ROB SAWYER - W4H SERVICING' not migrated (no driver match), re-enter by hand",
+   "week 2026-12-07: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand",
+   "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
+  ]
+ }
+}
