@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-28T12:32:41",
+ "generated_at": "2026-09-28T13:03:02",
  "window": [
   "2026-09-27",
   "2026-10-26"
@@ -162,13 +162,13 @@
       "bigchange_id": 199694001,
       "ref": "AES/60445",
       "desc": "w4h - day rate for towing",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery"
      }
     ],
     "notes": "W4H - DAY RATE FOR TOWING",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199694001
     ],
@@ -1807,6 +1807,68 @@
     "refs": [
      "AES/60496",
      "AES/60497"
+    ]
+   }
+  ],
+  "2026-10-12": [
+   {
+    "id": "bc-200309149",
+    "type": "Collection",
+    "col": "col",
+    "customer": "CLC CONTRACTORS",
+    "postcode": "OL9 0JN",
+    "address": "Andrew Street, Chadderton, OL9 0JN",
+    "order_number": "01-001022",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200309149,
+      "ref": "AES/60853",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection"
+     }
+    ],
+    "notes": "COLLECTION OF 20FT STORE",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200309149
+    ],
+    "refs": [
+     "AES/60853"
+    ]
+   },
+   {
+    "id": "bc-200309308",
+    "type": "Collection",
+    "col": "col",
+    "customer": "CLC CONTRACTORS",
+    "postcode": "OL9 0JN",
+    "address": "Andrew Street, Chadderton, OL9 0JN",
+    "order_number": "01-003138",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200309308,
+      "ref": "AES/60854",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection"
+     }
+    ],
+    "notes": "COLLECTION OF 20FT STORE",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200309308
+    ],
+    "refs": [
+     "AES/60854"
     ]
    }
   ],
