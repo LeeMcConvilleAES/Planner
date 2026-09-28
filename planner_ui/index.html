@@ -136,6 +136,8 @@ html,body{height:100%;overflow:auto}
 .code.plan{font-size:9px;letter-spacing:.08em;color:#c0261a;padding-top:1px}
 .code.legacy{font-size:10px;background:#d9730d;color:#fff;padding:0 3px}
 .post{font-size:11px;font-weight:600;color:#444141;overflow-wrap:anywhere}
+.mi{display:inline-block;background:#e8e6e6;color:#201e1d;border-radius:3px;padding:0 5px;font-size:10px;font-weight:800;margin-left:4px;white-space:nowrap}
+.vrows .mi{font-size:12px;font-weight:700;padding:1px 7px}
 .ref{font-size:10px;font-weight:800;letter-spacing:.04em;color:#444141;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .notes{font-size:10px;color:#605d5d;font-style:italic}
 .notes-1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -317,7 +319,7 @@ function build(args){
         customerPo:c.order_number || '', customer:c.customer || '', postcode:c.postcode || '', col:c.col || 'del', iso:iso,
         week:weekIndexOf(iso), day:dayIndexOf(iso), status:'b', state:c.status || 'booked',
         notes:[c.notes || '', notesFor[c.id] || ''].filter(Boolean).join(' / '), destack:c.destack || '', price:'', slot:'',
-        converted: recent ? conv : null, loads:[] };
+        converted: recent ? conv : null, miles:(c.miles == null ? null : +c.miles), loads:[] };
       (c.loads || []).forEach(function(l, li){ lid++; var bid = String(l.bigchange_id); var e = runs[bid]; seen[bid] = 1;
         var ld = { id:bid, bid:bid, desc:l.desc || '', ref:l.ref || '', state:l.status || 'booked', driver:'', run:null, seq:lid, movedFrom:'', job:j, idx:li };
         if (e && e.driver) { ld.driver = e.driver; ld.run = e.run; ld.seq = e.seq || lid; ld.movedFrom = e.day && e.day !== iso ? e.day : ''; }
@@ -469,7 +471,7 @@ function jobCard(j){
   return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '"' + (isTeam() ? ' draggable="true"' : '') + ' data-card="' + esc(j.id) + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
-    '<div class="post">' + esc(j.postcode) + '</div>' +
+    '<div class="post">' + esc(j.postcode) + (j.miles != null ? ' <span class="mi" title="Road miles from the depot, one way">' + j.miles + ' mi</span>' : '') + '</div>' +
     (j.status === 'e' ? '' : '<div class="ref"><span>JOB ' + esc(j.ref) + '</span></div><div class="ref">' + po + '</div>') +
 
     (j.notes ? '<div class="notes">' + esc(j.notes) + '</div>' : '') +
@@ -562,7 +564,7 @@ function loadCard(l, inRun, order){
   var j = l.job, team = isTeam(), lg = legacyOf(l), enqRun = inRun && j.status === 'e';
   var label = 'Load ' + (l.idx + 1) + (j.loads.length > 1 ? ' of ' + j.loads.length : '') + ': ' + l.desc;
   var tags = '<div class="tags">' + tagSet(j) + (j.customerPo ? '' : '<span class="tag t-nopo">NO PO</span>') + '</div>';
-  var inner = tags + '<div class="cust">' + esc(j.customer) + '</div><div class="lbl2">' + esc(label) + '</div><div class="meta">' + (l.ref ? 'JOB ' + esc(l.ref) + ' · ' : '') + esc(j.postcode) + '</div>' +
+  var inner = tags + '<div class="cust">' + esc(j.customer) + '</div><div class="lbl2">' + esc(label) + '</div><div class="meta">' + (l.ref ? 'JOB ' + esc(l.ref) + ' · ' : '') + esc(j.postcode) + (j.miles != null ? ' · ' + j.miles + ' mi' : '') + '</div>' +
     (j.notes ? '<div class="notes notes-1" title="' + esc(j.notes) + '">' + esc(j.notes) + '</div>' : '') +
     (lg ? '<div class="flagline">WAS ' + esc(lg) + ': NOT A BIGCHANGE RESOURCE</div>' : '') +
     (l.movedFrom ? '<div class="flagline">MOVED FROM ' + fFull(l.movedFrom).toUpperCase() + '</div>' : '');
@@ -690,7 +692,7 @@ function renderView(){
     '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
       '<div class="cell">' + fFull(j.iso) + '</div><button class="done" data-act="closeView">CLOSE</button></div>' +
     '<div class="vrows">' +
-      row('POSTCODE', esc(j.postcode)) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
+      row('POSTCODE', esc(j.postcode) + (j.miles != null ? ' <span class="mi">' + j.miles + ' miles from the depot, one way</span>' : '')) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
       row('STATUS', esc(j.state) + (j.converted ? ', converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') : '')) +
       row('NOTES', esc(j.notes)) + row('STACKING', esc(j.destack)) +
       '<div class="k">LOADS</div><div><table><tr><th>#</th><th>UNIT</th><th>AES JOB</th><th>RUN</th><th>STATE</th></tr>' + rows + '</table></div>' +

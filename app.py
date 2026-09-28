@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 2.5
+Version 2.6
+
+2.6: road miles from the depot. Ken V19.4 puts "miles" (one way, by road,
+from M46 9BE) on every feed card; the week card, the load pills in the day
+view and the job card all show it. A card without a figure shows nothing.
 
 2.5: in Team Edit a job card's RUN column has a driver and run number picker
 per load (and a Whole Job row), so CR1 or DF3 can be set without opening the
@@ -68,7 +72,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.5"
+VERSION = "2.6"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
