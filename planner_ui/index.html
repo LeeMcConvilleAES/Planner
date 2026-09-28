@@ -429,7 +429,7 @@ function legMiles(a, b){
 function runMiles(loads){
   /* depot to the first site, site to site in run order, back to the depot */
   var d = distIndex(); if (!d.depot || !loads.length) return null;
-  var stops = []; loads.forEach(function(l){ var k = l.job.pcKey; if (k && stops[stops.length - 1] !== k) stops.push(k); });
+  var stops = []; loads.forEach(function(l){ var k = l.job.pcKey; if (k && stops.indexOf(k) < 0) stops.push(k); });   /* each site once, in the order first reached */
   if (!stops.length) return null;
   var path = [d.depot].concat(stops, [d.depot]), total = 0, gaps = 0;
   for (var i = 1; i < path.length; i++) { var m = legMiles(path[i - 1], path[i]); if (m == null) gaps++; else total += m; }
@@ -497,7 +497,7 @@ function jobCard(j){
   return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '"' + (isTeam() ? ' draggable="true"' : '') + ' data-card="' + esc(j.id) + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
-    '<div class="post">' + esc(j.postcode) + (j.miles != null ? ' <span class="mi" title="Road miles from the depot, one way">' + j.miles + ' mi</span>' : '') + '</div>' +
+    '<div class="post">' + esc(j.postcode) + '</div>' +
     (j.status === 'e' ? '' : '<div class="ref"><span>JOB ' + esc(j.ref) + '</span></div><div class="ref">' + po + '</div>') +
 
     (j.notes ? '<div class="notes">' + esc(j.notes) + '</div>' : '') +
@@ -719,7 +719,7 @@ function renderView(){
     '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
       '<div class="cell">' + fFull(j.iso) + '</div><button class="done" data-act="closeView">CLOSE</button></div>' +
     '<div class="vrows">' +
-      row('POSTCODE', esc(j.postcode) + (j.miles != null ? ' <span class="mi">' + j.miles + ' miles from the depot, one way</span>' : '')) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
+      row('POSTCODE', esc(j.postcode)) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
       row('STATUS', esc(j.state) + (j.converted ? ', converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') : '')) +
       row('NOTES', esc(j.notes)) + row('STACKING', esc(j.destack)) +
       '<div class="k">LOADS</div><div><table><tr><th>#</th><th>UNIT</th><th>AES JOB</th><th>RUN</th><th>STATE</th></tr>' + rows + '</table></div>' +

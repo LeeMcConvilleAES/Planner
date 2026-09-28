@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 2.7
+Version 2.8
+
+2.8: mileage only in the day view (no badge on the week cards or the job
+card). A postcode counts once per run however many loads go there, in the
+order it is first reached.
 
 2.7: run and driver mileage in the day view. Each run is depot to the first
 site, site to site in run order, and back to the depot; the driver total is
@@ -78,7 +82,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.7"
+VERSION = "2.8"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
