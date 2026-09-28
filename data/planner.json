@@ -666,20 +666,6 @@
    "created_by": "migration"
   },
   {
-   "id": "e-j-0d0f799c55",
-   "day": "2026-10-27",
-   "col": "col",
-   "customer": "WINSTANLEY",
-   "postcode": "WA2 0QJ",
-   "po": "",
-   "items": [
-    "10FT STORE"
-   ],
-   "notes": "Not in Big Change.",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration"
-  },
-  {
    "id": "e-j-3646ba72bb",
    "day": "2026-10-28",
    "col": "col",
@@ -714,12 +700,21 @@
    "by": "office",
    "level": "likely",
    "enquiry_customer": "HCC CONSTRUCTION"
+  },
+  "e-j-0d0f799c55": {
+   "card": "bc-200140265",
+   "at": "2026-09-29T00:04:18+01:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "WINSTANLEY"
   }
  },
  "dismissed_matches": [],
  "card_notes": {
   "bc-200296895": "enquiry: BOSS UNIT",
-  "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE"
+  "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE",
+  "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE"
  },
  "migration": {
   "at": "2026-09-28T13:07:15+01:00",
@@ -753,7 +748,7 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-09-28T14:19:05+01:00",
- "updated_by": "office",
+ "updated_at": "2026-09-29T00:04:18+01:00",
+ "updated_by": "ken",
  "card_order": {}
 }
