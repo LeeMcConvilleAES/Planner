@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T00:03:23",
+ "generated_at": "2026-09-29T00:13:26",
  "window": [
   "2026-09-28",
   "2026-10-27"
@@ -2086,17 +2086,7 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [
-  {
-   "enquiry_id": "e-j-0d0f799c55",
-   "bigchange_card": "bc-200140265",
-   "level": "sure",
-   "why": "same day, same postcode",
-   "enquiry_customer": "WINSTANLEY",
-   "bigchange_customer": "winstanley",
-   "day": "2026-10-27"
-  }
- ],
+ "enquiry_matches": [],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
