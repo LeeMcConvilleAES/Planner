@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-28T14:13:46",
+ "generated_at": "2026-09-28T14:23:55",
  "window": [
   "2026-09-27",
   "2026-10-26"
@@ -57,14 +57,14 @@
       "bigchange_id": 198545752,
       "ref": "AES/59453",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery"
      },
      {
       "bigchange_id": 198545773,
       "ref": "AES/59455",
       "desc": "10ft store",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery"
      },
      {
@@ -92,7 +92,7 @@
       "bigchange_id": 199367481,
       "ref": "AES/60240",
       "desc": "10ft store",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery"
      }
     ],
