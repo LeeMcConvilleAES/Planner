@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-28T13:13:08",
+ "generated_at": "2026-09-28T13:14:58",
  "window": [
   "2026-09-27",
   "2026-10-26"
@@ -2006,5 +2006,24 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": []
+ "enquiry_matches": [
+  {
+   "enquiry_id": "e-j-cfe2675e3b",
+   "bigchange_card": "bc-200296895",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "PETE",
+   "bigchange_customer": "MCI Developments Ltd",
+   "day": "2026-10-01"
+  },
+  {
+   "enquiry_id": "e-j-b04987b425",
+   "bigchange_card": "bc-200288866",
+   "level": "likely",
+   "why": "same customer, a day apart",
+   "enquiry_customer": "HCC CONSTRUCTION",
+   "bigchange_customer": "HCC Construction",
+   "day": "2026-09-30"
+  }
+ ]
 }
