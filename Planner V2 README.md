@@ -1,6 +1,6 @@
-# AES Transport Planner V2.0
+# AES Transport Planner V2.1
 
-Version 2.0, 28 September 2026.
+Version 2.1, 28 September 2026. V2.1: password box in the planner header, migration report no longer shown, click a card to view a job or edit an enquiry.
 
 Jobs come from Big Change. Ken writes `data/bigchange_jobs.json` in this repo every ten minutes; the app reads it and never edits it. The app owns `data/planner.json`: runs (keyed by Big Change job id), run start times, capacity days, holidays, vehicle bookings, enquiries and conversions. Both files are read and written through the GitHub contents API.
 

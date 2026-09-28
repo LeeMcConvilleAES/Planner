@@ -106,7 +106,16 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .code.moved{background:#d9730d;color:#fff;padding:0 3px}
 .dropped{padding:5px 12px;border-bottom:1px solid #bab6b6;background:#fde3de;color:#5e120b;font-size:11px;font-weight:600}
 .dropped .x{font-size:13px;vertical-align:middle}
-.mode{cursor:default}
+.mode{cursor:pointer}
+.pwcell input{border:1px solid #201e1d;padding:6px 8px;font:13px 'Figtree',sans-serif;border-radius:0;background:#fff;color:#201e1d;width:170px;margin-right:6px}
+.card{cursor:pointer}
+.panel.view{max-width:760px;min-width:640px;margin-top:40px}
+.vrows>div{overflow-wrap:anywhere}
+.vrows{padding:14px 20px 18px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;font-size:13px}
+.vrows .k{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d;padding-top:2px}
+.vrows table{border-collapse:collapse;width:100%}
+.vrows td,.vrows th{text-align:left;font-size:12px;padding:4px 6px;border-bottom:1px solid #bab6b6}
+.vrows th{font-size:10px;font-weight:800;letter-spacing:.08em;color:#605d5d}
 .notice .coll{margin-left:6px;padding:2px 8px;font-size:11px;background:#fff}
 html,body{height:100%;overflow:auto}
 .k-bd .cust{color:#063d1c}
@@ -318,7 +327,7 @@ function build(args){
   S.hols = (P.holidays || []).map(function(h){ return { id:h.id, drv:h.driver, from:h.from, to:h.to }; });
   S.vehs = (P.vehicle_bookings || []).map(function(v){ return { id:v.id, reg:v.reg, type:v.type, drv:v.driver || '', from:v.from, to:v.to }; });
   S.runStart = Object.assign({}, P.run_starts || {});
-  S.mode = args.can_edit ? 'team' : 'ro';
+  S.mode = args.can_edit ? 'team' : 'ro'; if (args.can_edit) S.pwOpen = false;
   if (!S.holDraft.drv && RESOURCES.length) S.holDraft.drv = RESOURCES[0].ini;
   /* enquiry matches from Ken: sure ones convert, likely ones are offered */
   var conv = P.conversions || {}, dismissed = P.dismissed_matches || [], enqIds = {}; (P.enquiries || []).forEach(function(q){ enqIds[q.id] = q; });
@@ -368,7 +377,7 @@ function legacyOf(l){ return l.driver && !isRes(l.driver) ? l.driver + (l.run ||
 function isDel(l){ return l.job.col === 'del'; }
 function ft(desc){ var m = /(\d+)\s*ft/i.exec(desc); return m ? +m[1] : 0; }
 
-var S = { mode:'ro', week:1, query:'', filter:'all', caps:[], modalDay:null, vhOpen:false, enqOpen:false, enqDraft:{ col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }, warn:'', poolOpen:true, poolFilter:'all',
+var S = { mode:'ro', week:1, pwOpen:false, viewJob:null, enqEdit:null, query:'', filter:'all', caps:[], modalDay:null, vhOpen:false, enqOpen:false, enqDraft:{ col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }, warn:'', poolOpen:true, poolFilter:'all',
   extraRuns:{}, runStart:{}, changes:{}, dragId:null, hols:[], vehs:[],
   holDraft:{ drv:'', from:TODAY, to:TODAY },
   vehDraft:{ reg:'', type:'MOT', drv:'', from:TODAY, to:TODAY } };
@@ -436,7 +445,7 @@ function jobCard(j){
     return '<div class="ld"><span>' + esc(l.desc) + '</span>' + right + '</div>' + (l.movedFrom ? '<div class="flagline">MOVED FROM ' + fFull(l.movedFrom).toUpperCase() + ': RE-PLAN</div>' : '');
   }).join('');
   var po = j.customerPo ? '<span>PO ' + esc(j.customerPo) + '</span>' : '<span class="tag t-nopo">NO PO</span>';
-  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '">' +
+  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click to edit this enquiry' : 'Click to view') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
     '<div class="post">' + esc(j.postcode) + '</div>' +
@@ -500,7 +509,9 @@ function renderMain(){
     '<div class="band"><div class="logo"><img src="' + LOGO + '" alt="Ainscough Environmental Services"></div>' +
       '<div class="title"><b>Transport Planner</b><span class="ver">V' + esc(ARGS.version || '2') + '</span></div>' +
       feedCell() +
-      '<div class="modes"><span class="mode' + (isTeam() ? ' on-team' : '') + '">TEAM EDIT</span><span class="mode' + (!isTeam() ? ' on-ro' : '') + '">READ ONLY</span></div></div>' +
+      (ARGS.notice ? '<div class="hcell" style="color:' + (ARGS.notice_kind === 'error' ? '#c0261a' : '#605d5d') + '">' + esc(ARGS.notice) + '</div>' : '') +
+      (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team edit password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
+      '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
     (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; holidays</button><div class="hint">Click a day header to plan its routes. Every change saves to GitHub as you make it.</div></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
       '<button class="nav" data-act="week" data-v="' + Math.min(4, w + 1) + '" aria-label="Next week">›</button>' +
@@ -541,6 +552,7 @@ function loadCard(l, inRun, order){
 
 function renderModal(){
   var m = document.getElementById('modal'), team = isTeam();
+  if (S.viewJob) { m.innerHTML = renderView(); return; }
   if (S.enqOpen) { m.innerHTML = renderEnq(); return; }
   if (S.vhOpen) { m.innerHTML = renderVh(); return; }
   if (S.modalDay == null) { m.innerHTML = ''; return; }
@@ -593,7 +605,7 @@ function renderEnq(){
   var opt = function(v, l){ return '<option value="' + v + '"' + (d.col === v ? ' selected' : '') + '>' + l + '</option>'; };
   var n = d.items.trim() ? d.items.trim().split(/\n+/).length : 0;
   return '<div class="ov" data-act="closeBg"><div class="panel enq" role="dialog" aria-label="Add enquiry">' +
-    '<div class="ph"><div class="t"><div class="eyebrow" style="color:#5a3d00">ENQUIRY</div><h2>Add Enquiry</h2></div>' +
+    '<div class="ph"><div class="t"><div class="eyebrow" style="color:#5a3d00">ENQUIRY</div><h2>' + (S.enqEdit ? 'Edit Enquiry' : 'Add Enquiry') + '</h2></div>' +
       '<div class="cell" style="white-space:normal;max-width:360px">Not booked yet. When the matching job appears in Big Change, Ken converts this to the delivery, collection or site move and keeps your notes.</div>' +
       '<button class="done" data-act="close">CLOSE</button></div>' +
     '<div class="form e">' +
@@ -603,17 +615,38 @@ function renderEnq(){
       '<label><span>POSTCODE</span><input id="ep" value="' + esc(d.postcode) + '" placeholder="Site postcode" style="text-transform:uppercase"><em></em></label>' +
       '<label style="grid-column:1 / -1"><span>ITEMS, ONE PER LINE</span><textarea id="ei" rows="3" placeholder="32ft office&#10;20ft store&#10;2+1 toilet">' + esc(d.items) + '</textarea><em>' + (n ? n + ' load' + (n > 1 ? 's' : '') : 'Each line is one load on the wagon') + '</em></label>' +
       '<label style="grid-column:1 / -1"><span>NOTES</span><input id="en" value="' + esc(d.notes) + '" placeholder="Anything the driver or Ken should know"><em></em></label>' +
-      '<button class="go" data-act="addEnq"' + (ok ? '' : ' disabled') + '>+ Add enquiry to ' + fFull(d.date) + '</button></div></div></div>';
+      '<button class="go" data-act="addEnq"' + (ok ? '' : ' disabled') + '>' + (S.enqEdit ? 'Save enquiry for ' : '+ Add enquiry to ') + fFull(d.date) + '</button>' +
+      (S.enqEdit ? '<button class="go" style="background:#c0261a" data-act="delEnq" data-v="' + esc(S.enqEdit) + '">Delete this enquiry</button>' : '') + '</div></div></div>';
 }
 function addEnquiry(){
   var d = S.enqDraft, items = d.items.split(/\n+/).map(function(t){ return t.trim(); }).filter(Boolean);
   if (!d.customer.trim() || !items.length) return false;
-  P.enquiries = (P.enquiries || []).concat([{ id:'e-' + Date.now(), day:d.date, col:d.col, customer:d.customer.trim(), postcode:d.postcode.trim().toUpperCase(),
-    po:'', items:items, notes:d.notes.trim(), created_at:new Date().toISOString().slice(0, 19), created_by:'office' }]);
+  if (S.enqEdit) {
+    P.enquiries = (P.enquiries || []).map(function(q){ return q.id !== S.enqEdit ? q : Object.assign({}, q, { day:d.date, col:d.col, customer:d.customer.trim(), postcode:d.postcode.trim().toUpperCase(), items:items, notes:d.notes.trim(), edited_at:new Date().toISOString().slice(0, 19) }); });
+  } else {
+    P.enquiries = (P.enquiries || []).concat([{ id:'e-' + Date.now(), day:d.date, col:d.col, customer:d.customer.trim(), postcode:d.postcode.trim().toUpperCase(),
+      po:'', items:items, notes:d.notes.trim(), created_at:new Date().toISOString().slice(0, 19), created_by:'office' }]);
+  }
+  S.enqEdit = null;
   S.enqDraft = { col:'del', customer:'', postcode:'', items:'', notes:'', date:d.date };
   S.enqOpen = false; S.week = weekIndexOf(d.date);
   build(ARGS);
   return true;
+}
+function renderView(){
+  var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
+  var rows = j.loads.map(function(l, i){ var c = codeOf(l); return '<tr><td>' + (i + 1) + '</td><td>' + esc(l.desc) + '</td><td>' + esc(l.ref) + '</td><td>' + (c ? c + (l.movedFrom ? ' (moved from ' + fFull(l.movedFrom) + ')' : '') : 'not planned') + '</td><td>' + esc(l.state) + '</td></tr>'; }).join('');
+  var row = function(k, v){ return v ? '<div class="k">' + k + '</div><div>' + v + '</div>' : ''; };
+  return '<div class="ov" data-act="closeBg"><div class="panel view" role="dialog" aria-label="Job details">' +
+    '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
+      '<div class="cell">' + fFull(j.iso) + '</div><button class="done" data-act="closeView">CLOSE</button></div>' +
+    '<div class="vrows">' +
+      row('POSTCODE', esc(j.postcode)) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
+      row('STATUS', esc(j.state) + (j.converted ? ', converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') : '')) +
+      row('NOTES', esc(j.notes)) + row('STACKING', esc(j.destack)) +
+      '<div class="k">LOADS</div><div><table><tr><th>#</th><th>UNIT</th><th>AES JOB</th><th>RUN</th><th>STATE</th></tr>' + rows + '</table></div>' +
+      (j.status === 'e' ? row('EDITING', isTeam() ? 'Close and click the card again to edit.' : 'Unlock Team Edit to edit or delete this enquiry.') : row('FROM BIG CHANGE', 'This card is read only here: change the job in Big Change and it updates within ten minutes.')) +
+    '</div></div></div>';
 }
 function renderVh(){
   var d = S.holDraft, v = S.vehDraft;
@@ -663,10 +696,17 @@ function render(){
 document.addEventListener('click', function(e){
   var t = e.target.closest('[data-act]'); if (!t) return;
   var act = t.getAttribute('data-act'), v = t.getAttribute('data-v'), dirty = '';
-  if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.warn = ''; }
-  else if (act === 'close') { if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
-  else if (act === 'openEnq') { S.enqDraft.date = TODAY; S.enqOpen = true; }
-  else if (act === 'addEnq') { if (addEnquiry()) dirty = 'added enquiry'; }
+  if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.warn = ''; }
+  else if (act === 'close') { if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
+  else if (act === 'openEnq') { S.enqEdit = null; S.enqDraft = { col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }; S.enqOpen = true; }
+  else if (act === 'teamEdit') { if (!isTeam()) S.pwOpen = true; }
+  else if (act === 'lock') { if (isTeam()) { REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'lock' }, dataType:'json' }); } S.pwOpen = false; }
+  else if (act === 'unlockGo') { var pw = document.getElementById('pwin'); if (pw && pw.value) { REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'unlock', password:pw.value }, dataType:'json' }); } return; }
+  else if (act === 'openJob') { var jb = JOBS.filter(function(j){ return j.id === v; })[0]; if (!jb) return;
+    if (jb.status === 'e' && isTeam()) { var q = jb.enquiry; S.enqEdit = q.id; S.enqDraft = { col:q.col || 'del', customer:q.customer || '', postcode:q.postcode || '', items:(q.items || []).join('\n'), notes:q.notes || '', date:q.day }; S.enqOpen = true; }
+    else S.viewJob = v; }
+  else if (act === 'closeView') S.viewJob = null;
+  else if (act === 'addEnq') { var wasEdit = !!S.enqEdit; if (addEnquiry()) dirty = wasEdit ? 'edited enquiry' : 'added enquiry'; }
   else if (act === 'week') S.week = +v;
   else if (act === 'cap') { S.caps = S.caps.indexOf(v) >= 0 ? S.caps.filter(function(x){ return x !== v; }) : S.caps.concat([v]); dirty = 'capacity'; }
   else if (act === 'openDay') S.modalDay = +v;
@@ -674,7 +714,7 @@ document.addEventListener('click', function(e){
   else if (act === 'openVhDay') { var iso = dayIsos(S.week, +v)[0]; S.holDraft.from = S.holDraft.to = iso; S.vehDraft.from = S.vehDraft.to = iso; S.vhOpen = true; }
   else if (act === 'unassign') { move(v, null); dirty = 'unassigned load'; }
   else if (act === 'addRun') { var k = S.modalDay + '|' + v; S.extraRuns[k] = runsFor(S.modalDay, v).length + 1; }
-  else if (act === 'delEnq') { P.enquiries = (P.enquiries || []).filter(function(q){ return q.id !== v; }); dirty = 'deleted enquiry'; }
+  else if (act === 'delEnq') { P.enquiries = (P.enquiries || []).filter(function(q){ return q.id !== v; }); S.enqOpen = false; S.enqEdit = null; build(ARGS); dirty = 'deleted enquiry'; }
   else if (act === 'matchOk') { var mm = LIKELY.filter(function(m){ return m.enquiry_id + '|' + m.bigchange_card === v; })[0]; if (mm) { convertEnquiry(mm, 'office'); dirty = 'converted enquiry'; } }
   else if (act === 'matchNo') { P.dismissed_matches = (P.dismissed_matches || []).concat([v]); dirty = 'dismissed match'; }
   else if (act === 'clearDropped') { DROPPED = DROPPED.filter(function(d){ return d.bid !== v; }); dirty = 'cleared dropped job'; }
@@ -722,7 +762,9 @@ document.addEventListener('change', function(e){
   else return;
   render();
 });
-document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else if (S.modalDay != null) { S.modalDay = null; S.warn = ''; } else return; render(); } });
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Enter' && e.target && e.target.id === 'pwin') { var b = document.querySelector('[data-act=unlockGo]'); if (b) b.click(); return; }
+  if (e.key === 'Escape') { if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else if (S.modalDay != null) { S.modalDay = null; S.warn = ''; } else return; render(); } });
 
 /* drag and drop, Team Edit only */
 function clearOver(){ document.querySelectorAll('.over').forEach(function(el){ el.classList.remove('over'); }); }

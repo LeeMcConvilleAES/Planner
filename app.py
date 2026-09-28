@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 2.0
+Version 2.1
+
+2.1: the password box sits in the planner header, the migration report is
+no longer shown on the page (it stays in planner.json), and clicking a card
+views a Big Change job or edits an enquiry.
 
 2.0: jobs come from Big Change, data lives in the Planner repo, the office plans
 runs on the v1.6 design.
@@ -43,7 +47,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.0"
+VERSION = "2.1"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -350,41 +354,30 @@ if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
 
-top = st.columns([6, 2, 2])
-with top[1]:
-    if not ss["unlocked"]:
-        pw = st.text_input("Team edit password", type="password", label_visibility="collapsed",
-                           placeholder="Team edit password", key="pw")
-        if pw:
-            if get_edit_password() and pw == get_edit_password():
-                ss["unlocked"] = True
-                st.rerun()
-            else:
-                st.caption("Wrong password. Viewing is open to everyone.")
-    else:
-        if st.button("Lock editing", use_container_width=True):
-            ss["unlocked"] = False
-            st.rerun()
-with top[2]:
-    if ss["write_error"]:
-        st.error(ss["write_error"])
-    elif ss["last_written"]:
-        st.caption(f"Saved {ss['last_written']:%H:%M:%S}")
-if planner.get("migration") and not ss.get("migration_seen"):
-    with top[0]:
-        with st.expander(planner["migration"]["summary"], expanded=False):
-            for line in planner["migration"].get("report", []):
-                st.write(line)
-            if st.button("Hide this"):
-                ss["migration_seen"] = True
-                st.rerun()
+notice, notice_kind = "", "info"
+if ss["write_error"]:
+    notice, notice_kind = ss["write_error"], "error"
+elif ss.get("pw_error"):
+    notice, notice_kind = ss["pw_error"], "error"
+elif ss["last_written"]:
+    notice = f"Saved {ss['last_written']:%H:%M:%S}"
 
 _planner_ui = components.declare_component("aes_planner", path=str(HERE / "planner_ui"))
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
-        "server_rev": ss["last_seen_rev"]}
+        "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
+if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
+    if value["action"] == "unlock":
+        if get_edit_password() and value.get("password") == get_edit_password():
+            ss["unlocked"], ss["pw_error"] = True, None
+        else:
+            ss["pw_error"] = "Wrong password. Viewing is open to everyone."
+    elif value["action"] == "lock":
+        ss["unlocked"], ss["pw_error"] = False, None
+    ss["last_seen_rev"] = value["rev"]
+    st.rerun()
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("planner"):
     if not ss["unlocked"]:
         ss["write_error"] = "That change was not saved: editing is locked."
