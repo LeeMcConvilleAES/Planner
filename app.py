@@ -1,5 +1,11 @@
 """AES Transport Planner
-Version 2.6
+Version 2.7
+
+2.7: run and driver mileage in the day view. Each run is depot to the first
+site, site to site in run order, and back to the depot; the driver total is
+every run added up. The figures come from the postcode distance matrix Ken
+V19.5 writes into the feed ("distance"). A leg that could not be measured
+shows as a plus after the total.
 
 2.6: road miles from the depot. Ken V19.4 puts "miles" (one way, by road,
 from M46 9BE) on every feed card; the week card, the load pills in the day
@@ -72,7 +78,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.6"
+VERSION = "2.7"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

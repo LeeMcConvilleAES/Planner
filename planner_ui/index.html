@@ -204,6 +204,8 @@ html,body{height:100%;overflow:auto}
 .runhd .rl{font-size:11px;font-weight:800;letter-spacing:.1em;white-space:nowrap}
 .runhd select{font:700 11px 'Figtree',sans-serif;border:1px solid #201e1d;border-radius:0;background:#fff;padding:1px 2px;color:#201e1d}
 .runhd .st{font-size:11px;font-weight:700;color:#605d5d}
+.rmi{padding:3px 8px;font-size:10px;font-weight:800;letter-spacing:.06em;color:#201e1d;background:#e8e6e6;border-bottom:1px solid #d5d2d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dhd .n .dmi{display:block;font-size:11px;font-weight:800;color:#201e1d;margin-top:1px}
 .rcode{font-size:12px;font-weight:800;padding:1px 6px;background:#0d823b;color:#fff}
 .bed{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:4px 8px;border-bottom:1px solid #bab6b6;font-size:10px;font-weight:800;letter-spacing:.06em;color:#605d5d}
 .bed .bar{flex:1;height:6px;background:#eae7e7;position:relative}
@@ -319,7 +321,7 @@ function build(args){
         customerPo:c.order_number || '', customer:c.customer || '', postcode:c.postcode || '', col:c.col || 'del', iso:iso,
         week:weekIndexOf(iso), day:dayIndexOf(iso), status:'b', state:c.status || 'booked',
         notes:[c.notes || '', notesFor[c.id] || ''].filter(Boolean).join(' / '), destack:c.destack || '', price:'', slot:'',
-        converted: recent ? conv : null, miles:(c.miles == null ? null : +c.miles), loads:[] };
+        converted: recent ? conv : null, miles:(c.miles == null ? null : +c.miles), pcKey:c.pc_key || String(c.postcode || '').toUpperCase().replace(/[^A-Z0-9]/g, ''), loads:[] };
       (c.loads || []).forEach(function(l, li){ lid++; var bid = String(l.bigchange_id); var e = runs[bid]; seen[bid] = 1;
         var ld = { id:bid, bid:bid, desc:l.desc || '', ref:l.ref || '', state:l.status || 'booked', driver:'', run:null, seq:lid, movedFrom:'', job:j, idx:li };
         if (e && e.driver) { ld.driver = e.driver; ld.run = e.run; ld.seq = e.seq || lid; ld.movedFrom = e.day && e.day !== iso ? e.day : ''; }
@@ -413,6 +415,30 @@ function stripText(isos){
   var parts = []; if (off.length) parts.push('Off: ' + off.join(', ')); return parts.concat(other).join(' · ');
 }
 
+var DIST = null;
+function distIndex(){
+  if (DIST && DIST.src === FEED.distance) return DIST;
+  var d = FEED.distance || {}, idx = {}; (d.postcodes || []).forEach(function(k, i){ idx[k] = i; });
+  DIST = { src:FEED.distance, depot:d.depot || '', idx:idx, m:d.miles || [] }; return DIST;
+}
+function legMiles(a, b){
+  if (!a || !b) return null; if (a === b) return 0;
+  var d = distIndex(), i = d.idx[a], j = d.idx[b]; if (i == null || j == null) return null;
+  var v = (d.m[i] || [])[j]; return v == null ? null : +v;
+}
+function runMiles(loads){
+  /* depot to the first site, site to site in run order, back to the depot */
+  var d = distIndex(); if (!d.depot || !loads.length) return null;
+  var stops = []; loads.forEach(function(l){ var k = l.job.pcKey; if (k && stops[stops.length - 1] !== k) stops.push(k); });
+  if (!stops.length) return null;
+  var path = [d.depot].concat(stops, [d.depot]), total = 0, gaps = 0;
+  for (var i = 1; i < path.length; i++) { var m = legMiles(path[i - 1], path[i]); if (m == null) gaps++; else total += m; }
+  return { miles:total, gaps:gaps, stops:stops.length };
+}
+function milesTag(rm, cls){
+  if (!rm) return '';
+  return '<div class="' + (cls || 'rmi') + '" title="' + (rm.gaps ? rm.gaps + ' leg' + (rm.gaps > 1 ? 's' : '') + ' could not be measured; ' : '') + 'Depot to ' + rm.stops + ' site' + (rm.stops > 1 ? 's' : '') + ' and back, by road">' + rm.miles + (rm.gaps ? '+' : '') + ' MI · ' + rm.stops + ' SITE' + (rm.stops > 1 ? 'S' : '') + '</div>';
+}
 function runsFor(day, ini){
   var ls = []; JOBS.forEach(function(j){ if (j.day === day) j.loads.forEach(function(l){ if (l.driver === ini && l.run) ls.push(l); }); });
   var n = Math.max(1, S.extraRuns[day + '|' + ini] || 0); ls.forEach(function(l){ n = Math.max(n, l.run); });
@@ -599,13 +625,14 @@ function renderModal(){
       var times = ['','06:00','06:30','07:00','07:30','08:00','09:00','10:00','11:00','12:00','13:00','14:00'];
       var startCtl = team ? '<select data-start="' + key + '" aria-label="Run start time">' + times.map(function(t){ return '<option value="' + t + '"' + (t === start ? ' selected' : '') + '>' + (t || 'Start') + '</option>'; }).join('') + '</select>' : '<span class="st">' + (start ? 'from ' + start : '') + '</span>';
       return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + '>' + r.ini + (ri + 1) + '</span></div>' +
+        milesTag(runMiles(run)) +
         (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Sum of unit lengths against the bed length (placeholder figures)"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
         '<div class="rbody" data-drop="run" data-drv="' + r.ini + '" data-run="' + (ri + 1) + '">' +
         (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div></div>';
     }).join('');
     return '<div class="dcol' + (u ? ' away' : '') + (r.sub ? ' subcol' : '') + '"><div class="dhd"><div class="av' + (r.sub ? ' av-sub' : '') + '">' + r.ini + '</div><div class="n"><b>' + esc(r.name) + '</b><span>' +
       (n ? n + ' load' + (n > 1 ? 's' : '') + ' · ' + runs.length + ' run' + (runs.length > 1 ? 's' : '') : 'No Loads Yet') + '</span>' +
-      '<div class="vrow">' + (r.sub ? '<small>Subbie Wagons</small>' : v ? '<span class="plate">' + esc(v.reg) + '</span><small>' + (v.bed || DEFAULT_BED) + 'ft</small>' : '<small>No Vehicle Set</small>') + '</div></div></div>' +
+      '<div class="vrow">' + (r.sub ? '<small>Subbie Wagons</small>' : v ? '<span class="plate">' + esc(v.reg) + '</span><small>' + (v.bed || DEFAULT_BED) + 'ft</small>' : '<small>No Vehicle Set</small>') + '</div>' + (function(){ var t = 0, g = 0, any = false; runs.forEach(function(x){ var rm = runMiles(x); if (rm) { any = true; t += rm.miles; g += rm.gaps; } }); return any ? '<b class="dmi" title="All runs, each out from the depot and back">' + t + (g ? '+' : '') + ' mi today</b>' : ''; })() + '</div></div>' +
       (u ? '<div class="awayb"><b>' + u.text + '</b><span>' + esc(u.sub) + '</span></div>' : '') +
       '<div class="runs">' + runHtml + (team ? '<button class="addrun" data-act="addRun" data-v="' + r.ini + '">+ Add Run</button>' : '') + '</div></div>';
   }).join('');
