@@ -100,12 +100,6 @@
    "run": 1,
    "seq": 1
   },
-  "197820111": {
-   "day": "2026-09-29",
-   "driver": "DB",
-   "run": 1,
-   "seq": 1
-  },
   "198545752": {
    "day": "2026-09-28",
    "driver": "RB",
@@ -697,23 +691,6 @@
   "bc-200296895": "enquiry: BOSS UNIT",
   "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE"
  },
- "card_order": {
-  "2026-09-30|del": [
-   "bc-194980943",
-   "bc-200113419",
-   "bc-200037209"
-  ],
-  "2026-09-29|col": [
-   "bc-199119688",
-   "bc-199119947",
-   "bc-199914395",
-   "bc-199922270",
-   "bc-199622698",
-   "bc-199622648",
-   "bc-198746396",
-   "bc-200041783"
-  ]
- },
  "migration": {
   "at": "2026-09-28T13:07:15+01:00",
   "summary": "Migrated from the Sheet on 28/09/2026 13:07: 35 booked jobs matched to Big Change, 61 run entries, 10 enquiries kept, 0 holidays, 12 vehicle bookings, 11 capacity days; 0 driver codes not placed.",
@@ -746,6 +723,7 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-09-28T14:06:30+01:00",
- "updated_by": "office"
+ "updated_at": "2026-09-28T14:14:21+01:00",
+ "updated_by": "office",
+ "card_order": {}
 }
