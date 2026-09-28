@@ -1,45 +1,13 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-28T15:23:45",
+ "generated_at": "2026-09-28T15:53:56",
  "window": [
   "2026-09-27",
   "2026-10-26"
  ],
  "jobs": {
   "2026-09-28": [
-   {
-    "id": "bc-200304260",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "A CONNOLLY",
-    "postcode": "M25 0AL",
-    "address": "Beechcroft next to block 39 - 41, Prestwich, M25 0AL",
-    "order_number": "01-003062",
-    "units": {
-     "20ft store": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 200304260,
-      "ref": "AES/60852",
-      "desc": "20ft store",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery"
-     }
-    ],
-    "notes": "delivery of 20ft store",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     200304260
-    ],
-    "refs": [
-     "AES/60852"
-    ],
-    "pc_key": "M250AL",
-    "miles": 13
-   },
    {
     "id": "bc-198545752",
     "type": "Delivery",
@@ -170,13 +138,13 @@
       "bigchange_id": 199694001,
       "ref": "AES/60445",
       "desc": "w4h - day rate for towing",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Delivery"
      }
     ],
     "notes": "W4H - DAY RATE FOR TOWING",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199694001
     ],
@@ -269,6 +237,38 @@
      "AES/58934"
     ],
     "pc_key": "M144SP",
+    "miles": 13
+   },
+   {
+    "id": "bc-200304260",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A CONNOLLY",
+    "postcode": "M25 0AL",
+    "address": "Beechcroft next to block 39 - 41, Prestwich, M25 0AL",
+    "order_number": "01-003062",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200304260,
+      "ref": "AES/60852",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-25m Hiab Delivery"
+     }
+    ],
+    "notes": "delivery of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200304260
+    ],
+    "refs": [
+     "AES/60852"
+    ],
+    "pc_key": "M250AL",
     "miles": 13
    },
    {
