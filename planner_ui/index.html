@@ -102,7 +102,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .t-move{background:#5a4fcf;color:#fff}
 .t-done{background:#605d5d;color:#fff}
 .t-live{background:#d9730d;color:#fff}
-.t-conv{background:#0a6a30;color:#fff}
+.t-conv{background:#6f2dbd;color:#fff}
 .code.moved{background:#d9730d;color:#fff;padding:0 3px}
 .dropped{padding:5px 12px;border-bottom:1px solid #bab6b6;background:#fde3de;color:#5e120b;font-size:11px;font-weight:600}
 .dropped .x{font-size:13px;vertical-align:middle}
@@ -525,7 +525,7 @@ function renderMain(){
       (ARGS.notice ? '<div class="hcell" style="color:' + (ARGS.notice_kind === 'error' ? '#c0261a' : '#605d5d') + '">' + esc(ARGS.notice) + '</div>' : '') +
       (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team Edit Password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
       '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
-    (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button><div class="hint">Click a day header to plan its routes. Every change saves to GitHub as you make it.</div></div>' : '') +
+    (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
       '<button class="nav" data-act="week" data-v="' + Math.min(4, w + 1) + '" aria-label="Next week">›</button>' +
       '<div class="tbtn" style="min-width:190px;justify-content:space-between;gap:12px;font-weight:600;border-right:1px solid #bab6b6">Jump To Week<span>▾</span></div><button class="tbtn">+ Add Week</button></div>' +
@@ -538,7 +538,11 @@ function renderMain(){
 }
 
 function feedCell(){
-  var gen = String(FEED.generated_at || ''); if (!gen) return '<div class="hcell bc"><span class="sq"></span>No Big Change feed yet</div>';
+  var chk = ARGS && ARGS.checked_min; if (chk != null) {
+    var late = chk > 25, when = chk < 1 ? 'Just Now' : chk === 1 ? '1 Min Ago' : chk + ' Mins Ago';
+    return '<div class="hcell ' + (late ? 'bc' : 'sync') + '" title="Ken checks Big Change every ten minutes. Feed built ' + esc(String(FEED.generated_at || '')) + '"><span class="sq"' + (late ? ' style="background:#c0261a"' : '') + '></span>Big Change Checked ' + when + '</div>';
+  }
+  var gen = String(FEED.generated_at || ''); if (!gen) return '<div class="hcell bc"><span class="sq"></span>No Big Change Feed Yet</div>';
   var age = (Date.now() - new Date(gen).getTime()) / 60000, stale = age > 30;
   return '<div class="hcell ' + (stale ? 'bc' : 'sync') + '" title="' + esc(gen) + '"><span class="sq"' + (stale ? ' style="background:#c0261a"' : '') + '></span>Big Change ' + (stale ? 'feed is ' + Math.round(age) + ' min old' : 'pulled ' + fFull(gen.slice(0, 10)) + ' ' + gen.slice(11, 16)) + '</div>';
 }
@@ -665,9 +669,12 @@ function renderVh(){
   var d = S.holDraft, v = S.vehDraft;
   var typeBg = { MOT:'#201e1d', REPAIR:'#c0261a', SERVICE:'#0d823b', TEST:'#5a4fcf' };
   var byFrom = function(a, b){ return a.from < b.from ? -1 : a.from > b.from ? 1 : 0; };
-  var hols = S.hols.slice().sort(byFrom).map(function(x){ var r = res(x.drv) || { name:x.drv };
+  var wk = [0,1,2,3,4,5,6].map(function(i){ return isoAdd(weekMon(S.week), i); }), inWeek = function(x){ return covers(x, wk); };
+  var holsWk = S.hols.filter(inWeek), vehsWk = S.vehs.filter(inWeek), wkLabel = fRange(wk[0], wk[6]);
+  var others = function(all, some, what){ var n = all.length - some.length; return n ? '<div class="none">' + n + ' more ' + what + ' outside this week: move to that week to see or remove ' + (n === 1 ? 'it' : 'them') + '.</div>' : ''; };
+  var hols = holsWk.slice().sort(byFrom).map(function(x){ var r = res(x.drv) || { name:x.drv };
     return '<div class="row h"><span class="av" style="width:36px;height:36px;font-size:13px">' + esc(x.drv) + '</span><div class="nm"><b>' + esc(r.name) + '</b><span>ANNUAL LEAVE</span></div><span class="rg">' + fRange(x.from, x.to) + '</span><button class="x" data-act="rmHol" data-v="' + x.id + '" aria-label="Remove holiday">×</button></div>'; }).join('');
-  var vehs = S.vehs.slice().sort(byFrom).map(function(x){ var r = res(x.drv);
+  var vehs = vehsWk.slice().sort(byFrom).map(function(x){ var r = res(x.drv);
     return '<div class="row v"><span class="bigplate">' + esc(x.reg) + '</span><span class="vtype" style="background:' + (typeBg[x.type] || '#201e1d') + '">' + x.type + '</span><span style="font-size:13px;font-weight:600;color:' + (r ? '#201e1d' : '#9b9797') + '">' + (r ? esc(r.name) : 'No driver affected') + '</span><span class="rg">' + fRange(x.from, x.to) + '</span><button class="x" data-act="rmVeh" data-v="' + x.id + '" aria-label="Remove vehicle booking">×</button></div>'; }).join('');
     var opts = function(sel, none){ return (none ? '<option value="">None</option>' : '') + resNames().map(function(r){ return '<option value="' + r.ini + '"' + (r.ini === sel ? ' selected' : '') + '>' + esc(r.name) + '</option>'; }).join(''); };
   var types = ['MOT','REPAIR','SERVICE','TEST'].map(function(t){ return '<option value="' + t + '"' + (t === v.type ? ' selected' : '') + '>' + t.charAt(0) + t.slice(1).toLowerCase() + '</option>'; }).join('');
@@ -677,14 +684,14 @@ function renderVh(){
     '<div class="ph"><div class="t"><div class="eyebrow">AVAILABILITY</div><h2>Driver Holidays &amp; Vehicle Bookings</h2></div>' +
       '<div class="cell" style="white-space:normal;max-width:330px">Anyone off pulses orange in the route planner on those days. Booking a registered vehicle fills in its driver.</div>' +
       '<button class="done" data-act="close">DONE</button></div>' +
-    '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>DRIVER HOLIDAYS</b><span>' + S.hols.length + ' booked</span></div>' +
-      (hols || '<div class="none">No Holidays Booked.</div>') +
+    '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>DRIVER HOLIDAYS</b><span>' + holsWk.length + ' this week, ' + wkLabel + '</span></div>' +
+      (hols || '<div class="none">No Holidays This Week.</div>') + others(S.hols, holsWk, 'holiday' + (S.hols.length - holsWk.length === 1 ? '' : 's')) +
       '<div class="form h"><label><span>DRIVER</span><select id="hd">' + opts(d.drv) + '</select><em></em></label>' +
       '<label><span>FROM</span><input type="date" id="hf" min="2024-01-01" max="2030-12-31" value="' + d.from + '"><em>' + fFull(d.from) + '</em></label>' +
       '<label><span>TO</span><input type="date" id="ht" min="2024-01-01" max="2030-12-31" value="' + d.to + '"><em>' + fFull(d.to) + '</em></label>' +
       '<button class="go" data-act="addHol">+ Add Holiday</button></div></div>' +
-    '<div class="vhcol"><div class="sechd"><b>VEHICLE BOOKINGS</b><span>' + S.vehs.length + ' booked</span></div>' +
-      (vehs || '<div class="none">No Vehicle Bookings.</div>') +
+    '<div class="vhcol"><div class="sechd"><b>VEHICLE BOOKINGS</b><span>' + vehsWk.length + ' this week, ' + wkLabel + '</span></div>' +
+      (vehs || '<div class="none">No Vehicle Bookings This Week.</div>') + others(S.vehs, vehsWk, 'booking' + (S.vehs.length - vehsWk.length === 1 ? '' : 's')) +
       '<div class="reg"><span class="k">REGISTER</span>' + reg + '</div>' +
       '<div class="form v"><label><span>VEHICLE</span><input id="vr" list="regs" value="' + esc(v.reg) + '" placeholder="Reg" style="text-transform:uppercase" autocomplete="off"><datalist id="regs">' + VEHICLES.map(function(x){ return '<option value="' + x.reg + '">'; }).join('') + '</datalist><em>' + (v.reg.trim() ? (known ? 'On register' : 'Not on register') : '') + '</em></label>' +
       '<label><span>TYPE</span><select id="vt">' + types + '</select><em></em></label>' +

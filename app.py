@@ -1,5 +1,11 @@
 """AES Transport Planner
-Version 2.3
+Version 2.4
+
+2.4: the header says "Big Change Checked X Mins Ago" from the heartbeat Ken
+writes after every check (data/feed_heartbeat.json, Ken V19.3), not from the
+age of the last change to the jobs file, which read as stale on a quiet
+afternoon. The hint next to Vehicles & Holidays has gone, CONVERTED is purple,
+and the holidays and vehicle bookings panel lists the week on show only.
 
 2.3: in Team Edit the office can drag cards up and down a day's lane on the
 week view. The order is kept in planner.json (card_order) per day and lane and
@@ -57,10 +63,11 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.3"
+VERSION = "2.4"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
+HEARTBEAT_PATH = "data/feed_heartbeat.json"   # Ken writes it after every Big Change check
 LOCAL_DATA_DIR = os.environ.get("PLANNER_LOCAL_DATA")   # tests: read and write files here, no GitHub
 DAY_LABELS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat/Sun"]
 
@@ -393,6 +400,22 @@ try:
     load_error = None
 except Exception as e:                                           # noqa: BLE001
     feed, planner, planner_sha, load_error = None, ss.get("planner_cache") or empty_planner(), None, str(e)
+
+
+def checked_minutes():
+    """Whole minutes since Ken last checked Big Change, or None without a heartbeat."""
+    try:
+        hb, _ = read_file(HEARTBEAT_PATH)
+        from datetime import timezone
+        at = datetime.fromisoformat(str((hb or {}).get("checked_at", "")).replace("Z", "+00:00"))
+        if at.tzinfo is None:
+            at = at.replace(tzinfo=timezone.utc)
+        return max(0, int((datetime.now(timezone.utc) - at).total_seconds() // 60))
+    except Exception:                                            # noqa: BLE001
+        return None
+
+
+checked_min = checked_minutes()
 if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
@@ -408,7 +431,8 @@ elif ss["last_written"]:
 _planner_ui = components.declare_component("aes_planner", path=str(HERE / "planner_ui"))
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
-        "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind}
+        "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
+        "checked_min": checked_min}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
