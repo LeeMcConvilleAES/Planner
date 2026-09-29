@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T10:32:24",
+ "generated_at": "2026-09-29T10:34:29",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -2152,17 +2152,7 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [
-  {
-   "enquiry_id": "e-j-687b71b4a9",
-   "bigchange_card": "bc-199947330",
-   "level": "sure",
-   "why": "same day, same postcode",
-   "enquiry_customer": "MCC",
-   "bigchange_customer": "Manchester and Cheshire Construction",
-   "day": "2026-10-31"
-  }
- ],
+ "enquiry_matches": [],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
