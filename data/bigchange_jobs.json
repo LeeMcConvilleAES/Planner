@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T13:33:17",
+ "generated_at": "2026-09-29T13:35:18",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -1131,38 +1131,6 @@
     ],
     "pc_key": "BD46JZ",
     "miles": 43
-   },
-   {
-    "id": "bc-198895923",
-    "type": "Collection",
-    "col": "col",
-    "customer": "ROSSLEE CONSTRUCTION",
-    "postcode": "ST4 6NT",
-    "address": "Newcastle Road, Stoke-on-Trent, ST4 6NT",
-    "order_number": "01-000223",
-    "units": {
-     "staircase": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 198895923,
-      "ref": "AES/59772",
-      "desc": "staircase",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection"
-     }
-    ],
-    "notes": "COLLECTION OF STAIRCASE",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     198895923
-    ],
-    "refs": [
-     "AES/59772"
-    ],
-    "pc_key": "ST46NT",
-    "miles": 50
    }
   ],
   "2026-10-05": [
@@ -1888,44 +1856,54 @@
     "address": "Newcastle Road, Stoke-on-Trent, ST4 6NT",
     "order_number": "01-000223",
     "units": {
-     "24ft unit": 2,
-     "3+1, ht, steps": 1
+     "24ft": 2,
+     "3+1 toilet": 1,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
       "bigchange_id": 198895624,
       "ref": "AES/59769",
-      "desc": "24ft unit",
+      "desc": "24ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection"
      },
      {
       "bigchange_id": 198895721,
       "ref": "AES/59770",
-      "desc": "24ft unit",
+      "desc": "24ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection"
      },
      {
       "bigchange_id": 198895811,
       "ref": "AES/59771",
-      "desc": "3+1, ht, steps",
+      "desc": "3+1 toilet",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection"
+     },
+     {
+      "bigchange_id": 198895923,
+      "ref": "AES/59772",
+      "desc": "stairs c/w landing",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection"
      }
     ],
-    "notes": "COLLECTION OF 24FT UNIT / COLLECTION OF 3+1, HT, STEPS",
+    "notes": "COLLECTION OF 24FT UNIT / COLLECTION OF 3+1, HT, STEPS / COLLECTION OF STAIRCASE",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      198895624,
      198895721,
-     198895811
+     198895811,
+     198895923
     ],
     "refs": [
      "AES/59769",
      "AES/59770",
-     "AES/59771"
+     "AES/59771",
+     "AES/59772"
     ],
     "pc_key": "ST46NT",
     "miles": 50
