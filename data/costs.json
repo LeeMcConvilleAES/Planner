@@ -1,0 +1,56 @@
+{
+ "_about": "AES cost basis for the MD dashboard. Edit and commit; the app picks it up on the next load. Only shown in Team Edit.",
+ "updated": "2026-09-29",
+ "fuel_price_per_litre": 1.55,
+ "hours_per_day": 9,
+ "working_days_per_week": 5,
+ "drivers": {
+  "DF": 17.5,
+  "RB": 16.75,
+  "CR": 16.75,
+  "DB": 16.0,
+  "RS": 14.5,
+  "SL": 16.75
+ },
+ "vehicles": {
+  "DF": {
+   "reg": "YK25 CXE",
+   "lease_per_week": 1350,
+   "mpg": 9,
+   "note": "HGV Hiab"
+  },
+  "SL": {
+   "reg": "MV75 BXZ",
+   "lease_per_week": 1450,
+   "mpg": 9,
+   "note": "HGV Hiab"
+  },
+  "CR": {
+   "reg": "BV73 EWG",
+   "lease_per_week": 950,
+   "mpg": 9,
+   "note": "HGV Hiab"
+  },
+  "RB": {
+   "reg": "FJ74 YYD",
+   "lease_per_week": 1350,
+   "mpg": 9,
+   "note": "HGV Hiab"
+  },
+  "RS": {
+   "reg": "PN74 NCZ",
+   "lease_per_week": 187.5,
+   "mpg": 30,
+   "note": "4x4"
+  }
+ },
+ "_unassigned_vehicles": {
+  "7.5t": {
+   "reg": "YG17 FCJ",
+   "lease_per_week": 50,
+   "mpg": 15,
+   "note": "7.5t wagon, owned, depreciation. Move under vehicles with the driver's initials to cost it."
+  }
+ },
+ "_notes": "mpg figures are placeholders until real consumption is known. Overtime, employer NI, pension, insurance, tyres and servicing are not included."
+}

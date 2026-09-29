@@ -1,5 +1,15 @@
 """AES Transport Planner
-Version 3.4
+Version 3.6
+
+3.6: the cost basis lives in the repo as data/costs.json (Nathan, 29/09/2026:
+"why can the costs not come from the repo itself?"). The app reads it like
+the other data files; [aes_costs] in the secrets still works as a fallback
+and PLANNER_LOCAL_COSTS for local tests. Either way the figures only reach
+the browser in Team Edit.
+
+3.5: revenue per wagon on the MD dashboard from the prices Ken V20.6 puts
+on every feed load: the invoiced total ex VAT, or the rate card estimate
+(median for the job type over 90 days, starred) until invoiced.
 
 3.4: cost per wagon per day on the MD dashboard, Team Edit only. The rates
 live in the Streamlit secrets under [aes_costs] (never in the repo): driver
@@ -116,11 +126,12 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.4"
+VERSION = "3.6"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
 HEARTBEAT_PATH = "data/feed_heartbeat.json"   # Ken writes it after every Big Change check
+COSTS_PATH = "data/costs.json"                 # driver rates, leases, mpg, fuel price: the MD dashboard cost basis
 LOCAL_DATA_DIR = os.environ.get("PLANNER_LOCAL_DATA")   # tests: read and write files here, no GitHub
 DAY_LABELS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat/Sun"]
 
@@ -472,12 +483,16 @@ checked_min = checked_minutes()
 
 
 def load_costs():
-    """The AES cost basis for the MD dashboard: [aes_costs] in the secrets, or
-    a JSON file named by PLANNER_LOCAL_COSTS for local tests. None when not
-    set. Only ever sent to the browser when editing is unlocked."""
+    """The AES cost basis for the MD dashboard: data/costs.json in the repo
+    (or the local data folder), else [aes_costs] in the secrets, else a JSON
+    file named by PLANNER_LOCAL_COSTS. None when none of them is there.
+    Only ever sent to the browser when editing is unlocked."""
     try:
         if os.environ.get("PLANNER_LOCAL_COSTS"):
             return json.loads(Path(os.environ["PLANNER_LOCAL_COSTS"]).read_text("utf-8"))
+        c, _sha = read_file(COSTS_PATH)
+        if c:
+            return c
         c = st.secrets.get("aes_costs") if hasattr(st, "secrets") else None
         return json.loads(json.dumps(dict(c), default=str)) if c else None
     except Exception:                                            # noqa: BLE001
