@@ -1,5 +1,10 @@
 """AES Transport Planner
-Version 3.0
+Version 3.1
+
+3.1: fuel deliveries. Ken V20.2 sends Big Change "Fuel Delivery" jobs as
+col "fuel"; they show as black glossy cards with a yellow FUEL tag in the
+deliveries lane, plan onto any run like a delivery (no bed length counted)
+and count in the mileage.
 
 3.0: sixteen weeks ahead. The week strip shows five tabs that slide around
 the week on show (last week through week 16), the arrows walk through all
@@ -91,7 +96,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.0"
+VERSION = "3.1"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

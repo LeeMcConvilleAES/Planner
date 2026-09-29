@@ -98,6 +98,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .k-bc{background:#fde3de;border-color:#c0261a}
 .k-e{background:#fff;border:1px dashed #605d5d}
 .k-mv{background:#ece9fb;border-color:#5a4fcf}
+.k-fuel{position:relative;background:linear-gradient(160deg,#4d4a48 0%,#262423 40%,#0b0a0a 100%);border-color:#000;color:#f2efee;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 1px 2px rgba(0,0,0,.35)}
+.k-fuel::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 38%,rgba(255,255,255,0) 52%)}
+.k-fuel .cust{color:#fff}
+.k-fuel .post,.k-fuel .meta,.k-fuel .lbl2,.k-fuel .notes,.k-fuel .u,.k-fuel .ref,.k-fuel .po,.k-fuel small,.k-fuel span{color:#e4e0de}
+.k-fuel .notes{color:#bdb8b5}
+.k-fuel .tag{position:relative}
+.t-fuel{background:#f2b705;color:#1c1a19}
+.k-fuel.is-done{opacity:.55}
 .k-mv .cust{color:#2e2780}
 .card.is-done,.lc.is-done,.rc.is-done{opacity:.5}
 .t-move{background:#5a4fcf;color:#fff}
@@ -388,7 +396,8 @@ function vehOf(ini){ var r = res(ini); return r && r.reg ? VEHICLES.filter(funct
 function onRun(l){ return isRes(l.driver) && l.run; }
 function codeOf(l){ return onRun(l) ? l.driver + l.run : ''; }
 function legacyOf(l){ return l.driver && !isRes(l.driver) ? l.driver + (l.run || '') : ''; }
-function isDel(l){ return l.job.col === 'del'; }
+function isDel(l){ return l.job.col === 'del' || l.job.col === 'fuel'; }
+function isFuel(l){ return l.job.col === 'fuel'; }
 function ft(desc){ var m = /(\d+)\s*ft/i.exec(desc); return m ? +m[1] : 0; }
 
 var S = { mode:'ro', week:1, pwOpen:false, viewJob:null, enqEdit:null, query:'', filter:'all', caps:[], modalDay:null, vhOpen:false, enqOpen:false, enqDraft:{ col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }, warn:'', poolOpen:true, poolFilter:'all',
@@ -468,13 +477,13 @@ function move(id, tgt){
 
 /* rendering */
 function tagSet(j){
-  var t = j.col === 'del' ? ['t-del','DELIVERY'] : j.col === 'move' ? ['t-move','SITE MOVE'] : ['t-col','COLLECTION'];
+  var t = j.col === 'del' ? ['t-del','DELIVERY'] : j.col === 'fuel' ? ['t-fuel','FUEL'] : j.col === 'move' ? ['t-move','SITE MOVE'] : ['t-col','COLLECTION'];
   if (j.status === 'e') t = ['t-enq', 'ENQUIRY ' + t[1]];
   return '<span class="tag ' + t[0] + '">' + t[1] + '</span>' +
     (j.state === 'complete' ? '<span class="tag t-done">DONE</span>' : j.state === 'live' ? '<span class="tag t-live">LIVE</span>' : '') +
     (j.converted ? '<span class="tag t-conv" title="Converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') + '">CONVERTED</span>' : '') +
     (j.destack ? '<span class="tag t-slot" title="' + esc(j.destack) + '">+ DESTACK</span>' : ''); }
-function kind(j){ return j.status === 'e' ? 'k-e' : (j.col === 'del' ? 'k-bd' : j.col === 'move' ? 'k-mv' : 'k-bc') + (j.state === 'complete' ? ' is-done' : ''); }
+function kind(j){ return j.status === 'e' ? 'k-e' : (j.col === 'del' ? 'k-bd' : j.col === 'fuel' ? 'k-fuel' : j.col === 'move' ? 'k-mv' : 'k-bc') + (j.state === 'complete' ? ' is-done' : ''); }
 
 function laneOrder(list, iso, lane){
   /* the office's own order for a day's lane, from planner.json; anything new goes at the end */
@@ -533,8 +542,8 @@ function renderMain(){
   var names = ['Monday','Tuesday','Wednesday','Thursday','Friday','Sat / Sun'];
   var days = names.map(function(name, i){
     var isos = dayIsos(w, i), cap = S.caps.indexOf(isos[0]) >= 0, wk = i === 5, today = isos.indexOf(TODAY) >= 0;
-    var dels = laneOrder(shown.filter(function(j){ return j.day === i && j.col === 'del'; }), isos[0], 'del');
-    var cols = laneOrder(shown.filter(function(j){ return j.day === i && j.col !== 'del'; }), isos[0], 'col');
+    var dels = laneOrder(shown.filter(function(j){ return j.day === i && (j.col === 'del' || j.col === 'fuel'); }), isos[0], 'del');
+    var cols = laneOrder(shown.filter(function(j){ return j.day === i && j.col !== 'del' && j.col !== 'fuel'; }), isos[0], 'col');
     var unpl = 0; jobs.forEach(function(j){ if (j.day === i) j.loads.forEach(function(l){ if (!onRun(l)) unpl++; }); });
     var date = i < 5 ? fDay(isos[0]) : dObj(isos[0]).getUTCDate() + ' to ' + fDay(isos[1]);
     var st = stripText(isos);
@@ -570,7 +579,7 @@ function renderMain(){
       [['Jobs', shown.length], ['Booked', booked], ['Enquiries', shown.length - booked], ['Loads', nLoads]].map(function(m){ return '<div class="metric"><div class="l">' + m[0] + '</div><div class="v">' + m[1] + '</div></div>'; }).join('') +
       '<div class="metric' + (toPlan ? ' alert' : '') + '"><div class="l">To plan</div><div class="v">' + toPlan + '</div></div>' +
       '<div class="tools"><div class="search"><input id="q" value="' + esc(S.query) + '" placeholder="Search Job Ref, PO, Customer Or Postcode" aria-label="Search"><select id="flt" aria-label="Status filter"><option value="all"' + (S.filter === 'all' ? ' selected' : '') + '>All Statuses</option><option value="b"' + (S.filter === 'b' ? ' selected' : '') + '>Booked</option><option value="e"' + (S.filter === 'e' ? ' selected' : '') + '>Enquiry</option></select></div>' +
-      '<div class="legend"><span><i class="sw" style="background:#dcf2e3;border:1px solid #0d823b"></i>Booked Delivery</span><span><i class="sw" style="background:#ece9fb;border:1px solid #5a4fcf"></i>Site Move</span><span><i class="sw" style="background:#fde3de;border:1px solid #c0261a"></i>Booked Collection</span><span><i class="sw" style="background:#fff;border:1px dashed #605d5d"></i>Enquiry</span><span><b style="color:#c0261a;font-size:10px;letter-spacing:.08em">PLAN</b>Not On A Run</span></div></div></div>' +
+      '<div class="legend"><span><i class="sw" style="background:#dcf2e3;border:1px solid #0d823b"></i>Booked Delivery</span><span><i class="sw" style="background:#ece9fb;border:1px solid #5a4fcf"></i>Site Move</span><span><i class="sw" style="background:#fde3de;border:1px solid #c0261a"></i>Booked Collection</span><span><i class="sw" style="background:linear-gradient(160deg,#5a5755 0%,#1c1a19 55%,#000 100%);border:1px solid #000"></i>Fuel Delivery</span><span><i class="sw" style="background:#fff;border:1px dashed #605d5d"></i>Enquiry</span><span><b style="color:#c0261a;font-size:10px;letter-spacing:.08em">PLAN</b>Not On A Run</span></div></div></div>' +
     legacyBar + '<div class="grid">' + days + '</div>';
 }
 
@@ -611,7 +620,8 @@ function renderModal(){
   if (S.vhOpen) { m.innerHTML = renderVh(); return; }
   if (S.modalDay == null) { m.innerHTML = ''; return; }
   var day = S.modalDay, isos = dayIsos(S.week, day), jobs = jobsFor(S.week).filter(function(j){ return j.day === day; });
-  jobs.sort(function(a, b){ return a.col === b.col ? 0 : a.col === 'del' ? -1 : 1; });
+  var rank = function(j){ return j.col === 'del' ? 0 : j.col === 'fuel' ? 1 : 2; };
+  jobs.sort(function(a, b){ return rank(a) - rank(b); });
   var all = []; jobs.forEach(function(j){ all = all.concat(j.loads); });
   var pool = all.filter(function(l){ return !onRun(l); });
   var poolShown = pool.filter(function(l){ return S.poolFilter === 'all' || l.job.col === S.poolFilter; });
@@ -624,7 +634,7 @@ function renderModal(){
     var bedMax = r.sub ? 0 : (v && v.bed ? v.bed : DEFAULT_BED);
     var runHtml = runs.map(function(run, ri){
       var key = isos[0] + '|' + r.ini + '|' + (ri + 1), start = S.runStart[key] || (ri === 0 ? '07:00' : '');
-      var used = run.reduce(function(a, l){ return a + ft(l.desc); }, 0), over = used > bedMax, unsized = run.filter(function(l){ return !ft(l.desc); }).length;
+      var used = run.reduce(function(a, l){ return a + (isFuel(l) ? 0 : ft(l.desc)); }, 0), over = used > bedMax, unsized = run.filter(function(l){ return !isFuel(l) && !ft(l.desc); }).length;
       var times = ['','06:00','06:30','07:00','07:30','08:00','09:00','10:00','11:00','12:00','13:00','14:00'];
       var startCtl = team ? '<select data-start="' + key + '" aria-label="Run start time">' + times.map(function(t){ return '<option value="' + t + '"' + (t === start ? ' selected' : '') + '>' + (t || 'Start') + '</option>'; }).join('') + '</select>' : '<span class="st">' + (start ? 'from ' + start : '') + '</span>';
       return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + '>' + r.ini + (ri + 1) + '</span></div>' +
@@ -719,7 +729,7 @@ function renderView(){
   }
   var row = function(k, v){ return v ? '<div class="k">' + k + '</div><div>' + v + '</div>' : ''; };
   return '<div class="ov" data-act="closeBg"><div class="panel view" role="dialog" aria-label="Job details">' +
-    '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
+    '<div class="ph"><div class="t"><div class="eyebrow">' + (j.col === 'del' ? 'DELIVERY' : j.col === 'fuel' ? 'FUEL DELIVERY' : j.col === 'move' ? 'SITE MOVE' : 'COLLECTION') + (j.status === 'e' ? ' ENQUIRY' : '') + '</div><h2>' + esc(j.customer) + '</h2></div>' +
       '<div class="cell">' + fFull(j.iso) + '</div><button class="done" data-act="closeView">CLOSE</button></div>' +
     '<div class="vrows">' +
       row('POSTCODE', esc(j.postcode)) + row('ORDER NUMBER', j.customerPo ? esc(j.customerPo) : '<span class="tag t-nopo">NO PO</span>') +
