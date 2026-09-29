@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T10:34:29",
+ "generated_at": "2026-09-29T10:38:45",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -527,13 +527,13 @@
       "bigchange_id": 199622648,
       "ref": "AES/60401",
       "desc": "chem loo",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Collection"
      }
     ],
     "notes": "COLLECTION OF CHEM LOO",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199622648
     ],
@@ -559,13 +559,13 @@
       "bigchange_id": 199622698,
       "ref": "AES/60402",
       "desc": "20ft office and ibc",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection"
      }
     ],
     "notes": "COLLECTION OF 20FT OFFICE AND IBC",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199622698
     ],
