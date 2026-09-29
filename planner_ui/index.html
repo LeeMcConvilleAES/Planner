@@ -46,6 +46,10 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .mdt .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .mdt .bar{width:30%}.mdt .bar i{display:block;height:10px;background:#0d823b}
 .mdnote{margin-top:14px;font-size:11px;color:#605d5d;line-height:1.5}
+.metrics.money{border-top:0;background:#f7f6f6}
+.metrics.money .metric .v{font-size:28px}
+.mdt .neg{color:#c0261a;font-weight:800}.mdt .pos{color:#0a6a30;font-weight:800}
+.panel.md{max-width:1240px;min-width:1000px}
 .mode.on-ro{background:#201e1d;color:#fff}
 .modes{display:flex;border-left:2px solid #201e1d}
 .tbtn{padding:10px 18px;font-size:13px;font-weight:800;display:flex;align-items:center}
@@ -350,7 +354,7 @@ function build(args){
         notes:[c.notes || '', notesFor[c.id] || ''].filter(Boolean).join(' / '), destack:c.destack || '', price:'', slot:'',
         converted: recent ? conv : null, miles:(c.miles == null ? null : +c.miles), pcKey:c.pc_key || String(c.postcode || '').toUpperCase().replace(/[^A-Z0-9]/g, ''), loads:[] };
       (c.loads || []).forEach(function(l, li){ lid++; var bid = String(l.bigchange_id); var e = runs[bid]; seen[bid] = 1;
-        var ld = { id:bid, bid:bid, desc:l.desc || '', ref:l.ref || '', state:l.status || 'booked', driver:'', run:null, seq:lid, movedFrom:'', job:j, idx:li };
+        var ld = { id:bid, bid:bid, desc:l.desc || '', ref:l.ref || '', state:l.status || 'booked', driver:'', run:null, seq:lid, movedFrom:'', job:j, idx:li, price:(l.price == null ? null : +l.price), estPrice:(l.est_price == null ? null : +l.est_price) };
         if (e && e.driver) { ld.driver = e.driver; ld.run = e.run; ld.seq = e.seq || lid; ld.movedFrom = e.day && e.day !== iso ? e.day : ''; }
         j.loads.push(ld); LOADS[bid] = ld; });
       JOBS.push(j);
@@ -749,12 +753,35 @@ function mdStats(scope){
       });
     }
   });
+  /* money, only when the cost basis was sent (Team Edit). Fixed cost accrues every working day in the period, run or not;
+     fuel follows the miles planned; revenue is the price on each load when the feed carries one. */
+  var C = ARGS && ARGS.costs, weekdays = weeks.length * ((C && +C.working_days_per_week) || 5);
+  if (C) {
+    var hours = +C.hours_per_day || 9, wdpw = +C.working_days_per_week || 5, fuelP = +C.fuel_price_per_litre || 0;
+    fleet.cost = 0; fleet.revenue = 0; fleet.weekdays = weekdays;
+    weeks.forEach(function(w){ for (var d = 0; d < 6; d++) RESOURCES.forEach(function(r){
+      runsFor(d, r.ini, w).forEach(function(run){ run.forEach(function(l){ var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); rows[r.ini].revenue = (rows[r.ini].revenue || 0) + pr; if (l.price != null || l.estPrice != null) rows[r.ini].priced = (rows[r.ini].priced || 0) + 1; }); });
+    }); });
+    Object.keys(rows).forEach(function(k){
+      var r = rows[k], rate = (C.drivers || {})[k], v = (C.vehicles || {})[k];
+      r.reg = v && v.reg ? v.reg : ''; r.vehNote = v && v.note ? v.note : '';
+      r.wageDay = rate != null ? +rate * hours : null;
+      r.leaseDay = v && v.lease_per_week != null ? +v.lease_per_week / wdpw : null;
+      r.fuel = v && +v.mpg ? r.miles / +v.mpg * 4.546 * fuelP : null;
+      r.hasCost = r.wageDay != null || r.leaseDay != null || r.fuel != null;
+      r.fixedDay = (r.wageDay || 0) + (r.leaseDay || 0);
+      r.cost = r.hasCost ? r.fixedDay * weekdays + (r.fuel || 0) : null;
+      r.costDay = r.hasCost ? r.fixedDay + (r.fuel || 0) / weekdays : null;
+      r.revenue = r.revenue || 0; r.revDay = r.revenue / weekdays;
+      if (r.cost != null) fleet.cost += r.cost; fleet.revenue += r.revenue; fleet.priced = (fleet.priced || 0) + (r.priced || 0);
+    });
+  }
   fleet.days = Object.keys(fleet.dayKeys).length;
   fleet.avgPerDay = fleet.days ? Math.round(fleet.miles / fleet.days) : 0;
-  var list = Object.keys(rows).map(function(k){ return rows[k]; }).filter(function(r){ return r.days; });
+  var list = Object.keys(rows).map(function(k){ return rows[k]; }).filter(function(r){ return r.days || (C && r.hasCost && !r.sub); });
   list.forEach(function(r){ r.avg = r.days ? Math.round(r.miles / r.days) : 0; });
   list.sort(function(a, b){ return b.miles - a.miles; });
-  fleet.drivers = list.length;
+  fleet.drivers = list.filter(function(r){ return r.days; }).length;
   return { fleet:fleet, drivers:list, weeks:weeks };
 }
 function renderMd(){
@@ -762,11 +789,16 @@ function renderMd(){
   var w0 = st.weeks[0], w1 = st.weeks[st.weeks.length - 1], range = fFull(weekMon(w0)) + ' to ' + fFull(isoAdd(weekMon(w1), 6));
   var opt = function(v, t){ return '<option value="' + v + '"' + (scope === v ? ' selected' : '') + '>' + t + '</option>'; };
   var tile = function(l, v, sub){ return '<div class="metric"><div class="l">' + l + '</div><div class="v">' + v + '</div>' + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>'; };
-  var max = st.drivers.reduce(function(m, r){ return Math.max(m, r.miles); }, 0) || 1;
+  var max = st.drivers.reduce(function(m, r){ return Math.max(m, r.miles); }, 0) || 1, money = !!(ARGS && ARGS.costs);
+  var gbp = function(v){ return v == null ? '<span class="muted">n/a</span>' : '£' + Math.round(v).toLocaleString('en-GB'); };
   var rows = st.drivers.map(function(r){
-    return '<tr><td><span class="av' + (r.sub ? ' av-sub' : '') + '" style="width:30px;height:30px;font-size:12px">' + esc(r.ini) + '</span></td><td><b>' + esc(r.name) + '</b></td>' +
+    var mg = money && r.costDay != null ? r.revDay - r.costDay : null;
+    return '<tr><td><span class="av' + (r.sub ? ' av-sub' : '') + '" style="width:30px;height:30px;font-size:12px">' + esc(r.ini) + '</span></td><td><b>' + esc(r.name) + '</b>' + (money && r.reg ? '<div class="muted" style="font-size:11px">' + esc(r.reg) + (r.vehNote ? ' · ' + esc(r.vehNote) : '') + '</div>' : '') + '</td>' +
       '<td class="n">' + r.days + '</td><td class="n">' + r.runs + '</td><td class="n">' + r.loads + '</td>' +
       '<td class="n"><b>' + r.miles + (r.gaps ? '+' : '') + '</b></td><td class="n">' + r.avg + '</td>' +
+      (money ? '<td class="n" title="' + (r.hasCost ? 'Wage £' + Math.round(r.wageDay || 0) + ' + lease £' + Math.round(r.leaseDay || 0) + ' + fuel £' + Math.round((r.fuel || 0) / st.fleet.weekdays) + ' a day' : 'No rates for this driver in the cost basis') + '">' + gbp(r.costDay) + '</td>' +
+        '<td class="n" title="' + (r.priced ? r.priced + ' priced loads over ' + st.fleet.weekdays + ' working days' : 'No prices on this driver\'s loads yet') + '">' + (r.priced ? gbp(r.revDay) : '<span class="muted">awaiting feed</span>') + '</td>' +
+        '<td class="n' + (mg != null && r.priced ? (mg < 0 ? ' neg' : ' pos') : '') + '">' + (r.priced && mg != null ? (mg < 0 ? '£' + Math.round(-mg).toLocaleString('en-GB') + ' loss' : gbp(mg)) : '<span class="muted">n/a</span>') + '</td>' : '') +
       '<td class="bar"><i style="width:' + Math.round(r.miles / max * 100) + '%"></i></td></tr>';
   }).join('');
   return '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
@@ -775,10 +807,13 @@ function renderMd(){
       '<div class="cell">' + range + '</div><button class="done" data-act="closeMd">CLOSE</button></div>' +
     '<div class="metrics md4">' + tile('Fleet Miles', f.miles + (f.gaps ? '+' : ''), 'planned road miles, every run out and back') + tile('Days With Runs', f.days, 'day slots with at least one planned run') +
       tile('Average Miles Per Day', f.avgPerDay, 'fleet miles over days with runs') + tile('Drivers Active', f.drivers, 'with at least one planned run') + '</div>' +
+    (money ? '<div class="metrics md4 money">' + tile('Wagon Cost, Period', gbp(f.cost), 'wages + leases every working day, + fuel for the miles planned') + tile('Cost Per Wagon Day', gbp(f.weekdays && st.drivers.filter(function(r){ return r.hasCost; }).length ? f.cost / f.weekdays / st.drivers.filter(function(r){ return r.hasCost; }).length : null), 'across the wagons with a cost basis') +
+      tile('Revenue, Period', f.priced ? gbp(f.revenue) : '<span class="muted" style="font-size:18px">awaiting feed</span>', 'the price on each planned load, from Big Change via Ken') + tile('Margin, Period', f.priced ? gbp(f.revenue - f.cost) : '<span class="muted" style="font-size:18px">n/a</span>', 'revenue less wagon cost') + '</div>' : '') +
     '<div class="mdbody">' + (st.drivers.length ?
-      '<table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">RUNS</th><th class="n">LOADS</th><th class="n">MILES</th><th class="n">AVG / DAY</th><th></th></tr>' + rows + '</table>' :
+      '<table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">RUNS</th><th class="n">LOADS</th><th class="n">MILES</th><th class="n">AVG / DAY</th>' + (money ? '<th class="n">COST / DAY</th><th class="n">REV / DAY</th><th class="n">MARGIN / DAY</th>' : '') + '<th></th></tr>' + rows + '</table>' :
       '<div class="none">No planned runs in this period yet. Plan a run in the day view and it shows here.</div>') +
-    '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back to the depot, a postcode counted once per run. Average per day divides by the days that driver had a run. A plus means a leg could not be measured. Only planned runs count; loads not yet on a run add nothing. The feed holds from yesterday forward, so past weeks fill in as the dashboard grows.</div></div></div></div>';
+    '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back to the depot, a postcode counted once per run. Average per day divides by the days that driver had a run. A plus means a leg could not be measured. Only planned runs count; loads not yet on a run add nothing. The feed holds from yesterday forward, so past weeks fill in as the dashboard grows.' +
+      (money ? ' Cost per day is the driver\'s wage for the day (hourly rate × hours per day) plus the wagon\'s weekly lease spread over the working days plus fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price); wages and leases count on every working day in the period whether or not a run is planned, so a quiet week shows its true cost. Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in the app secrets under [aes_costs] and only reach the page in Team Edit.' : ' Unlock Team Edit to see cost and revenue per wagon.') + '</div></div></div></div>';
 }
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }

@@ -1,5 +1,13 @@
 """AES Transport Planner
-Version 3.3
+Version 3.4
+
+3.4: cost per wagon per day on the MD dashboard, Team Edit only. The rates
+live in the Streamlit secrets under [aes_costs] (never in the repo): driver
+hourly rates, hours per day, working days per week, each wagon's weekly
+lease and mpg, and the fuel price per litre. Cost per day = wage for the
+day + lease over the working days + fuel for the miles planned. Revenue per
+day has its place on the dashboard and fills in when Ken's feed carries
+prices (aesprice probe first).
 
 3.3: the MD (Mother Delta Dashboard) button at the top opens an in-app
 dashboard: fleet miles, days with runs, average miles per day, drivers
@@ -108,7 +116,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.3"
+VERSION = "3.4"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -461,6 +469,22 @@ def checked_minutes():
 
 
 checked_min = checked_minutes()
+
+
+def load_costs():
+    """The AES cost basis for the MD dashboard: [aes_costs] in the secrets, or
+    a JSON file named by PLANNER_LOCAL_COSTS for local tests. None when not
+    set. Only ever sent to the browser when editing is unlocked."""
+    try:
+        if os.environ.get("PLANNER_LOCAL_COSTS"):
+            return json.loads(Path(os.environ["PLANNER_LOCAL_COSTS"]).read_text("utf-8"))
+        c = st.secrets.get("aes_costs") if hasattr(st, "secrets") else None
+        return json.loads(json.dumps(dict(c), default=str)) if c else None
+    except Exception:                                            # noqa: BLE001
+        return None
+
+
+costs = load_costs() if ss["unlocked"] else None
 if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
@@ -477,7 +501,7 @@ _planner_ui = components.declare_component("aes_planner", path=str(HERE / "plann
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
         "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
-        "checked_min": checked_min}
+        "checked_min": checked_min, "costs": costs}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
