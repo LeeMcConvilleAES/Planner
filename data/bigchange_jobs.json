@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T12:11:16",
+ "generated_at": "2026-09-29T12:30:08",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -902,7 +902,8 @@
     "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
     "order_number": "01-003049",
     "units": {
-     "20ft store": 3
+     "20ft store": 3,
+     "20ft canteen": 1
     },
     "loads": [
      {
@@ -925,20 +926,29 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "25-50m Hiab Delivery"
+     },
+     {
+      "bigchange_id": 199344122,
+      "ref": "AES/60208",
+      "desc": "20ft canteen",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery"
      }
     ],
-    "notes": "DELIVERY OF 20FT STORE",
+    "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 20FT CANTEEN",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      199344068,
      199344114,
-     199344115
+     199344115,
+     199344122
     ],
     "refs": [
      "AES/60203",
      "AES/60204",
-     "AES/60205"
+     "AES/60205",
+     "AES/60208"
     ],
     "pc_key": "BD46JZ",
     "miles": 43
@@ -1081,7 +1091,6 @@
     "units": {
      "20ft store": 1,
      "24ft office": 1,
-     "20ft canteen": 1,
      "2+1 toilet block": 1
     },
     "loads": [
@@ -1100,13 +1109,6 @@
       "type": "25-50m Hiab Delivery"
      },
      {
-      "bigchange_id": 199344122,
-      "ref": "AES/60208",
-      "desc": "20ft canteen",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery"
-     },
-     {
       "bigchange_id": 199344123,
       "ref": "AES/60209",
       "desc": "2+1 toilet block",
@@ -1114,19 +1116,17 @@
       "type": "25-50m Hiab Delivery"
      }
     ],
-    "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 24FT OFFICE / DELIVERY OF 20FT CANTEEN / DELIVERY OF 2+1 TOILET BLOCK",
+    "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 24FT OFFICE / DELIVERY OF 2+1 TOILET BLOCK",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      199344117,
      199344121,
-     199344122,
      199344123
     ],
     "refs": [
      "AES/60206",
      "AES/60207",
-     "AES/60208",
      "AES/60209"
     ],
     "pc_key": "BD46JZ",
