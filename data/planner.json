@@ -656,20 +656,6 @@
    "created_by": "migration"
   },
   {
-   "id": "e-j-c616925d0c",
-   "day": "2026-10-07",
-   "col": "col",
-   "customer": "Britcon",
-   "postcode": "IPSWICH-YORK",
-   "po": "",
-   "items": [
-    "32ft shower block"
-   ],
-   "notes": "Not in Big Change. NIght Out",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration"
-  },
-  {
    "id": "e-j-b126433d97",
    "day": "2026-10-12",
    "col": "col",
@@ -785,6 +771,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-09-29T08:34:23+01:00",
+ "updated_at": "2026-09-29T09:20:28+01:00",
  "updated_by": "office"
 }
