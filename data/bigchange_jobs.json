@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T15:17:55",
+ "generated_at": "2026-09-29T15:20:04",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -465,13 +465,13 @@
       "bigchange_id": 199914395,
       "ref": "",
       "desc": "chem loos",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Collection"
      }
     ],
     "notes": "please collect 2 x chem loos",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199914395
     ],
