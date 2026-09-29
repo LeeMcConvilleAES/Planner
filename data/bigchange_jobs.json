@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T10:09:22",
+ "generated_at": "2026-09-29T10:32:24",
  "window": [
   "2026-09-28",
-  "2026-10-27"
+  "2027-01-22"
  ],
  "jobs": {
   "2026-09-28": [
@@ -2115,10 +2115,54 @@
     "pc_key": "WA20QJ",
     "miles": 12
    }
+  ],
+  "2026-10-31": [
+   {
+    "id": "bc-199947330",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Manchester and Cheshire Construction",
+    "postcode": "SK12 1NW",
+    "address": "Vernon Primary School Clumber Road, Poynton, SK12 1NW",
+    "order_number": "01-001605",
+    "units": {
+     "4+2": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 199947330,
+      "ref": "AES/60606",
+      "desc": "4+2",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection"
+     }
+    ],
+    "notes": "COLLECTION OF 4+2",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     199947330
+    ],
+    "refs": [
+     "AES/60606"
+    ],
+    "pc_key": "SK121NW",
+    "miles": 23
+   }
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [],
+ "enquiry_matches": [
+  {
+   "enquiry_id": "e-j-687b71b4a9",
+   "bigchange_card": "bc-199947330",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "MCC",
+   "bigchange_customer": "Manchester and Cheshire Construction",
+   "day": "2026-10-31"
+  }
+ ],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
