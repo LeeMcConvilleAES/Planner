@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T10:38:45",
+ "generated_at": "2026-09-29T10:47:33",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -383,21 +383,21 @@
       "bigchange_id": 199119688,
       "ref": "AES/59963",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection"
      },
      {
       "bigchange_id": 199119800,
       "ref": "AES/59964",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "complete",
       "type": "0-25miles Hiab Collection"
      },
      {
       "bigchange_id": 199119851,
       "ref": "AES/59965",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection"
      }
     ],
