@@ -50,6 +50,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .metrics.money .metric .v{font-size:28px}
 .mdt .neg,.metric .neg{color:#c0261a;font-weight:800}.mdt .pos,.metric .pos{color:#0a6a30;font-weight:800}
 .panel.md{max-width:1320px;min-width:1080px}
+.panel.mdpin{max-width:420px;min-width:360px}
+.pinbody{padding:22px 20px;display:flex;flex-direction:column;gap:12px}
+.pinbody input{font:800 26px 'Figtree',sans-serif;letter-spacing:.4em;text-align:center;padding:10px;border:2px solid #201e1d;border-radius:0;outline:0}
+.pinbody .tbtn{justify-content:center;padding:12px;border:0}
+.pinerr{color:#c0261a;font-weight:800;font-size:13px}
+.pinhint{color:#605d5d;font-size:12px;line-height:1.5}
+.done.lockbtn{background:#605d5d}.done.lockbtn:hover{background:#c0261a}
 .mode.on-ro{background:#201e1d;color:#fff}
 .modes{display:flex;border-left:2px solid #201e1d}
 .tbtn{padding:10px 18px;font-size:13px;font-weight:800;display:flex;align-items:center}
@@ -639,7 +646,7 @@ function loadCard(l, inRun, order){
 
 function renderModal(){
   var m = document.getElementById('modal'), team = isTeam();
-  if (S.mdOpen) { m.innerHTML = renderMd(); return; }
+  if (S.mdOpen) { m.innerHTML = (ARGS && ARGS.md_unlocked) ? renderMd() : renderMdPin(); return; }
   if (S.viewJob) { m.innerHTML = renderView(); return; }
   if (S.enqOpen) { m.innerHTML = renderEnq(); return; }
   if (S.vhOpen) { m.innerHTML = renderVh(); return; }
@@ -766,6 +773,11 @@ function mdStats(scope){
         else if (l.estPrice != null) { row.priced = (row.priced || 0) + 1; row.estimated = (row.estimated || 0) + 1; fleet.estimated = (fleet.estimated || 0) + 1; }
         else { row.unpriced = (row.unpriced || 0) + 1; fleet.unpriced = (fleet.unpriced || 0) + 1; } }); });
     }); });
+    /* fleet revenue: every booked load in the period whether or not it is on a run yet */
+    fleet.allLoads = 0; fleet.invoiced = 0; fleet.fromJob = 0; fleet.unpriced = 0; fleet.estimated = 0; var allRev = 0;
+    JOBS.forEach(function(j){ if (j.status === 'e' || weeks.indexOf(j.week) < 0) return; j.loads.forEach(function(l){
+      fleet.allLoads++; var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); allRev += pr;
+      if (l.price != null && l.priceSrc === 'invoice') fleet.invoiced++; else if (l.price != null) fleet.fromJob++; else if (l.estPrice != null) fleet.estimated++; else fleet.unpriced++; }); });
     Object.keys(rows).forEach(function(k){
       var r = rows[k], rate = (C.drivers || {})[k], v = (C.vehicles || {})[k];
       r.reg = v && v.reg ? v.reg : ''; r.vehNote = v && v.note ? v.note : '';
@@ -777,8 +789,9 @@ function mdStats(scope){
       r.cost = r.hasCost ? r.fixedDay * weekdays + (r.fuel || 0) : null;
       r.costDay = r.hasCost ? r.fixedDay + (r.fuel || 0) / weekdays : null;
       r.revenue = r.revenue || 0; r.revDay = r.revenue / weekdays;
-      if (r.cost != null) fleet.cost += r.cost; fleet.revenue += r.revenue; fleet.priced = (fleet.priced || 0) + (r.priced || 0);
+      if (r.cost != null) fleet.cost += r.cost;
     });
+    fleet.revenue = allRev; fleet.priced = fleet.invoiced + fleet.fromJob + fleet.estimated; fleet.plannedRevenue = Object.keys(rows).reduce(function(a, k){ return a + (rows[k].revenue || 0); }, 0);
   }
   fleet.days = Object.keys(fleet.dayKeys).length;
   fleet.avgPerDay = fleet.days ? Math.round(fleet.miles / fleet.days) : 0;
@@ -787,6 +800,14 @@ function mdStats(scope){
   list.sort(function(a, b){ return b.miles - a.miles; });
   fleet.drivers = list.filter(function(r){ return r.days; }).length;
   return { fleet:fleet, drivers:list, weeks:weeks };
+}
+function renderMdPin(){
+  var err = ARGS && ARGS.md_error;
+  return '<div class="ov" data-act="closeBg"><div class="panel view mdpin" role="dialog" aria-label="MD dashboard PIN">' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>Enter PIN</h2></div><button class="done" data-act="closeMd">CLOSE</button></div>' +
+    '<div class="pinbody"><input type="password" id="mdpin" inputmode="numeric" pattern="[0-9]*" maxlength="8" placeholder="PIN" aria-label="MD dashboard PIN" autocomplete="off">' +
+    '<button class="tbtn primary" data-act="mdPinGo">Open MD</button>' +
+    (err ? '<div class="pinerr">' + esc(err) + '</div>' : '<div class="pinhint">Four digits. The dashboard holds wages, leases and margins, so it stays locked until the PIN is given.</div>') + '</div></div></div>';
 }
 function renderMd(){
   var scope = S.mdScope || 'week', st = mdStats(scope), f = st.fleet;
@@ -810,17 +831,17 @@ function renderMd(){
   return '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
     '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' +
       '<div class="cell"><select id="mdscope" aria-label="Period">' + opt('week', 'Week On Show') + opt('next4', 'Next 4 Weeks') + opt('all', 'All 18 Weeks Loaded') + '</select></div>' +
-      '<div class="cell">' + range + '</div><button class="done" data-act="closeMd">CLOSE</button></div>' +
+      '<div class="cell">' + range + '</div><button class="done lockbtn" data-act="mdLock" title="Lock the dashboard again; the PIN is asked for next time">LOCK</button><button class="done" data-act="closeMd">CLOSE</button></div>' +
     '<div class="metrics md4">' + tile('Fleet Miles', f.miles + (f.gaps ? '+' : ''), 'planned road miles, every run out and back') + tile('Days With Runs', f.days, 'day slots with at least one planned run') +
       tile('Average Miles Per Day', f.avgPerDay, 'fleet miles over days with runs') + tile('Drivers Active', f.drivers, 'with at least one planned run') + '</div>' +
     (money ? '<div class="metrics md4 money">' + tile('Wagon Cost, Period', gbp(f.cost), 'wages + leases every working day, + fuel for the miles planned') + tile('Cost Per Wagon Day', gbp(f.weekdays && st.drivers.filter(function(r){ return r.hasCost; }).length ? f.cost / f.weekdays / st.drivers.filter(function(r){ return r.hasCost; }).length : null), 'across the wagons with a cost basis') +
-      tile('Revenue, Period', f.priced ? gbp(f.revenue) : '<span class="muted" style="font-size:18px">' + (f.unpriced ? 'no prices yet' : 'no planned loads') + '</span>', f.priced ? (f.invoiced || 0) + ' invoiced · ' + (f.fromJob || 0) + ' priced on the job' + (f.estimated ? ' · ' + f.estimated + ' estimated' : '') + (f.unpriced ? ' · ' + f.unpriced + ' with no price' : '') : 'the price on each planned load in Big Change') + tile('Margin, Period', f.priced ? (f.revenue - f.cost < 0 ? '<span class="neg">' + gbp(f.cost - f.revenue) + ' loss</span>' : '<span class="pos">' + gbp(f.revenue - f.cost) + '</span>') : '<span class="muted" style="font-size:18px">n/a</span>', 'revenue less wagon cost' + (f.priced && f.estimated ? ', part estimated' : '')) +
-      tile('Profit Per Job', f.priced && f.loads ? (function(){ var v = (f.revenue - f.cost) / f.loads; return v < 0 ? '<span class="neg">' + gbp(-v) + ' loss</span>' : '<span class="pos">' + gbp(v) + '</span>'; })() : '<span class="muted" style="font-size:18px">n/a</span>', 'period margin over ' + (f.loads || 0) + ' planned job' + (f.loads === 1 ? '' : 's')) + '</div>' : '') +
+      tile('Revenue, Period', f.priced ? gbp(f.revenue) : '<span class="muted" style="font-size:18px">' + (f.unpriced ? 'no prices yet' : 'no planned loads') + '</span>', f.priced ? 'every booked job in the period, planned or not: ' + (f.invoiced || 0) + ' invoiced · ' + (f.fromJob || 0) + ' priced on the job' + (f.estimated ? ' · ' + f.estimated + ' estimated' : '') + (f.unpriced ? ' · ' + f.unpriced + ' with no price' : '') + '; ' + gbp(f.plannedRevenue) + ' of it on runs so far' : 'the price on every booked job in the period, planned or not') + tile('Margin, Period', f.priced ? (f.revenue - f.cost < 0 ? '<span class="neg">' + gbp(f.cost - f.revenue) + ' loss</span>' : '<span class="pos">' + gbp(f.revenue - f.cost) + '</span>') : '<span class="muted" style="font-size:18px">n/a</span>', 'revenue less wagon cost' + (f.priced && f.estimated ? ', part estimated' : '')) +
+      tile('Profit Per Job', f.priced && f.allLoads ? (function(){ var v = (f.revenue - f.cost) / f.allLoads; return v < 0 ? '<span class="neg">' + gbp(-v) + ' loss</span>' : '<span class="pos">' + gbp(v) + '</span>'; })() : '<span class="muted" style="font-size:18px">n/a</span>', 'period margin over ' + (f.allLoads || 0) + ' booked job' + (f.allLoads === 1 ? '' : 's') + ', planned or not') + '</div>' : '') +
     '<div class="mdbody">' + (st.drivers.length ?
       '<table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">RUNS</th><th class="n">LOADS</th><th class="n">MILES</th><th class="n">AVG / DAY</th>' + (money ? '<th class="n">COST / DAY</th><th class="n">REV / DAY</th><th class="n">MARGIN / DAY</th><th class="n">PROFIT / JOB</th>' : '') + '</tr>' + rows + '</table>' :
       '<div class="none">No planned runs in this period yet. Plan a run in the day view and it shows here.</div>') +
     '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back to the depot, a postcode counted once per run. Average per day divides by the days that driver had a run. A plus means a leg could not be measured. Only planned runs count; loads not yet on a run add nothing. The feed holds from yesterday forward, so past weeks fill in as the dashboard grows.' +
-      (money ? ' Cost per day is the driver\'s wage for the day (hourly rate × hours per day) plus the wagon\'s weekly lease spread over the working days plus fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price); wages and leases count on every working day in the period whether or not a run is planned, so a quiet week shows its true cost. Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in data/costs.json in the repo and only reach the page in Team Edit. Revenue is each planned load\'s price in Big Change: the sale lines on the job (quantity × unit selling price, there from booking), replaced by the invoiced total ex VAT once invoiced. A load with no sale lines and no invoice adds nothing and is counted as having no price.' : ' Unlock Team Edit to see cost and revenue per wagon.') + '</div></div></div></div>';
+      (money ? ' Cost per day is the driver\'s wage for the day (hourly rate × hours per day) plus the wagon\'s weekly lease spread over the working days plus fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price); wages and leases count on every working day in the period whether or not a run is planned, so a quiet week shows its true cost. Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in data/costs.json in the repo and only reach the page once the MD PIN has been given. Revenue is each planned load\'s price in Big Change: the sale lines on the job (quantity × unit selling price, there from booking), replaced by the invoiced total ex VAT once invoiced. A load with no sale lines and no invoice adds nothing and is counted as having no price. The fleet revenue, margin and profit per job count every booked job in the period whether or not it is on a run yet; the driver rows count only the loads planned onto that driver\'s runs.' : '') + '</div></div></div></div>';
 }
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
@@ -890,7 +911,7 @@ function renderVh(){
 }
 
 function render(){
-  var a = document.activeElement, fid = a && a.id, s0 = null, s1 = null;
+  var a = document.activeElement, fid = a && a.id, s0 = null, s1 = null; var wantPin = S.mdOpen && !(ARGS && ARGS.md_unlocked);
   try { if (fid && a.selectionStart != null) { s0 = a.selectionStart; s1 = a.selectionEnd; } } catch (e) {}
   var runsEl = document.querySelectorAll('.runs'), scrolls = [], pb = document.querySelector('.poolbody'), pbs = pb ? pb.scrollTop : 0;
   runsEl.forEach(function(el){ scrolls.push(el.scrollTop); });
@@ -898,6 +919,7 @@ function render(){
   document.querySelectorAll('.runs').forEach(function(el, i){ if (scrolls[i]) el.scrollTop = scrolls[i]; });
   pb = document.querySelector('.poolbody'); if (pb) pb.scrollTop = pbs;
   if (fid) { var el = document.getElementById(fid); if (el) { el.focus(); try { if (s0 != null) el.setSelectionRange(s0, s1); } catch (e) {} } }
+  else if (wantPin) { var pe = document.getElementById('mdpin'); if (pe) pe.focus(); }
 }
 
 /* events */
@@ -907,6 +929,8 @@ document.addEventListener('click', function(e){
   if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.mdOpen = false; S.warn = ''; }
   else if (act === 'openMd') S.mdOpen = true;
   else if (act === 'closeMd') S.mdOpen = false;
+  else if (act === 'mdPinGo') { var pinEl = document.getElementById('mdpin'); if (pinEl && pinEl.value) { S.mdPinSent = true; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_unlock', pin:pinEl.value }, dataType:'json' }); } return; }
+  else if (act === 'mdLock') { S.mdOpen = false; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_lock' }, dataType:'json' }); return; }
   else if (act === 'close') { if (S.mdOpen) S.mdOpen = false; else if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
   else if (act === 'openEnq') { S.enqEdit = null; S.enqDraft = { col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }; S.enqOpen = true; }
   else if (act === 'teamEdit') { if (!isTeam()) S.pwOpen = true; }
@@ -977,6 +1001,7 @@ document.addEventListener('change', function(e){
 });
 document.addEventListener('keydown', function(e){
   if (e.key === 'Enter' && e.target && e.target.id === 'pwin') { var b = document.querySelector('[data-act=unlockGo]'); if (b) b.click(); return; }
+  if (e.key === 'Enter' && e.target && e.target.id === 'mdpin') { var b2 = document.querySelector('[data-act=mdPinGo]'); if (b2) b2.click(); return; }
   if (e.key === 'Escape') { if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else if (S.modalDay != null) { S.modalDay = null; S.warn = ''; } else return; render(); } });
 
 /* drag and drop, Team Edit only */

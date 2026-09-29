@@ -1,5 +1,15 @@
 """AES Transport Planner
-Version 4.0
+Version 4.2
+
+4.2: fleet revenue, margin and profit per job on the MD dashboard count
+every booked job in the period, planned or not; the driver rows still
+count only the loads on that driver's runs.
+
+4.1: the MD dashboard is behind a four digit PIN, checked here on the
+server, never in the browser. The PIN is "md_pin" in data/costs.json (or
+PLANNER_MD_PIN / md_pin in the secrets, which win); it is stripped before
+the cost basis goes to the page. The cost and revenue figures now follow
+the PIN rather than Team Edit.
 
 4.0: profit per job on the MD dashboard: the period margin (revenue less
 wagon cost) divided by the planned jobs, per driver and for the fleet.
@@ -141,7 +151,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.0"
+VERSION = "4.2"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -464,6 +474,8 @@ iframe{border:0}
 
 ss = st.session_state
 ss.setdefault("unlocked", False)
+ss.setdefault("md_unlocked", False)
+ss.setdefault("md_error", None)
 ss.setdefault("last_written", None)
 ss.setdefault("write_error", None)
 ss.setdefault("last_seen_rev", 0)
@@ -514,7 +526,16 @@ def load_costs():
         return None
 
 
-costs = load_costs() if ss["unlocked"] else None
+costs_all = load_costs() or {}
+def _secret(name):
+    try:
+        return st.secrets.get(name)
+    except Exception:                                            # noqa: BLE001
+        return None
+
+
+MD_PIN = os.environ.get("PLANNER_MD_PIN") or _secret("md_pin") or str(costs_all.get("md_pin") or "")
+costs = {k: v for k, v in costs_all.items() if k != "md_pin"} if (ss["md_unlocked"] and costs_all) else None
 if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
@@ -531,7 +552,7 @@ _planner_ui = components.declare_component("aes_planner", path=str(HERE / "plann
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
         "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
-        "checked_min": checked_min, "costs": costs}
+        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN)}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
@@ -542,6 +563,13 @@ if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev
             ss["pw_error"] = "Wrong password. Viewing is open to everyone."
     elif value["action"] == "lock":
         ss["unlocked"], ss["pw_error"] = False, None
+    elif value["action"] == "md_unlock":
+        if MD_PIN and str(value.get("pin", "")).strip() == str(MD_PIN):
+            ss["md_unlocked"], ss["md_error"] = True, None
+        else:
+            ss["md_unlocked"], ss["md_error"] = False, ("Wrong PIN." if MD_PIN else "No MD PIN is set (md_pin in data/costs.json).")
+    elif value["action"] == "md_lock":
+        ss["md_unlocked"], ss["md_error"] = False, None
     ss["last_seen_rev"] = value["rev"]
     st.rerun()
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("planner"):

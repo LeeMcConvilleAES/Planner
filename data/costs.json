@@ -1,5 +1,5 @@
 {
- "_about": "AES cost basis for the MD dashboard. Edit and commit; the app picks it up on the next load. Only shown in Team Edit.",
+ "_about": "AES cost basis for the MD dashboard, and the MD PIN (md_pin). Edit here and run the push script. Costs only reach the page once the PIN has been given; the PIN itself never does.",
  "updated": "2026-09-29",
  "fuel_price_per_litre": 1.55,
  "hours_per_day": 9,
@@ -52,5 +52,6 @@
    "note": "7.5t wagon, owned, depreciation. Move under vehicles with the driver's initials to cost it."
   }
  },
- "_notes": "Hiab mpg 12 (Nathan, 29/09/2026). 4x4 30 and 7.5t 15 are still placeholders. Overtime, employer NI, pension, insurance, tyres and servicing are not included."
+ "_notes": "Hiab mpg 12 (Nathan, 29/09/2026). 4x4 30 and 7.5t 15 are still placeholders. Overtime, employer NI, pension, insurance, tyres and servicing are not included.",
+ "md_pin": "1993"
 }
