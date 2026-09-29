@@ -624,20 +624,6 @@
  ],
  "enquiries": [
   {
-   "id": "e-j-f444a4569d",
-   "day": "2026-10-01",
-   "col": "del",
-   "customer": "JAKE",
-   "postcode": "L34 6JN",
-   "po": "",
-   "items": [
-    "24FT"
-   ],
-   "notes": "",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration"
-  },
-  {
    "id": "e-j-20b8f73029",
    "day": "2026-10-07",
    "col": "col",
@@ -771,6 +757,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-09-29T09:20:28+01:00",
+ "updated_at": "2026-09-29T10:18:55+01:00",
  "updated_by": "office"
 }
