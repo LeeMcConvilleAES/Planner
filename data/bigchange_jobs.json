@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T00:13:26",
+ "generated_at": "2026-09-29T06:17:01",
  "window": [
   "2026-09-28",
   "2026-10-27"
@@ -205,14 +205,14 @@
       "bigchange_id": 197819843,
       "ref": "AES/58932",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery"
      },
      {
       "bigchange_id": 197819966,
       "ref": "AES/58933",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery"
      },
      {
@@ -225,7 +225,7 @@
     ],
     "notes": "deliver 20ft store / del 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      197819843,
      197819966,
