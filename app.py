@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 3.6
+Version 3.7
+
+3.7: costs.json in the app folder is the source of truth; the push script
+copies it to data/costs.json in the repo on every push (it used to seed it
+once and never overwrite). Hiab mpg 12.
 
 3.6: the cost basis lives in the repo as data/costs.json (Nathan, 29/09/2026:
 "why can the costs not come from the repo itself?"). The app reads it like
@@ -126,7 +130,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.6"
+VERSION = "3.7"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

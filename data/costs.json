@@ -16,25 +16,25 @@
   "DF": {
    "reg": "YK25 CXE",
    "lease_per_week": 1350,
-   "mpg": 9,
+   "mpg": 12,
    "note": "HGV Hiab"
   },
   "SL": {
    "reg": "MV75 BXZ",
    "lease_per_week": 1450,
-   "mpg": 9,
+   "mpg": 12,
    "note": "HGV Hiab"
   },
   "CR": {
    "reg": "BV73 EWG",
    "lease_per_week": 950,
-   "mpg": 9,
+   "mpg": 12,
    "note": "HGV Hiab"
   },
   "RB": {
    "reg": "FJ74 YYD",
    "lease_per_week": 1350,
-   "mpg": 9,
+   "mpg": 12,
    "note": "HGV Hiab"
   },
   "RS": {
@@ -52,5 +52,5 @@
    "note": "7.5t wagon, owned, depreciation. Move under vehicles with the driver's initials to cost it."
   }
  },
- "_notes": "mpg figures are placeholders until real consumption is known. Overtime, employer NI, pension, insurance, tyres and servicing are not included."
+ "_notes": "Hiab mpg 12 (Nathan, 29/09/2026). 4x4 30 and 7.5t 15 are still placeholders. Overtime, employer NI, pension, insurance, tyres and servicing are not included."
 }
