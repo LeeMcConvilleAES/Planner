@@ -1,5 +1,14 @@
 """AES Transport Planner
-Version 2.8
+Version 3.0
+
+3.0: sixteen weeks ahead. The week strip shows five tabs that slide around
+the week on show (last week through week 16), the arrows walk through all
+of them and Jump To Week is a real list. Ken's feed window is 16 weeks too
+(aes_planner_feed.days_ahead 115 in his config, 29/09/2026).
+
+2.9: Ken now checks Big Change every two minutes (config, 29/09/2026), so the
+header goes red when a check is more than six minutes old, and the wording
+says two minutes.
 
 2.8: mileage only in the day view (no badge on the week cards or the job
 card). A postcode counts once per run however many loads go there, in the
@@ -43,7 +52,7 @@ views a Big Change job or edits an enquiry.
 2.0: jobs come from Big Change, data lives in the Planner repo, the office plans
 runs on the v1.6 design.
 
-Ken writes data/bigchange_jobs.json every ten minutes: every AES transport job
+Ken checks Big Change every two minutes and writes data/bigchange_jobs.json when it changed: every AES transport job
 as a planner card, keyed by date. This app reads it and never edits it. The app
 owns data/planner.json: runs (keyed by Big Change job id), run start times,
 capacity days, holidays, vehicle bookings, enquiries and enquiry conversions.
@@ -82,7 +91,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "2.8"
+VERSION = "3.0"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

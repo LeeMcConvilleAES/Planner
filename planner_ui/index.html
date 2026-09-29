@@ -42,6 +42,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .nav{width:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #bab6b6;font-size:18px}
 .nav:hover{background:#eae7e7}
 .wk{flex:1;padding:10px 14px;border-right:1px solid #bab6b6}
+.wkjump{min-width:210px;font:700 13px 'Figtree',sans-serif;border:0;border-left:1px solid #bab6b6;background:#fff;padding:0 12px;color:#201e1d;cursor:pointer}
 .wk:hover{background:#eae7e7}
 .wk.on{background:#0d823b;color:#fff}
 .wk b{display:block;font-weight:800;font-size:13px}
@@ -520,8 +521,11 @@ function renderMain(){
   var booked = shown.filter(function(j){ return j.status === 'b'; }).length;
   var nLoads = shown.reduce(function(n, j){ return n + j.loads.length; }, 0);
 
-  var weeks = [0,1,2,3,4].map(function(i){
-    var m = weekMon(i), f = isoAdd(m, 4); var tab = i === 0 ? 'Last Week' : i === 1 ? 'This Week' : i === 2 ? 'Next Week' : fDay(m);
+  var MAX_WEEK = 17, first = Math.max(0, Math.min(w - 2, MAX_WEEK - 4)), all = []; for (var wi = 0; wi <= MAX_WEEK; wi++) all.push(wi);
+  var weekLabel = function(i){ return i === 0 ? 'Last Week' : i === 1 ? 'This Week' : i === 2 ? 'Next Week' : fDay(weekMon(i)); };
+  var jump = '<select class="tbtn wkjump" id="wkjump" aria-label="Jump to week">' + all.map(function(i){ var m = weekMon(i); return '<option value="' + i + '"' + (i === w ? ' selected' : '') + '>' + (i === 0 ? 'Last Week' : i === 1 ? 'This Week' : i === 2 ? 'Next Week' : 'Week ' + (i - 1)) + ': ' + fDay(m) + ' to ' + fDay(isoAdd(m, 4)) + '</option>'; }).join('') + '</select>';
+  var weeks = [first, first + 1, first + 2, first + 3, first + 4].map(function(i){
+    var m = weekMon(i), f = isoAdd(m, 4); var tab = weekLabel(i);
     var range = dObj(m).getUTCMonth() === dObj(f).getUTCMonth() ? dObj(m).getUTCDate() + ' to ' + fDay(f) : fDay(m) + ' to ' + fDay(f);
     return '<button class="wk' + (i === w ? ' on' : '') + '" data-act="week" data-v="' + i + '"><b>' + tab + '</b><span>' + range + '</span></button>';
   }).join('');
@@ -561,8 +565,7 @@ function renderMain(){
       '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
     (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
-      '<button class="nav" data-act="week" data-v="' + Math.min(4, w + 1) + '" aria-label="Next week">›</button>' +
-      '<div class="tbtn" style="min-width:190px;justify-content:space-between;gap:12px;font-weight:600;border-right:1px solid #bab6b6">Jump To Week<span>▾</span></div><button class="tbtn">+ Add Week</button></div>' +
+      '<button class="nav" data-act="week" data-v="' + Math.min(MAX_WEEK, w + 1) + '" aria-label="Next week">›</button>' + jump + '</div>' +
     '<div class="metrics">' +
       [['Jobs', shown.length], ['Booked', booked], ['Enquiries', shown.length - booked], ['Loads', nLoads]].map(function(m){ return '<div class="metric"><div class="l">' + m[0] + '</div><div class="v">' + m[1] + '</div></div>'; }).join('') +
       '<div class="metric' + (toPlan ? ' alert' : '') + '"><div class="l">To plan</div><div class="v">' + toPlan + '</div></div>' +
@@ -573,8 +576,8 @@ function renderMain(){
 
 function feedCell(){
   var chk = ARGS && ARGS.checked_min; if (chk != null) {
-    var late = chk > 25, when = chk < 1 ? 'Just Now' : chk === 1 ? '1 Min Ago' : chk + ' Mins Ago';
-    return '<div class="hcell ' + (late ? 'bc' : 'sync') + '" title="Ken checks Big Change every ten minutes. Feed built ' + esc(String(FEED.generated_at || '')) + '"><span class="sq"' + (late ? ' style="background:#c0261a"' : '') + '></span>Big Change Checked ' + when + '</div>';
+    var late = chk > 6, when = chk < 1 ? 'Just Now' : chk === 1 ? '1 Min Ago' : chk + ' Mins Ago';
+    return '<div class="hcell ' + (late ? 'bc' : 'sync') + '" title="Ken checks Big Change every two minutes. Feed built ' + esc(String(FEED.generated_at || '')) + '"><span class="sq"' + (late ? ' style="background:#c0261a"' : '') + '></span>Big Change Checked ' + when + '</div>';
   }
   var gen = String(FEED.generated_at || ''); if (!gen) return '<div class="hcell bc"><span class="sq"></span>No Big Change Feed Yet</div>';
   var age = (Date.now() - new Date(gen).getTime()) / 60000, stale = age > 30;
@@ -723,7 +726,7 @@ function renderView(){
       row('STATUS', esc(j.state) + (j.converted ? ', converted from the enquiry for ' + esc(j.converted.enquiry_customer || '') : '')) +
       row('NOTES', esc(j.notes)) + row('STACKING', esc(j.destack)) +
       '<div class="k">LOADS</div><div><table><tr><th>#</th><th>UNIT</th><th>AES JOB</th><th>RUN</th><th>STATE</th></tr>' + rows + '</table></div>' +
-      (j.status === 'e' ? row('EDITING', isTeam() ? 'Close and click the card again to edit.' : 'Unlock Team Edit to edit or delete this enquiry.') : row('FROM BIG CHANGE', canSet ? 'Pick a driver and run number to plan a load from here. It goes straight onto that run in the day view, deliveries ahead of collections.' : 'This card is read only here: change the job in Big Change and it updates within ten minutes.')) +
+      (j.status === 'e' ? row('EDITING', isTeam() ? 'Close and click the card again to edit.' : 'Unlock Team Edit to edit or delete this enquiry.') : row('FROM BIG CHANGE', canSet ? 'Pick a driver and run number to plan a load from here. It goes straight onto that run in the day view, deliveries ahead of collections.' : 'This card is read only here: change the job in Big Change and it updates within two minutes.')) +
       (S.warn && canSet ? row('', '<span class="warnline">' + esc(S.warn) + '</span>') : '') +
     '</div></div></div>';
 }
@@ -833,6 +836,7 @@ document.addEventListener('input', function(e){
 document.addEventListener('change', function(e){
   var id = e.target.id, val = e.target.value;
   if (id === 'flt') S.filter = val;
+  else if (id === 'wkjump') S.week = +val;
   else if (id === 'hd') S.holDraft.drv = val;
   else if (id === 'ec') S.enqDraft.col = val;
   else if (id === 'ed') { if (saneDate(val)) { S.enqDraft.date = val; var em = e.target.nextElementSibling; if (em) em.textContent = fFull(val); var go = document.querySelector('[data-act=addEnq]'); if (go) go.textContent = '+ Add enquiry to ' + fFull(val); } return; }
