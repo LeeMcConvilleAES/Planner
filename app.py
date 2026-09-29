@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 3.1
+Version 3.2
+
+3.2: the fuel card finish. Option D from the mock of 29/09/2026: black with
+the purple, teal and amber swirl of an oil slick, a wet diagonal highlight
+and dark pooling at the base. Same finish on the day view pill.
 
 3.1: fuel deliveries. Ken V20.2 sends Big Change "Fuel Delivery" jobs as
 col "fuel"; they show as black glossy cards with a yellow FUEL tag in the
@@ -96,7 +100,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.1"
+VERSION = "3.2"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
