@@ -1,6 +1,6 @@
-# AES Transport Planner V3.2
+# AES Transport Planner V3.3
 
-Version 3.2, 29 September 2026. V3.2: fuel cards get the oil slick finish (black with a purple, teal and amber swirl, wet highlight, dark base). V3.1: fuel deliveries (Big Change job type "Fuel Delivery", Ken V20.2) as black glossy cards in the deliveries lane, planned like a delivery with no bed length counted. V3.0: sixteen weeks ahead (five sliding tabs, arrows through all of them, Jump To Week is a list); Ken's feed window is 16 weeks. V2.9: Ken checks Big Change every two minutes; the header goes red after six. V2.8: mileage shows only in the day view; a postcode counts once per run however many loads go there. V2.7: run and driver mileage in the day view (each run is depot, sites in run order, back to depot; the driver total adds the runs up), from the postcode distance matrix Ken V19.5 writes into the feed. V2.6: road miles from the depot (M46 9BE, one way) on the week card, the day view load pills and the job card, from the "miles" field Ken V19.4 puts on every feed card. V2.5: in Team Edit a job card's RUN column has a driver and run number picker per load, plus a Whole Job row, so CR1 or DF3 can be set from the card; it writes the same run entry the day view uses, so the day view shows it and can still reorder it. V2.4: the header shows "Big Change Checked X Mins Ago" from `data/feed_heartbeat.json`, which Ken (V19.3 and later) writes after every check whether or not the jobs changed; the hint next to Vehicles & Holidays has gone; CONVERTED is purple; the holidays and vehicle bookings panel lists only the week on show, with a count of any others. V2.3: in Team Edit, cards on the week view can be dragged up and down within a day's lane; the order is saved per day and lane and changes nothing but the display. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
+Version 3.3, 29 September 2026. V3.3: the MD (Mother Delta Dashboard) button and in-app dashboard; runs fixed to be per week as well as per weekday. V3.2: fuel cards get the oil slick finish (black with a purple, teal and amber swirl, wet highlight, dark base). V3.1: fuel deliveries (Big Change job type "Fuel Delivery", Ken V20.2) as black glossy cards in the deliveries lane, planned like a delivery with no bed length counted. V3.0: sixteen weeks ahead (five sliding tabs, arrows through all of them, Jump To Week is a list); Ken's feed window is 16 weeks. V2.9: Ken checks Big Change every two minutes; the header goes red after six. V2.8: mileage shows only in the day view; a postcode counts once per run however many loads go there. V2.7: run and driver mileage in the day view (each run is depot, sites in run order, back to depot; the driver total adds the runs up), from the postcode distance matrix Ken V19.5 writes into the feed. V2.6: road miles from the depot (M46 9BE, one way) on the week card, the day view load pills and the job card, from the "miles" field Ken V19.4 puts on every feed card. V2.5: in Team Edit a job card's RUN column has a driver and run number picker per load, plus a Whole Job row, so CR1 or DF3 can be set from the card; it writes the same run entry the day view uses, so the day view shows it and can still reorder it. V2.4: the header shows "Big Change Checked X Mins Ago" from `data/feed_heartbeat.json`, which Ken (V19.3 and later) writes after every check whether or not the jobs changed; the hint next to Vehicles & Holidays has gone; CONVERTED is purple; the holidays and vehicle bookings panel lists only the week on show, with a count of any others. V2.3: in Team Edit, cards on the week view can be dragged up and down within a day's lane; the order is saved per day and lane and changes nothing but the display. V2.2: enquiries convert on their own on every page load (no Confirm or Dismiss), an enquiry is deleted only from its edit form, labels in Title Case.
 
 Jobs come from Big Change. Ken checks every two minutes, writes `data/bigchange_jobs.json` in this repo when the jobs changed and `data/feed_heartbeat.json` every time; the app reads both and never edits them. The app owns `data/planner.json`: runs (keyed by Big Change job id), run start times, capacity days, holidays, vehicle bookings, enquiries, conversions and the week view card order. Both files are read and written through the GitHub contents API.
 
@@ -43,6 +43,28 @@ If `data/planner.json` does not exist, the app reads the Google Sheet once and w
 - Week view card order: in Team Edit a card can be dragged above or below another card in the same day and lane (top half of the target lands before it, bottom half after). It is saved in `card_order` and affects nothing but the display.
 - A job Big Change moved keeps its run for the old day and shows MOVED until it is re-planned. A job Big Change dropped is listed under the day for 7 days.
 - SUB is the sub-contractor column: SUB1, SUB2, one run per subbie wagon, no bed check.
+
+## MD: Mother Delta Dashboard
+
+Placement and trigger: the black MD button at the right of the header, left of TEAM EDIT and READ ONLY, visible in both modes. Click opens the dashboard as an in-app panel (same overlay as the job card); CLOSE, the backdrop or Escape closes it. Auto refresh does not close it.
+
+Data: nothing is fetched. Every figure is computed in the front end from what the page already holds: feed cards (`data/bigchange_jobs.json`, with each card's `pc_key` and the `distance` matrix Ken writes), the runs in `data/planner.json` and the drivers list. A run's miles are depot to each site in run order and back, a postcode counted once per run (the same `runMiles` the day view shows).
+
+Period: a selector, Week On Show (default), Next 4 Weeks, All 18 Weeks Loaded. The feed holds from yesterday forward, so past weeks are not there yet.
+
+Metrics, initial set:
+
+- Fleet Miles: sum of every planned run's miles in the period. A plus means a leg could not be measured.
+- Days With Runs: day slots (Mon to Fri plus the Sat/Sun slot) with at least one planned run.
+- Average Miles Per Day: fleet miles divided by days with runs.
+- Drivers Active: drivers with at least one planned run.
+- Per driver table: days with a run, runs, loads, miles, average miles per day (miles over that driver's days), and a bar scaled to the top driver. Sorted by miles.
+
+Only loads on a run count; loads not yet planned add nothing. Subcontractor runs (SUB) are included as a driver row.
+
+Adding a metric: extend `mdStats()` in `planner_ui/index.html` with the number, then add a tile (`tile(label, value, sub)`) or a table column in `renderMd()`. Per driver figures go on the row objects; fleet figures on `fleet`. When a metric needs data the page does not hold (past weeks, Big Change job fields not on the cards), Ken writes it into the feed or a new file in `data/` and `app.py` passes it into the component as another argument; the dashboard stays baked into the app.
+
+Accessibility: the panel is a dialog with an aria label, the period selector is a labelled select, and the table is a real table with header cells. Errors: a missing distance matrix gives "+" marks rather than a failure; no runs gives a plain message.
 
 ## Local test
 

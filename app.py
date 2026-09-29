@@ -1,5 +1,13 @@
 """AES Transport Planner
-Version 3.2
+Version 3.3
+
+3.3: the MD (Mother Delta Dashboard) button at the top opens an in-app
+dashboard: fleet miles, days with runs, average miles per day, drivers
+active, and a table of mileage per driver with days, runs, loads and
+average per day, for the week on show, the next four weeks or all 18 weeks
+loaded. Everything is computed in the front end from the feed, the runs and
+the distance matrix; nothing is fetched. Also fixed: runs were keyed by
+weekday only, so a run planned for next Tuesday showed on this Tuesday too.
 
 3.2: the fuel card finish. Option D from the mock of 29/09/2026: black with
 the purple, teal and amber swirl of an oil slick, a wet diagonal highlight
@@ -100,7 +108,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.2"
+VERSION = "3.3"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

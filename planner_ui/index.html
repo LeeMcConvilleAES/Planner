@@ -32,6 +32,20 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .sync .sq{background:#0d823b}
 .mode{padding:0 18px;display:flex;align-items:center;font-size:12px;font-weight:800;letter-spacing:.08em;white-space:nowrap;color:#605d5d;background:#fff}
 .mode.on-team{background:#0d823b;color:#fff}
+.mode.md{background:#201e1d;color:#fff;border-left:2px solid #201e1d;letter-spacing:.14em}
+.mode.md:hover{background:#0d823b}
+.panel.md{max-width:1100px;min-width:900px;margin-top:40px}
+.panel.md .eyebrow{color:#201e1d}
+.panel.md .cell select{font:600 13px 'Figtree',sans-serif;border:1px solid #201e1d;background:#fff;padding:6px 10px;border-radius:0;color:#201e1d}
+.metrics.md4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric .sub{font-size:11px;color:#9b9797;margin-top:2px}
+.mdbody{padding:16px 20px 20px}
+.mdt{width:100%;border-collapse:collapse}
+.mdt th{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d;text-align:left;padding:6px 8px;border-bottom:2px solid #201e1d}
+.mdt td{padding:7px 8px;border-bottom:1px solid #bab6b6;font-size:13px;vertical-align:middle}
+.mdt .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mdt .bar{width:30%}.mdt .bar i{display:block;height:10px;background:#0d823b}
+.mdnote{margin-top:14px;font-size:11px;color:#605d5d;line-height:1.5}
 .mode.on-ro{background:#201e1d;color:#fff}
 .modes{display:flex;border-left:2px solid #201e1d}
 .tbtn{padding:10px 18px;font-size:13px;font-weight:800;display:flex;align-items:center}
@@ -453,9 +467,10 @@ function milesTag(rm, cls){
   if (!rm) return '';
   return '<div class="' + (cls || 'rmi') + '" title="' + (rm.gaps ? rm.gaps + ' leg' + (rm.gaps > 1 ? 's' : '') + ' could not be measured; ' : '') + 'Depot to ' + rm.stops + ' site' + (rm.stops > 1 ? 's' : '') + ' and back, by road">' + rm.miles + (rm.gaps ? '+' : '') + ' MI · ' + rm.stops + ' SITE' + (rm.stops > 1 ? 'S' : '') + '</div>';
 }
-function runsFor(day, ini){
-  var ls = []; JOBS.forEach(function(j){ if (j.day === day) j.loads.forEach(function(l){ if (l.driver === ini && l.run) ls.push(l); }); });
-  var n = Math.max(1, S.extraRuns[day + '|' + ini] || 0); ls.forEach(function(l){ n = Math.max(n, l.run); });
+function runsFor(day, ini, week){
+  if (week == null) week = S.week;
+  var ls = []; JOBS.forEach(function(j){ if (j.day === day && j.week === week) j.loads.forEach(function(l){ if (l.driver === ini && l.run) ls.push(l); }); });
+  var n = Math.max(1, S.extraRuns[week + '|' + day + '|' + ini] || 0); ls.forEach(function(l){ n = Math.max(n, l.run); });
   var runs = []; for (var i = 0; i < n; i++) runs.push([]);
   ls.forEach(function(l){ runs[l.run - 1].push(l); });
   runs.forEach(function(r){ r.sort(function(a, b){ return a.seq - b.seq; }); });
@@ -470,7 +485,7 @@ function move(id, tgt){
   var l = LOADS[id]; if (!l) return; var day = l.job.day;
   if (!tgt) { l.driver = ''; l.run = null; l.movedFrom = ''; S.changes[day] = (S.changes[day] || 0) + 1; S.warn = ''; return; }
   if (l.job.status === 'e') { flash(l.job.customer + ' is still an enquiry. Confirm it as booked before it goes on a run.'); return; }
-  var runs = runsFor(day, tgt.drv); var arr = runs[tgt.run - 1].filter(function(x){ return x !== l; });
+  var runs = runsFor(day, tgt.drv, l.job.week); var arr = (runs[tgt.run - 1] || []).filter(function(x){ return x !== l; });
   var pos = tgt.before ? arr.indexOf(LOADS[tgt.before]) : -1;
   if (pos < 0 && isDel(l) && !tgt.append) { for (var i = 0; i < arr.length; i++) if (!isDel(arr[i])) { pos = i; break; } }
   if (pos < 0) arr.push(l); else arr.splice(pos, 0, l);
@@ -575,6 +590,7 @@ function renderMain(){
       feedCell() +
       (ARGS.notice ? '<div class="hcell" style="color:' + (ARGS.notice_kind === 'error' ? '#c0261a' : '#605d5d') + '">' + esc(ARGS.notice) + '</div>' : '') +
       (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team Edit Password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
+      '<button class="mode md" data-act="openMd" title="Mother Delta Dashboard: mileage per driver and per day">MD</button>' +
       '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
     (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
@@ -619,6 +635,7 @@ function loadCard(l, inRun, order){
 
 function renderModal(){
   var m = document.getElementById('modal'), team = isTeam();
+  if (S.mdOpen) { m.innerHTML = renderMd(); return; }
   if (S.viewJob) { m.innerHTML = renderView(); return; }
   if (S.enqOpen) { m.innerHTML = renderEnq(); return; }
   if (S.vhOpen) { m.innerHTML = renderVh(); return; }
@@ -709,9 +726,59 @@ function setRunFromCard(sel){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) return;
   var targets = key === '*' ? j.loads : j.loads.filter(function(l){ return l.id === key; });
   if (!drv) { if (sel.hasAttribute('data-set-run')) return; targets.forEach(function(l){ move(l.id, null); }); }
-  else targets.forEach(function(l){ var k = l.job.day + '|' + drv; S.extraRuns[k] = Math.max(S.extraRuns[k] || 0, num); move(l.id, { drv:drv, run:num }); });
+  else targets.forEach(function(l){ var k = l.job.week + '|' + l.job.day + '|' + drv; S.extraRuns[k] = Math.max(S.extraRuns[k] || 0, num); move(l.id, { drv:drv, run:num }); });
   render();
   if (!S.warn) commit(key === '*' ? 'planned job from card' : 'planned load from card');
+}
+/* MD: every metric is computed here from what the planner already holds (feed cards, runs, the distance matrix).
+   To add a metric later: extend mdStats() with the number, then add a tile or a column in renderMd(). Nothing is fetched. */
+function mdWeeks(scope){
+  if (scope === 'week') return [S.week];
+  if (scope === 'next4') return [1, 2, 3, 4];
+  var all = []; for (var w = 0; w <= 17; w++) all.push(w); return all;
+}
+function mdStats(scope){
+  var weeks = mdWeeks(scope), rows = {}, fleet = { miles:0, gaps:0, runs:0, loads:0, dayKeys:{} };
+  RESOURCES.forEach(function(r){ rows[r.ini] = { ini:r.ini, name:r.name, sub:!!r.sub, days:0, runs:0, loads:0, miles:0, gaps:0 }; });
+  weeks.forEach(function(w){
+    for (var d = 0; d < 6; d++) {
+      RESOURCES.forEach(function(r){
+        var runs = runsFor(d, r.ini, w).filter(function(x){ return x.length; }); if (!runs.length) return;
+        var row = rows[r.ini]; row.days++; row.runs += runs.length; fleet.runs += runs.length; fleet.dayKeys[w + '|' + d] = 1;
+        runs.forEach(function(run){ row.loads += run.length; fleet.loads += run.length; var rm = runMiles(run); if (rm) { row.miles += rm.miles; row.gaps += rm.gaps; fleet.miles += rm.miles; fleet.gaps += rm.gaps; } });
+      });
+    }
+  });
+  fleet.days = Object.keys(fleet.dayKeys).length;
+  fleet.avgPerDay = fleet.days ? Math.round(fleet.miles / fleet.days) : 0;
+  var list = Object.keys(rows).map(function(k){ return rows[k]; }).filter(function(r){ return r.days; });
+  list.forEach(function(r){ r.avg = r.days ? Math.round(r.miles / r.days) : 0; });
+  list.sort(function(a, b){ return b.miles - a.miles; });
+  fleet.drivers = list.length;
+  return { fleet:fleet, drivers:list, weeks:weeks };
+}
+function renderMd(){
+  var scope = S.mdScope || 'week', st = mdStats(scope), f = st.fleet;
+  var w0 = st.weeks[0], w1 = st.weeks[st.weeks.length - 1], range = fFull(weekMon(w0)) + ' to ' + fFull(isoAdd(weekMon(w1), 6));
+  var opt = function(v, t){ return '<option value="' + v + '"' + (scope === v ? ' selected' : '') + '>' + t + '</option>'; };
+  var tile = function(l, v, sub){ return '<div class="metric"><div class="l">' + l + '</div><div class="v">' + v + '</div>' + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>'; };
+  var max = st.drivers.reduce(function(m, r){ return Math.max(m, r.miles); }, 0) || 1;
+  var rows = st.drivers.map(function(r){
+    return '<tr><td><span class="av' + (r.sub ? ' av-sub' : '') + '" style="width:30px;height:30px;font-size:12px">' + esc(r.ini) + '</span></td><td><b>' + esc(r.name) + '</b></td>' +
+      '<td class="n">' + r.days + '</td><td class="n">' + r.runs + '</td><td class="n">' + r.loads + '</td>' +
+      '<td class="n"><b>' + r.miles + (r.gaps ? '+' : '') + '</b></td><td class="n">' + r.avg + '</td>' +
+      '<td class="bar"><i style="width:' + Math.round(r.miles / max * 100) + '%"></i></td></tr>';
+  }).join('');
+  return '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' +
+      '<div class="cell"><select id="mdscope" aria-label="Period">' + opt('week', 'Week On Show') + opt('next4', 'Next 4 Weeks') + opt('all', 'All 18 Weeks Loaded') + '</select></div>' +
+      '<div class="cell">' + range + '</div><button class="done" data-act="closeMd">CLOSE</button></div>' +
+    '<div class="metrics md4">' + tile('Fleet Miles', f.miles + (f.gaps ? '+' : ''), 'planned road miles, every run out and back') + tile('Days With Runs', f.days, 'day slots with at least one planned run') +
+      tile('Average Miles Per Day', f.avgPerDay, 'fleet miles over days with runs') + tile('Drivers Active', f.drivers, 'with at least one planned run') + '</div>' +
+    '<div class="mdbody">' + (st.drivers.length ?
+      '<table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">RUNS</th><th class="n">LOADS</th><th class="n">MILES</th><th class="n">AVG / DAY</th><th></th></tr>' + rows + '</table>' :
+      '<div class="none">No planned runs in this period yet. Plan a run in the day view and it shows here.</div>') +
+    '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back to the depot, a postcode counted once per run. Average per day divides by the days that driver had a run. A plus means a leg could not be measured. Only planned runs count; loads not yet on a run add nothing. The feed holds from yesterday forward, so past weeks fill in as the dashboard grows.</div></div></div></div>';
 }
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
@@ -795,8 +862,10 @@ function render(){
 document.addEventListener('click', function(e){
   var t = e.target.closest('[data-act]'); if (!t) return;
   var act = t.getAttribute('data-act'), v = t.getAttribute('data-v'), dirty = '';
-  if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.warn = ''; }
-  else if (act === 'close') { if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
+  if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.mdOpen = false; S.warn = ''; }
+  else if (act === 'openMd') S.mdOpen = true;
+  else if (act === 'closeMd') S.mdOpen = false;
+  else if (act === 'close') { if (S.mdOpen) S.mdOpen = false; else if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
   else if (act === 'openEnq') { S.enqEdit = null; S.enqDraft = { col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }; S.enqOpen = true; }
   else if (act === 'teamEdit') { if (!isTeam()) S.pwOpen = true; }
   else if (act === 'lock') { if (isTeam()) { REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'lock' }, dataType:'json' }); } S.pwOpen = false; }
@@ -812,7 +881,7 @@ document.addEventListener('click', function(e){
   else if (act === 'openVh') S.vhOpen = true;
   else if (act === 'openVhDay') { var iso = dayIsos(S.week, +v)[0]; S.holDraft.from = S.holDraft.to = iso; S.vehDraft.from = S.vehDraft.to = iso; S.vhOpen = true; }
   else if (act === 'unassign') { move(v, null); dirty = 'unassigned load'; }
-  else if (act === 'addRun') { var k = S.modalDay + '|' + v; S.extraRuns[k] = runsFor(S.modalDay, v).length + 1; }
+  else if (act === 'addRun') { var k = S.week + '|' + S.modalDay + '|' + v; S.extraRuns[k] = runsFor(S.modalDay, v).length + 1; }
   else if (act === 'delEnq') { P.enquiries = (P.enquiries || []).filter(function(q){ return q.id !== v; }); S.enqOpen = false; S.enqEdit = null; build(ARGS); dirty = 'deleted enquiry'; }
   else if (act === 'matchOk') { var mm = LIKELY.filter(function(m){ return m.enquiry_id + '|' + m.bigchange_card === v; })[0]; if (mm) { convertEnquiry(mm, 'office'); dirty = 'converted enquiry'; } }
   else if (act === 'matchNo') { P.dismissed_matches = (P.dismissed_matches || []).concat([v]); dirty = 'dismissed match'; }
@@ -850,6 +919,7 @@ document.addEventListener('input', function(e){
 document.addEventListener('change', function(e){
   var id = e.target.id, val = e.target.value;
   if (id === 'flt') S.filter = val;
+  else if (id === 'mdscope') S.mdScope = val;
   else if (id === 'wkjump') S.week = +val;
   else if (id === 'hd') S.holDraft.drv = val;
   else if (id === 'ec') S.enqDraft.col = val;
