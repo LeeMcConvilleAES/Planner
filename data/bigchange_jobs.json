@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T12:30:08",
+ "generated_at": "2026-09-29T13:01:45",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -255,13 +255,13 @@
       "bigchange_id": 200304260,
       "ref": "AES/60852",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "0-25m Hiab Delivery"
      }
     ],
     "notes": "delivery of 20ft store",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200304260
     ],
@@ -632,13 +632,13 @@
       "bigchange_id": 200041783,
       "ref": "AES/60690",
       "desc": "8ft office - grs contractors",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection"
      }
     ],
     "notes": "COLLECTION OF 8FT OFFICE - GRS CONTRACTORS",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200041783
     ],
