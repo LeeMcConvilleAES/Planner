@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T15:06:17",
+ "generated_at": "2026-09-29T15:17:55",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -495,13 +495,13 @@
       "bigchange_id": 199922270,
       "ref": "AES/60567",
       "desc": "chem loo collection",
-      "status": "booked",
+      "status": "complete",
       "type": "7.5t Transport Collection"
      }
     ],
     "notes": "CHEM LOO COLLECTION",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      199922270
     ],
