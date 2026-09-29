@@ -666,20 +666,6 @@
    "created_by": "migration"
   },
   {
-   "id": "e-j-687b71b4a9",
-   "day": "2026-10-31",
-   "col": "col",
-   "customer": "MCC",
-   "postcode": "SK12 1NW",
-   "po": "",
-   "items": [
-    "4+2"
-   ],
-   "notes": "Not in Big Change. PRE 7AM",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration"
-  },
-  {
    "id": "e-j-3646ba72bb",
    "day": "2026-10-28",
    "col": "col",
@@ -722,13 +708,22 @@
    "level": "sure",
    "why": "same day, same postcode",
    "enquiry_customer": "WINSTANLEY"
+  },
+  "e-j-687b71b4a9": {
+   "card": "bc-199947330",
+   "at": "2026-09-29T10:32:34+01:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "MCC"
   }
  },
  "dismissed_matches": [],
  "card_notes": {
   "bc-200296895": "enquiry: BOSS UNIT",
   "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE",
-  "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE"
+  "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE",
+  "bc-199947330": "Not in Big Change. PRE 7AM / enquiry: 4+2"
  },
  "card_order": {},
  "migration": {
@@ -763,6 +758,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-09-29T10:21:26+01:00",
- "updated_by": "office"
+ "updated_at": "2026-09-29T10:32:34+01:00",
+ "updated_by": "ken"
 }
