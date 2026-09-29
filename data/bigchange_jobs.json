@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T14:06:38",
+ "generated_at": "2026-09-29T14:08:46",
  "window": [
   "2026-09-28",
   "2027-01-22"
@@ -598,13 +598,13 @@
       "bigchange_id": 198746482,
       "ref": "AES/59645",
       "desc": "24ft unit",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection"
      }
     ],
     "notes": "COLLECTION OF 24FT UNIT",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      198746396,
      198746482
