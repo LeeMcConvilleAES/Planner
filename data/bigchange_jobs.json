@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T09:59:21",
+ "generated_at": "2026-09-29T10:09:22",
  "window": [
   "2026-09-28",
   "2026-10-27"
@@ -351,13 +351,13 @@
       "bigchange_id": 200022233,
       "ref": "AES/60688",
       "desc": "boss unit",
-      "status": "booked",
+      "status": "complete",
       "type": "7.5t Transport Delivery"
      }
     ],
     "notes": "DELIVERY OF BOSS UNIT",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      200022233
     ],
