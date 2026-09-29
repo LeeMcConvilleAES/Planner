@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-29T06:17:01",
+ "generated_at": "2026-09-29T06:37:09",
  "window": [
   "2026-09-28",
   "2026-10-27"
@@ -319,13 +319,13 @@
       "bigchange_id": 199949439,
       "ref": "AES/60621",
       "desc": "20ft office",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery"
      }
     ],
     "notes": "DELIVERY OF 20FT OFFICE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199949439
     ],
