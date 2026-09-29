@@ -1,5 +1,11 @@
 """AES Transport Planner
-Version 3.8
+Version 4.0
+
+4.0: profit per job on the MD dashboard: the period margin (revenue less
+wagon cost) divided by the planned jobs, per driver and for the fleet.
+
+3.9: the bar column on the MD table has gone. It was miles scaled to the
+top driver, but next to the margin column it read as margin.
 
 3.8: revenue is the price on the job itself. Ken V20.8 reads each job's
 sale lines (Big Change's Financial tab, GET /jobs/{id}/lineItems) so every
@@ -135,7 +141,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.8"
+VERSION = "4.0"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
