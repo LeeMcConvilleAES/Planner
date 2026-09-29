@@ -1,5 +1,10 @@
 """AES Transport Planner
-Version 3.7
+Version 3.8
+
+3.8: revenue is the price on the job itself. Ken V20.8 reads each job's
+sale lines (Big Change's Financial tab, GET /jobs/{id}/lineItems) so every
+load carries its real price from booking; an invoice total still wins once
+raised. No more rate card estimate or star.
 
 3.7: costs.json in the app folder is the source of truth; the push script
 copies it to data/costs.json in the repo on every push (it used to seed it
@@ -130,7 +135,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "3.7"
+VERSION = "3.8"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
