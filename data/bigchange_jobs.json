@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T14:59:46",
+ "generated_at": "2026-09-30T15:20:49",
  "window": [
   "2026-06-02",
   "2027-01-23"
@@ -2034,7 +2034,7 @@
       "bigchange_id": 200113419,
       "ref": "AES/60753",
       "desc": "boss unit",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -2044,7 +2044,7 @@
     ],
     "notes": "DELIVERY OF BOSS UNIT",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200113419
     ],
