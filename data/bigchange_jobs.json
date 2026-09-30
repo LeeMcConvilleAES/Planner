@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T08:51:51",
+ "generated_at": "2026-09-30T08:54:00",
  "window": [
   "2026-09-29",
   "2027-01-23"
@@ -540,7 +540,7 @@
       "bigchange_id": 200037209,
       "ref": "AES/60689",
       "desc": "chem loo",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -549,7 +549,7 @@
     ],
     "notes": "delivery of 3 x chem loo",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200037209
     ],
