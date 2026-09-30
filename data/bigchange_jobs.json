@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T15:36:23",
+ "generated_at": "2026-09-30T15:59:10",
  "window": [
   "2026-06-02",
   "2027-01-23"
@@ -2038,7 +2038,7 @@
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -9313,10 +9313,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 714
-  },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 676
@@ -9335,7 +9331,7 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 932
+   "count": 933
   },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
@@ -9365,6 +9361,10 @@
    "median": 70.0,
    "count": 180
   },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 715
+  },
   "Tanker Service | 800G Waste Empty": {
    "median": 75.0,
    "count": 12
@@ -9391,7 +9391,7 @@
   },
   "Transport | 7.5t Transport Delivery": {
    "median": 100.0,
-   "count": 113
+   "count": 114
   },
   "Fuel Delivery | Fuel Delivery": {
    "median": 195.0,
@@ -9495,7 +9495,7 @@
   },
   "Service Job | Twin Solar Toilet Service": {
    "median": 100.0,
-   "count": 8
+   "count": 9
   },
   "Service Job | 1000Ltr Water Fill": {
    "median": 70.0,
