@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T07:22:04",
+ "generated_at": "2026-09-30T07:51:03",
  "window": [
   "2026-09-29",
   "2027-01-23"
@@ -614,7 +614,7 @@
       "type": "0-15m Hiab Collection",
       "price": 290.0,
       "est_price": null,
-      "price_source": "job"
+      "price_source": "invoice"
      }
     ],
     "notes": "COLLECTION OF 20FT STORE PRE 7AM",
@@ -4307,7 +4307,7 @@
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 123
+   "count": 124
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
@@ -4387,7 +4387,7 @@
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
-   "count": 62
+   "count": 63
   },
   "Hiab Transport | Hiab Collection": {
    "median": 420.0,
@@ -4403,7 +4403,7 @@
   },
   "(no category) | Water Fill": {
    "median": 70.0,
-   "count": 10
+   "count": 11
   },
   "Tanker Service | Water Fill": {
    "median": 70.0,
