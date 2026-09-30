@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T11:18:08",
+ "generated_at": "2026-09-30T11:26:32",
  "window": [
   "2026-06-02",
   "2027-01-23"
@@ -2213,7 +2213,7 @@
       "bigchange_id": 198746488,
       "ref": "AES/59649",
       "desc": "20ft store and 2 x staircase",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -2223,7 +2223,7 @@
     ],
     "notes": "COLLECTION OF 24FT UNIT / COLLECTION OF 3+1 / COLLECTION OF 20FT STORE AND 2 X STAIRCASE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      198746483,
      198746485,
