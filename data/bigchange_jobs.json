@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-09-30T14:16:52",
+ "generated_at": "2026-09-30T14:47:13",
  "window": [
   "2026-06-02",
   "2027-01-23"
@@ -2217,7 +2217,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -2249,7 +2249,6 @@
     "order_number": "01-003030",
     "units": {
      "32ft": 1,
-     "32ft unit": 1,
      "staircase": 1
     },
     "loads": [
@@ -2261,19 +2260,8 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
-     },
-     {
-      "bigchange_id": 199211478,
-      "ref": "AES/60075",
-      "desc": "32ft unit",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": 320.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 320.0
      },
      {
       "bigchange_id": 199211542,
@@ -2287,17 +2275,15 @@
       "last_price": 220.0
      }
     ],
-    "notes": "COLLECTION OF 32FT / COLLECTION OF 32FT UNIT / COLLECTION OF STAIRCASE",
+    "notes": "COLLECTION OF 32FT / COLLECTION OF STAIRCASE",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      199211439,
-     199211478,
      199211542
     ],
     "refs": [
      "AES/60074",
-     "AES/60075",
      "AES/60076"
     ],
     "pc_key": "SK75BP",
@@ -2565,6 +2551,42 @@
     ],
     "pc_key": "WA157AL",
     "miles": 15
+   },
+   {
+    "id": "bc-199211478",
+    "type": "Collection",
+    "col": "col",
+    "customer": "WPI CIVIL ENGINEERING",
+    "postcode": "SK7 5BP",
+    "address": "Mirrlees Drive, Hazel Grove, SK7 5BP",
+    "order_number": "01-003030",
+    "units": {
+     "32ft unit": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 199211478,
+      "ref": "AES/60075",
+      "desc": "32ft unit",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 320.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 320.0
+     }
+    ],
+    "notes": "COLLECTION OF 32FT UNIT",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     199211478
+    ],
+    "refs": [
+     "AES/60075"
+    ],
+    "pc_key": "SK75BP",
+    "miles": 23
    }
   ],
   "2026-10-02": [
@@ -9109,33 +9131,29 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 933
-  },
-  "Hiab Transport | 0-25miles Hiab Collection": {
-   "median": 220.0,
-   "count": 90
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 714
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 677
-  },
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 715
+   "count": 676
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 125
+   "count": 126
   },
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
-   "count": 109
+   "count": 110
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 452
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 932
   },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
@@ -9205,6 +9223,10 @@
    "median": 220.0,
    "count": 69
   },
+  "Hiab Transport | 0-25miles Hiab Collection": {
+   "median": 220.0,
+   "count": 90
+  },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
    "count": 33
@@ -9251,7 +9273,7 @@
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 52
+   "count": 53
   },
   "Service Job | Water Fill": {
    "median": 420.0,
@@ -9259,7 +9281,7 @@
   },
   "(no category) | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 48
+   "count": 50
   },
   "Service Job | Fuel Delivery": {
    "median": 200.0,
