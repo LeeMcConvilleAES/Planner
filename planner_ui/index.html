@@ -869,7 +869,9 @@ function setRunFromCard(sel){
    Every figure is computed here from what the page holds: feed cards, runs, the distance matrix, holidays and
    sickness, and the cost basis (ARGS.costs, only after the PIN). History: the feed holds from yesterday forward, so
    on every save the office makes, dayRaw() for each feed day up to today is written into planner.json as
-   md_history[iso]; a period sums live days where the feed has them and history days where it does not. */
+   md_history[iso]; a period sums live days where the feed has them and history days where it does not.
+   Service drivers never touch the planner: Ken writes data/service_weeks.json, charged per driver per week
+   (weeks[monday][ini] = {jobs, charged, invoiced, miles}), and the Service Team tab reads that (ARGS.service, behind the PIN). */
 function priceInto(t, l){
   var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); t.revenue += pr;
   if (l.price != null && l.priceSrc === 'invoice') t.invoiced++; else if (l.price != null) t.fromJob++; else if (l.estPrice != null) t.estimated++; else t.unpriced++;
@@ -888,13 +890,11 @@ function dayRaw(iso){
   var any = false;
   JOBS.forEach(function(j){ if (j.status === 'e' || j.week !== w || j.day !== d) return; j.loads.forEach(function(l){ any = true; out.fleet.loads++; priceInto(out.fleet, l); }); });
   if (any) out.fleet.days = 1;
-  /* service jobs, when Ken's feed carries them (FEED.service.jobs[iso] = [{driver, customer, postcode, miles, price, price_source}]) */
-  var sj = ((FEED.service || {}).jobs || {})[iso] || [];
-  if (sj.length) { out.service = {}; sj.forEach(function(c){ var k = c.driver || '?'; var row = out.service[k] || (out.service[k] = blankRow()); row.days = 1; row.loads++; row.runs = 1; if (c.miles != null) row.miles += +c.miles;
-    priceInto(row, { price:(c.price == null ? null : +c.price), estPrice:null, priceSrc:c.price_source || '' }); }); }
   return out;
 }
-function liveDays(){ var m = {}; Object.keys(FEED.jobs || {}).forEach(function(iso){ m[iso] = 1; }); Object.keys((FEED.service || {}).jobs || {}).forEach(function(iso){ m[iso] = 1; }); return m; }
+function liveDays(){ var m = {}; Object.keys(FEED.jobs || {}).forEach(function(iso){ m[iso] = 1; }); return m; }
+function serviceWeeks(){ return (ARGS && ARGS.service && ARGS.service.weeks) || {}; }
+function hasServiceData(){ return Object.keys(serviceWeeks()).length > 0; }
 function mergedHistory(){
   /* planner.json's md_history with today's live days written over it (days up to today only) */
   var h = JSON.parse(JSON.stringify(P.md_history || {})), live = liveDays();
@@ -926,7 +926,7 @@ function mcStats(from, to, opts){
     var data = dayData(iso); if (!data && iso < known) return;        /* before anything was recorded: unknown, so no cost and no working day either */
     covered++;
     var wd = isWeekday(iso); if (wd) fleet.weekdays++;
-    var src = data ? (team === 'service' ? data.service || {} : data.drivers || {}) : {};
+    var src = data && team === 'haulage' ? data.drivers || {} : {};
     if (data && team === 'haulage' && data.fleet && data.fleet.days) { fleet.days++; ['loads','revenue','invoiced','fromJob','estimated','unpriced'].forEach(function(k){ fleet[k] += data.fleet[k] || 0; }); }
     var wk = monOf(iso);
     people.forEach(function(p){
@@ -937,7 +937,17 @@ function mcStats(from, to, opts){
       if (wd && !p.sub) { var k = hol(p.ini, iso); if (k === 'sick') { row.sick++; wrec.sick++; } else if (k === 'leave') { row.leave++; wrec.leave++; } }
     });
   });
-  if (team === 'service') fleet.days = fleet.loads ? Math.max(1, Math.round(fleet.weekdays)) : 0;
+  if (team === 'service') {
+    /* Ken's weekly charges: every week whose Monday falls in the period */
+    var SW = serviceWeeks(), m0 = monOf(from), m1 = monOf(to);
+    for (var mon = m0; mon <= m1; mon = isoAdd(mon, 7)) { var wkd = SW[mon] || {}; people.forEach(function(p){ var r = wkd[p.ini]; if (!r) return; var row = rows[p.ini], W = row.weeks[mon] || (row.weeks[mon] = { weekdays:5, worked:0, sick:0, leave:0, miles:0, revenue:0, loads:0 });
+      var jobs = +r.jobs || 0, inv = +r.invoiced || 0, charged = +r.charged || 0, miles = +r.miles || 0;
+      row.loads += jobs; row.runs += jobs ? 1 : 0; row.revenue += charged; row.invoiced += inv; row.fromJob += Math.max(0, jobs - inv); row.miles += miles;
+      W.loads += jobs; W.revenue += charged; W.miles += miles;
+      var inDays = Math.max(0, Math.min(W.weekdays, +(((C && C.driver_days_per_week) || {})[p.ini] || 5)) - W.sick - W.leave); if (jobs) { row.days += inDays; W.worked += inDays; }
+      fleet.loads += jobs; fleet.revenue += charged; fleet.invoiced += inv; fleet.fromJob += Math.max(0, jobs - inv); }); }
+    fleet.days = fleet.loads ? Math.max(1, Math.round(fleet.weekdays)) : 0;
+  }
   fleet.miles = 0; fleet.gaps = 0; fleet.runs = 0;
   var list = Object.keys(rows).map(function(k){ return rows[k]; });
   list.forEach(function(r){ fleet.miles += r.miles; fleet.gaps += r.gaps; fleet.runs += r.runs; r.avg = r.days ? Math.round(r.miles / r.days) : 0; });
@@ -1032,7 +1042,7 @@ function mcKpis(f, money, labels){
   if (money) out += tile('Wages', gbp(f.wages), 'Standard time for ' + f.payroll + ' driver' + (f.payroll === 1 ? '' : 's') + ' · sick days at SSP') +
     tile('Wagon Cost', gbp(f.wagon), labels.wagon || 'Total Lease and Fuel Cost') +
     tile('Margin', f.revenue ? gbp(f.margin) : '<span class="muted" style="font-size:18px">n/a</span>', f.marginPct != null ? 'Margin ' + Math.round(f.marginPct) + '%' : 'needs revenue', f.revenue ? (f.margin < 0 ? 'neg' : 'pos') : '') +
-    tile('Profit Per Job', f.ppj != null && f.revenue ? gbp(f.ppj) : '<span class="muted" style="font-size:18px">n/a</span>', 'margin over ' + num(f.loads) + ' ' + (labels.job || 'booked') + ' job' + (f.loads === 1 ? '' : 's'), f.revenue && f.ppj != null ? (f.ppj < 0 ? 'neg' : 'pos') : '');
+    tile('Profit Per Job', f.ppj != null && f.revenue ? gbp(f.ppj) : '<span class="muted" style="font-size:18px">n/a</span>', 'margin over ' + num(f.loads) + (labels.job === 'Jobs' ? ' job' : ' booked job') + (f.loads === 1 ? '' : 's'), f.revenue && f.ppj != null ? (f.ppj < 0 ? 'neg' : 'pos') : '');
   out += tile(labels.miles || 'Fleet Miles', num(f.miles) + (f.gaps ? '+' : ''), f.wagonDays ? f.avgPerDay + ' a wagon day · ' + f.wagonDays + ' wagon days' : (labels.milesSub || 'planned road miles, out and back')) +
     tile(labels.inUse || 'Fleet In Use', f.drivers + '<span class="mc-of"> / ' + (labels.total || 0) + '</span>', labels.inUseSub || '') + '</div>';
   return out;
@@ -1079,12 +1089,12 @@ function mcDriverCard(r, st, open){
 }
 function mcWagonRow(r, st){
   var money = st.money, from = st.from, to = st.to, days = isoDays(from, to).filter(isWeekday);
-  var segs = days.length <= 10 ? days.map(function(iso){ var k = hol(r.ini, iso), d = dayData(iso), src = d ? (st.team === 'service' ? d.service || {} : d.drivers || {}) : {}, out = src[r.ini] && src[r.ini].days;
+  var segs = days.length <= 10 && st.team !== 'service' ? days.map(function(iso){ var k = hol(r.ini, iso), d = dayData(iso), src = d ? d.drivers || {} : {}, out = src[r.ini] && src[r.ini].days;
     return '<i class="' + (out ? 'out' : k === 'sick' ? 'sick' : k === 'leave' ? 'leave' : '') + '" title="' + fFull(iso) + (out ? ': out' : k ? ': ' + (k === 'sick' ? 'sick' : 'annual leave') : '') + '"></i>'; }).join('')
     : '<i class="out" style="flex:' + r.days + '"></i><i class="leave" style="flex:' + r.leave + '"></i><i class="sick" style="flex:' + r.sick + '"></i><i style="flex:' + Math.max(0, Math.round(r.scheduled || 0) - r.days - r.leave - r.sick) + '"></i>';
   var parked = !st.noFeed && r.scheduled && !r.days && r.leaseWeek;
   var cap = 'OUT ' + r.days + ' OF ' + Math.round(r.scheduled || 0) + ' DAYS' + (r.sick ? ' · ' + r.sick + ' SICK' : '') + (r.leave && !parked ? ' · ' + r.leave + ' LEAVE' : '');
-  if (st.noFeed) cap = 'NO JOB DATA YET: WAITING FOR THE SERVICE FEED' + (r.sick ? ' · ' + r.sick + ' SICK' : '') + (r.leave ? ' · ' + r.leave + ' LEAVE' : '');
+  if (st.noFeed) cap = 'NO CHARGES YET: WAITING FOR KEN\'S WEEKLY FILE' + (r.sick ? ' · ' + r.sick + ' SICK' : '') + (r.leave ? ' · ' + r.leave + ' LEAVE' : '');
   else if (parked) cap = (r.leave >= (r.scheduled || 0) ? 'ANNUAL LEAVE' : r.sick >= (r.scheduled || 0) ? 'OFF SICK' : 'PARKED') + ' ALL PERIOD · ' + gbp(r.lease) + ' ' + (r.leaseKind === 'finance' ? 'FINANCE' : r.leaseKind === 'depreciation' ? 'DEPRECIATION' : 'LEASE') + ' WITH NO RUNS';
   return '<div class="mc-wagon' + (parked ? (r.leave >= (r.scheduled || 0) ? ' leave' : ' parked') : '') + (money && !r.hasWagon ? ' norates' : '') + '">' +
     '<div class="mc-wreg"><span class="plate">' + esc(r.reg || '—') + '</span><span>' + esc(r.vtype || '') + (r.vtype ? ' · ' : '') + esc(r.ini) + '</span></div>' +
@@ -1141,22 +1151,22 @@ function renderMdBoard(){
     '<div class="mc-pbar"><span class="mc-plbl">PERIOD</span>' + b('week', 'THIS WEEK') + b('month', 'THIS MONTH') + b('quarter', 'THIS QUARTER') + b('ytd', 'YEAR TO DATE') + b('custom', 'CUSTOM') + (sc === 'custom' ? custom : '') + '<span class="mc-fill"></span><span class="cell">' + fFull(r[0]) + ' to ' + fFull(r[1]) + ' · ' + wdays + ' working day' + (wdays === 1 ? '' : 's') + '</span></div>' +
     (st.fleet.covered < st.fleet.totalDays ? '<div class="mc-cover">' + (st.fleet.totalDays - st.fleet.covered) + ' of ' + st.fleet.totalDays + ' days in this period have no data yet: history builds from the day Mission Control first saved (V4.3).</div>' : '') +
     '<div class="mc-boards">' + boards + '</div>' +
-    '<div class="mdnote">Gold row = top of the board; ties share a rank. Haulage drivers count planned loads and run miles; service drivers count their Big Change jobs once Ken\'s feed carries them. Profit needs a rate in costs.json; drivers without one sit at the bottom unranked. Sick days come from the Sickness entries in Vehicles &amp; Holidays.</div></div></div>';
+    '<div class="mdnote">Gold row = top of the board; ties share a rank. Haulage drivers count planned loads and run miles; service drivers count the jobs and charges in Ken\'s weekly file once it exists. Profit needs a rate in costs.json; drivers without one sit at the bottom unranked. Sick days come from the Sickness entries in Vehicles &amp; Holidays.</div></div></div>';
 }
 function renderMdService(){
   var C = mcCostBasis(), r = mcRange(S.mdScope || 'week');
   if (!C || !C.service_team) return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control service team">' + mcHeader('service', mcScopeBar()) + '<div class="none">No service team in costs.json yet. Add a service_team block (driver initials, name, reg, type, mpg, finance or depreciation per week) and it shows here.</div></div></div>';
-  var st = mcStats(r[0], r[1], { team:'service' }), f = st.fleet, hasFeed = !!(FEED.service && FEED.service.jobs); st.noFeed = !hasFeed;
+  var st = mcStats(r[0], r[1], { team:'service' }), f = st.fleet, hasFeed = hasServiceData(); st.noFeed = !hasFeed;
   var sortBtn = function(id, l){ return '<button class="' + ((S.mdSort || 'margin') === id ? 'on' : '') + '" data-act="mdSort" data-v="' + id + '">' + l + '</button>'; };
   var groups = {}; st.drivers.forEach(function(d){ var g = /18t|wagon/i.test(d.vtype || '') ? '18T SERVICE WAGONS' : /tank/i.test(d.vtype || '') ? 'TANKERS' : 'SERVICE'; (groups[g] = groups[g] || []).push(d); });
   var cards = Object.keys(groups).sort().map(function(g){ return '<div class="mc-group"><span>' + g + '</span><i></i></div><div class="mc-cards">' + mcSort(groups[g]).map(function(d){ return mcDriverCard(d, st, S.mdCard === d.ini); }).join('') + '</div>'; }).join('');
   var wagons = st.drivers.map(function(d){ return mcWagonRow(d, st); }).join('');
   return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control service team">' + mcHeader('service', mcScopeBar()) +
-    '<div class="notice"><span class="pill">BIG CHANGE</span><span>' + (hasFeed ? 'Service drivers never appear on the planner schedule. Jobs, revenue and mileage here come from Big Change through Ken\'s feed; wages and wagon costs from costs.json.' : '<b>Waiting for Ken\'s service feed.</b> Service drivers never appear on the planner schedule, so their jobs, revenue and mileage need Ken to add service jobs to the feed (data/bigchange_jobs.json, a "service" block). Until then this tab shows the team, wages and wagon costs only.') + '</span></div>' +
-    mcKpis(f, st.money, { job:'Jobs', wagon:'Total Finance, Depreciation and Fuel', miles:'Miles', milesSub:'from Big Change job mileage', inUse:'Team In', total:st.drivers.length, inUseSub:(function(){ var t = Object.keys(groups).map(function(g){ return groups[g].length + ' ' + g.toLowerCase(); }); return t.join(' · '); })() }) +
+    '<div class="notice"><span class="pill">BIG CHANGE</span><span>' + (hasFeed ? 'Service drivers never appear on the planner schedule. What each driver charged per week comes from Big Change through Ken (data/service_weeks.json' + (ARGS.service.generated_at ? ', written ' + esc(String(ARGS.service.generated_at).slice(0, 16).replace('T', ' ')) : '') + '); wages and wagon costs from costs.json.' : '<b>Waiting for Ken\'s weekly service charges.</b> Service drivers never appear on the planner schedule. Ken is to write data/service_weeks.json with what each service driver charged per week (jobs, charged, invoiced, miles); until then this tab shows the team, wages and wagon costs only.') + '</span></div>' +
+    mcKpis(f, st.money, { job:'Jobs', wagon:'Total Finance, Depreciation and Fuel', miles:'Miles', milesSub:'from Ken\'s weekly charges file', inUse:'Team In', total:st.drivers.length, inUseSub:(function(){ var t = Object.keys(groups).map(function(g){ return groups[g].length + ' ' + g.toLowerCase(); }); return t.join(' · '); })() }) +
     '<div class="mc-grid"><div class="mc-col"><div class="sechd"><b>SERVICE DRIVERS</b><div class="seg">' + sortBtn('margin', 'MARGIN') + sortBtn('loads', 'JOBS') + sortBtn('miles', 'MILES') + '</div></div><div class="mc-cardwrap">' + cards + '</div></div>' +
     '<div class="mc-col"><div class="sechd"><b>SERVICE WAGONS</b><span class="mc-legend"><i class="out"></i>Out <i class="leave"></i>Annual Leave <i class="sick"></i>Sickness · Diesel £' + (+C.fuel_price_per_litre || 0).toFixed(2) + ' / litre</span></div><div class="mc-wagons">' + wagons + '</div></div></div>' +
-    '<div class="mdnote">Cost per day = wage (hourly rate × contracted hours ÷ working days, single sick days at SSP) + finance or depreciation ÷ 5 + fuel for Big Change job miles. Revenue is the price on each Big Change service job, invoice total once raised. Sick days and leave for service drivers come from Vehicles &amp; Holidays entries made against their initials.</div></div></div>';
+    '<div class="mdnote">Cost per day = wage (hourly rate × contracted hours ÷ working days, single sick days at SSP) + finance or depreciation ÷ 5 + fuel for the miles in Ken\'s weekly file. Revenue is what Ken reports charged per driver per week from Big Change (invoiced where raised, otherwise the price on the job); a week counts in a period when its Monday falls inside it. Sick days and leave for service drivers come from Vehicles &amp; Holidays entries made against their initials.</div></div></div>';
 }
 function renderMdPin(){
   var err = ARGS && ARGS.md_error;
