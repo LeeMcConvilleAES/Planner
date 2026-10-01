@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T10:52:09",
+ "generated_at": "2026-10-01T11:13:22",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -9725,21 +9725,17 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 100
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 930
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 675
+   "count": 680
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 451
+   "count": 452
   },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
@@ -9751,7 +9747,7 @@
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 121
+   "count": 122
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
@@ -9785,13 +9781,17 @@
    "median": 450.0,
    "count": 42
   },
+  "Tanker Service | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 99
+  },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 27
+   "count": 28
   },
   "Tanker Service | Solar Toilet Service": {
    "median": 55.0,
-   "count": 67
+   "count": 68
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
@@ -9863,11 +9863,11 @@
   },
   "Service Job | Eco welfare service": {
    "median": 70.0,
-   "count": 46
+   "count": 47
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 56
+   "count": 57
   },
   "Service Job | Water Fill": {
    "median": 420.0,
