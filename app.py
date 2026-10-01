@@ -137,6 +137,13 @@ Secrets (Streamlit Cloud, Settings, Secrets):
   branch = "main"
   [gcp_service_account]        # only until the migration has run
   ...
+
+4.3: Mission Control. The MD button opens a three tab dashboard (Overview,
+Leaderboard, Service Team) in place of the MD table. The front end writes
+md_history into planner.json on every office save (one entry per feed day up
+to today) so periods that look back past the feed window still have data.
+Holidays carry a kind (leave or sick); costs.json gains ssp_per_day,
+hours_per_week, driver_hours_per_week, driver_days_per_week and service_team.
 """
 import json
 import os
@@ -151,7 +158,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.2"
+VERSION = "4.3"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -536,6 +543,10 @@ def _secret(name):
 
 MD_PIN = os.environ.get("PLANNER_MD_PIN") or _secret("md_pin") or str(costs_all.get("md_pin") or "")
 costs = {k: v for k, v in costs_all.items() if k != "md_pin"} if (ss["md_unlocked"] and costs_all) else None
+# V4.3: the service team's names and wagons (never their rates) go to every viewer, so the office can log
+# their holidays and sickness in Vehicles & Holidays; Mission Control costs them only once the PIN is given.
+service_roster = [{"ini": k, "name": v.get("name", k), "reg": v.get("reg", ""), "type": v.get("type", "")}
+                  for k, v in (costs_all.get("service_team") or {}).items() if not k.startswith("_") and isinstance(v, dict)]
 if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
@@ -552,7 +563,8 @@ _planner_ui = components.declare_component("aes_planner", path=str(HERE / "plann
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
         "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
-        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN)}
+        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN),
+        "service_roster": service_roster}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
