@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T14:48:30",
+ "generated_at": "2026-10-01T15:24:23",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2308,7 +2308,7 @@
     "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
     "order_number": "01-003049",
     "units": {
-     "20ft store": 3,
+     "20ft store": 2,
      "20ft canteen": 1
     },
     "loads": [
@@ -2321,17 +2321,6 @@
       "price": 265.0,
       "est_price": null,
       "price_source": "invoice",
-      "last_price": 265.0
-     },
-     {
-      "bigchange_id": 199344114,
-      "ref": "AES/60204",
-      "desc": "20ft store",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
       "last_price": 265.0
      },
      {
@@ -2359,16 +2348,14 @@
     ],
     "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 20FT CANTEEN",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      199344068,
-     199344114,
      199344115,
      199344122
     ],
     "refs": [
      "AES/60203",
-     "AES/60204",
      "AES/60205",
      "AES/60208"
     ],
@@ -2635,7 +2622,7 @@
   ],
   "2026-10-02": [
    {
-    "id": "bc-199344117",
+    "id": "bc-199344114",
     "type": "Delivery",
     "col": "del",
     "customer": "A CONNOLLY",
@@ -2643,11 +2630,22 @@
     "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
     "order_number": "01-003049",
     "units": {
-     "20ft store": 1,
+     "20ft store": 2,
      "24ft office": 1,
      "2+1 toilet block": 1
     },
     "loads": [
+     {
+      "bigchange_id": 199344114,
+      "ref": "AES/60204",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
      {
       "bigchange_id": 199344117,
       "ref": "AES/60206",
@@ -2686,11 +2684,13 @@
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
+     199344114,
      199344117,
      199344121,
      199344123
     ],
     "refs": [
+     "AES/60204",
      "AES/60206",
      "AES/60207",
      "AES/60209"
