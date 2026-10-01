@@ -740,6 +740,14 @@
    "driver": "",
    "from": "2026-10-02",
    "to": "2026-10-02"
+  },
+  {
+   "id": "v-1790843200358",
+   "reg": "FJ74 YYD",
+   "type": "TEST",
+   "driver": "RB",
+   "from": "2026-10-07",
+   "to": "2026-10-07"
   }
  ],
  "enquiries": [
@@ -872,6 +880,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-01T09:26:11+01:00",
+ "updated_at": "2026-10-01T09:26:41+01:00",
  "updated_by": "office"
 }
