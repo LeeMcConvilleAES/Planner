@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T12:15:35",
+ "generated_at": "2026-10-01T12:17:36",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2838,6 +2838,42 @@
     ],
     "refs": [
      "AES/61071"
+    ],
+    "pc_key": "M314LW",
+    "miles": 16
+   },
+   {
+    "id": "bc-200668512",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly",
+    "postcode": "M31 4LW",
+    "address": "Gilmore House Wood Lane, Partington, M31 4LW",
+    "order_number": "01-003175",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200668512,
+      "ref": "AES/61072",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     }
+    ],
+    "notes": "COLLECTION OF 20FT STORE - 7858",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200668512
+    ],
+    "refs": [
+     "AES/61072"
     ],
     "pc_key": "M314LW",
     "miles": 16
