@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T14:12:59",
+ "generated_at": "2026-10-01T14:17:20",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2408,7 +2408,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 365.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 365.0
      },
      {
@@ -2419,7 +2419,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -2472,7 +2472,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -2952,106 +2952,6 @@
    }
   ],
   "2026-10-05": [
-   {
-    "id": "bc-199937124",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "GRS Contractors",
-    "postcode": "CH5 2RD",
-    "address": "Anwyl Homes Summers Bridge, Deeside, CH5 2RD",
-    "order_number": "01-003106",
-    "units": {
-     "20ft office": 1,
-     "20ft canteen": 1,
-     "32ft unit": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 199937124,
-      "ref": "AES/60600",
-      "desc": "20ft office",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     },
-     {
-      "bigchange_id": 199937283,
-      "ref": "AES/60601",
-      "desc": "20ft canteen",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     },
-     {
-      "bigchange_id": 199937344,
-      "ref": "AES/60602",
-      "desc": "32ft unit",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     }
-    ],
-    "notes": "DELIVERY OF 20FT OFFICE / DELIVERY OF 20FT CANTEEN / DELIVERY OF 32FT UNIT",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     199937124,
-     199937283,
-     199937344
-    ],
-    "refs": [
-     "AES/60600",
-     "AES/60601",
-     "AES/60602"
-    ],
-    "pc_key": "CH52RD",
-    "miles": 42
-   },
-   {
-    "id": "bc-199937418",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "GRS Contractors",
-    "postcode": "CH5 2RD",
-    "address": "Anwyl Homes Summers Bridge, Deeside, CH5 2RD",
-    "order_number": "01-003108",
-    "units": {
-     "ht, steps and water barrel": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 199937418,
-      "ref": "AES/60603",
-      "desc": "ht, steps and water barrel",
-      "status": "booked",
-      "type": "25-50m Hiab Delivery",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     }
-    ],
-    "notes": "DELIVERY OF HT, STEPS AND WATER BARREL",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     199937418
-    ],
-    "refs": [
-     "AES/60603"
-    ],
-    "pc_key": "CH52RD",
-    "miles": 42
-   },
    {
     "id": "bc-200615870",
     "type": "Delivery",
@@ -3915,6 +3815,106 @@
     ],
     "pc_key": "CW124QQ",
     "miles": 36
+   },
+   {
+    "id": "bc-199937124",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "GRS Contractors",
+    "postcode": "CH5 2RD",
+    "address": "Anwyl Homes Summers Bridge, Deeside, CH5 2RD",
+    "order_number": "01-003106",
+    "units": {
+     "20ft office": 1,
+     "20ft canteen": 1,
+     "32ft unit": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 199937124,
+      "ref": "AES/60600",
+      "desc": "20ft office",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 199937283,
+      "ref": "AES/60601",
+      "desc": "20ft canteen",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 199937344,
+      "ref": "AES/60602",
+      "desc": "32ft unit",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "DELIVERY OF 20FT OFFICE / DELIVERY OF 20FT CANTEEN / DELIVERY OF 32FT UNIT",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     199937124,
+     199937283,
+     199937344
+    ],
+    "refs": [
+     "AES/60600",
+     "AES/60601",
+     "AES/60602"
+    ],
+    "pc_key": "CH52RD",
+    "miles": 42
+   },
+   {
+    "id": "bc-199937418",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "GRS Contractors",
+    "postcode": "CH5 2RD",
+    "address": "Anwyl Homes Summers Bridge, Deeside, CH5 2RD",
+    "order_number": "01-003108",
+    "units": {
+     "ht, steps and water barrel": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 199937418,
+      "ref": "AES/60603",
+      "desc": "ht, steps and water barrel",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "DELIVERY OF HT, STEPS AND WATER BARREL",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     199937418
+    ],
+    "refs": [
+     "AES/60603"
+    ],
+    "pc_key": "CH52RD",
+    "miles": 42
    }
   ],
   "2026-10-13": [
@@ -4008,9 +4008,10 @@
       "desc": "boot wash units",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 650.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 650.0
      }
     ],
     "notes": "Collection of 15 x Boot wash units",
@@ -10206,21 +10207,21 @@
   ]
  },
  "rate_card": {
-  "(no category) | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 122
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 720
   },
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 182
+   "count": 178
+  },
+  "(no category) | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 121
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 927
-  },
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 720
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -10236,7 +10237,7 @@
   },
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
-   "count": 62
+   "count": 63
   },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -10288,7 +10289,7 @@
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 91
+   "count": 92
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -10300,7 +10301,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 125
+   "count": 127
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
