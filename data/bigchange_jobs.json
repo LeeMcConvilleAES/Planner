@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T15:41:18",
+ "generated_at": "2026-10-01T15:45:32",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2630,7 +2630,8 @@
     "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
     "order_number": "01-003049",
     "units": {
-     "20ft store": 2,
+     "20ft": 1,
+     "20ft store": 1,
      "24ft office": 1,
      "2+1 toilet block": 1
     },
@@ -2638,7 +2639,7 @@
      {
       "bigchange_id": 199344114,
       "ref": "AES/60204",
-      "desc": "20ft store",
+      "desc": "20ft",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
       "price": 530.0,
