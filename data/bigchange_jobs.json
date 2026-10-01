@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T11:34:51",
+ "generated_at": "2026-10-01T11:37:00",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2540,7 +2540,7 @@
       "bigchange_id": 200141003,
       "ref": "AES/60764",
       "desc": "24ft canteen",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -2550,7 +2550,7 @@
     ],
     "notes": "COLLECTION OF 24FT CANTEEN",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200141003
     ],
