@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T15:24:23",
+ "generated_at": "2026-10-01T15:41:18",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -2531,7 +2531,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -2641,10 +2641,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": 265.0,
+      "price": 530.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 265.0
+      "last_price": 530.0
      },
      {
       "bigchange_id": 199344117,
@@ -10220,10 +10220,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 720
-  },
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 178
@@ -10234,15 +10230,19 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 928
+   "count": 929
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 451
+   "count": 452
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 680
+   "count": 681
+  },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 720
   },
   "Tanker Service | 800G Waste Empty": {
    "median": 75.0,
@@ -10330,7 +10330,7 @@
   },
   "Transport | 7.5t Transport Collection": {
    "median": 100.0,
-   "count": 97
+   "count": 98
   },
   "(no category) | 800G Waste Empty": {
    "median": 75.0,
