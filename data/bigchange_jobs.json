@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-01T14:24:17",
+ "generated_at": "2026-10-01T14:40:04",
  "window": [
   "2026-06-03",
   "2027-01-24"
@@ -10221,7 +10221,7 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 927
+   "count": 928
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -10249,7 +10249,7 @@
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
-   "count": 99
+   "count": 100
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
