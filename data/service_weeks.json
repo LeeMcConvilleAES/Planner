@@ -1,0 +1,669 @@
+{
+ "version": 1,
+ "source": "Big Change, written by Ken",
+ "generated_at": "2026-10-01T22:12:03",
+ "window": [
+  "2026-07-06",
+  "2026-09-28"
+ ],
+ "drivers": {
+  "AU": "Alan Unsworth",
+  "DB": "Danny Ball",
+  "JM": "Jeff Matthews",
+  "JP": "John Purtill",
+  "SB": "Stephen Bond",
+  "SE": "Stephen Ennion"
+ },
+ "weeks": {
+  "2026-07-06": {
+   "AU": {
+    "jobs": 8,
+    "booked": 8,
+    "charged": 505.0,
+    "invoiced": 8,
+    "unpriced": 0,
+    "miles": 163.0
+   },
+   "DB": {
+    "jobs": 11,
+    "booked": 11,
+    "charged": 785.0,
+    "invoiced": 11,
+    "unpriced": 0,
+    "miles": 239.0
+   },
+   "JM": {
+    "jobs": 31,
+    "booked": 31,
+    "charged": 2370.0,
+    "invoiced": 31,
+    "unpriced": 0,
+    "miles": 718.0
+   },
+   "JP": {
+    "jobs": 60,
+    "booked": 60,
+    "charged": 4223.0,
+    "invoiced": 59,
+    "unpriced": 1,
+    "miles": 1302.0
+   },
+   "SB": {
+    "jobs": 57,
+    "booked": 57,
+    "charged": 1847.0,
+    "invoiced": 57,
+    "unpriced": 0,
+    "miles": 1474.0
+   },
+   "SE": {
+    "jobs": 60,
+    "booked": 60,
+    "charged": 1472.0,
+    "invoiced": 60,
+    "unpriced": 0,
+    "miles": 957.0
+   }
+  },
+  "2026-07-13": {
+   "AU": {
+    "jobs": 15,
+    "booked": 16,
+    "charged": 360.0,
+    "invoiced": 15,
+    "unpriced": 0,
+    "miles": 255.0
+   },
+   "DB": {
+    "jobs": 11,
+    "booked": 11,
+    "charged": 785.0,
+    "invoiced": 11,
+    "unpriced": 0,
+    "miles": 229.0
+   },
+   "JM": {
+    "jobs": 36,
+    "booked": 36,
+    "charged": 2475.0,
+    "invoiced": 33,
+    "unpriced": 3,
+    "miles": 835.0
+   },
+   "JP": {
+    "jobs": 64,
+    "booked": 64,
+    "charged": 4468.0,
+    "invoiced": 62,
+    "unpriced": 2,
+    "miles": 1457.0
+   },
+   "SB": {
+    "jobs": 59,
+    "booked": 59,
+    "charged": 2025.0,
+    "invoiced": 59,
+    "unpriced": 0,
+    "miles": 1422.0
+   },
+   "SE": {
+    "jobs": 52,
+    "booked": 58,
+    "charged": 1527.0,
+    "invoiced": 52,
+    "unpriced": 0,
+    "miles": 1318.0
+   }
+  },
+  "2026-07-20": {
+   "AU": {
+    "jobs": 15,
+    "booked": 17,
+    "charged": 496.0,
+    "invoiced": 15,
+    "unpriced": 0,
+    "miles": 637.0
+   },
+   "JM": {
+    "jobs": 58,
+    "booked": 59,
+    "charged": 4200.0,
+    "invoiced": 56,
+    "unpriced": 2,
+    "miles": 1163.0
+   },
+   "JP": {
+    "jobs": 44,
+    "booked": 44,
+    "charged": 3083.0,
+    "invoiced": 43,
+    "unpriced": 1,
+    "miles": 1256.0
+   },
+   "SB": {
+    "jobs": 61,
+    "booked": 61,
+    "charged": 2036.0,
+    "invoiced": 61,
+    "unpriced": 0,
+    "miles": 1116.0
+   },
+   "SE": {
+    "jobs": 67,
+    "booked": 67,
+    "charged": 1737.0,
+    "invoiced": 66,
+    "unpriced": 1,
+    "miles": 1314.0
+   }
+  },
+  "2026-07-27": {
+   "AU": {
+    "jobs": 19,
+    "booked": 19,
+    "charged": 566.0,
+    "invoiced": 19,
+    "unpriced": 0,
+    "miles": 792.0
+   },
+   "DB": {
+    "jobs": 19,
+    "booked": 19,
+    "charged": 2330.0,
+    "invoiced": 19,
+    "unpriced": 0,
+    "miles": 404.0
+   },
+   "JM": {
+    "jobs": 41,
+    "booked": 41,
+    "charged": 2875.0,
+    "invoiced": 40,
+    "unpriced": 1,
+    "miles": 872.0
+   },
+   "JP": {
+    "jobs": 71,
+    "booked": 71,
+    "charged": 5070.0,
+    "invoiced": 69,
+    "unpriced": 2,
+    "miles": 1426.0
+   },
+   "SB": {
+    "jobs": 47,
+    "booked": 49,
+    "charged": 1655.0,
+    "invoiced": 47,
+    "unpriced": 0,
+    "miles": 973.0
+   },
+   "SE": {
+    "jobs": 71,
+    "booked": 71,
+    "charged": 1856.0,
+    "invoiced": 71,
+    "unpriced": 0,
+    "miles": 1370.0
+   }
+  },
+  "2026-08-03": {
+   "AU": {
+    "jobs": 22,
+    "booked": 22,
+    "charged": 556.0,
+    "invoiced": 19,
+    "unpriced": 3,
+    "miles": 920.0
+   },
+   "DB": {
+    "jobs": 6,
+    "booked": 6,
+    "charged": 570.0,
+    "invoiced": 6,
+    "unpriced": 0,
+    "miles": 138.0
+   },
+   "JM": {
+    "jobs": 43,
+    "booked": 44,
+    "charged": 2740.0,
+    "invoiced": 43,
+    "unpriced": 0,
+    "miles": 815.0
+   },
+   "JP": {
+    "jobs": 85,
+    "booked": 85,
+    "charged": 5820.0,
+    "invoiced": 79,
+    "unpriced": 5,
+    "miles": 1804.0
+   },
+   "SB": {
+    "jobs": 51,
+    "booked": 52,
+    "charged": 1655.0,
+    "invoiced": 49,
+    "unpriced": 2,
+    "miles": 1039.0
+   },
+   "SE": {
+    "jobs": 71,
+    "booked": 71,
+    "charged": 1953.0,
+    "invoiced": 71,
+    "unpriced": 0,
+    "miles": 1457.0
+   }
+  },
+  "2026-08-10": {
+   "AU": {
+    "jobs": 24,
+    "booked": 25,
+    "charged": 721.5,
+    "invoiced": 18,
+    "unpriced": 3,
+    "miles": 1002.0
+   },
+   "DB": {
+    "jobs": 19,
+    "booked": 19,
+    "charged": 1180.0,
+    "invoiced": 19,
+    "unpriced": 0,
+    "miles": 358.0
+   },
+   "JM": {
+    "jobs": 47,
+    "booked": 48,
+    "charged": 3560.0,
+    "invoiced": 47,
+    "unpriced": 0,
+    "miles": 1173.0
+   },
+   "JP": {
+    "jobs": 76,
+    "booked": 76,
+    "charged": 5245.0,
+    "invoiced": 72,
+    "unpriced": 0,
+    "miles": 1801.0
+   },
+   "SB": {
+    "jobs": 48,
+    "booked": 50,
+    "charged": 1773.5,
+    "invoiced": 45,
+    "unpriced": 2,
+    "miles": 803.0
+   },
+   "SE": {
+    "jobs": 62,
+    "booked": 69,
+    "charged": 1790.0,
+    "invoiced": 62,
+    "unpriced": 0,
+    "miles": 1224.0
+   }
+  },
+  "2026-08-17": {
+   "AU": {
+    "jobs": 1,
+    "booked": 12,
+    "charged": 20.0,
+    "invoiced": 1,
+    "unpriced": 0,
+    "miles": 12.0
+   },
+   "DB": {
+    "jobs": 1,
+    "booked": 1,
+    "charged": 470.0,
+    "invoiced": 1,
+    "unpriced": 0,
+    "miles": 21.0
+   },
+   "JM": {
+    "jobs": 42,
+    "booked": 42,
+    "charged": 2815.0,
+    "invoiced": 42,
+    "unpriced": 0,
+    "miles": 1049.0
+   },
+   "JP": {
+    "jobs": 80,
+    "booked": 80,
+    "charged": 5490.0,
+    "invoiced": 78,
+    "unpriced": 2,
+    "miles": 1635.0
+   },
+   "SB": {
+    "jobs": 57,
+    "booked": 58,
+    "charged": 1792.0,
+    "invoiced": 53,
+    "unpriced": 4,
+    "miles": 952.0
+   },
+   "SE": {
+    "jobs": 68,
+    "booked": 68,
+    "charged": 2037.0,
+    "invoiced": 68,
+    "unpriced": 0,
+    "miles": 1301.0
+   }
+  },
+  "2026-08-24": {
+   "AU": {
+    "jobs": 20,
+    "booked": 20,
+    "charged": 566.0,
+    "invoiced": 17,
+    "unpriced": 2,
+    "miles": 873.0
+   },
+   "JM": {
+    "jobs": 46,
+    "booked": 46,
+    "charged": 3130.0,
+    "invoiced": 44,
+    "unpriced": 2,
+    "miles": 1212.0
+   },
+   "JP": {
+    "jobs": 89,
+    "booked": 89,
+    "charged": 6080.0,
+    "invoiced": 86,
+    "unpriced": 3,
+    "miles": 1773.0
+   },
+   "SB": {
+    "jobs": 59,
+    "booked": 59,
+    "charged": 1901.0,
+    "invoiced": 50,
+    "unpriced": 6,
+    "miles": 1219.0
+   },
+   "SE": {
+    "jobs": 62,
+    "booked": 62,
+    "charged": 1691.0,
+    "invoiced": 62,
+    "unpriced": 0,
+    "miles": 1156.0
+   }
+  },
+  "2026-08-31": {
+   "AU": {
+    "jobs": 18,
+    "booked": 18,
+    "charged": 733.0,
+    "invoiced": 18,
+    "unpriced": 0,
+    "miles": 826.0
+   },
+   "DB": {
+    "jobs": 0,
+    "booked": 15,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "JM": {
+    "jobs": 44,
+    "booked": 44,
+    "charged": 2335.0,
+    "invoiced": 40,
+    "unpriced": 4,
+    "miles": 798.0
+   },
+   "JP": {
+    "jobs": 49,
+    "booked": 51,
+    "charged": 3295.0,
+    "invoiced": 45,
+    "unpriced": 4,
+    "miles": 921.0
+   },
+   "SB": {
+    "jobs": 0,
+    "booked": 9,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SE": {
+    "jobs": 41,
+    "booked": 52,
+    "charged": 1162.0,
+    "invoiced": 41,
+    "unpriced": 0,
+    "miles": 747.0
+   }
+  },
+  "2026-09-07": {
+   "AU": {
+    "jobs": 15,
+    "booked": 15,
+    "charged": 440.0,
+    "invoiced": 15,
+    "unpriced": 0,
+    "miles": 656.0
+   },
+   "DB": {
+    "jobs": 49,
+    "booked": 49,
+    "charged": 3255.0,
+    "invoiced": 48,
+    "unpriced": 1,
+    "miles": 1393.0
+   },
+   "JM": {
+    "jobs": 46,
+    "booked": 49,
+    "charged": 3381.7,
+    "invoiced": 46,
+    "unpriced": 0,
+    "miles": 730.0
+   },
+   "JP": {
+    "jobs": 0,
+    "booked": 1,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SB": {
+    "jobs": 55,
+    "booked": 55,
+    "charged": 2121.0,
+    "invoiced": 55,
+    "unpriced": 0,
+    "miles": 999.0
+   },
+   "SE": {
+    "jobs": 48,
+    "booked": 48,
+    "charged": 1376.0,
+    "invoiced": 48,
+    "unpriced": 0,
+    "miles": 911.0
+   }
+  },
+  "2026-09-14": {
+   "AU": {
+    "jobs": 16,
+    "booked": 16,
+    "charged": 585.0,
+    "invoiced": 16,
+    "unpriced": 0,
+    "miles": 734.0
+   },
+   "DB": {
+    "jobs": 21,
+    "booked": 21,
+    "charged": 1235.0,
+    "invoiced": 20,
+    "unpriced": 1,
+    "miles": 827.0
+   },
+   "JM": {
+    "jobs": 33,
+    "booked": 35,
+    "charged": 2280.0,
+    "invoiced": 33,
+    "unpriced": 0,
+    "miles": 753.0
+   },
+   "JP": {
+    "jobs": 80,
+    "booked": 82,
+    "charged": 5985.0,
+    "invoiced": 79,
+    "unpriced": 1,
+    "miles": 1744.0
+   },
+   "SB": {
+    "jobs": 60,
+    "booked": 63,
+    "charged": 2396.0,
+    "invoiced": 60,
+    "unpriced": 0,
+    "miles": 1113.0
+   },
+   "SE": {
+    "jobs": 28,
+    "booked": 30,
+    "charged": 890.0,
+    "invoiced": 28,
+    "unpriced": 0,
+    "miles": 638.0
+   }
+  },
+  "2026-09-21": {
+   "AU": {
+    "jobs": 30,
+    "booked": 30,
+    "charged": 967.0,
+    "invoiced": 30,
+    "unpriced": 0,
+    "miles": 684.0
+   },
+   "DB": {
+    "jobs": 2,
+    "booked": 2,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 2,
+    "miles": 0
+   },
+   "JM": {
+    "jobs": 48,
+    "booked": 48,
+    "charged": 2815.0,
+    "invoiced": 41,
+    "unpriced": 6,
+    "miles": 1404.0
+   },
+   "JP": {
+    "jobs": 73,
+    "booked": 85,
+    "charged": 5440.0,
+    "invoiced": 69,
+    "unpriced": 3,
+    "miles": 1600.0
+   },
+   "SB": {
+    "jobs": 57,
+    "booked": 58,
+    "charged": 1880.0,
+    "invoiced": 57,
+    "unpriced": 0,
+    "miles": 1017.0
+   },
+   "SE": {
+    "jobs": 30,
+    "booked": 30,
+    "charged": 885.0,
+    "invoiced": 27,
+    "unpriced": 3,
+    "miles": 987.0
+   }
+  },
+  "2026-09-28": {
+   "AU": {
+    "jobs": 29,
+    "booked": 29,
+    "charged": 772.0,
+    "invoiced": 28,
+    "unpriced": 0,
+    "miles": 442.0
+   },
+   "DB": {
+    "jobs": 20,
+    "booked": 29,
+    "charged": 1240.0,
+    "invoiced": 20,
+    "unpriced": 0,
+    "miles": 865.0
+   },
+   "JM": {
+    "jobs": 9,
+    "booked": 13,
+    "charged": 675.0,
+    "invoiced": 9,
+    "unpriced": 0,
+    "miles": 160.0
+   },
+   "JP": {
+    "jobs": 80,
+    "booked": 96,
+    "charged": 6135.0,
+    "invoiced": 79,
+    "unpriced": 1,
+    "miles": 1860.0
+   },
+   "SB": {
+    "jobs": 43,
+    "booked": 52,
+    "charged": 1731.0,
+    "invoiced": 43,
+    "unpriced": 0,
+    "miles": 902.0
+   },
+   "SE": {
+    "jobs": 32,
+    "booked": 32,
+    "charged": 1176.0,
+    "invoiced": 32,
+    "unpriced": 0,
+    "miles": 1164.0
+   }
+  }
+ },
+ "skipped": {
+  "transport_or_stack": 739,
+  "cancelled": 0,
+  "unallocated": 43,
+  "unknown_driver": {
+   "rob sawyer": 98,
+   "wasteline": 63,
+   "colin rogers": 1,
+   "rob brown": 2,
+   "ste longworth": 2,
+   "universal tankers": 14,
+   "darren fishwick": 1
+  },
+  "no_day": 0
+ },
+ "note": "jobs and charged count service jobs done or invoiced; booked counts every live service job in the week; charged is ex VAT, the invoice where raised else the job's sale lines; miles are one way from the depot for the jobs done; transport jobs are never counted here"
+}
