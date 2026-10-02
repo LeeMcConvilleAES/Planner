@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T00:01:54",
+ "generated_at": "2026-10-02T05:57:04",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2760,7 +2760,7 @@
       "bigchange_id": 200506969,
       "ref": "AES/60959",
       "desc": "Generator",
-      "status": "booked",
+      "status": "live",
       "type": "Hiab Delivery",
       "price": 350.0,
       "est_price": null,
@@ -2770,7 +2770,7 @@
     ],
     "notes": "",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200506969
     ],
