@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T13:15:19",
+ "generated_at": "2026-10-02T13:23:42",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2952,7 +2952,7 @@
       "bigchange_id": 200421124,
       "ref": "AES/60880",
       "desc": "2+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -2962,7 +2962,7 @@
     ],
     "notes": "COLLECTION OF 2+1 HT IBC AND STEPS",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200421124
     ],
