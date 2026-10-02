@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T13:57:22",
+ "generated_at": "2026-10-02T14:26:37",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2671,7 +2671,7 @@
       "bigchange_id": 199344121,
       "ref": "AES/60207",
       "desc": "24ft office",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -2692,7 +2692,7 @@
     ],
     "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 24FT OFFICE / DELIVERY OF 2+1 TOILET BLOCK",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199344114,
      199344117,
