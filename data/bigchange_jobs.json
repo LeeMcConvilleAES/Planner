@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T13:36:12",
+ "generated_at": "2026-10-02T13:57:22",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2917,16 +2917,17 @@
       "bigchange_id": 200803425,
       "ref": "AES/61140",
       "desc": "32ft",
-      "status": "booked",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "invoice",
+      "last_price": 220.0
      }
     ],
     "notes": "Collection 32ft New unit from Elderpoint",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      200803425
     ],
@@ -10903,11 +10904,7 @@
  "rate_card": {
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 926
-  },
-  "Service Job | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 27
+   "count": 925
   },
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
@@ -10967,7 +10964,7 @@
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 96
+   "count": 97
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -10996,6 +10993,10 @@
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
    "count": 65
+  },
+  "Service Job | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 26
   },
   "Hiab Transport | Hiab Collection": {
    "median": 420.0,
