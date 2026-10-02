@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T11:51:48",
+ "generated_at": "2026-10-02T12:00:04",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2807,7 +2807,7 @@
       "bigchange_id": 200700323,
       "ref": "AES/61082",
       "desc": "bowser",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -2817,7 +2817,7 @@
     ],
     "notes": "DELIVERY OF 1 X FULL IBC",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200423083,
      200700323
