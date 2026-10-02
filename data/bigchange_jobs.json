@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T17:11:32",
+ "generated_at": "2026-10-03T00:00:36",
  "window": [
-  "2026-06-04",
-  "2027-01-25"
+  "2026-06-05",
+  "2027-01-26"
  ],
  "jobs": {
   "2026-09-23": [
@@ -834,6 +834,7 @@
      "AES/60246",
      "AES/60247"
     ],
+    "archived": true,
     "pc_key": "M250AL",
     "miles": 13
    },
@@ -868,6 +869,7 @@
      199914001
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "WN34BW",
     "miles": 8
    },
@@ -904,6 +906,7 @@
     "refs": [
      "AES/60562"
     ],
+    "archived": true,
     "pc_key": "WN67DD",
     "miles": 8
    },
@@ -940,6 +943,7 @@
     "refs": [
      "AES/60363"
     ],
+    "archived": true,
     "pc_key": "CH24LB",
     "miles": null
    },
@@ -1028,6 +1032,7 @@
      "AES/60399",
      "AES/60400"
     ],
+    "archived": true,
     "pc_key": "M263RF",
     "miles": 11
    },
@@ -1064,6 +1069,7 @@
     "refs": [
      "AES/60751"
     ],
+    "archived": true,
     "pc_key": "WN59RG",
     "miles": 9
    },
@@ -1100,6 +1106,7 @@
     "refs": [
      "AES/59694"
     ],
+    "archived": true,
     "pc_key": "L173AD",
     "miles": 27
    },
@@ -1136,6 +1143,7 @@
     "refs": [
      "AES/60563"
     ],
+    "archived": true,
     "pc_key": "LA14NU",
     "miles": 42
    },
@@ -1172,6 +1180,7 @@
     "refs": [
      "AES/60444"
     ],
+    "archived": true,
     "pc_key": "L143NG",
     "miles": 24
    },
@@ -1208,6 +1217,7 @@
     "refs": [
      "AES/60364"
     ],
+    "archived": true,
     "pc_key": "CH24LB",
     "miles": null
    },
@@ -1244,6 +1254,7 @@
     "refs": [
      "AES/60707"
     ],
+    "archived": true,
     "pc_key": "M298GX",
     "miles": 1
    }
@@ -2705,6 +2716,71 @@
      "AES/60207",
      "AES/60209"
     ],
+    "pc_key": "BD46JZ",
+    "miles": 43
+   },
+   {
+    "id": "bc-199344117",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A CONNOLLY",
+    "postcode": "BD4 6JZ",
+    "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
+    "order_number": "01-003049",
+    "units": {
+     "20ft store": 1,
+     "24ft office": 1,
+     "2+1 toilet block": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 199344117,
+      "ref": "AES/60206",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 199344121,
+      "ref": "AES/60207",
+      "desc": "24ft office",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 199344123,
+      "ref": "AES/60209",
+      "desc": "2+1 toilet block",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "DELIVERY OF 20FT STORE / DELIVERY OF 24FT OFFICE / DELIVERY OF 2+1 TOILET BLOCK",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     199344117,
+     199344121,
+     199344123
+    ],
+    "refs": [
+     "AES/60206",
+     "AES/60207",
+     "AES/60209"
+    ],
+    "archived": true,
     "pc_key": "BD46JZ",
     "miles": 43
    },
