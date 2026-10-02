@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T15:18:47",
+ "generated_at": "2026-10-02T16:00:29",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -3311,10 +3311,10 @@
       "desc": "10ft at sk8 3sh and deliver to m30 9bp",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": 220.0,
+      "price": 380.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 220.0
+      "last_price": 380.0
      }
     ],
     "notes": "collect 10ft at SK8 3SH and deliver to M30 9BP",
@@ -10902,10 +10902,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 922
-  },
   "Fuel Delivery | Fuel Delivery": {
    "median": 195.0,
    "count": 8
@@ -10925,6 +10921,10 @@
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 677
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 921
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
