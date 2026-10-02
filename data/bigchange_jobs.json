@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T11:43:24",
+ "generated_at": "2026-10-02T11:49:42",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2953,7 +2953,7 @@
       "bigchange_id": 200520531,
       "ref": "AES/60961",
       "desc": "chem loo collection",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Collection",
       "price": 15.0,
       "est_price": null,
@@ -2963,7 +2963,7 @@
     ],
     "notes": "CHEM LOO COLLECTION",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200520531
     ],
