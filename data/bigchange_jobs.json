@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T11:01:34",
+ "generated_at": "2026-10-02T11:07:52",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2682,7 +2682,7 @@
       "bigchange_id": 199344123,
       "ref": "AES/60209",
       "desc": "2+1 toilet block",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
