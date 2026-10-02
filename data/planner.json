@@ -830,20 +830,6 @@
    "notes": "",
    "created_at": "2026-09-28T13:07:15+01:00",
    "created_by": "migration"
-  },
-  {
-   "id": "e-1790937885551",
-   "day": "2026-10-06",
-   "col": "col",
-   "customer": "Klaudia",
-   "postcode": "SK8 3SH",
-   "po": "",
-   "items": [
-    "10ft store"
-   ],
-   "notes": "",
-   "created_at": "2026-10-02T10:44:45",
-   "created_by": "office"
   }
  ],
  "conversions": {
@@ -876,6 +862,14 @@
    "level": "sure",
    "why": "same day, same postcode",
    "enquiry_customer": "MCC"
+  },
+  "e-1790937885551": {
+   "card": "bc-200803941",
+   "at": "2026-10-02T13:13:20+01:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "Klaudia"
   }
  },
  "dismissed_matches": [],
@@ -883,7 +877,8 @@
   "bc-200296895": "enquiry: BOSS UNIT",
   "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE",
   "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE",
-  "bc-199947330": "Not in Big Change. PRE 7AM / enquiry: 4+2"
+  "bc-199947330": "Not in Big Change. PRE 7AM / enquiry: 4+2",
+  "bc-200803941": "enquiry: 10ft store"
  },
  "card_order": {},
  "migration": {
@@ -918,6 +913,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-02T13:13:14+01:00",
- "updated_by": "office"
+ "updated_at": "2026-10-02T13:13:20+01:00",
+ "updated_by": "ken"
 }
