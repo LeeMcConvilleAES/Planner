@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T11:32:56",
+ "generated_at": "2026-10-02T11:37:02",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -3058,8 +3058,7 @@
     "address": "Bromfield Court Radford Street, Stone, ST15 8ED",
     "order_number": "01-003087",
     "units": {
-     "20ft store": 2,
-     "boss unit": 1
+     "20ft store": 2
     },
     "loads": [
      {
@@ -3083,31 +3082,18 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 312.0
-     },
-     {
-      "bigchange_id": 199677293,
-      "ref": "AES/60443",
-      "desc": "boss unit",
-      "status": "booked",
-      "type": "7.5t Transport Delivery",
-      "price": 109.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 109.0
      }
     ],
-    "notes": "DELIVERY OF 20FT STORE / DELIVERY OF BOSS UNIT",
+    "notes": "DELIVERY OF 20FT STORE",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      199677182,
-     199677237,
-     199677293
+     199677237
     ],
     "refs": [
      "AES/60441",
-     "AES/60442",
-     "AES/60443"
+     "AES/60442"
     ],
     "pc_key": "ST158ED",
     "miles": 57
