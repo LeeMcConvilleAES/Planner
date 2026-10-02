@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-02T13:23:42",
+ "generated_at": "2026-10-02T13:36:12",
  "window": [
   "2026-06-04",
   "2027-01-25"
@@ -2956,7 +2956,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -3545,6 +3545,42 @@
     ],
     "pc_key": "WN67DD",
     "miles": 8
+   },
+   {
+    "id": "bc-200684633",
+    "type": "Collection",
+    "col": "col",
+    "customer": "MODCON CABINS LTD",
+    "postcode": "GL15 4EX",
+    "address": "Allaston Road , Lydney , Glostershire , Lydney, GL15 4EX",
+    "order_number": "02128",
+    "units": {
+     "boot wash units": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200684633,
+      "ref": "AES/61073",
+      "desc": "boot wash units",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 650.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 650.0
+     }
+    ],
+    "notes": "Collection of 15 x Boot wash units",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200684633
+    ],
+    "refs": [
+     "AES/61073"
+    ],
+    "pc_key": "GL154EX",
+    "miles": 157
    }
   ],
   "2026-10-08": [
@@ -4164,42 +4200,6 @@
     ],
     "pc_key": "OL90JN",
     "miles": 19
-   },
-   {
-    "id": "bc-200684633",
-    "type": "Collection",
-    "col": "col",
-    "customer": "MODCON CABINS LTD",
-    "postcode": "GL15 4EX",
-    "address": "Allaston Road , Lydney , Glostershire , Lydney, GL15 4EX",
-    "order_number": "02128",
-    "units": {
-     "boot wash units": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 200684633,
-      "ref": "AES/61073",
-      "desc": "boot wash units",
-      "status": "booked",
-      "type": "Hiab Collection",
-      "price": 650.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 650.0
-     }
-    ],
-    "notes": "Collection of 15 x Boot wash units",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     200684633
-    ],
-    "refs": [
-     "AES/61073"
-    ],
-    "pc_key": "GL154EX",
-    "miles": 157
    }
   ],
   "2026-10-16": [
@@ -10901,29 +10901,9 @@
   ]
  },
  "rate_card": {
-  "Transport | 7.5t Transport Delivery": {
-   "median": 100.0,
-   "count": 116
-  },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 679
-  },
-  "(no category) | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 177
-  },
-  "(no category) | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 120
-  },
-  "(no category) | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 138
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 925
+   "count": 926
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
@@ -10941,13 +10921,29 @@
    "median": 195.0,
    "count": 8
   },
+  "Transport | 7.5t Transport Delivery": {
+   "median": 100.0,
+   "count": 115
+  },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 447
   },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 677
+  },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
    "count": 7
+  },
+  "(no category) | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 119
+  },
+  "(no category) | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 176
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
@@ -10971,11 +10967,15 @@
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 95
+   "count": 96
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
    "count": 34
+  },
+  "(no category) | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 137
   },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
