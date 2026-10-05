@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T10:08:53",
+ "generated_at": "2026-10-05T10:15:25",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3107,7 +3107,7 @@
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -11017,11 +11017,11 @@
  "rate_card": {
   "Transport | 7.5t Transport Delivery": {
    "median": 100.0,
-   "count": 114
+   "count": 115
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 445
+   "count": 446
   },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
@@ -11029,7 +11029,7 @@
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 713
+   "count": 714
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
