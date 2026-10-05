@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T10:36:08",
+ "generated_at": "2026-10-05T10:38:18",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3626,8 +3626,8 @@
    },
    {
     "id": "bc-200935239",
-    "type": "Collection",
-    "col": "col",
+    "type": "Site Move",
+    "col": "move",
     "customer": "Chandos",
     "postcode": "WA8 3UJ",
     "address": "Derby Road, Widnes, WA8 3UJ",
@@ -3641,7 +3641,7 @@
       "ref": "AES/61223",
       "desc": "onsite move",
       "status": "booked",
-      "type": "0-25miles Hiab Collection",
+      "type": "Site Move / Exchange",
       "price": 190.0,
       "est_price": null,
       "price_source": "job",
