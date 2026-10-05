@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T09:54:12",
+ "generated_at": "2026-10-05T10:08:53",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3235,7 +3235,7 @@
       "bigchange_id": 200658457,
       "ref": "AES/61069",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 350.0,
       "est_price": null,
@@ -3245,7 +3245,7 @@
     ],
     "notes": "",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200658457
     ],
