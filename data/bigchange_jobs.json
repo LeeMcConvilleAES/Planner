@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T09:33:51",
+ "generated_at": "2026-10-05T09:46:20",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3103,7 +3103,7 @@
       "bigchange_id": 200615870,
       "ref": "AES/61046",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -3113,7 +3113,7 @@
     ],
     "notes": "deliver BOSS unit",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200615870
     ],
