@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T20:56:17",
+ "generated_at": "2026-10-05T21:17:19",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -12121,7 +12121,7 @@
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 717
+   "count": 718
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
@@ -12185,7 +12185,7 @@
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
-   "count": 98
+   "count": 99
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
