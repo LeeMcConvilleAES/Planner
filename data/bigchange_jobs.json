@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T19:59:25",
+ "generated_at": "2026-10-05T20:01:35",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3347,7 +3347,7 @@
       "price_source": null
      }
     ],
-    "notes": "Delivery of 2 x 200kva generators to CoOp Live Arena . ( Collect from Greanpower Yard WA16 6UY )",
+    "notes": "Delivery of 2 x 200kva generators to CoOp Live Arena . ( Collect from Greanpower Yard WA16 6JN)",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
