@@ -428,7 +428,13 @@ function resNames(){ return RESOURCES.filter(function(r){ return !r.sub; }); }
 function res(ini){ return RESOURCES.filter(function(r){ return r.ini === ini; })[0]; }
 function vehOf(ini){ var r = res(ini); return r && r.reg ? VEHICLES.filter(function(v){ return v.reg === r.reg; })[0] : null; }
 function onRun(l){ return isRes(l.driver) && l.run; }
-function codeOf(l){ return onRun(l) ? l.driver + l.run : ''; }
+function jobNo(l){
+  if (!onRun(l)) return 0;
+  var n = 0, found = 0;
+  runsFor(l.job.day, l.driver, l.job.week).forEach(function(run){ run.forEach(function(x){ n++; if (x === l) found = n; }); });
+  return found;
+}
+function codeOf(l){ var n = jobNo(l); return n ? l.driver + n : ''; }
 function legacyOf(l){ return l.driver && !isRes(l.driver) ? l.driver + (l.run || '') : ''; }
 function isDel(l){ return l.job.col === 'del' || l.job.col === 'fuel'; }
 function isFuel(l){ return l.job.col === 'fuel'; }
@@ -717,12 +723,12 @@ function renderModal(){
       var nextRun = runs[ri + 1], why = run.length && nextRun && nextRun.length ? (breakReason(run, nextRun[0], bedMax) || 'Office break') : '';
       var times = ['','06:00','06:30','07:00','07:30','08:00','09:00','10:00','11:00','12:00','13:00','14:00'];
       var startCtl = team ? '<select data-start="' + key + '" aria-label="Run start time">' + times.map(function(t){ return '<option value="' + t + '"' + (t === start ? ' selected' : '') + '>' + (t || 'Start') + '</option>'; }).join('') + '</select>' : '<span class="st">' + (start ? 'from ' + start : '') + '</span>';
-      return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + '>' + r.ini + (ri + 1) + '</span></div>' +
+      return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + (run.length ? '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + ' title="Jobs on this run">' + (function(){ var a = codeOf(run[0]), z = codeOf(run[run.length - 1]); return a === z ? a : a + ' to ' + z; })() + '</span>' : '') + '</div>' +
         milesTag(runMiles(run)) +
         (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Most the bed carries on this run: the deliveries when it leaves the depot, or the collections at the end, whichever is more"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
         '<div class="rbody" data-drop="run" data-drv="' + r.ini + '" data-run="' + (ri + 1) + '">' +
-        (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div>' +
-        (why ? '<div class="runend' + (why === 'Office break' ? ' office' : '') + '" title="Why this run ends before ' + r.ini + (ri + 2) + '">ENDS: ' + esc(why) + '</div>' : '') + '</div>';
+        (run.length ? run.map(function(l){ return loadCard(l, true, jobNo(l)); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div>' +
+        (why ? '<div class="runend' + (why === 'Office break' ? ' office' : '') + '" title="Why run ' + (ri + 1) + ' ends here and run ' + (ri + 2) + ' starts">ENDS: ' + esc(why) + '</div>' : '') + '</div>';
     }).join('');
     return '<div class="dcol' + (u ? ' away' : '') + (r.sub ? ' subcol' : '') + '"><div class="dhd"><div class="av' + (r.sub ? ' av-sub' : '') + '">' + r.ini + '</div><div class="n"><b>' + esc(r.name) + '</b><span>' +
       (n ? n + ' load' + (n > 1 ? 's' : '') + ' · ' + runs.length + ' run' + (runs.length > 1 ? 's' : '') : 'No Loads Yet') + '</span>' +

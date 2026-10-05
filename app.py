@@ -1,5 +1,10 @@
 """AES Transport Planner
-Version 4.3
+Version 4.4
+
+4.4: a load's code is its place in the driver's day: RS1 is the first
+job, RS2 the second, counting on across runs (Nathan, 05/10/2026). RUN 1,
+RUN 2 still group them, and each run's badge shows its range (RS1 to RS2).
+Nothing changes in planner.json; runs are still stored by run and order.
 
 4.3: runs split on bed space. A run leaves the depot with its deliveries,
 each drop frees that unit's length, each collection takes its length, and
@@ -159,7 +164,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.3"
+VERSION = "4.4"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
