@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T20:01:35",
+ "generated_at": "2026-10-05T20:56:17",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3342,9 +3342,10 @@
       "desc": "Generator",
       "status": "booked",
       "type": "Hiab Delivery",
-      "price": null,
+      "price": 350.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 350.0
      }
     ],
     "notes": "Delivery of 2 x 200kva generators to CoOp Live Arena . ( Collect from Greanpower Yard WA16 6JN)",
