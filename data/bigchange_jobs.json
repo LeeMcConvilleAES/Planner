@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T13:32:02",
+ "generated_at": "2026-10-05T14:08:01",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -4402,6 +4402,44 @@
     ],
     "pc_key": "OL90JN",
     "miles": 19
+   }
+  ],
+  "2026-10-15": [
+   {
+    "id": "bc-200968625",
+    "type": "Collection",
+    "col": "col",
+    "customer": "MBC Building Contractor",
+    "postcode": "WF12 8QT",
+    "address": "Princess Road, Dewsbury, WF12 8QT",
+    "order_number": "01-003201",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200968625,
+      "ref": "AES/61227",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "collection of boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200968625
+    ],
+    "refs": [
+     "AES/61227"
+    ],
+    "pc_key": "WF128QT",
+    "miles": 44
    }
   ],
   "2026-10-16": [
