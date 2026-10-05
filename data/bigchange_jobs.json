@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T11:03:36",
+ "generated_at": "2026-10-05T11:10:01",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3139,7 +3139,7 @@
       "bigchange_id": 200803522,
       "ref": "AES/61141",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -3149,7 +3149,7 @@
       "bigchange_id": 200803627,
       "ref": "AES/61142",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": null,
       "est_price": null,
