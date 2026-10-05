@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T10:40:27",
+ "generated_at": "2026-10-05T10:42:35",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3132,7 +3132,7 @@
     "address": "Charley Wood Road., Knowlsley Ind. est., Liverpool, L33 7SG",
     "order_number": "01-002746",
     "units": {
-     "32ft": 6
+     "32ft": 7
     },
     "loads": [
      {
@@ -3159,7 +3159,7 @@
       "bigchange_id": 200803784,
       "ref": "AES/61143",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -3195,9 +3195,19 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 200936262,
+      "ref": "AES/61224",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "Collection 32ft from Elderpoint / Collection 32ft Unit from Elderpoint",
+    "notes": "Collection 32ft from Elderpoint / Collection 32ft Unit from Elderpoint / COLLECTION OF 32FT",
     "destack": "",
     "status": "live",
     "bigchange_ids": [
@@ -3206,7 +3216,8 @@
      200803784,
      200803921,
      200804032,
-     200804121
+     200804121,
+     200936262
     ],
     "refs": [
      "AES/61141",
@@ -3214,7 +3225,8 @@
      "AES/61143",
      "AES/61144",
      "AES/61146",
-     "AES/61147"
+     "AES/61147",
+     "AES/61224"
     ],
     "pc_key": "L337SG",
     "miles": 21
