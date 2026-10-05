@@ -1,6 +1,6 @@
 {
- "_about": "AES cost basis for Mission Control (the MD dashboard), and the MD PIN (md_pin). Edit here and run the push script. Costs only reach the page once the PIN has been given; the PIN itself never does. Drivers: hourly rates. Vehicles (haulage wagons, by driver initials): weekly lease, mpg. Service team: the service drivers and wagons, by initials. DB and AU do both, so they appear in both.",
- "updated": "2026-10-01",
+ "_about": "AES cost basis for the MD dashboard, and the MD PIN (md_pin). Edit here and run the push script. Costs only reach the page once the PIN has been given; the PIN itself never does.",
+ "updated": "2026-10-05",
  "fuel_price_per_litre": 1.5,
  "hours_per_day": 9,
  "working_days_per_week": 5,
@@ -10,64 +10,38 @@
   "CR": 16.75,
   "DB": 16.0,
   "RS": 14.5,
-  "SL": 16.75,
-  "AU": 14.5,
-  "SE": 14.5,
-  "SB": 14.5,
-  "JP": 15.0,
-  "JM": 15.0
+  "SL": 16.75
  },
  "vehicles": {
   "DF": {
    "reg": "YK25 CXE",
    "lease_per_week": 1350,
    "mpg": 8.5,
-   "note": "HGV Hiab",
-   "team": "haulage"
+   "note": "HGV Hiab"
   },
   "SL": {
    "reg": "MV75 BXZ",
    "lease_per_week": 1450,
    "mpg": 8.5,
-   "note": "HGV Hiab",
-   "team": "haulage"
+   "note": "HGV Hiab"
   },
   "CR": {
    "reg": "BV73 EWG",
    "lease_per_week": 950,
    "mpg": 8.5,
-   "note": "HGV Hiab",
-   "team": "haulage"
+   "note": "HGV Hiab"
   },
   "RB": {
    "reg": "FJ74 YYD",
    "lease_per_week": 1350,
    "mpg": 8.5,
-   "note": "HGV Hiab",
-   "team": "haulage"
+   "note": "HGV Hiab"
   },
   "RS": {
    "reg": "PN74 NCZ",
    "lease_per_week": 187.5,
    "mpg": 30,
-   "note": "4x4",
-   "team": "haulage"
-  },
-  "DB": {
-   "reg": "J25 AES",
-   "lease_per_week": null,
-   "mpg": 12,
-   "note": "18t service wagon, also haulage",
-   "team": "both",
-   "lease_kind": "not given yet"
-  },
-  "AU": {
-   "reg": "MK68 WGF",
-   "lease_per_week": 0,
-   "mpg": 22,
-   "note": "Tanker, also haulage",
-   "team": "both",
-   "lease_kind": "owned, fully depreciated"
+   "note": "4x4"
   }
  },
  "_unassigned_vehicles": {
@@ -78,71 +52,74 @@
    "note": "7.5t wagon, owned, depreciation. Move under vehicles with the driver's initials to cost it."
   }
  },
- "_notes": "Hiab mpg 8.5 (Nathan, 01/10/2026). 4x4 30 is still a placeholder. Overtime, employer NI, pension, insurance, tyres and servicing are not included. Service team rates, wagons and finance from Nathan, 01/10/2026.",
+ "_notes": "Hiab mpg 8.5 (Nathan, 05/10/2026). The 4x4 at 30 and the 7.5t at 15 are placeholders. Overtime, employer NI, pension, insurance, tyres and servicing are not included.",
  "md_pin": "1993",
- "_fuel_note": "Nathan, 01/10/2026: £1.50 this week and fluctuating; leave at 1.50 unless it heads back down towards £1.30, which makes the biggest difference.",
- "hours_per_week": 45,
- "ssp_per_day": 23.75,
- "_ssp_note": "Statutory sick pay per day (weekly SSP over 5). Single sick days are costed at this instead of the wage; a full week off for anything other than annual leave drops the driver out of that week's wage bill. Update each April.",
- "driver_hours_per_week": {
-  "AU": 28.5
- },
- "_hours_note": "Everyone is a 45 hour week unless listed in driver_hours_per_week. AU is part time, Tue to Thu.",
- "service_team": {
-  "_about": "Service drivers from Big Change. They never appear on the planner schedule (haulage only); Mission Control shows them from Big Change job data via Ken.",
-  "SE": {
-   "name": "Stephen Ennion",
-   "reg": "PN25 FKS",
-   "type": "Tanker",
-   "mpg": 29,
-   "lease_per_week": 287.5,
-   "lease_kind": "finance"
+ "_fuel_note": "Set at \u00a31.50 (Nathan, 05/10/2026). Fuel is fluctuating; leave it here unless it falls back towards \u00a31.30 a litre.",
+ "service": {
+  "_about": "AES servicing operation, for a future service profitability view (Nathan, 05/10/2026). Not used by the transport planner or the MD dashboard yet.",
+  "tankers": {
+   "SE": {
+    "name": "Stephen Ennion",
+    "rate_per_hour": 14.5,
+    "hours_per_week": 45,
+    "reg": "PN25 FKS",
+    "mpg": 29,
+    "vehicle_cost_per_week": 287.5,
+    "vehicle_basis": "finance"
+   },
+   "SB": {
+    "name": "Stephen Bond",
+    "rate_per_hour": 14.5,
+    "hours_per_week": 45,
+    "reg": "PN25 FKT",
+    "mpg": 29,
+    "vehicle_cost_per_week": 287.5,
+    "vehicle_basis": "finance"
+   },
+   "AU": {
+    "name": "Alan Unsworth",
+    "rate_per_hour": 14.5,
+    "hours_per_week": 28.5,
+    "days": [
+     "Tue",
+     "Wed",
+     "Thu"
+    ],
+    "reg": "MK68 WGF",
+    "mpg": 22,
+    "vehicle_cost_per_week": 0,
+    "vehicle_basis": "owned, fully depreciated",
+    "note": "part time, Tuesday to Thursday only"
+   }
   },
-  "SB": {
-   "name": "Stephen Bond",
-   "reg": "PN25 FKT",
-   "type": "Tanker",
-   "mpg": 29,
-   "lease_per_week": 287.5,
-   "lease_kind": "finance"
-  },
-  "AU": {
-   "name": "Alan Unsworth",
-   "reg": "MK68 WGF",
-   "type": "Tanker",
-   "mpg": 22,
-   "lease_per_week": 0,
-   "lease_kind": "owned, fully depreciated",
-   "hours_per_week": 28.5,
-   "days": "Tue to Thu"
-  },
-  "JP": {
-   "name": "John Purtil",
-   "reg": "PJ70 ZFY",
-   "type": "18t service wagon",
-   "mpg": 8,
-   "lease_per_week": 250,
-   "lease_kind": "depreciation"
-  },
-  "JM": {
-   "name": "Jeff Matthews",
-   "reg": "PN21 JRO",
-   "type": "18t service wagon",
-   "mpg": 9,
-   "lease_per_week": 250,
-   "lease_kind": "depreciation"
-  },
-  "DB": {
-   "name": "Danny Ball",
-   "reg": "J25 AES",
-   "type": "18t service wagon",
-   "mpg": 12,
-   "lease_per_week": null,
-   "lease_kind": "not given yet"
+  "service_wagons_18t": {
+   "JP": {
+    "name": "John Purtil",
+    "rate_per_hour": 15.0,
+    "hours_per_week": 45,
+    "reg": "PJ70 ZFY",
+    "mpg": 8,
+    "vehicle_cost_per_week": 250,
+    "vehicle_basis": "depreciation"
+   },
+   "JM": {
+    "name": "Jeff Matthews",
+    "rate_per_hour": 15.0,
+    "hours_per_week": 45,
+    "reg": "PN21 JRO",
+    "mpg": 9,
+    "vehicle_cost_per_week": 250,
+    "vehicle_basis": "depreciation"
+   },
+   "DB": {
+    "name": "Danny Ball",
+    "rate_per_hour": 16.0,
+    "hours_per_week": 45,
+    "reg": "J25 AES",
+    "mpg": 12,
+    "vehicle_cost_per_week": null,
+    "vehicle_basis": "not given"
+   }
   }
- },
- "driver_days_per_week": {
-  "AU": 3
- },
- "_days_note": "Working days a week, where not 5. AU: Tue to Thu."
+ }
 }
