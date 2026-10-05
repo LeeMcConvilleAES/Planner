@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T10:42:35",
+ "generated_at": "2026-10-05T11:03:36",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -3161,9 +3161,10 @@
       "desc": "32ft",
       "status": "complete",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "invoice",
+      "last_price": 220.0
      },
      {
       "bigchange_id": 200803921,
@@ -11229,7 +11230,7 @@
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 448
+   "count": 449
   },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
@@ -11257,11 +11258,11 @@
   },
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
-   "count": 108
+   "count": 109
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 98
+   "count": 99
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -11361,7 +11362,7 @@
   },
   "Service Job | Eco welfare service": {
    "median": 70.0,
-   "count": 48
+   "count": 50
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
