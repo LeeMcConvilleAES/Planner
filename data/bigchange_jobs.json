@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T15:11:24",
+ "generated_at": "2026-10-05T15:27:43",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -2402,7 +2402,7 @@
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 195.0
      }
     ],
@@ -3174,9 +3174,10 @@
       "desc": "32ft",
       "status": "complete",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "invoice",
+      "last_price": 220.0
      },
      {
       "bigchange_id": 200804032,
@@ -3206,9 +3207,10 @@
       "desc": "32ft",
       "status": "complete",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "invoice",
+      "last_price": 265.0
      }
     ],
     "notes": "Collection 32ft from Elderpoint / Collection 32ft Unit from Elderpoint / COLLECTION OF 32FT",
@@ -4043,9 +4045,10 @@
       "desc": "100 ltr fuel fill",
       "status": "booked",
       "type": "Fuel Delivery",
-      "price": null,
+      "price": 195.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 195.0
      }
     ],
     "notes": "100 ltr fuel fill",
@@ -11906,7 +11909,7 @@
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 454
+   "count": 455
   },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
@@ -11938,7 +11941,7 @@
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 102
+   "count": 103
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -11958,7 +11961,7 @@
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 119
+   "count": 121
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
@@ -11970,7 +11973,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 127
+   "count": 128
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
@@ -12053,8 +12056,8 @@
    "count": 51
   },
   "Service Job | Fuel Delivery": {
-   "median": 200.0,
-   "count": 4
+   "median": 195.0,
+   "count": 5
   },
   "Transport | Toilet Collection": {
    "median": 25.0,
