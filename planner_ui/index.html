@@ -246,6 +246,8 @@ html,body{height:100%;overflow:auto}
 .runend.office{color:#9b9797;font-weight:600}
 .addrun.split{border-style:solid;border-color:#201e1d;color:#201e1d;margin-top:6px}
 .splitall{font-weight:800;color:#201e1d;cursor:pointer;background:#fff}.splitall:hover{background:#0d823b;color:#fff}
+.runhd .rcode{white-space:nowrap;font-size:11px}
+.rc>.ord{font-size:10px !important;font-weight:800;line-height:1.4 !important;background:#0d823b;color:#fff;padding:1px 4px;align-self:start;white-space:nowrap}
 .tipbar{padding:8px 20px;background:#dcf2e3;color:#063d1c;font-size:13px;font-weight:700;border-bottom:2px solid #201e1d;flex:none}
 .rmi{padding:3px 8px;font-size:10px;font-weight:800;letter-spacing:.06em;color:#201e1d;background:#e8e6e6;border-bottom:1px solid #d5d2d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dhd .n .dmi{display:block;font-size:11px;font-weight:800;color:#201e1d;margin-top:1px}
@@ -258,7 +260,7 @@ html,body{height:100%;overflow:auto}
 .rbody{min-height:72px;padding:6px 6px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
 .rbody.over{background:#eef8f1}
 .drop{font-size:12px;color:#7d7979;padding:20px 4px;text-align:center}
-.rc{display:grid;grid-template-columns:16px minmax(0,1fr) 14px;gap:5px;align-items:start;border:1px solid;padding:5px 6px}
+.rc{display:grid;grid-template-columns:auto minmax(0,1fr) 14px;gap:5px;align-items:start;border:1px solid;padding:5px 6px}
 .rc[draggable="true"]{cursor:grab}
 .rc.dragging{opacity:.35}
 .runset{display:inline-flex;align-items:center;gap:6px}
@@ -727,7 +729,7 @@ function renderModal(){
         milesTag(runMiles(run)) +
         (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Most the bed carries on this run: the deliveries when it leaves the depot, or the collections at the end, whichever is more"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
         '<div class="rbody" data-drop="run" data-drv="' + r.ini + '" data-run="' + (ri + 1) + '">' +
-        (run.length ? run.map(function(l){ return loadCard(l, true, jobNo(l)); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div>' +
+        (run.length ? run.map(function(l){ return loadCard(l, true, codeOf(l)); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div>' +
         (why ? '<div class="runend' + (why === 'Office break' ? ' office' : '') + '" title="Why run ' + (ri + 1) + ' ends here and run ' + (ri + 2) + ' starts">ENDS: ' + esc(why) + '</div>' : '') + '</div>';
     }).join('');
     return '<div class="dcol' + (u ? ' away' : '') + (r.sub ? ' subcol' : '') + '"><div class="dhd"><div class="av' + (r.sub ? ' av-sub' : '') + '">' + r.ini + '</div><div class="n"><b>' + esc(r.name) + '</b><span>' +

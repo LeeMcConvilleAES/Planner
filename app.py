@@ -1,5 +1,9 @@
 """AES Transport Planner
-Version 4.4
+Version 4.5
+
+4.5: every load on a run in the day view carries its own job code (RS1,
+RS2) rather than a bare number, so a delivery and a collection on the same
+run read RS1 and RS2.
 
 4.4: a load's code is its place in the driver's day: RS1 is the first
 job, RS2 the second, counting on across runs (Nathan, 05/10/2026). RUN 1,
@@ -164,7 +168,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.4"
+VERSION = "4.5"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
