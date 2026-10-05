@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-05T12:20:23",
+ "generated_at": "2026-10-05T12:24:39",
  "window": [
   "2026-06-07",
   "2027-01-28"
@@ -11437,7 +11437,7 @@
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 714
+   "count": 715
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
@@ -11449,7 +11449,7 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 920
+   "count": 921
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 250.0,
