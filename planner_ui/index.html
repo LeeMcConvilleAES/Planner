@@ -242,6 +242,11 @@ html,body{height:100%;overflow:auto}
 .runhd .rl{font-size:11px;font-weight:800;letter-spacing:.1em;white-space:nowrap}
 .runhd select{font:700 11px 'Figtree',sans-serif;border:1px solid #201e1d;border-radius:0;background:#fff;padding:1px 2px;color:#201e1d}
 .runhd .st{font-size:11px;font-weight:700;color:#605d5d}
+.runend{padding:4px 8px;font-size:10px;font-weight:800;letter-spacing:.04em;color:#201e1d;background:#f3f2f2;border-top:1px dashed #bab6b6}
+.runend.office{color:#9b9797;font-weight:600}
+.addrun.split{border-style:solid;border-color:#201e1d;color:#201e1d;margin-top:6px}
+.splitall{font-weight:800;color:#201e1d;cursor:pointer;background:#fff}.splitall:hover{background:#0d823b;color:#fff}
+.tipbar{padding:8px 20px;background:#dcf2e3;color:#063d1c;font-size:13px;font-weight:700;border-bottom:2px solid #201e1d;flex:none}
 .rmi{padding:3px 8px;font-size:10px;font-weight:800;letter-spacing:.06em;color:#201e1d;background:#e8e6e6;border-bottom:1px solid #d5d2d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dhd .n .dmi{display:block;font-size:11px;font-weight:800;color:#201e1d;margin-top:1px}
 .rcode{font-size:12px;font-weight:800;padding:1px 6px;background:#0d823b;color:#fff}
@@ -304,7 +309,7 @@ html,body{height:100%;overflow:auto}
 .reg .k{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d}
 .reg span{display:flex;gap:5px;align-items:center}
 .form{padding:14px 20px 18px;margin-top:auto;background:#f3f2f2;border-top:1px solid #bab6b6;display:grid;gap:8px;align-items:start}
-.form.h{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+.form.h{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr)}
 .form.v{grid-template-columns:minmax(0,.8fr) minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr)}
 .form label{display:flex;flex-direction:column;gap:4px}
 .form label>span{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d}
@@ -313,130 +318,6 @@ html,body{height:100%;overflow:auto}
 .form .go{grid-column:1 / -1;padding:9px 12px;background:#0d823b;color:#fff;font-size:13px;font-weight:800;text-align:center}
 .form .go:hover{background:#0a6a30}
 .form .go[disabled]{opacity:.5;cursor:not-allowed}
-
-/* Mission Control (V4.3) */
-.panel.mc{max-width:1400px;min-width:1180px;margin-top:24px}
-.mc-t{flex-direction:row!important;align-items:center;gap:14px}
-.mc-md{width:40px;height:40px;background:#201e1d;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;letter-spacing:.1em;flex:none}
-.mc-sub{font-size:13px;font-weight:700;color:#605d5d}
-.mc-tabs{display:flex;border:1px solid #201e1d;margin-left:12px}
-.mc-tab{padding:6px 14px;font-size:11px;font-weight:800;letter-spacing:.08em;background:#fff;color:#201e1d}
-.mc-tab+.mc-tab{border-left:1px solid #201e1d}
-.mc-tab.on{background:#201e1d;color:#fff}
-.mc-scopes{display:flex;border-left:1px solid #bab6b6}
-.mc-scope{padding:0 16px;font-size:12px;font-weight:800;letter-spacing:.08em;color:#605d5d;background:#fff;display:flex;align-items:center}
-.mc-scope+.mc-scope{border-left:1px solid #bab6b6}
-.mc-scope.on{background:#0d823b;color:#fff}
-.mc-scope:hover{background:#eae7e7}.mc-scope.on:hover{background:#0a6a30}
-.metrics.mc-k{grid-template-columns:repeat(7,minmax(0,1fr));background:#f7f6f6}
-.metrics.mc-k .metric{padding:12px 16px}
-.metrics.mc-k .metric .v{font-size:28px}
-.metrics.mc-k .metric .sub{font-weight:700;color:#9b9797}
-.mc-of{font-size:16px;color:#9b9797;font-weight:700}
-.mc-cover{padding:7px 20px;background:#fff4e8;color:#6b4a00;font-size:12px;font-weight:600;border-bottom:1px solid #bab6b6}
-.mc-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
-.mc-col{display:flex;flex-direction:column;min-width:0}
-.mc-col+.mc-col{border-left:2px solid #201e1d}
-.mc-col .sechd{align-items:center}
-.mc-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px 20px 16px;background:#f3f2f2;align-content:start}
-.mc-cardwrap{background:#f3f2f2;padding-bottom:6px}
-.mc-cardwrap .mc-cards{padding-top:6px;padding-bottom:10px}
-.mc-group{display:flex;align-items:center;gap:8px;padding:12px 20px 0;font-size:10px;font-weight:800;letter-spacing:.12em;color:#605d5d}
-.mc-group i{flex:1;height:1px;background:#bab6b6}
-.mc-card{background:#fff;border:1px solid #bab6b6;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.mc-card.open{grid-column:1 / -1;border:2px solid #201e1d;padding:0;gap:0}
-.mc-card.off{background:#e8f0fc;border-color:#1d5fc4}
-.mc-card.norates{border-style:dashed;border-color:#605d5d}
-.mc-head{display:flex;align-items:center;gap:10px;min-width:0}
-.mc-card.open .mc-head{padding:12px 16px;border-bottom:1px solid #bab6b6}
-.mc-card.open .mc-chips,.mc-card.open .mc-bar,.mc-card.open .mc-stats,.mc-card.open .mc-foot{margin:0 16px}
-.mc-card.open .mc-chips{margin-top:10px}
-.mc-card.open .mc-bar{margin-top:8px}
-.mc-card.open .mc-stats{margin-top:8px;margin-bottom:12px}
-.mc-head .n{display:flex;flex-direction:column;min-width:0;flex:1;gap:1px}
-.mc-head .n b{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-head .n span{font-size:11px;color:#605d5d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-big{text-align:right;flex:none}
-.mc-big .v{font-size:20px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
-.mc-big .v.warnv{font-size:12px;line-height:1.2}
-.mc-big .l{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d;margin-top:2px}
-.mc-x{width:26px;height:26px;font-size:14px;font-weight:800;border:1px solid #201e1d;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
-.mc-x:hover{background:#201e1d;color:#fff}
-.mc-chips{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.mc-chip{font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 7px;background:#eae7e7;color:#201e1d}
-.mc-chip.leave{background:#e8f0fc;color:#1d5fc4}
-.mc-chip.sick{background:#fde3de;color:#9c1f14}
-.mc-note{font-size:10px;font-weight:700;color:#605d5d}
-.mc-bar{display:flex;height:8px;overflow:hidden}
-.mc-bar i{display:block;background:#0d823b}.mc-bar em{display:block;background:#bab6b6}
-.mc-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
-.mc-v{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
-.mc-l{font-size:10px;color:#605d5d;letter-spacing:.06em}
-.mc-foot{font-size:11px;color:#605d5d;line-height:1.5}
-.mc-foot.warn{color:#9a4f00;font-weight:700;border-top:1px solid #bab6b6;padding-top:6px}
-.warnv{color:#9a4f00;font-weight:800}
-.leavev{color:#1d5fc4;font-weight:800}
-.mc-body{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);border-top:1px solid #bab6b6}
-.mc-period{padding:10px 16px 12px;border-right:1px solid #bab6b6;min-width:0}
-.mc-makeup{padding:10px 16px 12px;min-width:0}
-.mc-sec{font-size:10px;font-weight:800;letter-spacing:.1em;color:#605d5d;margin-bottom:6px}
-.mc-body .mdt td{padding:4px 6px;font-size:12px}.mc-body .mdt th{padding:4px 6px}
-.mc-weeks{display:flex;align-items:flex-end;gap:4px;height:44px}
-.mc-weeks i{flex:1;background:#0d823b;display:block}
-.mc-weeks i.neg{background:#c0261a}.mc-weeks i.none{background:#bab6b6}
-.mc-axis{display:flex;justify-content:space-between;font-size:10px;color:#9b9797;margin-top:3px}
-.mc-mkbar{display:flex;height:14px;overflow:hidden;margin-bottom:8px}.mc-mkbar i{display:block}
-.mc-mkrows{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:4px 8px;font-size:12px;align-items:center}
-.mc-mkrows i{width:12px;height:12px;display:block}.mc-mkrows b{text-align:right;font-variant-numeric:tabular-nums}
-.mc-mkrows .tot{font-weight:800;border-top:1px solid #bab6b6;padding-top:4px}
-.mc-mk .mc-foot{margin-top:10px}
-.mc-wagons{display:flex;flex-direction:column;gap:8px;padding:12px 20px 16px;background:#f3f2f2;flex:1}
-.mc-wagon{background:#fff;border:1px solid #bab6b6;padding:10px 12px;display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:12px;align-items:center}
-.mc-wagon.parked{background:#fde3de;border-color:#c0261a}
-.mc-wagon.leave{background:#e8f0fc;border-color:#1d5fc4}
-.mc-wagon.norates{border-style:dashed;border-color:#605d5d}
-.mc-wreg{display:flex;flex-direction:column;gap:4px;align-items:stretch}
-.mc-wreg .plate{font-size:12px;padding:2px 6px;text-align:center}
-.mc-wreg span:last-child{font-size:10px;color:#605d5d;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-wmid{display:flex;flex-direction:column;gap:5px;min-width:0}
-.mc-wline{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#444141}
-.mc-segs{display:flex;height:6px;gap:2px}
-.mc-segs i{flex:1;display:block;background:#e8e6e6}
-.mc-segs i.out{background:#0d823b}.mc-segs i.leave{background:#1d5fc4}.mc-segs i.sick{background:#c0261a}
-.mc-cap{font-size:10px;color:#605d5d;letter-spacing:.06em;font-weight:700}
-.mc-cap.parkedv{color:#9c1f14;font-weight:800}
-.mc-wagon.leave .mc-cap.parkedv{color:#1d5fc4}
-.mc-wagon .mc-big .v{font-size:18px}
-.mc-legend{display:flex;gap:6px;align-items:center;font-size:10px;font-weight:700;color:#605d5d}
-.mc-legend i{width:10px;height:10px;display:inline-block;margin-left:6px}
-.mc-legend i.out{background:#0d823b}.mc-legend i.leave{background:#1d5fc4}.mc-legend i.sick{background:#c0261a}
-.mc-pbar{display:flex;align-items:stretch;border-bottom:2px solid #201e1d;height:48px;background:#f7f6f6}
-.mc-plbl{padding:0 20px;display:flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.1em;color:#605d5d;border-right:1px solid #bab6b6}
-.mc-pbar .mc-scope{border-right:1px solid #bab6b6;background:#fff}
-.mc-pbar .mc-scope.on{background:#0d823b}
-.mc-pbar .mc-scope+.mc-scope{border-left:0}
-.mc-fill{flex:1}
-.mc-custom{display:flex;align-items:center;gap:8px;padding:0 16px}
-.mc-custom label{font-size:10px;font-weight:800;letter-spacing:.08em;color:#605d5d}
-.mc-custom input{font:12px 'Figtree',sans-serif;border:1px solid #201e1d;padding:4px 6px;background:#fff;color:#201e1d;border-radius:0}
-.mc-boards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding:16px 20px;background:#f3f2f2}
-.mc-board{background:#fff;border:1px solid #bab6b6;display:flex;flex-direction:column;min-width:0}
-.mc-bhd{padding:10px 12px;border-bottom:2px solid #201e1d;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
-.mc-bhd b{font-size:12px;font-weight:800;letter-spacing:.1em}.mc-bhd span{font-size:9px;color:#605d5d;font-weight:700;white-space:nowrap}
-.mc-lbrow{display:grid;grid-template-columns:20px 32px minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid #eae7e7}
-.mc-lbrow:last-child{border-bottom:0}
-.mc-lbrow.top{background:#fff9db}
-.mc-lbrow.un{opacity:.75}
-.mc-lbrow .rk{font-size:14px;font-weight:800;color:#9b9797}
-.mc-lbrow .rk.gold{color:#b8860b}.mc-lbrow .rk.silver{color:#7d7979}.mc-lbrow .rk.bronze{color:#a0522d}
-.mc-lbrow .nm{display:flex;flex-direction:column;min-width:0;gap:3px}
-.mc-lbrow .nm b{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-lbrow .nm i{display:block;height:5px;background:#0d823b}
-.mc-lbrow .nm i.black{background:#201e1d}.mc-lbrow .nm i.grey{background:#605d5d}.mc-lbrow .nm i.neg{background:#c0261a}
-.mc-lbrow .nm small{font-size:10px;font-weight:700;color:#605d5d}
-.mc-lbrow .val{font-size:13px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
-.panel.mc .notice{border-bottom:1px solid #bab6b6}
-.row .nm span.sickl{color:#c0261a}
 </style>
 </head>
 <body>
@@ -500,7 +381,7 @@ function build(args){
   });
   DROPPED = Object.keys(runs).filter(function(bid){ return !seen[bid]; }).map(function(bid){ return { bid:bid, entry:runs[bid] }; });
   S.caps = (P.capacity || []).slice();
-  S.hols = (P.holidays || []).map(function(h){ return { id:h.id, drv:h.driver, from:h.from, to:h.to, kind:h.kind || 'leave' }; });
+  S.hols = (P.holidays || []).map(function(h){ return { id:h.id, drv:h.driver, from:h.from, to:h.to }; });
   S.vehs = (P.vehicle_bookings || []).map(function(v){ return { id:v.id, reg:v.reg, type:v.type, drv:v.driver || '', from:v.from, to:v.to }; });
   S.runStart = Object.assign({}, P.run_starts || {});
   S.mode = args.can_edit ? 'team' : 'ro'; if (args.can_edit) S.pwOpen = false;
@@ -529,10 +410,10 @@ function plannerOut(){
   DROPPED.forEach(function(d){ var e = Object.assign({}, d.entry); if (!e.dropped_at) e.dropped_at = TODAY;
     if ((dObj(TODAY) - dObj(e.dropped_at)) / 86400000 <= 7) runs[d.bid] = e; });
   return { version:1, resources:P.resources || [], vehicles:P.vehicles || [], runs:runs, run_starts:S.runStart,
-    capacity:S.caps.slice().sort(), holidays:S.hols.map(function(h){ return { id:h.id, driver:h.drv, from:h.from, to:h.to, kind:h.kind || 'leave' }; }),
+    capacity:S.caps.slice().sort(), holidays:S.hols.map(function(h){ return { id:h.id, driver:h.drv, from:h.from, to:h.to }; }),
     vehicle_bookings:S.vehs.map(function(v){ return { id:v.id, reg:v.reg, type:v.type, driver:v.drv || '', from:v.from, to:v.to }; }),
     enquiries:P.enquiries || [], conversions:P.conversions || {}, dismissed_matches:P.dismissed_matches || [],
-    card_notes:P.card_notes || {}, card_order:P.card_order || {}, migration:P.migration || null, md_history:mergedHistory() };
+    card_notes:P.card_notes || {}, card_order:P.card_order || {}, migration:P.migration || null };
 }
 function commit(what){
   if (!ARGS || !ARGS.can_edit) return;
@@ -555,7 +436,7 @@ function ft(desc){ var m = /(\d+)\s*ft/i.exec(desc); return m ? +m[1] : 0; }
 
 var S = { mode:'ro', week:1, pwOpen:false, viewJob:null, enqEdit:null, query:'', filter:'all', caps:[], modalDay:null, vhOpen:false, enqOpen:false, enqDraft:{ col:'del', customer:'', postcode:'', items:'', notes:'', date:TODAY }, warn:'', poolOpen:true, poolFilter:'all',
   extraRuns:{}, runStart:{}, changes:{}, dragId:null, hols:[], vehs:[],
-  holDraft:{ drv:'', from:TODAY, to:TODAY, kind:'leave' }, mdTab:'overview', mdScope:'week', lbScope:'week', lbFrom:'', lbTo:'', mdCard:null, mdSort:'margin',
+  holDraft:{ drv:'', from:TODAY, to:TODAY },
   vehDraft:{ reg:'', type:'MOT', drv:'', from:TODAY, to:TODAY } };
 var isTeam = function(){ return S.mode === 'team'; };
 
@@ -566,7 +447,7 @@ function jobsFor(w){ return JOBS.filter(function(j){ return j.week === w; }); }
 
 function unavail(ini, isos){
   var h = S.hols.filter(function(x){ return x.drv === ini && covers(x, isos); })[0];
-  if (h) return h.kind === 'sick' ? { text:'OFF SICK', sub:fRange(h.from, h.to), short:'sick' } : { text:'ON ANNUAL LEAVE', sub:fRange(h.from, h.to), short:'leave' };
+  if (h) return { text:'ON ANNUAL LEAVE', sub:fRange(h.from, h.to), short:'leave' };
   var v = S.vehs.filter(function(x){ return x.drv === ini && covers(x, isos); })[0];
   if (v) return { text:'VEHICLE BOOKED IN', sub:v.reg + ', ' + v.type.charAt(0) + v.type.slice(1).toLowerCase(), short:v.reg + ' ' + v.type.toLowerCase() };
   return null;
@@ -611,6 +492,47 @@ function runsFor(day, ini, week){
   runs.forEach(function(r){ r.sort(function(a, b){ return a.seq - b.seq; }); });
   return runs;
 }
+function loadFt(l){ return isFuel(l) ? 0 : ft(l.desc); }
+function bedOf(ini){ var r = res(ini); if (!r || r.sub) return 0; var v = vehOf(ini); return v && v.bed ? v.bed : DEFAULT_BED; }
+function bedPeak(run){ var d = 0, c = 0; run.forEach(function(l){ if (isDel(l)) d += loadFt(l); else c += loadFt(l); }); return Math.max(d, c); }
+/* why the planner would end a run before NEXT, given the run so far; '' when NEXT fits */
+function breakReason(run, next, bed){
+  var d = 0, c = 0, hasCol = false; run.forEach(function(l){ if (isDel(l)) d += loadFt(l); else { c += loadFt(l); hasCol = true; } });
+  var sz = loadFt(next);
+  if (isDel(next)) { if (hasCol) return 'Back to the depot to load the next delivery'; if (bed && d + sz > bed) return 'Next delivery would not fit with these (' + (d + sz) + ' / ' + bed + 'ft)'; return ''; }
+  if (bed && c >= bed) return 'Collection filled the bed';
+  if (bed && c + sz > bed) return 'Bed full: the next collection would not fit (' + (c + sz) + ' / ' + bed + 'ft)';
+  return '';
+}
+/* split a sequence of loads into runs without reordering it */
+function splitSeq(seq, bed){
+  var runs = [], cur = [];
+  seq.forEach(function(l){ if (cur.length && breakReason(cur, l, bed)) { runs.push(cur); cur = []; } cur.push(l); });
+  if (cur.length) runs.push(cur);
+  return runs;
+}
+/* rewrite a driver's runs for one day; keeps each original run's start time on its first piece */
+function applyRuns(day, ini, week, pieces, keepEmpty){
+  var iso = dayIsos(week, day)[0], oldStarts = {};
+  Object.keys(S.runStart).forEach(function(k){ var p = k.split('|'); if (p[0] === iso && p[1] === ini) { oldStarts[+p[2]] = S.runStart[k]; delete S.runStart[k]; } });
+  pieces.forEach(function(p, i){ p.loads.forEach(function(l, k){ l.driver = ini; l.run = i + 1; l.seq = k + 1; l.movedFrom = ''; });
+    if (p.from != null && oldStarts[p.from + 1]) S.runStart[iso + '|' + ini + '|' + (i + 1)] = oldStarts[p.from + 1]; });
+  var ek = week + '|' + day + '|' + ini; S.extraRuns[ek] = Math.max(1, pieces.length, keepEmpty ? (S.extraRuns[ek] || 0) : 0);
+}
+/* fresh: re-pack the whole day in order; otherwise only split the runs that need it */
+function autoSplit(day, ini, week, fresh){
+  var bed = bedOf(ini); var r = res(ini); if (!r || r.sub) return 0;
+  var runs = runsFor(day, ini, week).filter(function(x){ return x.length; }); if (!runs.length) return 0;
+  var pieces = [];
+  if (fresh) { var seq = []; runs.forEach(function(x){ seq = seq.concat(x); }); splitSeq(seq, bed).forEach(function(loads, i){ pieces.push({ loads:loads, from:i === 0 ? 0 : null }); }); }
+  else runs.forEach(function(run, ri){ splitSeq(run, bed).forEach(function(loads, k){ pieces.push({ loads:loads, from:k === 0 ? ri : null }); }); });
+  applyRuns(day, ini, week, pieces, !fresh);
+  return pieces.length - runs.length;
+}
+window.AES = { runsFor:function(){ return runsFor.apply(null, arguments); }, move:function(){ return move.apply(null, arguments); }, autoSplit:function(){ return autoSplit.apply(null, arguments); },
+  loads:function(){ return LOADS; }, state:function(){ return S; }, isDel:function(l){ return isDel(l); }, loadFt:function(l){ return loadFt(l); }, onRun:function(l){ return onRun(l); }, render:function(){ render(); } };   /* for support and tests */
+var tipT;
+function tip(msg){ S.tip = msg; clearTimeout(tipT); tipT = setTimeout(function(){ S.tip = ''; render(); }, 5000); }
 function runValid(arr){ var seenCol = false; for (var i = 0; i < arr.length; i++) { if (!isDel(arr[i])) seenCol = true; else if (seenCol) return false; } return true; }
 
 var warnT;
@@ -624,8 +546,9 @@ function move(id, tgt){
   var pos = tgt.before ? arr.indexOf(LOADS[tgt.before]) : -1;
   if (pos < 0 && isDel(l) && !tgt.append) { for (var i = 0; i < arr.length; i++) if (!isDel(arr[i])) { pos = i; break; } }
   if (pos < 0) arr.push(l); else arr.splice(pos, 0, l);
-  if (!runValid(arr)) { flash("A collection can't come before a delivery on the same run: the bed would already be full. Put deliveries first."); return; }
   l.driver = tgt.drv; l.run = tgt.run; l.movedFrom = ''; arr.forEach(function(x, k){ x.seq = k + 1; });
+  var added = autoSplit(day, tgt.drv, l.job.week, false);
+  if (added > 0) tip(tgt.drv + ': ' + (added === 1 ? 'a new run was' : added + ' new runs were') + ' started for bed space. See why under each run; drag a load back to change it.');
   S.changes[day] = (S.changes[day] || 0) + 1; S.warn = '';
 }
 
@@ -725,7 +648,7 @@ function renderMain(){
       feedCell() +
       (ARGS.notice ? '<div class="hcell" style="color:' + (ARGS.notice_kind === 'error' ? '#c0261a' : '#605d5d') + '">' + esc(ARGS.notice) + '</div>' : '') +
       (S.pwOpen && !isTeam() ? '<div class="hcell pwcell"><input type="password" id="pwin" placeholder="Team Edit Password" aria-label="Team edit password" autocomplete="current-password"><button class="coll" data-act="unlockGo">Unlock</button></div>' : '') +
-      '<button class="mode md" data-act="openMd" title="Mission Control: cost, revenue, mileage and productivity per driver and per wagon">MD</button>' +
+      '<button class="mode md" data-act="openMd" title="Mother Delta Dashboard: mileage per driver and per day">MD</button>' +
       '<div class="modes"><button class="mode' + (isTeam() ? ' on-team' : '') + '" data-act="teamEdit">TEAM EDIT</button><button class="mode' + (!isTeam() ? ' on-ro' : '') + '" data-act="lock">READ ONLY</button></div></div>' +
     (isTeam() ? '<div class="band"><button class="tbtn primary" data-act="openEnq">+ Add Enquiry</button><button class="tbtn" data-act="openVh" style="border-left:1px solid #bab6b6">Vehicles &amp; Holidays</button></div>' : '') +
     '<div class="band"><button class="nav" data-act="week" data-v="' + Math.max(0, w - 1) + '" aria-label="Previous week">‹</button>' + weeks +
@@ -790,20 +713,23 @@ function renderModal(){
     var bedMax = r.sub ? 0 : (v && v.bed ? v.bed : DEFAULT_BED);
     var runHtml = runs.map(function(run, ri){
       var key = isos[0] + '|' + r.ini + '|' + (ri + 1), start = S.runStart[key] || (ri === 0 ? '07:00' : '');
-      var used = run.reduce(function(a, l){ return a + (isFuel(l) ? 0 : ft(l.desc)); }, 0), over = used > bedMax, unsized = run.filter(function(l){ return !isFuel(l) && !ft(l.desc); }).length;
+      var used = bedPeak(run), over = used > bedMax, unsized = run.filter(function(l){ return !isFuel(l) && !ft(l.desc); }).length;
+      var nextRun = runs[ri + 1], why = run.length && nextRun && nextRun.length ? (breakReason(run, nextRun[0], bedMax) || 'Office break') : '';
       var times = ['','06:00','06:30','07:00','07:30','08:00','09:00','10:00','11:00','12:00','13:00','14:00'];
       var startCtl = team ? '<select data-start="' + key + '" aria-label="Run start time">' + times.map(function(t){ return '<option value="' + t + '"' + (t === start ? ' selected' : '') + '>' + (t || 'Start') + '</option>'; }).join('') + '</select>' : '<span class="st">' + (start ? 'from ' + start : '') + '</span>';
       return '<div class="run"><div class="runhd"><span class="rl">RUN ' + (ri + 1) + '</span>' + startCtl + '<span class="rcode"' + (r.sub ? ' style="background:#201e1d"' : '') + '>' + r.ini + (ri + 1) + '</span></div>' +
         milesTag(runMiles(run)) +
-        (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Sum of unit lengths against the bed length (placeholder figures)"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
+        (run.length && bedMax ? '<div class="bed' + (over ? ' over' : '') + '" title="Most the bed carries on this run: the deliveries when it leaves the depot, or the collections at the end, whichever is more"><span>BED ' + used + ' / ' + bedMax + 'FT' + (unsized ? ' · ' + unsized + ' UNSIZED' : '') + '</span><span class="bar"><i style="width:' + Math.min(100, used / bedMax * 100) + '%"></i></span>' + (over ? '<span>OVER</span>' : '') + '</div>' : '') +
         '<div class="rbody" data-drop="run" data-drv="' + r.ini + '" data-run="' + (ri + 1) + '">' +
-        (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div></div>';
+        (run.length ? run.map(function(l, oi){ return loadCard(l, true, oi + 1); }).join('') : '<div class="drop">' + (team ? 'Drop Loads Here' : 'No Loads') + '</div>') + '</div>' +
+        (why ? '<div class="runend' + (why === 'Office break' ? ' office' : '') + '" title="Why this run ends before ' + r.ini + (ri + 2) + '">ENDS: ' + esc(why) + '</div>' : '') + '</div>';
     }).join('');
     return '<div class="dcol' + (u ? ' away' : '') + (r.sub ? ' subcol' : '') + '"><div class="dhd"><div class="av' + (r.sub ? ' av-sub' : '') + '">' + r.ini + '</div><div class="n"><b>' + esc(r.name) + '</b><span>' +
       (n ? n + ' load' + (n > 1 ? 's' : '') + ' · ' + runs.length + ' run' + (runs.length > 1 ? 's' : '') : 'No Loads Yet') + '</span>' +
       '<div class="vrow">' + (r.sub ? '<small>Subbie Wagons</small>' : v ? '<span class="plate">' + esc(v.reg) + '</span><small>' + (v.bed || DEFAULT_BED) + 'ft</small>' : '<small>No Vehicle Set</small>') + '</div>' + (function(){ var t = 0, g = 0, any = false; runs.forEach(function(x){ var rm = runMiles(x); if (rm) { any = true; t += rm.miles; g += rm.gaps; } }); return any ? '<b class="dmi" title="All runs, each out from the depot and back">' + t + (g ? '+' : '') + ' mi today</b>' : ''; })() + '</div></div>' +
       (u ? '<div class="awayb"><b>' + u.text + '</b><span>' + esc(u.sub) + '</span></div>' : '') +
-      '<div class="runs">' + runHtml + (team ? '<button class="addrun" data-act="addRun" data-v="' + r.ini + '">+ Add Run</button>' : '') + '</div></div>';
+      '<div class="runs">' + runHtml + (team ? '<button class="addrun" data-act="addRun" data-v="' + r.ini + '">+ Add Run</button>' +
+        (!r.sub && n > 1 ? '<button class="addrun split" data-act="autoSplit" data-v="' + r.ini + '" title="Keep the order, re-pack into runs by bed space; office breaks that are not needed are removed">Auto Split Runs</button>' : '') : '') + '</div></div>';
   }).join('');
 
   var seg = [['all','ALL'],['del','DEL'],['col','COL']].map(function(s){ return '<button class="' + (S.poolFilter === s[0] ? 'on' : '') + '" data-act="poolF" data-v="' + s[0] + '">' + s[1] + '</button>'; }).join('');
@@ -811,8 +737,10 @@ function renderModal(){
   m.innerHTML = '<div class="ov" data-act="closeBg"><div class="panel rp" role="dialog" aria-label="Route planner">' +
     '<div class="ph"><div class="t"><div class="eyebrow">ROUTE PLANNER</div><h2>' + names[day] + ' · ' + date + '</h2></div>' +
       '<div class="cell">' + (all.length - pool.length) + ' of ' + all.length + ' Loads On A Run</div>' +
+      (team ? '<button class="cell splitall" data-act="autoSplitAll" title="Re-pack every driver\'s runs for this day by bed space, keeping each driver\'s order">Auto Split All</button>' : '') +
       '<button class="done" data-act="close">DONE</button></div>' +
     (S.warn ? '<div class="warn" role="alert">' + esc(S.warn) + '</div>' : '') +
+    (S.tip && !S.warn ? '<div class="tipbar" role="status">' + esc(S.tip) + '</div>' : '') +
     (!team ? '<div class="viewonly">VIEW ONLY. Switch to Team Edit to move loads, add runs or set start times.</div>' : '') +
     '<div class="pool"><div class="poolhd"><span class="lbl">JOB POOL</span><span class="cnt">' + pool.length + '</span>' +
       '<span class="h">Every load is allocated separately. Top to bottom is the run order. Deliveries always go before collections. Enquiries stay here until confirmed.</span>' +
@@ -865,316 +793,107 @@ function setRunFromCard(sel){
   render();
   if (!S.warn) commit(key === '*' ? 'planned job from card' : 'planned load from card');
 }
-/* Mission Control (V4.3). The MD button opens it; three tabs: Overview (haulage), Leaderboard, Service Team.
-   Every figure is computed here from what the page holds: feed cards, runs, the distance matrix, holidays and
-   sickness, and the cost basis (ARGS.costs, only after the PIN). History: the feed holds from yesterday forward, so
-   on every save the office makes, dayRaw() for each feed day up to today is written into planner.json as
-   md_history[iso]; a period sums live days where the feed has them and history days where it does not.
-   Service drivers never touch the planner: Ken writes data/service_weeks.json, charged per driver per week
-   (weeks[monday][ini] = {jobs, charged, invoiced, miles}), and the Service Team tab reads that (ARGS.service, behind the PIN). */
-function priceInto(t, l){
-  var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); t.revenue += pr;
-  if (l.price != null && l.priceSrc === 'invoice') t.invoiced++; else if (l.price != null) t.fromJob++; else if (l.estPrice != null) t.estimated++; else t.unpriced++;
+/* MD: every metric is computed here from what the planner already holds (feed cards, runs, the distance matrix).
+   To add a metric later: extend mdStats() with the number, then add a tile or a column in renderMd(). Nothing is fetched. */
+function mdWeeks(scope){
+  if (scope === 'week') return [S.week];
+  if (scope === 'next4') return [1, 2, 3, 4];
+  var all = []; for (var w = 0; w <= 17; w++) all.push(w); return all;
 }
-function blankRow(){ return { days:0, runs:0, loads:0, miles:0, gaps:0, revenue:0, invoiced:0, fromJob:0, estimated:0, unpriced:0 }; }
-function dayRaw(iso){
-  /* one day's raw numbers from live data: per driver (planned runs only) and the fleet (every booked load) */
-  var w = weekIndexOf(iso), d = dayIndexOf(iso), out = { drivers:{}, fleet:blankRow() };
-  if (d === 5 && dObj(iso).getUTCDay() === 0) return null;              /* Sunday shares Saturday's slot; count it once */
-  RESOURCES.forEach(function(r){
-    var runs = runsFor(d, r.ini, w).filter(function(x){ return x.length; }); if (!runs.length) return;
-    var row = blankRow(); row.days = 1; row.runs = runs.length;
-    runs.forEach(function(run){ row.loads += run.length; var rm = runMiles(run); if (rm) { row.miles += rm.miles; row.gaps += rm.gaps; } run.forEach(function(l){ priceInto(row, l); }); });
-    out.drivers[r.ini] = row;
-  });
-  var any = false;
-  JOBS.forEach(function(j){ if (j.status === 'e' || j.week !== w || j.day !== d) return; j.loads.forEach(function(l){ any = true; out.fleet.loads++; priceInto(out.fleet, l); }); });
-  if (any) out.fleet.days = 1;
-  return out;
-}
-function liveDays(){ var m = {}; Object.keys(FEED.jobs || {}).forEach(function(iso){ m[iso] = 1; }); return m; }
-function serviceWeeks(){ return (ARGS && ARGS.service && ARGS.service.weeks) || {}; }
-function hasServiceData(){ return Object.keys(serviceWeeks()).length > 0; }
-function mergedHistory(){
-  /* planner.json's md_history with today's live days written over it (days up to today only) */
-  var h = JSON.parse(JSON.stringify(P.md_history || {})), live = liveDays();
-  Object.keys(live).forEach(function(iso){ if (iso > TODAY) return; var r = dayRaw(iso); if (r) h[iso] = r; });
-  return h;
-}
-function historyChanged(){ return JSON.stringify(mergedHistory()) !== JSON.stringify(P.md_history || {}); }
-function dayData(iso){
-  var live = liveDays(); if (live[iso]) return dayRaw(iso);
-  return (P.md_history || {})[iso] || null;
-}
-function knownFrom(){ var ks = Object.keys(P.md_history || {}).concat(Object.keys(liveDays())).sort(); return ks.length ? ks[0] : TODAY; }
-function hol(ini, iso){ var h = S.hols.filter(function(x){ return x.drv === ini && x.from <= iso && iso <= x.to; })[0]; return h ? (h.kind || 'leave') : ''; }
-function isoDays(from, to){ var out = []; for (var d = from; d <= to; d = isoAdd(d, 1)) out.push(d); return out; }
-function isWeekday(iso){ var dw = dObj(iso).getUTCDay(); return dw >= 1 && dw <= 5; }
-function monOf(iso){ var dw = dObj(iso).getUTCDay(); return isoAdd(iso, -((dw + 6) % 7)); }
-
-function mcCostBasis(){ return ARGS && ARGS.costs ? ARGS.costs : null; }
-function mcVehicle(C, ini){ return (C.vehicles || {})[ini] || (C.service_team || {})[ini] || null; }
-function mcStats(from, to, opts){
-  /* everything for one period. opts.team = 'haulage' (RESOURCES) or 'service' (costs.service_team). */
-  opts = opts || {}; var C = mcCostBasis(), team = opts.team || 'haulage';
-  var people = team === 'service' ? Object.keys((C && C.service_team) || {}).filter(function(k){ return k.charAt(0) !== '_'; }).map(function(k){ var s = C.service_team[k]; return { ini:k, name:s.name || k, sub:false, reg:s.reg || '', vtype:s.type || '' }; })
-    : RESOURCES.map(function(r){ var v = C ? mcVehicle(C, r.ini) : null; return { ini:r.ini, name:r.name, sub:!!r.sub, reg:(v && v.reg) || r.reg || '', vtype:(v && (v.note || v.type)) || '' }; });
-  var rows = {}; people.forEach(function(p){ rows[p.ini] = Object.assign(blankRow(), p, { leave:0, sick:0, weeks:{} }); });
-  var fleet = Object.assign(blankRow(), { weekdays:0, dayKeys:{} });
-  var days = isoDays(from, to), live = liveDays(), covered = 0, known = knownFrom();
-  days.forEach(function(iso){
-    var data = dayData(iso); if (!data && iso < known) return;        /* before anything was recorded: unknown, so no cost and no working day either */
-    covered++;
-    var wd = isWeekday(iso); if (wd) fleet.weekdays++;
-    var src = data && team === 'haulage' ? data.drivers || {} : {};
-    if (data && team === 'haulage' && data.fleet && data.fleet.days) { fleet.days++; ['loads','revenue','invoiced','fromJob','estimated','unpriced'].forEach(function(k){ fleet[k] += data.fleet[k] || 0; }); }
-    var wk = monOf(iso);
-    people.forEach(function(p){
-      var row = rows[p.ini], r = src[p.ini], wrec = row.weeks[wk] || (row.weeks[wk] = { weekdays:0, worked:0, sick:0, leave:0, miles:0, revenue:0, loads:0 });
-      if (wd) wrec.weekdays++;
-      if (r) { row.days += r.days || 0; wrec.worked += r.days || 0; ['runs','loads','miles','gaps','revenue','invoiced','fromJob','estimated','unpriced'].forEach(function(k){ row[k] += r[k] || 0; }); wrec.miles += r.miles || 0; wrec.revenue += r.revenue || 0; wrec.loads += r.loads || 0;
-        if (team === 'service') { fleet.loads += r.loads || 0; fleet.revenue += r.revenue || 0; fleet.invoiced += r.invoiced || 0; fleet.fromJob += r.fromJob || 0; fleet.unpriced += r.unpriced || 0; } }
-      if (wd && !p.sub) { var k = hol(p.ini, iso); if (k === 'sick') { row.sick++; wrec.sick++; } else if (k === 'leave') { row.leave++; wrec.leave++; } }
-    });
-  });
-  if (team === 'service') {
-    /* Ken's weekly charges: every week whose Monday falls in the period */
-    var SW = serviceWeeks(), m0 = monOf(from), m1 = monOf(to);
-    for (var mon = m0; mon <= m1; mon = isoAdd(mon, 7)) { var wkd = SW[mon] || {}; people.forEach(function(p){ var r = wkd[p.ini]; if (!r) return; var row = rows[p.ini], W = row.weeks[mon] || (row.weeks[mon] = { weekdays:5, worked:0, sick:0, leave:0, miles:0, revenue:0, loads:0 });
-      var jobs = +r.jobs || 0, inv = +r.invoiced || 0, charged = +r.charged || 0, miles = +r.miles || 0;
-      row.loads += jobs; row.runs += jobs ? 1 : 0; row.revenue += charged; row.invoiced += inv; row.fromJob += Math.max(0, jobs - inv); row.miles += miles;
-      W.loads += jobs; W.revenue += charged; W.miles += miles;
-      var inDays = Math.max(0, Math.min(W.weekdays, +(((C && C.driver_days_per_week) || {})[p.ini] || 5)) - W.sick - W.leave); if (jobs) { row.days += inDays; W.worked += inDays; }
-      fleet.loads += jobs; fleet.revenue += charged; fleet.invoiced += inv; fleet.fromJob += Math.max(0, jobs - inv); }); }
-    fleet.days = fleet.loads ? Math.max(1, Math.round(fleet.weekdays)) : 0;
-  }
-  fleet.miles = 0; fleet.gaps = 0; fleet.runs = 0;
-  var list = Object.keys(rows).map(function(k){ return rows[k]; });
-  list.forEach(function(r){ fleet.miles += r.miles; fleet.gaps += r.gaps; fleet.runs += r.runs; r.avg = r.days ? Math.round(r.miles / r.days) : 0; });
-  fleet.priced = fleet.invoiced + fleet.fromJob + fleet.estimated;
-  fleet.plannedRevenue = list.reduce(function(a, r){ return a + r.revenue; }, 0);
-  fleet.wagonDays = list.reduce(function(a, r){ return a + r.days; }, 0);
-  fleet.avgPerDay = fleet.wagonDays ? Math.round(fleet.miles / fleet.wagonDays) : 0;
-  fleet.drivers = list.filter(function(r){ return r.days; }).length;
-  fleet.covered = covered; fleet.totalDays = days.length;
-  /* money */
-  if (C) {
-    var fuelP = +C.fuel_price_per_litre || 0, hpw = +C.hours_per_week || ((+C.hours_per_day || 9) * 5), ssp = C.ssp_per_day != null ? +C.ssp_per_day : 23.75;
-    fleet.wages = 0; fleet.wagon = 0; fleet.fuel = 0; fleet.lease = 0; fleet.costed = 0;
-    list.forEach(function(r){
-      var rate = (C.drivers || {})[r.ini], v = mcVehicle(C, r.ini);
-      var dpw = +((C.driver_days_per_week || {})[r.ini] || 5), hours = +((C.driver_hours_per_week || {})[r.ini] || hpw);
-      r.rate = rate != null ? +rate : null; r.hoursWeek = hours; r.daysWeek = dpw; r.wageDay = rate != null ? +rate * hours / dpw : null;
-      r.mpg = v && +v.mpg ? +v.mpg : null; r.leaseWeek = v && v.lease_per_week != null ? +v.lease_per_week : null; r.leaseKind = v && v.lease_kind ? v.lease_kind : 'lease';
-      r.reg = (v && v.reg) || r.reg; r.vtype = (v && (v.note || v.type)) || r.vtype;
-      r.scheduled = 0; r.wage = 0; r.sspDays = 0; r.droppedWeeks = 0; r.lease = 0;
-      Object.keys(r.weeks).forEach(function(wk){
-        var W = r.weeks[wk], sched = Math.min(dpw, W.weekdays); r.scheduled += sched;
-        if (r.wageDay != null && !r.sub) {
-          if (W.sick > 0 && W.sick >= sched) { r.droppedWeeks++; W.wage = 0; }              /* a full week off, not annual leave: out of the wage bill */
-          else { W.wage = (sched - W.sick) * r.wageDay + W.sick * ssp; r.sspDays += W.sick; }
-          r.wage += W.wage;
-        }
-        if (r.leaseWeek != null) { W.lease = r.leaseWeek * W.weekdays / 5; r.lease += W.lease; }
-        W.fuel = r.mpg ? W.miles / r.mpg * 4.546 * fuelP : 0;
-        W.cost = (W.wage || 0) + (W.lease || 0) + W.fuel;
-        W.marginDay = W.weekdays ? (W.revenue - W.cost) / W.weekdays : 0;
+function mdStats(scope){
+  var weeks = mdWeeks(scope), rows = {}, fleet = { miles:0, gaps:0, runs:0, loads:0, dayKeys:{} };
+  RESOURCES.forEach(function(r){ rows[r.ini] = { ini:r.ini, name:r.name, sub:!!r.sub, days:0, runs:0, loads:0, miles:0, gaps:0 }; });
+  weeks.forEach(function(w){
+    for (var d = 0; d < 6; d++) {
+      RESOURCES.forEach(function(r){
+        var runs = runsFor(d, r.ini, w).filter(function(x){ return x.length; }); if (!runs.length) return;
+        var row = rows[r.ini]; row.days++; row.runs += runs.length; fleet.runs += runs.length; fleet.dayKeys[w + '|' + d] = 1;
+        runs.forEach(function(run){ row.loads += run.length; fleet.loads += run.length; var rm = runMiles(run); if (rm) { row.miles += rm.miles; row.gaps += rm.gaps; fleet.miles += rm.miles; fleet.gaps += rm.gaps; } });
       });
-      r.fuel = r.mpg ? r.miles / r.mpg * 4.546 * fuelP : null;
-      r.hasWage = r.wageDay != null && !r.sub; r.hasWagon = r.leaseWeek != null || r.mpg != null;
-      r.hasCost = r.hasWage || r.hasWagon;
-      r.wagon = (r.lease || 0) + (r.fuel || 0);
-      r.cost = r.hasCost ? r.wage + r.wagon : null;
-      var wdays = Math.max(1, Math.round(r.scheduled) || fleet.weekdays || 1); r.wdays = wdays;
-      r.costDay = r.cost != null ? r.cost / wdays : null; r.revDay = r.revenue / wdays;
-      r.marginDay = r.costDay != null ? r.revDay - r.costDay : null;
-      r.ppj = r.cost != null && r.loads ? (r.revenue - r.cost) / r.loads : null;
-      r.wagonDay = r.hasWagon ? r.wagon / wdays : null;
-      if (r.hasCost) { fleet.costed++; fleet.wages += r.wage; fleet.wagon += r.wagon; fleet.fuel += r.fuel || 0; fleet.lease += r.lease; }
-    });
-    fleet.cost = fleet.wages + fleet.wagon;
-    fleet.margin = fleet.revenue - fleet.cost;
-    fleet.marginPct = fleet.revenue ? fleet.margin / fleet.revenue * 100 : null;
-    fleet.ppj = fleet.loads ? fleet.margin / fleet.loads : null;
-    fleet.payroll = list.filter(function(r){ return r.hasWage && !r.droppedWeeks; }).length;
-  }
-  return { from:from, to:to, fleet:fleet, drivers:list, money:!!C, team:team };
-}
-function mcRange(scope){
-  /* overview periods look back from the week on show */
-  var mon = weekMon(S.week), sun = isoAdd(mon, 6);
-  if (scope === 'last4') return [isoAdd(mon, -21), sun];
-  if (scope === 'last12') return [isoAdd(mon, -77), sun];
-  return [mon, sun];
-}
-function lbRange(scope){
-  var y = TODAY.slice(0, 4), m = +TODAY.slice(5, 7);
-  if (scope === 'month') return [TODAY.slice(0, 8) + '01', TODAY];
-  if (scope === 'quarter') { var qm = Math.floor((m - 1) / 3) * 3 + 1; return [y + '-' + (qm < 10 ? '0' : '') + qm + '-01', TODAY]; }
-  if (scope === 'ytd') return [y + '-01-01', TODAY];
-  if (scope === 'custom') { var a = S.lbFrom || TODAY.slice(0, 8) + '01', b = S.lbTo || TODAY; return a <= b ? [a, b] : [b, a]; }
-  return [THIS_MON, isoAdd(THIS_MON, 6)];
-}
-function gbp(v, dash){ if (v == null || isNaN(v)) return '<span class="muted">' + (dash || 'n/a') + '</span>'; var n = Math.round(v); return (n < 0 ? '−£' : '£') + Math.abs(n).toLocaleString('en-GB'); }
-function signed(v){ if (v == null || isNaN(v)) return '<span class="muted">n/a</span>'; var n = Math.round(v); return '<span class="' + (n < 0 ? 'neg' : 'pos') + '">' + (n < 0 ? '−£' : '+£') + Math.abs(n).toLocaleString('en-GB') + '</span>'; }
-function num(v){ return (v == null ? 0 : Math.round(v)).toLocaleString('en-GB'); }
-function chips(r){
-  var sched = r.scheduled != null ? Math.round(r.scheduled) : null;
-  return '<div class="mc-chips"><span class="mc-chip">WORKED ' + r.days + (sched != null ? ' / ' + sched : '') + '</span><span class="mc-chip' + (r.leave ? ' leave' : '') + '">LEAVE ' + r.leave + '</span><span class="mc-chip' + (r.sick ? ' sick' : '') + '">SICK ' + r.sick + '</span>' + (r.daysWeek && r.daysWeek < 5 ? '<span class="mc-note">part time, ' + r.daysWeek + ' days</span>' : '') + '</div>';
-}
-function mcAv(r){ return '<span class="av' + (r.sub ? ' av-sub' : '') + '" style="width:32px;height:32px;font-size:' + (r.ini.length > 2 ? '10' : '12') + 'px">' + esc(r.ini) + '</span>'; }
-function mcStat(v, l, cls){ return '<div><div class="mc-v' + (cls ? ' ' + cls : '') + '">' + v + '</div><div class="mc-l">' + l + '</div></div>'; }
-function mcHeader(tab, extra){
-  var tabBtn = function(id, label){ return '<button class="mc-tab' + (tab === id ? ' on' : '') + '" data-act="mdTab" data-v="' + id + '">' + label + '</button>'; };
-  return '<div class="ph"><div class="t mc-t"><span class="mc-md">MD</span><div><div class="eyebrow">MANAGING DIRECTOR</div><h2>Mission Control <span class="mc-sub">· ' + (tab === 'service' ? 'Service Team' : tab === 'board' ? 'Leaderboard' : 'Haulage') + '</span></h2></div>' +
-    '<div class="mc-tabs">' + tabBtn('overview', 'OVERVIEW') + tabBtn('board', 'LEADERBOARD') + tabBtn('service', 'SERVICE TEAM') + '</div></div>' + (extra || '') +
-    '<button class="done lockbtn" data-act="mdLock" title="Lock the dashboard again; the PIN is asked for next time">LOCK</button><button class="done" data-act="closeMd">CLOSE</button></div>';
-}
-function mcScopeBar(){
-  var sc = S.mdScope || 'week', b = function(id, label){ return '<button class="mc-scope' + (sc === id ? ' on' : '') + '" data-act="mdScope" data-v="' + id + '">' + label + '</button>'; };
-  var r = mcRange(sc);
-  return '<div class="mc-scopes">' + b('week', 'WEEK ON SHOW') + b('last4', 'LAST 4 WEEKS') + b('last12', 'LAST 12 WEEKS') + '</div><div class="cell">' + fFull(r[0]) + ' to ' + fFull(r[1]) + '</div>';
-}
-function mcKpis(f, money, labels){
-  var tile = function(l, v, sub, cls){ return '<div class="metric"><div class="l">' + l + '</div><div class="v' + (cls ? ' ' + cls : '') + '">' + v + '</div><div class="sub">' + sub + '</div></div>'; };
-  var out = '<div class="metrics mc-k">' +
-    tile('Revenue', f.priced || f.revenue ? gbp(f.revenue) : '<span class="muted" style="font-size:18px">' + (f.loads ? 'no prices yet' : 'no jobs') + '</span>', num(f.loads) + ' ' + (labels.job || 'Booked') + ' · ' + num(f.invoiced) + ' Invoiced');
-  if (money) out += tile('Wages', gbp(f.wages), 'Standard time for ' + f.payroll + ' driver' + (f.payroll === 1 ? '' : 's') + ' · sick days at SSP') +
-    tile('Wagon Cost', gbp(f.wagon), labels.wagon || 'Total Lease and Fuel Cost') +
-    tile('Margin', f.revenue ? gbp(f.margin) : '<span class="muted" style="font-size:18px">n/a</span>', f.marginPct != null ? 'Margin ' + Math.round(f.marginPct) + '%' : 'needs revenue', f.revenue ? (f.margin < 0 ? 'neg' : 'pos') : '') +
-    tile('Profit Per Job', f.ppj != null && f.revenue ? gbp(f.ppj) : '<span class="muted" style="font-size:18px">n/a</span>', 'margin over ' + num(f.loads) + (labels.job === 'Jobs' ? ' job' : ' booked job') + (f.loads === 1 ? '' : 's'), f.revenue && f.ppj != null ? (f.ppj < 0 ? 'neg' : 'pos') : '');
-  out += tile(labels.miles || 'Fleet Miles', num(f.miles) + (f.gaps ? '+' : ''), f.wagonDays ? f.avgPerDay + ' a wagon day · ' + f.wagonDays + ' wagon days' : (labels.milesSub || 'planned road miles, out and back')) +
-    tile(labels.inUse || 'Fleet In Use', f.drivers + '<span class="mc-of"> / ' + (labels.total || 0) + '</span>', labels.inUseSub || '') + '</div>';
-  return out;
-}
-function mcDriverCard(r, st, open){
-  var money = st.money, margin = r.marginDay, hasRates = money && r.hasCost, noFeed = !!st.noFeed;
-  var cls = 'mc-card' + (open ? ' open' : '') + (r.droppedWeeks && !r.days ? ' off' : '') + (money && !hasRates && !r.sub ? ' norates' : '');
-  var head = '<div class="mc-head">' + mcAv(r) + '<div class="n"><b>' + esc(r.name) + '</b><span>' + (r.reg ? '<span class="plate">' + esc(r.reg) + '</span> ' : '') + esc(r.vtype || '') + (money && r.rate != null ? ' · £' + (+r.rate).toFixed(2) + ' an hour · ' + r.hoursWeek + ' h week' : '') + (r.sub ? 'one run per subbie wagon' : '') + '</span></div>' +
-    (money ? (hasRates && noFeed ? '<div class="mc-big"><div class="v">' + gbp(r.costDay) + '</div><div class="l">COST / DAY</div></div>' : hasRates ? '<div class="mc-big"><div class="v ' + (margin != null && margin < 0 ? 'neg' : 'pos') + '">' + (margin == null ? 'n/a' : (margin < 0 ? '−£' : '+£') + Math.abs(Math.round(margin)).toLocaleString('en-GB')) + '</div><div class="l">MARGIN / DAY</div></div>'
-      : r.sub ? '<div class="mc-big"><div class="v">' + num(r.loads) + '</div><div class="l">LOADS</div></div>' : '<div class="mc-big"><div class="v warnv">NO RATES SET</div><div class="l">ADD TO COSTS.JSON</div></div>')
-      : '<div class="mc-big"><div class="v">' + num(r.miles) + (r.gaps ? '+' : '') + '</div><div class="l">MILES</div></div>') +
-    '<button class="mc-x" data-act="mdCard" data-v="' + esc(r.ini) + '" aria-label="' + (open ? 'Collapse' : 'Expand') + '">' + (open ? '−' : '+') + '</button></div>';
-  var bar = '';
-  if (noFeed) bar = '';
-  else if (money && hasRates && r.revDay) { var pct = Math.max(0, Math.min(100, Math.round((r.revDay - (r.costDay || 0)) / r.revDay * 100))); bar = '<div class="mc-bar"><i style="width:' + pct + '%"></i><em style="width:' + (100 - pct) + '%"></em></div>'; }
-  else if (money && hasRates) bar = '<div class="mc-bar"><em style="width:100%"></em></div>';
-  var stats = '<div class="mc-stats">' + (money ? mcStat(r.revenue || r.priced ? gbp(r.revDay) : '<span class="muted">' + (noFeed ? 'no feed' : '—') + '</span>', 'REV / DAY') + mcStat(hasRates ? gbp(r.costDay) + (r.hasWage && !r.hasWagon ? '<span class="warnv">*</span>' : '') : '<span class="muted">—</span>', 'COST / DAY') + mcStat(hasRates && r.ppj != null && r.revenue ? gbp(r.ppj) : '<span class="muted">—</span>', 'PROFIT / JOB', hasRates && r.ppj != null && r.revenue ? (r.ppj < 0 ? 'neg' : 'pos') : '') : mcStat(r.days, 'DAYS') + mcStat(r.runs, 'RUNS')) +
-    mcStat(num(r.miles) + (r.gaps ? '+' : ''), 'MILES') + mcStat(num(r.loads) + '<span class="mc-of"> / ' + num(r.runs) + '</span>', 'LOADS / RUNS') + '</div>';
-  var foot = money && hasRates && r.hasWage && !r.hasWagon ? '<div class="mc-foot warn">* wage and fuel only: no lease or depreciation for this wagon in costs.json.</div>' : '';
-  var body = '';
-  if (open) {
-    var periods = [['This week', mcRange('week')], ['Last 4 weeks', mcRange('last4')], ['Last 12 weeks', mcRange('last12')]];
-    var tr = periods.map(function(p){ var s = mcStats(p[1][0], p[1][1], { team:st.team }), x = s.drivers.filter(function(d){ return d.ini === r.ini; })[0] || r;
-      return '<tr><td><b>' + p[0] + '</b></td><td class="n">' + x.days + (x.scheduled != null ? ' / ' + Math.round(x.scheduled) : '') + '</td><td class="n' + (x.leave ? ' leavev' : '') + '">' + x.leave + '</td><td class="n' + (x.sick ? ' neg' : '') + '">' + x.sick + '</td><td class="n">' + num(x.loads) + '</td><td class="n">' + num(x.miles) + (x.gaps ? '+' : '') + '</td>' +
-        (money ? '<td class="n">' + (noFeed ? '<span class="muted">no feed</span>' : signed(x.hasCost ? x.marginDay : null)) + '</td><td class="n">' + (x.hasCost && x.revenue && !noFeed ? signed(x.ppj) : '<span class="muted">n/a</span>') + '</td>' : '') + '</tr>'; }).join('');
-    var weeksBack = []; for (var i = 11; i >= 0; i--) weeksBack.push(isoAdd(weekMon(S.week), -7 * i));
-    var wkStats = mcStats(weeksBack[0], isoAdd(weeksBack[11], 6), { team:st.team }).drivers.filter(function(d){ return d.ini === r.ini; })[0];
-    var vals = weeksBack.map(function(mon){ var W = wkStats && wkStats.weeks[mon]; return W ? (money && r.hasCost ? W.marginDay : W.miles) : null; });
-    var mx = Math.max.apply(null, vals.map(function(v){ return Math.abs(v || 0); }).concat([1]));
-    var bars = '<div class="mc-weeks">' + vals.map(function(v, i){ var h = v == null ? 4 : Math.max(4, Math.round(Math.abs(v) / mx * 100)); return '<i title="w/c ' + fDay(weeksBack[i]) + ': ' + (v == null ? 'no data' : money && r.hasCost ? (v < 0 ? '−' : '') + '£' + Math.abs(Math.round(v)) + ' a day' : Math.round(v) + ' mi') + '" style="height:' + h + '%" class="' + (v == null ? 'none' : v < 0 ? 'neg' : '') + '"></i>'; }).join('') + '</div>' +
-      '<div class="mc-axis"><span>w/c ' + fDay(weeksBack[0]) + '</span><span>' + (money && r.hasCost ? 'margin per day, red = a loss week, grey = no data' : 'miles per week') + '</span><span>w/c ' + fDay(weeksBack[11]) + '</span></div>';
-    var mk = '';
-    if (money && hasRates) {
-      var rev = r.revDay || 0, parts = [['Margin', Math.max(0, r.marginDay || 0), '#0d823b'], ['Wage' + (r.sspDays ? ', ' + r.sspDays + ' sick day' + (r.sspDays > 1 ? 's' : '') + ' at SSP' : '') + (r.droppedWeeks ? ', ' + r.droppedWeeks + ' week' + (r.droppedWeeks > 1 ? 's' : '') + ' off sick dropped' : ''), r.wage / r.wdays, '#605d5d'], [(r.leaseKind === 'depreciation' ? 'Depreciation' : r.leaseKind === 'finance' ? 'Finance' : 'Lease') + (r.leaseWeek != null ? ', £' + num(r.leaseWeek) + ' a week' : ', not set'), (r.lease || 0) / r.wdays, '#9b9797'], ['Fuel, ' + num(r.miles) + ' mi at ' + (r.mpg || '?') + ' mpg', (r.fuel || 0) / r.wdays, '#d9730d']];
-      var tot = parts.reduce(function(a, p){ return a + p[1]; }, 0) || 1;
-      mk = '<div class="mc-mk"><div class="mc-mkbar">' + parts.map(function(p){ return '<i style="width:' + (p[1] / tot * 100) + '%;background:' + p[2] + '"></i>'; }).join('') + '</div>' +
-        '<div class="mc-mkrows">' + parts.map(function(p){ return '<i style="background:' + p[2] + '"></i><span>' + esc(p[0]) + '</span><b>' + gbp(p[1]) + '</b>'; }).join('') + '<span></span><span class="tot">Revenue per day</span><b class="tot">' + gbp(rev) + '</b></div>' +
-        '<div class="mc-foot">' + num(r.loads) + ' load' + (r.loads === 1 ? '' : 's') + ': ' + num(r.invoiced) + ' invoiced, ' + num(r.fromJob) + ' priced on the job' + (r.estimated ? ', ' + num(r.estimated) + ' estimated' : '') + (r.unpriced ? ', ' + num(r.unpriced) + ' with no price' : '') + '.</div></div>';
     }
-    body = '<div class="mc-body"><div class="mc-period"><div class="mc-sec">BY PERIOD</div><table class="mdt"><tr><th></th><th class="n">WORKED</th><th class="n">LEAVE</th><th class="n">SICK</th><th class="n">LOADS</th><th class="n">MILES</th>' + (money ? '<th class="n">MARGIN / DAY</th><th class="n">PROFIT / JOB</th>' : '') + '</tr>' + tr + '</table>' +
-      '<div class="mc-sec" style="margin-top:10px">' + (money && r.hasCost ? 'MARGIN PER DAY, LAST 12 WEEKS' : 'MILES, LAST 12 WEEKS') + '</div>' + bars + '</div>' + (mk ? '<div class="mc-makeup"><div class="mc-sec">WHERE THE DAY GOES, THIS PERIOD</div>' + mk + '</div>' : '') + '</div>';
+  });
+  /* money, only when the cost basis was sent (Team Edit). Fixed cost accrues every working day in the period, run or not;
+     fuel follows the miles planned; revenue is the price on each load when the feed carries one. */
+  var C = ARGS && ARGS.costs, weekdays = weeks.length * ((C && +C.working_days_per_week) || 5);
+  if (C) {
+    var hours = +C.hours_per_day || 9, wdpw = +C.working_days_per_week || 5, fuelP = +C.fuel_price_per_litre || 0;
+    fleet.cost = 0; fleet.revenue = 0; fleet.weekdays = weekdays;
+    weeks.forEach(function(w){ for (var d = 0; d < 6; d++) RESOURCES.forEach(function(r){
+      runsFor(d, r.ini, w).forEach(function(run){ run.forEach(function(l){ var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); var row = rows[r.ini]; row.revenue = (row.revenue || 0) + pr;
+        if (l.price != null && l.priceSrc === 'invoice') { row.priced = (row.priced || 0) + 1; row.invoiced = (row.invoiced || 0) + 1; fleet.invoiced = (fleet.invoiced || 0) + 1; }
+        else if (l.price != null) { row.priced = (row.priced || 0) + 1; row.fromJob = (row.fromJob || 0) + 1; fleet.fromJob = (fleet.fromJob || 0) + 1; }
+        else if (l.estPrice != null) { row.priced = (row.priced || 0) + 1; row.estimated = (row.estimated || 0) + 1; fleet.estimated = (fleet.estimated || 0) + 1; }
+        else { row.unpriced = (row.unpriced || 0) + 1; fleet.unpriced = (fleet.unpriced || 0) + 1; } }); });
+    }); });
+    /* fleet revenue: every booked load in the period whether or not it is on a run yet */
+    fleet.allLoads = 0; fleet.invoiced = 0; fleet.fromJob = 0; fleet.unpriced = 0; fleet.estimated = 0; var allRev = 0;
+    JOBS.forEach(function(j){ if (j.status === 'e' || weeks.indexOf(j.week) < 0) return; j.loads.forEach(function(l){
+      fleet.allLoads++; var pr = l.price != null ? +l.price : (l.estPrice != null ? +l.estPrice : 0); allRev += pr;
+      if (l.price != null && l.priceSrc === 'invoice') fleet.invoiced++; else if (l.price != null) fleet.fromJob++; else if (l.estPrice != null) fleet.estimated++; else fleet.unpriced++; }); });
+    Object.keys(rows).forEach(function(k){
+      var r = rows[k], rate = (C.drivers || {})[k], v = (C.vehicles || {})[k];
+      r.reg = v && v.reg ? v.reg : ''; r.vehNote = v && v.note ? v.note : '';
+      r.wageDay = rate != null ? +rate * hours : null;
+      r.leaseDay = v && v.lease_per_week != null ? +v.lease_per_week / wdpw : null;
+      r.fuel = v && +v.mpg ? r.miles / +v.mpg * 4.546 * fuelP : null;
+      r.hasCost = r.wageDay != null || r.leaseDay != null || r.fuel != null;
+      r.fixedDay = (r.wageDay || 0) + (r.leaseDay || 0);
+      r.cost = r.hasCost ? r.fixedDay * weekdays + (r.fuel || 0) : null;
+      r.costDay = r.hasCost ? r.fixedDay + (r.fuel || 0) / weekdays : null;
+      r.revenue = r.revenue || 0; r.revDay = r.revenue / weekdays;
+      if (r.cost != null) fleet.cost += r.cost;
+    });
+    fleet.revenue = allRev; fleet.priced = fleet.invoiced + fleet.fromJob + fleet.estimated; fleet.plannedRevenue = Object.keys(rows).reduce(function(a, k){ return a + (rows[k].revenue || 0); }, 0);
   }
-  return '<div class="' + cls + '">' + head + (r.sub ? '' : chips(r)) + bar + stats + foot + body + '</div>';
-}
-function mcWagonRow(r, st){
-  var money = st.money, from = st.from, to = st.to, days = isoDays(from, to).filter(isWeekday);
-  var segs = days.length <= 10 && st.team !== 'service' ? days.map(function(iso){ var k = hol(r.ini, iso), d = dayData(iso), src = d ? d.drivers || {} : {}, out = src[r.ini] && src[r.ini].days;
-    return '<i class="' + (out ? 'out' : k === 'sick' ? 'sick' : k === 'leave' ? 'leave' : '') + '" title="' + fFull(iso) + (out ? ': out' : k ? ': ' + (k === 'sick' ? 'sick' : 'annual leave') : '') + '"></i>'; }).join('')
-    : '<i class="out" style="flex:' + r.days + '"></i><i class="leave" style="flex:' + r.leave + '"></i><i class="sick" style="flex:' + r.sick + '"></i><i style="flex:' + Math.max(0, Math.round(r.scheduled || 0) - r.days - r.leave - r.sick) + '"></i>';
-  var parked = !st.noFeed && r.scheduled && !r.days && r.leaseWeek;
-  var cap = 'OUT ' + r.days + ' OF ' + Math.round(r.scheduled || 0) + ' DAYS' + (r.sick ? ' · ' + r.sick + ' SICK' : '') + (r.leave && !parked ? ' · ' + r.leave + ' LEAVE' : '');
-  if (st.noFeed) cap = 'NO CHARGES YET: WAITING FOR KEN\'S WEEKLY FILE' + (r.sick ? ' · ' + r.sick + ' SICK' : '') + (r.leave ? ' · ' + r.leave + ' LEAVE' : '');
-  else if (parked) cap = (r.leave >= (r.scheduled || 0) ? 'ANNUAL LEAVE' : r.sick >= (r.scheduled || 0) ? 'OFF SICK' : 'PARKED') + ' ALL PERIOD · ' + gbp(r.lease) + ' ' + (r.leaseKind === 'finance' ? 'FINANCE' : r.leaseKind === 'depreciation' ? 'DEPRECIATION' : 'LEASE') + ' WITH NO RUNS';
-  return '<div class="mc-wagon' + (parked ? (r.leave >= (r.scheduled || 0) ? ' leave' : ' parked') : '') + (money && !r.hasWagon ? ' norates' : '') + '">' +
-    '<div class="mc-wreg"><span class="plate">' + esc(r.reg || '—') + '</span><span>' + esc(r.vtype || '') + (r.vtype ? ' · ' : '') + esc(r.ini) + '</span></div>' +
-    '<div class="mc-wmid"><div class="mc-wline"><span>' + num(r.miles) + (r.gaps ? '+' : '') + ' mi' + (money && r.mpg ? ' · ' + r.mpg + ' mpg · fuel ' + gbp(r.fuel) : '') + '</span><span>' + (money ? (r.leaseWeek != null ? (r.leaseWeek ? (r.leaseKind === 'finance' ? 'finance' : r.leaseKind === 'depreciation' ? 'depreciation' : 'lease') + ' £' + (+r.leaseWeek).toLocaleString('en-GB') + ' / wk' : 'owned, fully depreciated') : '<span class="warnv">finance or depreciation not set</span>') : '') + '</span></div>' +
-    '<div class="mc-segs">' + segs + '</div><div class="mc-cap' + (parked ? ' parkedv' : '') + '">' + cap + '</div></div>' +
-    (money ? '<div class="mc-big"><div class="v' + (parked ? ' neg' : '') + '">' + (r.hasWagon ? gbp(r.wagonDay) : '—') + '</div><div class="l">WAGON / DAY</div></div>' : '') + '</div>';
-}
-function mcSort(list, key){
-  var k = S.mdSort || key || 'margin';
-  var val = function(r){ return k === 'miles' ? r.miles : k === 'ppj' ? (r.ppj == null ? -1e12 : r.ppj) : k === 'loads' ? r.loads : (r.marginDay == null ? -1e12 : r.marginDay); };
-  return list.slice().sort(function(a, b){ if (a.sub !== b.sub) return a.sub ? 1 : -1; return val(b) - val(a); });
-}
-function renderMd(){
-  var tab = S.mdTab || 'overview';
-  if (tab === 'board') return renderMdBoard();
-  if (tab === 'service') return renderMdService();
-  var r = mcRange(S.mdScope || 'week'), st = mcStats(r[0], r[1]), f = st.fleet, money = st.money;
-  var sortBtn = function(id, l){ return '<button class="' + ((S.mdSort || 'margin') === id ? 'on' : '') + '" data-act="mdSort" data-v="' + id + '">' + l + '</button>'; };
-  var drivers = mcSort(st.drivers.filter(function(x){ return x.days || x.hasCost || x.sub; }));
-  var cards = drivers.map(function(d){ return mcDriverCard(d, st, S.mdCard === d.ini); }).join('');
-  var wagons = st.drivers.filter(function(x){ return !x.sub && (x.reg || x.days); }).map(function(d){ return mcWagonRow(d, st); }).join('');
-  var unassigned = money && ARGS.costs._unassigned_vehicles ? Object.keys(ARGS.costs._unassigned_vehicles).map(function(k){ var v = ARGS.costs._unassigned_vehicles[k]; return '<div class="mc-wagon norates"><div class="mc-wreg"><span class="plate">' + esc(v.reg || k) + '</span><span>' + esc(k) + ' · no driver</span></div><div class="mc-wmid"><div class="mc-foot">' + esc(v.note || '') + '</div></div><div class="mc-big"><div class="v">—</div><div class="l">WAGON / DAY</div></div></div>'; }).join('') : '';
-  var cover = f.covered < f.totalDays ? '<div class="mc-cover">' + (f.totalDays - f.covered) + ' of ' + f.totalDays + ' days in this period have no data yet: history builds from the day Mission Control first saved (V4.3).</div>' : '';
-  return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control">' +
-    mcHeader('overview', mcScopeBar()) +
-    mcKpis(f, money, { total:st.drivers.filter(function(x){ return !x.sub; }).length, inUseSub:(function(){ var off = st.drivers.filter(function(x){ return !x.sub && !x.days && (x.leave || x.sick); }); return off.length ? off.map(function(x){ return x.ini + ' ' + (x.sick >= x.leave ? 'sick' : 'on leave'); }).join(' · ') : 'SUB as needed'; })() }) + cover +
-    '<div class="mc-grid"><div class="mc-col"><div class="sechd"><b>DRIVERS</b><div class="seg">' + sortBtn('margin', 'MARGIN') + sortBtn('miles', 'MILES') + sortBtn('ppj', 'PROFIT / JOB') + '</div></div><div class="mc-cards">' + (cards || '<div class="none">No planned runs in this period yet. Plan a run in the day view and it shows here.</div>') + '</div></div>' +
-    '<div class="mc-col"><div class="sechd"><b>WAGONS</b><span class="mc-legend"><i class="out"></i>Out <i class="leave"></i>Annual Leave <i class="sick"></i>Sickness' + (money ? ' · Diesel £' + (+ARGS.costs.fuel_price_per_litre || 0).toFixed(2) + ' / litre' : '') + '</span></div><div class="mc-wagons">' + wagons + unassigned + '</div></div></div>' +
-    '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back, a postcode counted once per run. A plus means a leg could not be measured. Only planned runs count for a driver; the fleet revenue counts every booked job in the period.' +
-      (money ? ' Cost per day = wage (hourly rate × contracted hours ÷ working days; single sick days at the SSP daily rate; a driver off a full week for anything other than annual leave drops out of that week\'s wage bill; annual leave is paid as standard time) + lease, finance or depreciation ÷ 5 + fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price). Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in data/costs.json and only reach the page once the PIN has been given. Revenue is the price on each job in Big Change, replaced by the invoiced total once invoiced.' : '') + '</div></div></div>';
-}
-function renderMdBoard(){
-  var sc = S.lbScope || 'week', r = lbRange(sc), st = mcStats(r[0], r[1]), money = st.money;
-  var sv = (mcCostBasis() && mcCostBasis().service_team) ? mcStats(r[0], r[1], { team:'service' }) : null;
-  var all = st.drivers.filter(function(x){ return !x.sub; }).concat(sv ? sv.drivers.filter(function(x){ return !st.drivers.some(function(h){ return h.ini === x.ini; }) && x.days; }) : []);   /* service drivers join the boards once the feed gives them jobs */
-  var b = function(id, label){ return '<button class="mc-scope' + (sc === id ? ' on' : '') + '" data-act="lbScope" data-v="' + id + '">' + label + '</button>'; };
-  var wdays = isoDays(r[0], r[1]).filter(isWeekday).length;
-  var board = function(title, sub, key, fmt, asc, cls){
-    var rows = all.slice().filter(function(x){ return key(x) != null; }).sort(function(a, b2){ return asc ? key(a) - key(b2) : key(b2) - key(a); });
-    var un = all.filter(function(x){ return key(x) == null; });
-    var mx = Math.max.apply(null, rows.map(function(x){ return Math.abs(key(x)); }).concat([1]));
-    var rank = 0, prev = null, html = rows.map(function(x, i){ var v = key(x); if (v !== prev) rank = i + 1; prev = v;
-      return '<div class="mc-lbrow' + (rank === 1 ? ' top' : '') + '"><b class="rk' + (rank === 1 ? ' gold' : rank === 2 ? ' silver' : rank === 3 ? ' bronze' : '') + '">' + rank + '</b>' + mcAv(x) + '<span class="nm"><b>' + esc(x.name) + '</b>' + (asc ? '<small class="' + (v ? 'neg' : 'pos') + '">' + (v ? v + ' day' + (v > 1 ? 's' : '') + ' · ' : '') + x.days + ' of ' + Math.round(x.scheduled || wdays) + ' in</small>' : '<i style="width:' + Math.round(Math.abs(v) / mx * 100) + '%" class="' + (v < 0 ? 'neg' : cls || '') + '"></i>') + '</span><b class="val' + (v < 0 ? ' neg' : asc ? (v ? ' neg' : '') : cls === 'green' ? ' pos' : '') + '">' + fmt(v) + '</b></div>'; }).join('') +
-      un.map(function(x){ return '<div class="mc-lbrow un"><b class="rk">–</b>' + mcAv(x) + '<span class="nm"><b>' + esc(x.name) + '</b><small class="warnv">no rates set</small></span><b class="val muted">—</b></div>'; }).join('');
-    return '<div class="mc-board"><div class="mc-bhd"><b>' + title + '</b><span>' + sub + '</span></div>' + (html || '<div class="none">Nothing in this period.</div>') + '</div>';
-  };
-  var boards = board('REVENUE', '£ INVOICED OR PRICED', function(x){ return x.revenue; }, function(v){ return gbp(v); }, false, 'green') +
-    board('LOADS', 'PLANNED ON A RUN', function(x){ return x.loads; }, num, false, 'black') +
-    board('MILES', 'ROUND TRIPS, PLANNED', function(x){ return x.miles; }, function(v){ return num(v); }, false, 'grey') +
-    (money ? board('PROFIT', 'REVENUE LESS COST', function(x){ return x.hasCost && x.revenue ? x.revenue - x.cost : null; }, function(v){ return gbp(v); }, false, 'green') : '') +
-    board('SICK DAYS', 'FEWEST FIRST', function(x){ return x.sick; }, function(v){ return String(v); }, true);
-  var custom = '<div class="mc-custom"><label for="lbfrom">FROM</label><input type="date" id="lbfrom" min="2024-01-01" max="2030-12-31" value="' + (S.lbFrom || r[0]) + '"><label for="lbto">TO</label><input type="date" id="lbto" min="2024-01-01" max="2030-12-31" value="' + (S.lbTo || r[1]) + '"></div>';
-  return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control leaderboard">' + mcHeader('board') +
-    '<div class="mc-pbar"><span class="mc-plbl">PERIOD</span>' + b('week', 'THIS WEEK') + b('month', 'THIS MONTH') + b('quarter', 'THIS QUARTER') + b('ytd', 'YEAR TO DATE') + b('custom', 'CUSTOM') + (sc === 'custom' ? custom : '') + '<span class="mc-fill"></span><span class="cell">' + fFull(r[0]) + ' to ' + fFull(r[1]) + ' · ' + wdays + ' working day' + (wdays === 1 ? '' : 's') + '</span></div>' +
-    (st.fleet.covered < st.fleet.totalDays ? '<div class="mc-cover">' + (st.fleet.totalDays - st.fleet.covered) + ' of ' + st.fleet.totalDays + ' days in this period have no data yet: history builds from the day Mission Control first saved (V4.3).</div>' : '') +
-    '<div class="mc-boards">' + boards + '</div>' +
-    '<div class="mdnote">Gold row = top of the board; ties share a rank. Haulage drivers count planned loads and run miles; service drivers count the jobs and charges in Ken\'s weekly file once it exists. Profit needs a rate in costs.json; drivers without one sit at the bottom unranked. Sick days come from the Sickness entries in Vehicles &amp; Holidays.</div></div></div>';
-}
-function renderMdService(){
-  var C = mcCostBasis(), r = mcRange(S.mdScope || 'week');
-  if (!C || !C.service_team) return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control service team">' + mcHeader('service', mcScopeBar()) + '<div class="none">No service team in costs.json yet. Add a service_team block (driver initials, name, reg, type, mpg, finance or depreciation per week) and it shows here.</div></div></div>';
-  var st = mcStats(r[0], r[1], { team:'service' }), f = st.fleet, hasFeed = hasServiceData(); st.noFeed = !hasFeed;
-  var sortBtn = function(id, l){ return '<button class="' + ((S.mdSort || 'margin') === id ? 'on' : '') + '" data-act="mdSort" data-v="' + id + '">' + l + '</button>'; };
-  var groups = {}; st.drivers.forEach(function(d){ var g = /18t|wagon/i.test(d.vtype || '') ? '18T SERVICE WAGONS' : /tank/i.test(d.vtype || '') ? 'TANKERS' : 'SERVICE'; (groups[g] = groups[g] || []).push(d); });
-  var cards = Object.keys(groups).sort().map(function(g){ return '<div class="mc-group"><span>' + g + '</span><i></i></div><div class="mc-cards">' + mcSort(groups[g]).map(function(d){ return mcDriverCard(d, st, S.mdCard === d.ini); }).join('') + '</div>'; }).join('');
-  var wagons = st.drivers.map(function(d){ return mcWagonRow(d, st); }).join('');
-  return '<div class="ov" data-act="closeBg"><div class="panel md mc" role="dialog" aria-label="Mission Control service team">' + mcHeader('service', mcScopeBar()) +
-    '<div class="notice"><span class="pill">BIG CHANGE</span><span>' + (hasFeed ? 'Service drivers never appear on the planner schedule. What each driver charged per week comes from Big Change through Ken (data/service_weeks.json' + (ARGS.service.generated_at ? ', written ' + esc(String(ARGS.service.generated_at).slice(0, 16).replace('T', ' ')) : '') + '); wages and wagon costs from costs.json.' : '<b>Waiting for Ken\'s weekly service charges.</b> Service drivers never appear on the planner schedule. Ken is to write data/service_weeks.json with what each service driver charged per week (jobs, charged, invoiced, miles); until then this tab shows the team, wages and wagon costs only.') + '</span></div>' +
-    mcKpis(f, st.money, { job:'Jobs', wagon:'Total Finance, Depreciation and Fuel', miles:'Miles', milesSub:'from Ken\'s weekly charges file', inUse:'Team In', total:st.drivers.length, inUseSub:(function(){ var t = Object.keys(groups).map(function(g){ return groups[g].length + ' ' + g.toLowerCase(); }); return t.join(' · '); })() }) +
-    '<div class="mc-grid"><div class="mc-col"><div class="sechd"><b>SERVICE DRIVERS</b><div class="seg">' + sortBtn('margin', 'MARGIN') + sortBtn('loads', 'JOBS') + sortBtn('miles', 'MILES') + '</div></div><div class="mc-cardwrap">' + cards + '</div></div>' +
-    '<div class="mc-col"><div class="sechd"><b>SERVICE WAGONS</b><span class="mc-legend"><i class="out"></i>Out <i class="leave"></i>Annual Leave <i class="sick"></i>Sickness · Diesel £' + (+C.fuel_price_per_litre || 0).toFixed(2) + ' / litre</span></div><div class="mc-wagons">' + wagons + '</div></div></div>' +
-    '<div class="mdnote">Cost per day = wage (hourly rate × contracted hours ÷ working days, single sick days at SSP) + finance or depreciation ÷ 5 + fuel for the miles in Ken\'s weekly file. Revenue is what Ken reports charged per driver per week from Big Change (invoiced where raised, otherwise the price on the job); a week counts in a period when its Monday falls inside it. Sick days and leave for service drivers come from Vehicles &amp; Holidays entries made against their initials.</div></div></div>';
+  fleet.days = Object.keys(fleet.dayKeys).length;
+  fleet.avgPerDay = fleet.days ? Math.round(fleet.miles / fleet.days) : 0;
+  var list = Object.keys(rows).map(function(k){ return rows[k]; }).filter(function(r){ return r.days || (C && r.hasCost && !r.sub); });
+  list.forEach(function(r){ r.avg = r.days ? Math.round(r.miles / r.days) : 0; });
+  list.sort(function(a, b){ return b.miles - a.miles; });
+  fleet.drivers = list.filter(function(r){ return r.days; }).length;
+  return { fleet:fleet, drivers:list, weeks:weeks };
 }
 function renderMdPin(){
   var err = ARGS && ARGS.md_error;
   return '<div class="ov" data-act="closeBg"><div class="panel view mdpin" role="dialog" aria-label="MD dashboard PIN">' +
-    '<div class="ph"><div class="t"><div class="eyebrow">MISSION CONTROL</div><h2>Enter PIN</h2></div><button class="done" data-act="closeMd">CLOSE</button></div>' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>Enter PIN</h2></div><button class="done" data-act="closeMd">CLOSE</button></div>' +
     '<div class="pinbody"><input type="password" id="mdpin" inputmode="numeric" pattern="[0-9]*" maxlength="8" placeholder="PIN" aria-label="MD dashboard PIN" autocomplete="off">' +
-    '<button class="tbtn primary" data-act="mdPinGo">Open Mission Control</button>' +
-    (err ? '<div class="pinerr">' + esc(err) + '</div>' : '<div class="pinhint">Four digits. Mission Control holds wages, leases and margins, so it stays locked until the PIN is given.</div>') + '</div></div></div>';
+    '<button class="tbtn primary" data-act="mdPinGo">Open MD</button>' +
+    (err ? '<div class="pinerr">' + esc(err) + '</div>' : '<div class="pinhint">Four digits. The dashboard holds wages, leases and margins, so it stays locked until the PIN is given.</div>') + '</div></div></div>';
+}
+function renderMd(){
+  var scope = S.mdScope || 'week', st = mdStats(scope), f = st.fleet;
+  var w0 = st.weeks[0], w1 = st.weeks[st.weeks.length - 1], range = fFull(weekMon(w0)) + ' to ' + fFull(isoAdd(weekMon(w1), 6));
+  var opt = function(v, t){ return '<option value="' + v + '"' + (scope === v ? ' selected' : '') + '>' + t + '</option>'; };
+  var tile = function(l, v, sub){ return '<div class="metric"><div class="l">' + l + '</div><div class="v">' + v + '</div>' + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>'; };
+  var max = st.drivers.reduce(function(m, r){ return Math.max(m, r.miles); }, 0) || 1, money = !!(ARGS && ARGS.costs);
+  var gbp = function(v){ return v == null ? '<span class="muted">n/a</span>' : '£' + Math.round(v).toLocaleString('en-GB'); };
+  var rows = st.drivers.map(function(r){
+    var mg = money && r.costDay != null ? r.revDay - r.costDay : null;
+    var ppj = money && r.cost != null && r.loads ? (r.revenue - r.cost) / r.loads : null;
+    return '<tr><td><span class="av' + (r.sub ? ' av-sub' : '') + '" style="width:30px;height:30px;font-size:12px">' + esc(r.ini) + '</span></td><td><b>' + esc(r.name) + '</b>' + (money && r.reg ? '<div class="muted" style="font-size:11px">' + esc(r.reg) + (r.vehNote ? ' · ' + esc(r.vehNote) : '') + '</div>' : '') + '</td>' +
+      '<td class="n">' + r.days + '</td><td class="n">' + r.runs + '</td><td class="n">' + r.loads + '</td>' +
+      '<td class="n"><b>' + r.miles + (r.gaps ? '+' : '') + '</b></td><td class="n">' + r.avg + '</td>' +
+      (money ? '<td class="n" title="' + (r.hasCost ? 'Wage £' + Math.round(r.wageDay || 0) + ' + lease £' + Math.round(r.leaseDay || 0) + ' + fuel £' + Math.round((r.fuel || 0) / st.fleet.weekdays) + ' a day' : 'No rates for this driver in the cost basis') + '">' + gbp(r.costDay) + '</td>' +
+        '<td class="n" title="' + (r.priced ? (r.invoiced || 0) + ' invoiced, ' + (r.fromJob || 0) + ' priced on the job' + (r.estimated ? ', ' + r.estimated + ' estimated' : '') + (r.unpriced ? ', ' + r.unpriced + ' with no price' : '') + ', over ' + st.fleet.weekdays + ' working days' : 'No planned loads with a price') + '">' + (r.priced ? gbp(r.revDay) + (r.estimated ? '<span class="muted" title="Some or all estimated from the rate card">*</span>' : '') : '<span class="muted">' + (r.loads ? 'unpriced' : 'no loads') + '</span>') + '</td>' +
+        '<td class="n' + (mg != null && r.priced ? (mg < 0 ? ' neg' : ' pos') : '') + '">' + (r.priced && mg != null ? (mg < 0 ? '£' + Math.round(-mg).toLocaleString('en-GB') + ' loss' : gbp(mg)) : '<span class="muted">n/a</span>') + '</td>' +
+        '<td class="n' + (ppj != null && r.priced ? (ppj < 0 ? ' neg' : ' pos') : '') + '" title="' + (r.priced && ppj != null ? 'Period margin £' + Math.round(r.revenue - r.cost).toLocaleString('en-GB') + ' over ' + r.loads + ' job' + (r.loads > 1 ? 's' : '') : 'Needs priced loads and a cost basis') + '">' + (r.priced && ppj != null ? (ppj < 0 ? '£' + Math.round(-ppj).toLocaleString('en-GB') + ' loss' : gbp(ppj)) : '<span class="muted">n/a</span>') + '</td>' : '') +
+      '</tr>';
+  }).join('');
+  return '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' +
+      '<div class="cell"><select id="mdscope" aria-label="Period">' + opt('week', 'Week On Show') + opt('next4', 'Next 4 Weeks') + opt('all', 'All 18 Weeks Loaded') + '</select></div>' +
+      '<div class="cell">' + range + '</div><button class="done lockbtn" data-act="mdLock" title="Lock the dashboard again; the PIN is asked for next time">LOCK</button><button class="done" data-act="closeMd">CLOSE</button></div>' +
+    '<div class="metrics md4">' + tile('Fleet Miles', f.miles + (f.gaps ? '+' : ''), 'planned road miles, every run out and back') + tile('Days With Runs', f.days, 'day slots with at least one planned run') +
+      tile('Average Miles Per Day', f.avgPerDay, 'fleet miles over days with runs') + tile('Drivers Active', f.drivers, 'with at least one planned run') + '</div>' +
+    (money ? '<div class="metrics md4 money">' + tile('Wagon Cost, Period', gbp(f.cost), 'wages + leases every working day, + fuel for the miles planned') + tile('Cost Per Wagon Day', gbp(f.weekdays && st.drivers.filter(function(r){ return r.hasCost; }).length ? f.cost / f.weekdays / st.drivers.filter(function(r){ return r.hasCost; }).length : null), 'across the wagons with a cost basis') +
+      tile('Revenue, Period', f.priced ? gbp(f.revenue) : '<span class="muted" style="font-size:18px">' + (f.unpriced ? 'no prices yet' : 'no planned loads') + '</span>', f.priced ? 'every booked job in the period, planned or not: ' + (f.invoiced || 0) + ' invoiced · ' + (f.fromJob || 0) + ' priced on the job' + (f.estimated ? ' · ' + f.estimated + ' estimated' : '') + (f.unpriced ? ' · ' + f.unpriced + ' with no price' : '') + '; ' + gbp(f.plannedRevenue) + ' of it on runs so far' : 'the price on every booked job in the period, planned or not') + tile('Margin, Period', f.priced ? (f.revenue - f.cost < 0 ? '<span class="neg">' + gbp(f.cost - f.revenue) + ' loss</span>' : '<span class="pos">' + gbp(f.revenue - f.cost) + '</span>') : '<span class="muted" style="font-size:18px">n/a</span>', 'revenue less wagon cost' + (f.priced && f.estimated ? ', part estimated' : '')) +
+      tile('Profit Per Job', f.priced && f.allLoads ? (function(){ var v = (f.revenue - f.cost) / f.allLoads; return v < 0 ? '<span class="neg">' + gbp(-v) + ' loss</span>' : '<span class="pos">' + gbp(v) + '</span>'; })() : '<span class="muted" style="font-size:18px">n/a</span>', 'period margin over ' + (f.allLoads || 0) + ' booked job' + (f.allLoads === 1 ? '' : 's') + ', planned or not') + '</div>' : '') +
+    '<div class="mdbody">' + (st.drivers.length ?
+      '<table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">RUNS</th><th class="n">LOADS</th><th class="n">MILES</th><th class="n">AVG / DAY</th>' + (money ? '<th class="n">COST / DAY</th><th class="n">REV / DAY</th><th class="n">MARGIN / DAY</th><th class="n">PROFIT / JOB</th>' : '') + '</tr>' + rows + '</table>' :
+      '<div class="none">No planned runs in this period yet. Plan a run in the day view and it shows here.</div>') +
+    '<div class="mdnote">Mileage per driver is the sum of that driver\'s runs: depot to each site in run order and back to the depot, a postcode counted once per run. Average per day divides by the days that driver had a run. A plus means a leg could not be measured. Only planned runs count; loads not yet on a run add nothing. The feed holds from yesterday forward, so past weeks fill in as the dashboard grows.' +
+      (money ? ' Cost per day is the driver\'s wage for the day (hourly rate × hours per day) plus the wagon\'s weekly lease spread over the working days plus fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price); wages and leases count on every working day in the period whether or not a run is planned, so a quiet week shows its true cost. Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in data/costs.json in the repo and only reach the page once the MD PIN has been given. Revenue is each planned load\'s price in Big Change: the sale lines on the job (quantity × unit selling price, there from booking), replaced by the invoiced total ex VAT once invoiced. A load with no sale lines and no invoice adds nothing and is counted as having no price. The fleet revenue, margin and profit per job count every booked job in the period whether or not it is on a run yet; the driver rows count only the loads planned onto that driver\'s runs.' : '') + '</div></div></div></div>';
 }
 function renderView(){
   var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
@@ -1214,14 +933,11 @@ function renderVh(){
   var wk = [0,1,2,3,4,5,6].map(function(i){ return isoAdd(weekMon(S.week), i); }), inWeek = function(x){ return covers(x, wk); };
   var holsWk = S.hols.filter(inWeek), vehsWk = S.vehs.filter(inWeek), wkLabel = fRange(wk[0], wk[6]);
   var others = function(all, some, what){ var n = all.length - some.length; return n ? '<div class="none">' + n + ' more ' + what + ' outside this week: move to that week to see or remove ' + (n === 1 ? 'it' : 'them') + '.</div>' : ''; };
-  var hols = holsWk.slice().sort(byFrom).map(function(x){ var r = res(x.drv) || ((ARGS && ARGS.service_roster) || []).filter(function(q){ return q.ini === x.drv; })[0] || { name:x.drv };
-    return '<div class="row h"><span class="av" style="width:36px;height:36px;font-size:13px">' + esc(x.drv) + '</span><div class="nm"><b>' + esc(r.name) + '</b><span' + (x.kind === 'sick' ? ' class="sickl"' : '') + '>' + (x.kind === 'sick' ? 'SICKNESS' : 'ANNUAL LEAVE') + '</span></div><span class="rg">' + fRange(x.from, x.to) + '</span><button class="x" data-act="rmHol" data-v="' + x.id + '" aria-label="Remove holiday">×</button></div>'; }).join('');
+  var hols = holsWk.slice().sort(byFrom).map(function(x){ var r = res(x.drv) || { name:x.drv };
+    return '<div class="row h"><span class="av" style="width:36px;height:36px;font-size:13px">' + esc(x.drv) + '</span><div class="nm"><b>' + esc(r.name) + '</b><span>ANNUAL LEAVE</span></div><span class="rg">' + fRange(x.from, x.to) + '</span><button class="x" data-act="rmHol" data-v="' + x.id + '" aria-label="Remove holiday">×</button></div>'; }).join('');
   var vehs = vehsWk.slice().sort(byFrom).map(function(x){ var r = res(x.drv);
     return '<div class="row v"><span class="bigplate">' + esc(x.reg) + '</span><span class="vtype" style="background:' + (typeBg[x.type] || '#201e1d') + '">' + x.type + '</span><span style="font-size:13px;font-weight:600;color:' + (r ? '#201e1d' : '#9b9797') + '">' + (r ? esc(r.name) : 'No driver affected') + '</span><span class="rg">' + fRange(x.from, x.to) + '</span><button class="x" data-act="rmVeh" data-v="' + x.id + '" aria-label="Remove vehicle booking">×</button></div>'; }).join('');
-    var opts = function(sel, none, withService){ var o = (none ? '<option value="">None</option>' : '') + resNames().map(function(r){ return '<option value="' + r.ini + '"' + (r.ini === sel ? ' selected' : '') + '>' + esc(r.name) + '</option>'; }).join('');
-      var svc = withService ? ((ARGS && ARGS.service_roster) || []).filter(function(x){ return !isRes(x.ini); }) : [];
-      if (svc.length) o += '<optgroup label="Service team">' + svc.map(function(x){ return '<option value="' + esc(x.ini) + '"' + (x.ini === sel ? ' selected' : '') + '>' + esc(x.name) + '</option>'; }).join('') + '</optgroup>';
-      return o; };
+    var opts = function(sel, none){ return (none ? '<option value="">None</option>' : '') + resNames().map(function(r){ return '<option value="' + r.ini + '"' + (r.ini === sel ? ' selected' : '') + '>' + esc(r.name) + '</option>'; }).join(''); };
   var types = ['MOT','REPAIR','SERVICE','TEST'].map(function(t){ return '<option value="' + t + '"' + (t === v.type ? ' selected' : '') + '>' + t.charAt(0) + t.slice(1).toLowerCase() + '</option>'; }).join('');
   var reg = VEHICLES.map(function(x){ var r = res(x.driver); return '<span><span class="plate">' + x.reg + '</span>' + (r ? esc(r.name) : esc(x.note || 'No regular driver')) + '</span>'; }).join('');
   var known = VEHICLES.filter(function(x){ return x.reg === v.reg.trim(); })[0];
@@ -1229,13 +945,12 @@ function renderVh(){
     '<div class="ph"><div class="t"><div class="eyebrow">AVAILABILITY</div><h2>Driver Holidays &amp; Vehicle Bookings</h2></div>' +
       '<div class="cell" style="white-space:normal;max-width:330px">Anyone off pulses orange in the route planner on those days. Booking a registered vehicle fills in its driver.</div>' +
       '<button class="done" data-act="close">DONE</button></div>' +
-    '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>HOLIDAYS &amp; SICKNESS</b><span>' + holsWk.length + ' this week, ' + wkLabel + '</span></div>' +
+    '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>DRIVER HOLIDAYS</b><span>' + holsWk.length + ' this week, ' + wkLabel + '</span></div>' +
       (hols || '<div class="none">No Holidays This Week.</div>') + others(S.hols, holsWk, 'holiday' + (S.hols.length - holsWk.length === 1 ? '' : 's')) +
-      '<div class="form h"><label><span>DRIVER</span><select id="hd">' + opts(d.drv, false, true) + '</select><em></em></label>' +
-      '<label><span>REASON</span><select id="hk"><option value="leave"' + (d.kind !== 'sick' ? ' selected' : '') + '>Annual Leave</option><option value="sick"' + (d.kind === 'sick' ? ' selected' : '') + '>Sickness</option></select><em>' + (d.kind === 'sick' ? 'Single days at SSP; a full week drops the wage' : 'Paid as standard time') + '</em></label>' +
+      '<div class="form h"><label><span>DRIVER</span><select id="hd">' + opts(d.drv) + '</select><em></em></label>' +
       '<label><span>FROM</span><input type="date" id="hf" min="2024-01-01" max="2030-12-31" value="' + d.from + '"><em>' + fFull(d.from) + '</em></label>' +
       '<label><span>TO</span><input type="date" id="ht" min="2024-01-01" max="2030-12-31" value="' + d.to + '"><em>' + fFull(d.to) + '</em></label>' +
-      '<button class="go" data-act="addHol">' + (d.kind === 'sick' ? '+ Add Sickness' : '+ Add Holiday') + '</button></div></div>' +
+      '<button class="go" data-act="addHol">+ Add Holiday</button></div></div>' +
     '<div class="vhcol"><div class="sechd"><b>VEHICLE BOOKINGS</b><span>' + vehsWk.length + ' this week, ' + wkLabel + '</span></div>' +
       (vehs || '<div class="none">No Vehicle Bookings This Week.</div>') + others(S.vehs, vehsWk, 'booking' + (S.vehs.length - vehsWk.length === 1 ? '' : 's')) +
       '<div class="reg"><span class="k">REGISTER</span>' + reg + '</div>' +
@@ -1264,12 +979,7 @@ document.addEventListener('click', function(e){
   var t = e.target.closest('[data-act]'); if (!t) return;
   var act = t.getAttribute('data-act'), v = t.getAttribute('data-v'), dirty = '';
   if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.mdOpen = false; S.warn = ''; }
-  else if (act === 'openMd') { S.mdOpen = true; if (isTeam() && ARGS && ARGS.md_unlocked && historyChanged()) dirty = 'mission control history'; }
-  else if (act === 'mdTab') { S.mdTab = v; S.mdCard = null; }
-  else if (act === 'mdScope') S.mdScope = v;
-  else if (act === 'lbScope') { S.lbScope = v; if (v === 'custom' && !S.lbFrom) { var lr = lbRange('month'); S.lbFrom = lr[0]; S.lbTo = lr[1]; } }
-  else if (act === 'mdCard') S.mdCard = S.mdCard === v ? null : v;
-  else if (act === 'mdSort') S.mdSort = v;
+  else if (act === 'openMd') S.mdOpen = true;
   else if (act === 'closeMd') S.mdOpen = false;
   else if (act === 'mdPinGo') { var pinEl = document.getElementById('mdpin'); if (pinEl && pinEl.value) { S.mdPinSent = true; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_unlock', pin:pinEl.value }, dataType:'json' }); } return; }
   else if (act === 'mdLock') { S.mdOpen = false; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_lock' }, dataType:'json' }); return; }
@@ -1289,6 +999,8 @@ document.addEventListener('click', function(e){
   else if (act === 'openVh') S.vhOpen = true;
   else if (act === 'openVhDay') { var iso = dayIsos(S.week, +v)[0]; S.holDraft.from = S.holDraft.to = iso; S.vehDraft.from = S.vehDraft.to = iso; S.vhOpen = true; }
   else if (act === 'unassign') { move(v, null); dirty = 'unassigned load'; }
+  else if (act === 'autoSplit') { var ch = autoSplit(S.modalDay, v, S.week, true); tip(v + ': runs re-packed by bed space' + (ch ? ' (' + (ch > 0 ? '+' : '') + ch + ' run' + (Math.abs(ch) === 1 ? '' : 's') + ')' : ', no change') + '.'); dirty = 'auto split runs'; }
+  else if (act === 'autoSplitAll') { var tot = 0; RESOURCES.forEach(function(rr){ if (!rr.sub) tot += autoSplit(S.modalDay, rr.ini, S.week, true); }); tip('Every driver re-packed by bed space' + (tot ? ' (' + (tot > 0 ? '+' : '') + tot + ' runs overall)' : ', no change') + '.'); dirty = 'auto split all runs'; }
   else if (act === 'addRun') { var k = S.week + '|' + S.modalDay + '|' + v; S.extraRuns[k] = runsFor(S.modalDay, v).length + 1; }
   else if (act === 'delEnq') { P.enquiries = (P.enquiries || []).filter(function(q){ return q.id !== v; }); S.enqOpen = false; S.enqEdit = null; build(ARGS); dirty = 'deleted enquiry'; }
   else if (act === 'matchOk') { var mm = LIKELY.filter(function(m){ return m.enquiry_id + '|' + m.bigchange_card === v; })[0]; if (mm) { convertEnquiry(mm, 'office'); dirty = 'converted enquiry'; } }
@@ -1298,7 +1010,7 @@ document.addEventListener('click', function(e){
   else if (act === 'poolToggle') S.poolOpen = !S.poolOpen;
   else if (act === 'rmHol') { S.hols = S.hols.filter(function(x){ return String(x.id) !== v; }); dirty = 'removed holiday'; }
   else if (act === 'rmVeh') { S.vehs = S.vehs.filter(function(x){ return String(x.id) !== v; }); dirty = 'removed vehicle booking'; }
-  else if (act === 'addHol') { S.hols.push({ id:'h-' + Date.now(), drv:S.holDraft.drv, from:S.holDraft.from, to:S.holDraft.to, kind:S.holDraft.kind || 'leave' }); dirty = S.holDraft.kind === 'sick' ? 'added sickness' : 'added holiday'; }
+  else if (act === 'addHol') { S.hols.push({ id:'h-' + Date.now(), drv:S.holDraft.drv, from:S.holDraft.from, to:S.holDraft.to }); dirty = 'added holiday'; }
   else if (act === 'addVeh') { if (!S.vehDraft.reg.trim()) return; dirty = 'added vehicle booking'; S.vehs.push({ id:'v-' + Date.now(), reg:S.vehDraft.reg.trim(), type:S.vehDraft.type, drv:S.vehDraft.drv, from:S.vehDraft.from, to:S.vehDraft.to }); S.vehDraft.reg = ''; S.vehDraft.drv = ''; }
   else return;
   render();
@@ -1327,8 +1039,7 @@ document.addEventListener('input', function(e){
 document.addEventListener('change', function(e){
   var id = e.target.id, val = e.target.value;
   if (id === 'flt') S.filter = val;
-  else if (id === 'hk') S.holDraft.kind = val;
-  else if (id === 'lbfrom' || id === 'lbto') { if (saneDate(val)) { S[id === 'lbfrom' ? 'lbFrom' : 'lbTo'] = val; } else return; }
+  else if (id === 'mdscope') S.mdScope = val;
   else if (id === 'wkjump') S.week = +val;
   else if (id === 'hd') S.holDraft.drv = val;
   else if (id === 'ec') S.enqDraft.col = val;
@@ -1345,7 +1056,7 @@ document.addEventListener('change', function(e){
 document.addEventListener('keydown', function(e){
   if (e.key === 'Enter' && e.target && e.target.id === 'pwin') { var b = document.querySelector('[data-act=unlockGo]'); if (b) b.click(); return; }
   if (e.key === 'Enter' && e.target && e.target.id === 'mdpin') { var b2 = document.querySelector('[data-act=mdPinGo]'); if (b2) b2.click(); return; }
-  if (e.key === 'Escape') { if (S.mdOpen) S.mdOpen = false; else if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else if (S.modalDay != null) { S.modalDay = null; S.warn = ''; } else return; render(); } });
+  if (e.key === 'Escape') { if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else if (S.modalDay != null) { S.modalDay = null; S.warn = ''; } else return; render(); } });
 
 /* drag and drop, Team Edit only */
 function clearOver(){ document.querySelectorAll('.over').forEach(function(el){ el.classList.remove('over'); }); }
@@ -1415,8 +1126,6 @@ window.addEventListener('message', function(ev){
   var applied = build(args);
   render(); setHeight();
   if (applied) commit('converted enquiry');
-  /* V4.3: the first time Mission Control is unlocked in Team Edit, and whenever the feed has moved on, save today's history */
-  else if (args.can_edit && args.md_unlocked && S.mdOpen && historyChanged()) commit('mission control history');
 });
 post({ type:'streamlit:componentReady', apiVersion:1 });
 setHeight();
