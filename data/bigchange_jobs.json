@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T15:24:04",
+ "generated_at": "2026-10-06T15:40:59",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -3736,7 +3736,7 @@
       "type": "Site Move / Exchange",
       "price": 380.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 380.0
      }
     ],
@@ -3772,7 +3772,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
@@ -13569,22 +13569,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | Site Move / Exchange": {
-   "median": 265.0,
-   "count": 53
-  },
-  "Service Job | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 109
-  },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 682
-  },
-  "Water Fill | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 129
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 932
@@ -13592,6 +13576,14 @@
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 726
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 682
+  },
+  "Water Fill | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 127
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -13608,6 +13600,10 @@
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 183
+  },
+  "Service Job | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 108
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -13629,9 +13625,13 @@
    "median": 440.0,
    "count": 40
   },
+  "Hiab Transport | Site Move / Exchange": {
+   "median": 265.0,
+   "count": 53
+  },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 102
+   "count": 103
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
