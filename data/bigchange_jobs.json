@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T14:52:15",
+ "generated_at": "2026-10-06T15:00:47",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -4041,6 +4041,41 @@
     ],
     "pc_key": "WA83UJ",
     "miles": 19
+   },
+   {
+    "id": "bc-201091832",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Eldapoint",
+    "postcode": "L33 7SG",
+    "address": "Charley Wood Road., Knowlsley Ind. est., Liverpool, L33 7SG",
+    "order_number": "01-002746",
+    "units": {
+     "32ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201091832,
+      "ref": "AES/61260",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "Collection 32ft New build from Elderpoint",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201091832
+    ],
+    "refs": [
+     "AES/61260"
+    ],
+    "pc_key": "L337SG",
+    "miles": 21
    },
    {
     "id": "bc-200276118",
