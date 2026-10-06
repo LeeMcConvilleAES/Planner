@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T10:17:41",
+ "generated_at": "2026-10-06T10:32:36",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -12569,33 +12569,13 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | Site Move / Exchange": {
-   "median": 250.0,
-   "count": 59
-  },
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 719
-  },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 674
-  },
-  "Service Job | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 110
-  },
-  "Transport | 7.5t Transport Delivery": {
-   "median": 100.0,
-   "count": 114
-  },
-  "Hiab Transport | 0-25miles Hiab Collection": {
-   "median": 220.0,
-   "count": 103
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 925
+   "count": 927
+  },
+  "Hiab Transport | Site Move / Exchange": {
+   "median": 250.0,
+   "count": 56
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -12605,9 +12585,17 @@
    "median": 55.0,
    "count": 66
   },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 722
+  },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
    "count": 141
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 676
   },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -12616,6 +12604,10 @@
   "Hiab Transport | Hiab Delivery": {
    "median": 440.0,
    "count": 40
+  },
+  "Service Job | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 109
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -12633,9 +12625,17 @@
    "median": 220.0,
    "count": 68
   },
+  "Transport | 7.5t Transport Delivery": {
+   "median": 100.0,
+   "count": 113
+  },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
    "count": 129
+  },
+  "Hiab Transport | 0-25miles Hiab Collection": {
+   "median": 220.0,
+   "count": 102
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
