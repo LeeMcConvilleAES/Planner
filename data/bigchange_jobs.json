@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T11:26:15",
+ "generated_at": "2026-10-06T11:34:51",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -3808,7 +3808,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -12777,13 +12777,9 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 67
-  },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 722
+   "count": 723
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 250.0,
@@ -12795,7 +12791,7 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 928
+   "count": 929
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
@@ -12861,6 +12857,10 @@
    "median": 75.0,
    "count": 26
   },
+  "Tanker Service | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 66
+  },
   "Hiab Transport | Hiab Collection": {
    "median": 420.0,
    "count": 58
@@ -12883,7 +12883,7 @@
   },
   "Transport | 7.5t Transport Collection": {
    "median": 100.0,
-   "count": 99
+   "count": 100
   },
   "Tanker Service | 800G Waste Empty": {
    "median": 75.0,
