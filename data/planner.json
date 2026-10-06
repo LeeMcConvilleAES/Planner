@@ -890,7 +890,7 @@
    "id": "e-j-b126433d97",
    "day": "2026-10-14",
    "col": "col",
-   "customer": "Aldapoint",
+   "customer": "Eldapoint",
    "postcode": "L33 7SG",
    "po": "",
    "items": [
@@ -903,7 +903,7 @@
    "notes": "Not in Big Change.",
    "created_at": "2026-09-28T13:07:15+01:00",
    "created_by": "migration",
-   "edited_at": "2026-10-02T12:31:10"
+   "edited_at": "2026-10-06T14:04:52"
   },
   {
    "id": "e-j-3646ba72bb",
@@ -1007,6 +1007,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-06T15:03:44+01:00",
+ "updated_at": "2026-10-06T15:04:52+01:00",
  "updated_by": "office"
 }
