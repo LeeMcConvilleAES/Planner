@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T16:27:31",
+ "generated_at": "2026-10-06T16:29:40",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -4066,7 +4066,7 @@
       "last_price": 190.0
      }
     ],
-    "notes": "onsite move from WA8 3UJ   TO WAS8 3UX",
+    "notes": "onsite move from WA8 3UJ   TO WA8 3UX",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
