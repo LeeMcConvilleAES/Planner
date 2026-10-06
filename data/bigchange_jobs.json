@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T13:36:11",
+ "generated_at": "2026-10-06T13:38:19",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -3636,7 +3636,7 @@
       "type": "Hiab Delivery",
       "price": 350.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 350.0
      }
     ],
@@ -3674,7 +3674,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 441.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 441.0
      },
      {
@@ -12777,25 +12777,17 @@
   ]
  },
  "rate_card": {
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 723
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 931
   },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 678
-  },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 129
+   "count": 130
   },
   "Hiab Transport | Hiab Delivery": {
-   "median": 440.0,
-   "count": 40
+   "median": 395.0,
+   "count": 41
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 265.0,
@@ -12804,6 +12796,14 @@
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
    "count": 109
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 680
+  },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 722
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -12835,7 +12835,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 131
+   "count": 132
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -12847,11 +12847,11 @@
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 451
+   "count": 452
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
-   "count": 100
+   "count": 101
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
@@ -12867,7 +12867,7 @@
   },
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
-   "count": 60
+   "count": 61
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
@@ -12919,7 +12919,7 @@
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 60
+   "count": 61
   },
   "Service Job | Water Fill": {
    "median": 420.0,
