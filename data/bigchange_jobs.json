@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-06T11:23:29",
+ "generated_at": "2026-10-06T11:26:15",
  "window": [
   "2026-06-08",
   "2027-01-29"
@@ -3772,7 +3772,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 319.5,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 319.5
      }
     ],
@@ -12777,33 +12777,29 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 927
-  },
-  "Hiab Transport | Site Move / Exchange": {
-   "median": 250.0,
-   "count": 56
-  },
-  "Tanker Service | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 34
-  },
   "Tanker Service | Solar Toilet Service": {
    "median": 55.0,
-   "count": 66
+   "count": 67
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 722
   },
+  "Hiab Transport | Site Move / Exchange": {
+   "median": 250.0,
+   "count": 55
+  },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 141
+   "count": 142
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 928
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 676
+   "count": 678
   },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -12829,6 +12825,10 @@
    "median": 70.0,
    "count": 183
   },
+  "Tanker Service | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 33
+  },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
    "count": 68
@@ -12839,7 +12839,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 129
+   "count": 130
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -12851,7 +12851,7 @@
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 450
+   "count": 451
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
