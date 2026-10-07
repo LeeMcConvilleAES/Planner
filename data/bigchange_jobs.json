@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T09:05:35",
+ "generated_at": "2026-10-07T09:09:52",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4071,7 +4071,7 @@
       "bigchange_id": 200935239,
       "ref": "AES/61223",
       "desc": "onsite move",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 190.0,
       "est_price": null,
@@ -4081,7 +4081,7 @@
     ],
     "notes": "onsite move from WA8 3UJ   TO WA8 3UX",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200935239
     ],
