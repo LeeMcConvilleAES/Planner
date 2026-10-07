@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T16:01:47",
+ "generated_at": "2026-10-07T16:16:37",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -2679,10 +2679,10 @@
       "desc": "20ft",
       "status": "complete",
       "type": "25-50m Hiab Delivery",
-      "price": 530.0,
+      "price": 265.0,
       "est_price": null,
       "price_source": "invoice",
-      "last_price": 530.0
+      "last_price": 265.0
      },
      {
       "bigchange_id": 199344117,
@@ -4003,7 +4003,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -4039,7 +4039,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 530.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 530.0
      }
     ],
@@ -15502,10 +15502,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | Site Move / Exchange": {
-   "median": 265.0,
-   "count": 52
-  },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
    "count": 66
@@ -15525,6 +15521,10 @@
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 927
+  },
+  "Hiab Transport | Site Move / Exchange": {
+   "median": 265.0,
+   "count": 51
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -15560,7 +15560,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 131
+   "count": 133
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
@@ -15576,7 +15576,7 @@
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 728
+   "count": 730
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
@@ -15632,7 +15632,7 @@
   },
   "Tanker Service | SCMW Service (chemical)": {
    "median": 50.0,
-   "count": 12
+   "count": 13
   },
   "Transport | Toilet Delivery": {
    "median": 25.0,
