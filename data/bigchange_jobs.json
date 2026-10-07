@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T11:29:10",
+ "generated_at": "2026-10-07T11:35:34",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -5344,7 +5344,8 @@
     "address": "Roadnook Garden Village , Wanlip, LE7 4PN",
     "order_number": "01-003228",
     "units": {
-     "32ft": 3
+     "32ft": 3,
+     "10ft store": 1
     },
     "loads": [
      {
@@ -5378,20 +5379,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 483.0
+     },
+     {
+      "bigchange_id": 201165081,
+      "ref": "AES/61386",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 483.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 483.0
      }
     ],
-    "notes": "delivery of  32ft / delivery of 32ft / collection of 32 ft",
+    "notes": "delivery of  32ft / delivery of 32ft / collection of 32 ft / 10ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      201163845,
      201163946,
-     201164134
+     201164134,
+     201165081
     ],
     "refs": [
      "AES/61382",
      "AES/61383",
-     "AES/61384"
+     "AES/61384",
+     "AES/61386"
     ],
     "pc_key": "LE74PN",
     "miles": 107
