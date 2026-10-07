@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T13:38:02",
+ "generated_at": "2026-10-07T14:38:06",
  "window": [
   "2026-07-13",
   "2026-10-05"
@@ -601,12 +601,12 @@
   },
   "2026-10-05": {
    "AU": {
-    "jobs": 17,
+    "jobs": 18,
     "booked": 18,
     "charged": 591.0,
     "invoiced": 16,
-    "unpriced": 1,
-    "miles": 730.0
+    "unpriced": 2,
+    "miles": 779.0
    },
    "DB": {
     "jobs": 0,
@@ -617,36 +617,36 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 25,
+    "jobs": 27,
     "booked": 37,
     "charged": 1425.0,
     "invoiced": 22,
-    "unpriced": 3,
-    "miles": 1006.0
+    "unpriced": 5,
+    "miles": 1059.0
    },
    "JP": {
-    "jobs": 56,
+    "jobs": 57,
     "booked": 84,
     "charged": 3975.0,
-    "invoiced": 54,
-    "unpriced": 0,
-    "miles": 1321.0
+    "invoiced": 55,
+    "unpriced": 1,
+    "miles": 1357.0
    },
    "SB": {
-    "jobs": 27,
+    "jobs": 28,
     "booked": 58,
-    "charged": 1131.0,
-    "invoiced": 26,
+    "charged": 1156.0,
+    "invoiced": 28,
     "unpriced": 0,
-    "miles": 588.0
+    "miles": 600.0
    },
    "SE": {
-    "jobs": 29,
+    "jobs": 30,
     "booked": 37,
-    "charged": 901.0,
-    "invoiced": 29,
+    "charged": 921.0,
+    "invoiced": 30,
     "unpriced": 0,
-    "miles": 574.0
+    "miles": 610.0
    }
   }
  },
