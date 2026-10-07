@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T08:00:11",
+ "generated_at": "2026-10-07T08:25:27",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4107,7 +4107,7 @@
       "bigchange_id": 201091832,
       "ref": "AES/61260",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -4126,7 +4126,7 @@
     ],
     "notes": "Collection 32ft New build from Elderpoint / collection 32ft New Build Unit",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      201091832,
      201091971
