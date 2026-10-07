@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T16:25:03",
+ "generated_at": "2026-10-07T17:11:26",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -15775,10 +15775,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | 0-15m Hiab Collection": {
-   "median": 190.0,
-   "count": 66
-  },
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 182
@@ -15822,6 +15818,10 @@
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 123
+  },
+  "Hiab Transport | 0-15m Hiab Collection": {
+   "median": 190.0,
+   "count": 65
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -15917,7 +15917,7 @@
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 64
+   "count": 65
   },
   "Service Job | Water Fill": {
    "median": 420.0,
