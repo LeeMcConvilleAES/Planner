@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T11:27:10",
+ "generated_at": "2026-10-07T11:29:10",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4358,6 +4358,41 @@
     "miles": 26
    },
    {
+    "id": "bc-201164185",
+    "type": "Collection",
+    "col": "col",
+    "customer": "CoOp Live Arena",
+    "postcode": "M11 3DL",
+    "address": "Manchester, M11 3DL",
+    "order_number": "Ryan M11 COOP",
+    "units": {
+     "Generator": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201164185,
+      "ref": "AES/61385",
+      "desc": "Generator",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "Collect 2 x 200KVA Generators",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201164185
+    ],
+    "refs": [
+     "AES/61385"
+    ],
+    "pc_key": "M113DL",
+    "miles": null
+   },
+   {
     "id": "bc-199674911",
     "type": "Collection",
     "col": "col",
@@ -5309,7 +5344,7 @@
     "address": "Roadnook Garden Village , Wanlip, LE7 4PN",
     "order_number": "01-003228",
     "units": {
-     "32ft": 2
+     "32ft": 3
     },
     "loads": [
      {
@@ -5332,18 +5367,31 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 201164134,
+      "ref": "AES/61384",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 483.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 483.0
      }
     ],
-    "notes": "delivery of  32ft / delivery of 32ft",
+    "notes": "delivery of  32ft / delivery of 32ft / collection of 32 ft",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      201163845,
-     201163946
+     201163946,
+     201164134
     ],
     "refs": [
      "AES/61382",
-     "AES/61383"
+     "AES/61383",
+     "AES/61384"
     ],
     "pc_key": "LE74PN",
     "miles": 107
