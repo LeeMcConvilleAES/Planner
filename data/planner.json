@@ -1043,6 +1043,23 @@
    "notes": "",
    "created_at": "2026-09-28T13:07:15+01:00",
    "created_by": "migration"
+  },
+  {
+   "id": "e-1791378903325",
+   "day": "2026-10-15",
+   "col": "del",
+   "customer": "Jake",
+   "postcode": "M15",
+   "po": "",
+   "items": [
+    "24ft",
+    "24ft",
+    "20ft store",
+    "2+1"
+   ],
+   "notes": "",
+   "created_at": "2026-10-07T13:15:03",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -1126,6 +1143,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-07T11:31:46+01:00",
+ "updated_at": "2026-10-07T14:15:04+01:00",
  "updated_by": "office"
 }
