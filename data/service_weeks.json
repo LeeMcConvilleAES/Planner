@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T08:37:32",
+ "generated_at": "2026-10-07T09:37:40",
  "window": [
   "2026-07-13",
   "2026-10-05"
@@ -601,12 +601,12 @@
   },
   "2026-10-05": {
    "AU": {
-    "jobs": 12,
+    "jobs": 13,
     "booked": 18,
-    "charged": 391.0,
-    "invoiced": 10,
+    "charged": 441.0,
+    "invoiced": 12,
     "unpriced": 1,
-    "miles": 462.0
+    "miles": 511.0
    },
    "DB": {
     "jobs": 0,
@@ -617,36 +617,36 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 20,
+    "jobs": 22,
     "booked": 37,
     "charged": 1125.0,
     "invoiced": 18,
-    "unpriced": 2,
-    "miles": 880.0
+    "unpriced": 4,
+    "miles": 923.0
    },
    "JP": {
-    "jobs": 44,
+    "jobs": 46,
     "booked": 84,
-    "charged": 2940.0,
-    "invoiced": 41,
+    "charged": 3110.0,
+    "invoiced": 43,
     "unpriced": 2,
-    "miles": 883.0
+    "miles": 949.0
    },
    "SB": {
-    "jobs": 19,
+    "jobs": 20,
     "booked": 58,
     "charged": 775.0,
     "invoiced": 19,
-    "unpriced": 0,
-    "miles": 507.0
+    "unpriced": 1,
+    "miles": 514.0
    },
    "SE": {
-    "jobs": 23,
+    "jobs": 25,
     "booked": 37,
-    "charged": 750.0,
-    "invoiced": 21,
-    "unpriced": 1,
-    "miles": 443.0
+    "charged": 770.0,
+    "invoiced": 23,
+    "unpriced": 2,
+    "miles": 483.0
    }
   }
  },
@@ -659,7 +659,8 @@
    "wasteline": 69,
    "universal tankers": 14,
    "darren fishwick": 1,
-   "ste longworth": 1
+   "ste longworth": 1,
+   "rob brown": 1
   },
   "no_day": 0
  },
