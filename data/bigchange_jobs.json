@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T14:08:06",
+ "generated_at": "2026-10-07T14:12:17",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3963,7 +3963,7 @@
       "bigchange_id": 201174515,
       "ref": "AES/61404",
       "desc": "full ibc's",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -3973,7 +3973,7 @@
     ],
     "notes": "deliver 2x Full IBC's",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201174515
     ],
