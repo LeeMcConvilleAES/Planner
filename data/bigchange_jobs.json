@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T05:47:34",
+ "generated_at": "2026-10-07T06:15:03",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4035,7 +4035,7 @@
       "bigchange_id": 200833713,
       "ref": "AES/61150",
       "desc": "2+1 toilet bock, steps, ibc and",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
@@ -4045,7 +4045,7 @@
     ],
     "notes": "On Site move of 2+1 toilet bock, steps, IBC and",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200833713
     ],
