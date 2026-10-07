@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T09:18:14",
+ "generated_at": "2026-10-07T09:39:32",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3946,6 +3946,42 @@
     ],
     "pc_key": "BD15AN",
     "miles": 44
+   },
+   {
+    "id": "bc-201147444",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A CONNOLLY",
+    "postcode": "BD4 6JZ",
+    "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
+    "order_number": "01-003227",
+    "units": {
+     "stairs c/w landing": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201147444,
+      "ref": "AES/61366",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collect 2 x saircase",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201147444
+    ],
+    "refs": [
+     "AES/61366"
+    ],
+    "pc_key": "BD46JZ",
+    "miles": 43
    },
    {
     "id": "bc-200167784",
