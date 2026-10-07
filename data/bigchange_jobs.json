@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T15:00:20",
+ "generated_at": "2026-10-07T15:08:45",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3967,7 +3967,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -4268,7 +4268,7 @@
       "type": "Hiab Collection",
       "price": 650.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 650.0
      }
     ],
@@ -15502,15 +15502,7 @@
  "rate_card": {
   "Hiab Transport | Site Move / Exchange": {
    "median": 265.0,
-   "count": 53
-  },
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 728
-  },
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 929
+   "count": 52
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
@@ -15526,11 +15518,15 @@
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 680
+   "count": 683
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 927
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 458
+   "count": 459
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -15574,11 +15570,15 @@
   },
   "Hiab Transport | Hiab Collection": {
    "median": 420.0,
-   "count": 58
+   "count": 59
+  },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 728
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
-   "count": 127
+   "count": 128
   },
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
@@ -15642,7 +15642,7 @@
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 63
+   "count": 64
   },
   "Service Job | Water Fill": {
    "median": 420.0,
@@ -15650,7 +15650,7 @@
   },
   "(no category) | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 56
+   "count": 57
   },
   "Service Job | Fuel Delivery": {
    "median": 195.0,
