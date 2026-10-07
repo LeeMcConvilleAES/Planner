@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T11:01:48",
+ "generated_at": "2026-10-07T11:03:58",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4107,7 +4107,7 @@
       "bigchange_id": 200935239,
       "ref": "AES/61223",
       "desc": "onsite move",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 190.0,
       "est_price": null,
@@ -4117,7 +4117,7 @@
     ],
     "notes": "onsite move from WA8 3UJ   TO WA8 3UX",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200935239
     ],
@@ -14270,26 +14270,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | 0-25m Hiab Delivery": {
-   "median": 220.0,
-   "count": 68
-  },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 681
-  },
-  "Transport | 7.5t Transport Delivery": {
-   "median": 100.0,
-   "count": 113
-  },
-  "Service Job | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 107
-  },
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 930
-  },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
    "count": 128
@@ -14306,13 +14286,25 @@
    "median": 70.0,
    "count": 125
   },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 681
+  },
   "Hiab Transport | Hiab Delivery": {
    "median": 440.0,
    "count": 40
   },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 933
+  },
   "Hiab Transport | Site Move / Exchange": {
    "median": 265.0,
    "count": 54
+  },
+  "Hiab Transport | 0-25m Hiab Delivery": {
+   "median": 220.0,
+   "count": 67
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -14330,13 +14322,21 @@
    "median": 70.0,
    "count": 182
   },
+  "Service Job | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 106
+  },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 453
+   "count": 458
+  },
+  "Transport | 7.5t Transport Delivery": {
+   "median": 100.0,
+   "count": 112
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 123
+   "count": 125
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
@@ -14468,7 +14468,7 @@
   },
   "(no category) | Solar Toilet Service": {
    "median": 55.0,
-   "count": 6
+   "count": 7
   },
   "Repair/Maintenance | Stack / De -Stack": {
    "median": 100.0,
