@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T12:28:16",
+ "generated_at": "2026-10-07T12:30:25",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -4376,9 +4376,10 @@
       "desc": "Generator",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 275.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 275.0
      }
     ],
     "notes": "Collect 2 x 200KVA Generators",
