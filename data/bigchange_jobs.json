@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T15:40:44",
+ "generated_at": "2026-10-07T15:59:37",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3999,7 +3999,7 @@
       "bigchange_id": 201147444,
       "ref": "AES/61366",
       "desc": "stairs c/w landing",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -4009,7 +4009,7 @@
     ],
     "notes": "collect 2 x saircase",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201147444
     ],
@@ -4035,7 +4035,7 @@
       "bigchange_id": 200167784,
       "ref": "AES/60765",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 530.0,
       "est_price": null,
@@ -4045,7 +4045,7 @@
     ],
     "notes": "collect 32ft",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200167784
     ],
