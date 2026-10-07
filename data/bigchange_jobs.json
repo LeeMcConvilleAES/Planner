@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T07:45:18",
+ "generated_at": "2026-10-07T08:00:11",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3895,7 +3895,7 @@
       "type": "Toilet Delivery",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
@@ -13799,17 +13799,17 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 682
-  },
-  "Water Fill | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 127
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 931
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 681
+  },
+  "Water Fill | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 126
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -13933,7 +13933,7 @@
   },
   "Transport | Toilet Delivery": {
    "median": 25.0,
-   "count": 10
+   "count": 11
   },
   "Service Job | Eco welfare service": {
    "median": 70.0,
