@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-07T07:13:51",
+ "generated_at": "2026-10-07T07:24:16",
  "window": [
   "2026-06-09",
   "2027-01-30"
@@ -3891,7 +3891,7 @@
       "bigchange_id": 201092880,
       "ref": "AES/61262",
       "desc": "chem loo",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Delivery",
       "price": 25.0,
       "est_price": null,
@@ -3901,7 +3901,7 @@
     ],
     "notes": "delivery of chem loo",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201092880
     ],
