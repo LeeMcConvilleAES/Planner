@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T14:33:46",
+ "generated_at": "2026-10-08T14:35:56",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4535,7 +4535,7 @@
       "bigchange_id": 201191986,
       "ref": "",
       "desc": "chem loo delivery",
-      "status": "booked",
+      "status": "live",
       "type": "Toilet Delivery",
       "price": 75.0,
       "est_price": null,
@@ -4556,7 +4556,7 @@
     ],
     "notes": "4 x chem loo delivery / please deliver disabled chem loo",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201191986,
      201192532
