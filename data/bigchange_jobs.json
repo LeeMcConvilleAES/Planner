@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T08:32:20",
+ "generated_at": "2026-10-08T08:49:17",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -5945,6 +5945,41 @@
     ],
     "pc_key": "M84JZ",
     "miles": 15
+   },
+   {
+    "id": "bc-201250032",
+    "type": "Collection",
+    "col": "col",
+    "customer": "MCI Developments Ltd",
+    "postcode": "BL3 4JJ",
+    "address": "ELDERCOT ROAD, BOLTON, BL3 4JJ",
+    "order_number": "01-003239",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201250032,
+      "ref": "AES/61521",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collection of boss unit please take spare keys as the site will be taking key and bringing it to depot there self",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201250032
+    ],
+    "refs": [
+     "AES/61521"
+    ],
+    "pc_key": "BL34JJ",
+    "miles": 4
    }
   ],
   "2026-10-20": [
