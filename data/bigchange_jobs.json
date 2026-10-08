@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T14:44:19",
+ "generated_at": "2026-10-08T14:51:45",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4748,7 +4748,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 365.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 365.0
      },
      {
@@ -17233,29 +17233,21 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 66
-  },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 682
   },
+  "Hiab Transport | Hiab Collection": {
+   "median": 420.0,
+   "count": 60
+  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 924
+   "count": 923
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
    "count": 136
-  },
-  "Hiab Transport | 0-25miles Hiab Collection": {
-   "median": 220.0,
-   "count": 102
-  },
-  "Hiab Transport | Hiab Collection": {
-   "median": 420.0,
-   "count": 60
   },
   "Transport | 7.5t Transport Delivery": {
    "median": 100.0,
@@ -17267,7 +17259,7 @@
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 459
+   "count": 461
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
@@ -17291,7 +17283,7 @@
   },
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
-   "count": 61
+   "count": 62
   },
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
@@ -17304,6 +17296,10 @@
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
    "count": 100
+  },
+  "Hiab Transport | 0-25miles Hiab Collection": {
+   "median": 220.0,
+   "count": 101
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
@@ -17328,6 +17324,10 @@
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
    "count": 64
+  },
+  "Tanker Service | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 65
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 270.0,
