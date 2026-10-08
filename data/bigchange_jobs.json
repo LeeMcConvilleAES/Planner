@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T06:10:08",
+ "generated_at": "2026-10-08T06:50:39",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4570,7 +4570,7 @@
       "bigchange_id": 199674911,
       "ref": "AES/60433",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -4657,7 +4657,7 @@
     ],
     "notes": "COLLECTION OF 32FT / COLLECTION OF 4+2 / COLLECTION OF 2 X STAIRCASE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199674911,
      199674952,
