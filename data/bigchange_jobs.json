@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T11:19:26",
+ "generated_at": "2026-10-08T11:27:53",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4570,7 +4570,7 @@
       "bigchange_id": 196806980,
       "ref": "",
       "desc": "chem loo",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
@@ -4580,7 +4580,7 @@
     ],
     "notes": "collection of chem loo",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      196806980
     ],
