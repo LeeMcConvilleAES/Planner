@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T11:13:27",
+ "generated_at": "2026-10-08T11:19:26",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -28,7 +28,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 900.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 900.0
      }
     ],
@@ -4538,7 +4538,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -5740,9 +5740,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Delivery",
-      "price": null,
+      "price": 375.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 375.0
      }
     ],
     "notes": "32ft Unit from Zenex Yard Chorley PR7",
@@ -16750,18 +16751,6 @@
   ]
  },
  "rate_card": {
-  "Water Fill | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 125
-  },
-  "Hiab Transport | 0-15m Hiab Collection": {
-   "median": 190.0,
-   "count": 65
-  },
-  "(no category) | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 126
-  },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 684
@@ -16774,9 +16763,13 @@
    "median": 75.0,
    "count": 101
   },
+  "(no category) | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 125
+  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 926
+   "count": 927
   },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
@@ -16812,11 +16805,15 @@
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
-   "count": 128
+   "count": 129
   },
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 178
+  },
+  "Water Fill | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 124
   },
   "Hiab Transport | Hiab Delivery": {
    "median": 440.0,
@@ -16844,7 +16841,11 @@
   },
   "Transport | 7.5t Transport Collection": {
    "median": 100.0,
-   "count": 100
+   "count": 101
+  },
+  "Hiab Transport | 0-15m Hiab Collection": {
+   "median": 190.0,
+   "count": 64
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 270.0,
@@ -16924,7 +16925,7 @@
   },
   "Service Job | W4H Toilet 1+1": {
    "median": 50.0,
-   "count": 23
+   "count": 24
   },
   "Service Job | 12FT Office": {
    "median": 25.0,
