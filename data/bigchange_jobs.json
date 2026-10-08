@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T16:14:16",
+ "generated_at": "2026-10-08T16:39:34",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -6307,9 +6307,10 @@
       "desc": "4 hours work moving pallets on site and ",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 565.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 565.0
      }
     ],
     "notes": "4 hours work moving pallets on site and other equipment",
