@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T10:50:21",
+ "generated_at": "2026-10-08T10:52:30",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4890,9 +4890,10 @@
       "desc": "exchange 100kva generator",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 375.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 375.0
      }
     ],
     "notes": "Exchange 100kva generator at Proto's site return 100kva on site to WA16 6JN Greanpower Yarrd",
