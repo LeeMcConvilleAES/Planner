@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T13:03:35",
+ "generated_at": "2026-10-08T13:20:36",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4689,7 +4689,7 @@
       "bigchange_id": 199674911,
       "ref": "AES/60433",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
