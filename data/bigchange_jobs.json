@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T11:48:02",
+ "generated_at": "2026-10-08T12:14:12",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -16715,25 +16715,9 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 684
-  },
-  "Tanker Service | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 458
-  },
-  "Tanker Service | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 102
-  },
-  "(no category) | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 125
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 927
+   "count": 926
   },
   "(no category) | Chemical Toilet Service": {
    "median": 20.0,
@@ -16746,6 +16730,18 @@
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
    "count": 27
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 682
+  },
+  "Tanker Service | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 101
+  },
+  "Tanker Service | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 456
   },
   "Tanker Service | Solar Toilet Service": {
    "median": 55.0,
@@ -16765,7 +16761,7 @@
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
-   "count": 733
+   "count": 734
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
@@ -16790,6 +16786,10 @@
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
    "count": 103
+  },
+  "(no category) | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 124
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
@@ -16857,7 +16857,7 @@
   },
   "Tanker Service | Eco welfare service": {
    "median": 70.0,
-   "count": 66
+   "count": 67
   },
   "Service Job | Water Fill": {
    "median": 420.0,
@@ -16885,7 +16885,7 @@
   },
   "(no category) | Eco welfare service": {
    "median": 70.0,
-   "count": 21
+   "count": 22
   },
   "Service Job | W4H Toilet 1+1": {
    "median": 50.0,
