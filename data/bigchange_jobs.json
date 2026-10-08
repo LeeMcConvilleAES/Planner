@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T13:35:25",
+ "generated_at": "2026-10-08T13:49:33",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4550,7 +4550,7 @@
       "type": "Toilet Delivery",
       "price": 0.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 0.0
      }
     ],
@@ -4693,7 +4693,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -4715,7 +4715,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -16991,33 +16991,21 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 923
+  "Tanker Service | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 66
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 682
   },
-  "Tanker Service | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 101
-  },
-  "(no category) | Chemical Toilet Service": {
+  "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 141
-  },
-  "Tanker Service | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 456
-  },
-  "Tanker Service | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 66
+   "count": 924
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 134
+   "count": 136
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -17031,6 +17019,14 @@
    "median": 100.0,
    "count": 112
   },
+  "(no category) | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 140
+  },
+  "Tanker Service | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 459
+  },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 734
@@ -17041,7 +17037,7 @@
   },
   "(no category) | 1000Ltr Water Fill": {
    "median": 70.0,
-   "count": 178
+   "count": 179
   },
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
@@ -17061,7 +17057,11 @@
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 124
+   "count": 125
+  },
+  "Tanker Service | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 100
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
