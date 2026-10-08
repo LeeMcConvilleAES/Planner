@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T10:52:30",
+ "generated_at": "2026-10-08T10:56:40",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4496,7 +4496,7 @@
       "bigchange_id": 200974514,
       "ref": "AES/61229",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -4506,7 +4506,7 @@
     ],
     "notes": "collection of 12 ft boss unit",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      200974514
     ],
