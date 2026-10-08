@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T11:39:37",
+ "generated_at": "2026-10-08T11:43:46",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4755,42 +4755,6 @@
    }
   ],
   "2026-10-09": [
-   {
-    "id": "bc-201264753",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "CoOp Live Arena",
-    "postcode": "M11 3DL",
-    "address": "Manchester, M11 3DL",
-    "order_number": "COOP LIVE M11",
-    "units": {
-     "Generator": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201264753,
-      "ref": "AES/61528",
-      "desc": "Generator",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery",
-      "price": 250.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 250.0
-     }
-    ],
-    "notes": "Deliver 2 x 200kva generators to COOP LIVE ARENA",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     201264753
-    ],
-    "refs": [
-     "AES/61528"
-    ],
-    "pc_key": "M113DL",
-    "miles": null
-   },
    {
     "id": "bc-201191986",
     "type": "Delivery",
