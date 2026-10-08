@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T09:52:28",
+ "generated_at": "2026-10-08T09:56:43",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4566,7 +4566,7 @@
       "bigchange_id": 201164185,
       "ref": "AES/61385",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 275.0,
       "est_price": null,
@@ -4576,7 +4576,7 @@
     ],
     "notes": "Collect 2 x 200KVA Generators",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201164185
     ],
