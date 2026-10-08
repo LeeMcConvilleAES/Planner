@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T07:28:46",
+ "generated_at": "2026-10-08T08:30:15",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -15933,21 +15933,21 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 683
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 928
   },
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
-   "count": 105
-  },
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 927
+   "count": 104
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 265.0,
    "count": 51
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 683
   },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
