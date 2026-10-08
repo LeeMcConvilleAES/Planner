@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T12:50:03",
+ "generated_at": "2026-10-08T13:03:35",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -5049,9 +5049,10 @@
       "desc": "20ft mobile welfare",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 225.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 225.0
      }
     ],
     "notes": "On Site Move of 20ft mobile welfare",
@@ -16992,19 +16993,7 @@
  "rate_card": {
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 926
-  },
-  "(no category) | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 142
-  },
-  "Hiab Transport | 25-50 Miles Hiab Collection": {
-   "median": 265.0,
-   "count": 135
-  },
-  "Service Job | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 27
+   "count": 923
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
@@ -17014,6 +17003,10 @@
    "median": 75.0,
    "count": 101
   },
+  "(no category) | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 141
+  },
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 456
@@ -17021,6 +17014,10 @@
   "Tanker Service | Solar Toilet Service": {
    "median": 55.0,
    "count": 66
+  },
+  "Hiab Transport | 25-50 Miles Hiab Collection": {
+   "median": 265.0,
+   "count": 134
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -17073,6 +17070,10 @@
   "Fuel Delivery | Fuel Delivery": {
    "median": 195.0,
    "count": 7
+  },
+  "Service Job | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 26
   },
   "Hiab Transport | 0-15m Hiab Delivery": {
    "median": 190.0,
