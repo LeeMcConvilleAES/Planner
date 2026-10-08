@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-08T11:27:53",
+ "generated_at": "2026-10-08T11:39:37",
  "window": [
   "2026-06-10",
   "2027-01-31"
@@ -4574,7 +4574,7 @@
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
@@ -16761,7 +16761,7 @@
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
-   "count": 101
+   "count": 102
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
@@ -16909,7 +16909,7 @@
   },
   "Transport | Toilet Collection": {
    "median": 25.0,
-   "count": 12
+   "count": 13
   },
   "Transport | Site Move / Exchange": {
    "median": 100.0,
