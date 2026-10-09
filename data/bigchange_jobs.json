@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T11:36:17",
+ "generated_at": "2026-10-09T11:42:11",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5457,9 +5457,10 @@
       "desc": "20ft store on site",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 230.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 230.0
      }
     ],
     "notes": "Relocate 20ft Store on Site at WA13 0PE - Beresford & Curbishley Site",
@@ -5735,7 +5736,7 @@
     "address": "Charley Wood Road., Knowlsley Ind. est., Liverpool, L33 7SG",
     "order_number": "01-002746",
     "units": {
-     "32ft": 3
+     "32ft": 4
     },
     "loads": [
      {
@@ -5767,6 +5768,16 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 201403386,
+      "ref": "AES/61608",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
     "notes": "Collection 32ft Unit / Collect 32ft Unit",
@@ -5775,12 +5786,14 @@
     "bigchange_ids": [
      201403131,
      201403236,
-     201403335
+     201403335,
+     201403386
     ],
     "refs": [
      "AES/61605",
      "AES/61606",
-     "AES/61607"
+     "AES/61607",
+     "AES/61608"
     ],
     "pc_key": "L337SG",
     "miles": 21
@@ -6655,17 +6668,7 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [
-  {
-   "enquiry_id": "e-j-b126433d97",
-   "bigchange_card": "bc-201403131",
-   "level": "sure",
-   "why": "same day, same postcode",
-   "enquiry_customer": "Eldapoint",
-   "bigchange_customer": "Eldapoint",
-   "day": "2026-10-14"
-  }
- ],
+ "enquiry_matches": [],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
@@ -17808,7 +17811,7 @@
   },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 922
+   "count": 924
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
