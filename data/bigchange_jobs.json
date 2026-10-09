@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T13:09:15",
+ "generated_at": "2026-10-09T13:11:25",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4825,7 +4825,7 @@
       "bigchange_id": 201416721,
       "ref": "",
       "desc": "chem delivery",
-      "status": "booked",
+      "status": "live",
       "type": "Toilet Delivery",
       "price": 25.0,
       "est_price": null,
@@ -4835,7 +4835,7 @@
     ],
     "notes": "chem delivery",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201416721
     ],
