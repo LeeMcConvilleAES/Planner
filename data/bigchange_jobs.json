@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T09:59:07",
+ "generated_at": "2026-10-09T10:07:30",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4897,7 +4897,7 @@
       "bigchange_id": 201263434,
       "ref": "AES/61527",
       "desc": "exchange 100kva generator",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 375.0,
       "est_price": null,
@@ -4907,7 +4907,7 @@
     ],
     "notes": "Exchange 100kva generator at Proto's site return 100kva on site to WA16 6JN Greanpower Yarrd",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201263434
     ],
@@ -5016,7 +5016,7 @@
       "bigchange_id": 199734212,
       "ref": "AES/60497",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -5026,7 +5026,7 @@
     ],
     "notes": "COLLECTION OF 32FT - 8393 / COLLECTION OF 32FT - 7955",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199733674,
      199734212
