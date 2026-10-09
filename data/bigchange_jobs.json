@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T09:12:53",
+ "generated_at": "2026-10-09T09:15:03",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5125,7 +5125,7 @@
       "bigchange_id": 198895923,
       "ref": "AES/59772",
       "desc": "stairs c/w landing",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 300.0,
       "est_price": null,
@@ -6257,42 +6257,6 @@
     ],
     "pc_key": "ST163BW",
     "miles": 61
-   },
-   {
-    "id": "bc-201086851",
-    "type": "Collection",
-    "col": "col",
-    "customer": "HSS Hire Services Ltd",
-    "postcode": "HD1 6LD",
-    "address": "Alder Street, Huddersfield, HD1 6LD",
-    "order_number": "01-003216",
-    "units": {
-     "20ft store": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201086851,
-      "ref": "AES/61259",
-      "desc": "20ft store",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     }
-    ],
-    "notes": "collection of 20ft store",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     201086851
-    ],
-    "refs": [
-     "AES/61259"
-    ],
-    "pc_key": "HD16LD",
-    "miles": 36
    }
   ],
   "2026-10-21": [
@@ -6555,6 +6519,44 @@
     ],
     "pc_key": "DN110BF",
     "miles": 81
+   }
+  ],
+  "2026-12-18": [
+   {
+    "id": "bc-201086851",
+    "type": "Collection",
+    "col": "col",
+    "customer": "HSS Hire Services Ltd",
+    "postcode": "HD1 6LD",
+    "address": "Alder Street, Huddersfield, HD1 6LD",
+    "order_number": "01-003216",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201086851,
+      "ref": "AES/61259",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201086851
+    ],
+    "refs": [
+     "AES/61259"
+    ],
+    "pc_key": "HD16LD",
+    "miles": 36
    }
   ]
  },
