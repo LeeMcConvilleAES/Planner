@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T06:26:10",
+ "generated_at": "2026-10-09T07:10:24",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4733,7 +4733,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -17560,7 +17560,7 @@
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 137
+   "count": 138
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
