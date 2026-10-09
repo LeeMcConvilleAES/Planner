@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T14:15:05",
+ "generated_at": "2026-10-09T14:17:06",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -6477,8 +6477,8 @@
    },
    {
     "id": "bc-201427559",
-    "type": "Collection",
-    "col": "col",
+    "type": "Delivery",
+    "col": "del",
     "customer": "Hanover industrial unit H3",
     "postcode": "WA14 5RZ",
     "address": "Tudor Road, Altrincham, WA14 5RZ",
@@ -6492,7 +6492,7 @@
       "ref": "AES/61618",
       "desc": "mobile welfare",
       "status": "booked",
-      "type": "0-25miles Hiab Collection",
+      "type": "7.5t Transport Delivery",
       "price": null,
       "est_price": null,
       "price_source": null
