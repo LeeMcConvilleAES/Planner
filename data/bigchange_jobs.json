@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T11:15:23",
+ "generated_at": "2026-10-09T11:36:17",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5727,6 +5727,65 @@
     "miles": 23
    },
    {
+    "id": "bc-201403131",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Eldapoint",
+    "postcode": "L33 7SG",
+    "address": "Charley Wood Road., Knowlsley Ind. est., Liverpool, L33 7SG",
+    "order_number": "01-002746",
+    "units": {
+     "32ft": 3
+    },
+    "loads": [
+     {
+      "bigchange_id": 201403131,
+      "ref": "AES/61605",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     },
+     {
+      "bigchange_id": 201403236,
+      "ref": "AES/61606",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     },
+     {
+      "bigchange_id": 201403335,
+      "ref": "AES/61607",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "Collection 32ft Unit / Collect 32ft Unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201403131,
+     201403236,
+     201403335
+    ],
+    "refs": [
+     "AES/61605",
+     "AES/61606",
+     "AES/61607"
+    ],
+    "pc_key": "L337SG",
+    "miles": 21
+   },
+   {
     "id": "bc-201093428",
     "type": "Collection",
     "col": "col",
@@ -6596,7 +6655,17 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [],
+ "enquiry_matches": [
+  {
+   "enquiry_id": "e-j-b126433d97",
+   "bigchange_card": "bc-201403131",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "Eldapoint",
+   "bigchange_customer": "Eldapoint",
+   "day": "2026-10-14"
+  }
+ ],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
