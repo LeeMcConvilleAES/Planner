@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T14:33:58",
+ "generated_at": "2026-10-09T14:46:42",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4829,7 +4829,7 @@
       "type": "Toilet Delivery",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
@@ -4899,7 +4899,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -5003,7 +5003,7 @@
       "bigchange_id": 199733070,
       "ref": "AES/60495",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -5013,7 +5013,7 @@
     ],
     "notes": "COLLECTION OF 20FT STORE - 8448 AND STAIRCASE",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199733070
     ],
@@ -18304,21 +18304,9 @@
    "median": 20.0,
    "count": 922
   },
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 680
-  },
-  "Tanker Service | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 453
-  },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
-   "count": 128
-  },
-  "Service Job | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 61
+   "count": 127
   },
   "Transport | 7.5t Transport Delivery": {
    "median": 100.0,
@@ -18340,6 +18328,10 @@
    "median": 75.0,
    "count": 127
   },
+  "Service Job | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 60
+  },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
    "count": 6
@@ -18356,9 +18348,17 @@
    "median": 75.0,
    "count": 99
   },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 679
+  },
+  "Tanker Service | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 452
+  },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
-   "count": 142
+   "count": 143
   },
   "Service Job | 1000G Waste Empty": {
    "median": 75.0,
@@ -18434,7 +18434,7 @@
   },
   "Transport | Toilet Delivery": {
    "median": 25.0,
-   "count": 12
+   "count": 13
   },
   "Service Job | Eco welfare service": {
    "median": 70.0,
