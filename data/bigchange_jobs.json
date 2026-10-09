@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T08:11:29",
+ "generated_at": "2026-10-09T08:41:00",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4933,7 +4933,7 @@
       "bigchange_id": 200979528,
       "ref": "AES/61239",
       "desc": "100 ltr fuel fill",
-      "status": "booked",
+      "status": "live",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -4943,7 +4943,7 @@
     ],
     "notes": "100 ltr fuel fill",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200979528
     ],
