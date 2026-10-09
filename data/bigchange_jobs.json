@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T15:47:51",
+ "generated_at": "2026-10-09T16:04:30",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5039,7 +5039,7 @@
       "bigchange_id": 199733674,
       "ref": "AES/60496",
       "desc": "32ft",
-      "status": "booked",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 320.0,
       "est_price": null,
@@ -5088,7 +5088,7 @@
       "bigchange_id": 201310252,
       "ref": "AES/61532",
       "desc": "20ft mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 225.0,
       "est_price": null,
@@ -5098,7 +5098,7 @@
     ],
     "notes": "On Site Move of 20ft mobile welfare",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201310252
     ],
