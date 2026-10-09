@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T16:44:13",
+ "generated_at": "2026-10-09T18:38:37",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -17752,10 +17752,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | 25-50m Hiab Delivery": {
-   "median": 265.0,
-   "count": 123
-  },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
    "count": 104
@@ -17847,6 +17843,10 @@
   "Water Fill | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 124
+  },
+  "Hiab Transport | 25-50m Hiab Delivery": {
+   "median": 265.0,
+   "count": 122
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
