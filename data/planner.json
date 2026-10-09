@@ -1174,25 +1174,6 @@
  ],
  "enquiries": [
   {
-   "id": "e-j-b126433d97",
-   "day": "2026-10-14",
-   "col": "col",
-   "customer": "Eldapoint",
-   "postcode": "L33 7SG",
-   "po": "",
-   "items": [
-    "32ft",
-    "32ft",
-    "32ft",
-    "32ft",
-    "32ft"
-   ],
-   "notes": "Not in Big Change.",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration",
-   "edited_at": "2026-10-06T14:04:52"
-  },
-  {
    "id": "e-j-3646ba72bb",
    "day": "2026-10-28",
    "col": "col",
@@ -1282,6 +1263,14 @@
    "level": "sure",
    "why": "same day, same postcode",
    "enquiry_customer": "Klaudia"
+  },
+  "e-j-b126433d97": {
+   "card": "bc-201403131",
+   "at": "2026-10-09T11:36:39+01:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "Eldapoint"
   }
  },
  "dismissed_matches": [],
@@ -1290,7 +1279,8 @@
   "bc-200288866": "Not in Big Change. / enquiry: 10FT STORE",
   "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE",
   "bc-199947330": "Not in Big Change. PRE 7AM / enquiry: 4+2",
-  "bc-200803941": "enquiry: 10ft store"
+  "bc-200803941": "enquiry: 10ft store",
+  "bc-201403131": "Not in Big Change. / enquiry: 32ft, 32ft, 32ft, 32ft, 32ft"
  },
  "card_order": {},
  "migration": {
@@ -1325,6 +1315,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-09T11:14:19+01:00",
- "updated_by": "office"
+ "updated_at": "2026-10-09T11:36:39+01:00",
+ "updated_by": "ken"
 }
