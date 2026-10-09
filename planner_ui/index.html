@@ -57,6 +57,43 @@ button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-v
 .pinerr{color:#c0261a;font-weight:800;font-size:13px}
 .pinhint{color:#605d5d;font-size:12px;line-height:1.5}
 .done.lockbtn{background:#605d5d}.done.lockbtn:hover{background:#c0261a}
+.mdtabs{display:flex;border:1px solid #201e1d;margin-left:auto}
+.mdtab{font:800 12px 'Figtree',sans-serif;letter-spacing:.1em;padding:10px 14px;border:0;background:#fff;color:#201e1d;cursor:pointer;min-height:40px}
+.mdtab+.mdtab{border-left:1px solid #201e1d}
+.mdtab.on{background:#201e1d;color:#fff}
+.svcbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:#f7f6f6;border-bottom:1px solid #bab6b6}
+.svcf{display:flex;flex-wrap:wrap;gap:6px}
+.svcpill{font:800 12px 'Figtree',sans-serif;letter-spacing:.06em;padding:9px 14px;min-height:40px;border:1px solid #201e1d;background:#fff;color:#201e1d;cursor:pointer}
+.svcpill.on{background:#201e1d;color:#fff}
+.pump{display:flex;align-items:stretch;gap:12px;background:#201e1d;color:#fff;border-radius:14px 14px 4px 4px;padding:10px 12px}
+.pumpic{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding-right:12px;border-right:1px solid #444141}
+.pumpic span{font-size:9px;font-weight:800;letter-spacing:.14em;color:#f2b705}
+.pumpbody{display:flex;flex-direction:column;gap:6px}
+.pumpbody label{font-size:10px;font-weight:800;letter-spacing:.14em;color:#bab6b6}
+.pumprow{display:flex;align-items:center;gap:8px}
+.pumprow button{width:40px;height:40px;border:1px solid #605d5d;background:#2e2b2a;color:#fff;font-size:20px;font-weight:800;cursor:pointer}
+.pumpled{display:flex;align-items:center;background:#0b0a0a;border:2px solid #444141;padding:2px 10px;height:40px;box-sizing:border-box;font:700 24px 'Courier New',monospace;color:#f2b705}
+.pumpled input{width:70px;background:transparent;border:0;outline:0;font:700 24px 'Courier New',monospace;color:#f2b705;letter-spacing:.06em}
+.pumpnote{font-size:11px;color:#bab6b6}
+.metrics.svc6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.metric .v.pos{color:#0a6a30}.metric .v.neg{color:#c0261a}
+.mdt tr.tot td{border-top:2px solid #201e1d;background:#f7f6f6;font-weight:800}
+.mdt tr.hl td{background:#dcf2e3}
+.svchd{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:22px 0 8px;font-size:12px;font-weight:800;letter-spacing:.12em}
+.mdt.grid7 th.c{text-align:center}
+.mdt .gc{text-align:center;border-left:1px solid #e4e0de;line-height:1.3}
+.mdt .gc b{display:block;font-size:14px}.mdt .gc span{display:block;font-size:11px;color:#605d5d}
+.mdt .gc span.ar{font-weight:800;letter-spacing:.06em;color:#201e1d}
+.mdt .gc.off{background:#f7f6f6;color:#9a9696}
+.mdt .gc.free{background:#eef6f0;color:#0d823b;font-weight:800}
+.mdt .gc.neg{background:#fbe3e1;color:#c0261a}.mdt .gc.neg span{color:#c0261a}
+.mdt .gc.good{background:#dcf2e3}
+.svc2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.svcbox{border:1px solid #bab6b6;padding:14px 16px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5}
+.svcbox>.l{font-size:11px;font-weight:800;letter-spacing:.12em;color:#605d5d}
+.mixrow{display:flex;align-items:center;gap:10px;font-size:13px}
+.mixn{width:190px;flex-shrink:0}.mixb{flex:1;background:#f3f2f2;height:12px}.mixb i{display:block;height:12px;background:#0d823b}
+.mixrow b{width:44px;text-align:right}
 .mode.on-ro{background:#201e1d;color:#fff}
 .modes{display:flex;border-left:2px solid #201e1d}
 .tbtn{padding:10px 18px;font-size:13px;font-weight:800;display:flex;align-items:center}
@@ -869,7 +906,92 @@ function renderMdPin(){
     '<button class="tbtn primary" data-act="mdPinGo">Open MD</button>' +
     (err ? '<div class="pinerr">' + esc(err) + '</div>' : '<div class="pinhint">Four digits. The dashboard holds wages, leases and margins, so it stays locked until the PIN is given.</div>') + '</div></div></div>';
 }
+function mdTabs(){
+  var t = S.mdTab || 'transport', b = function(v, l){ return '<button class="mdtab' + (t === v ? ' on' : '') + '" data-act="mdTab" data-v="' + v + '">' + l + '</button>'; };
+  return '<div class="mdtabs">' + b('transport', 'TRANSPORT') + b('service', 'SERVICE') + b('routing', 'ROUTING STUDY') + '</div>';
+}
+function svcGbp(v, dp){ return (v < 0 ? '-£' : '£') + Math.abs(v).toLocaleString('en-GB', { minimumFractionDigits: dp || 0, maximumFractionDigits: dp || 0 }); }
+function svcNum(v){ return Math.round(v).toLocaleString('en-GB'); }
+function renderMdService(){
+  var SS = ARGS && ARGS.service_study, tab = S.mdTab;
+  var head = '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' + mdTabs() +
+    '<div class="cell">' + (SS ? esc(SS.week) + ' · sample' : '') + '</div><button class="done lockbtn" data-act="mdLock" title="Lock the dashboard again; the PIN is asked for next time">LOCK</button><button class="done" data-act="closeMd">CLOSE</button></div>';
+  if (!SS) return head + '<div class="mdbody"><div class="none">The service sample (data/service_study.json) is not in the repo yet.</div></div></div></div>';
+  return head + (tab === 'routing' ? renderRouting(SS) : renderService(SS)) + '</div></div>';
+}
+function renderService(SS){
+  var price = S.svcFuel != null ? S.svcFuel : SS.base_fuel, k = price / SS.base_fuel, f = S.svcFilter || 'all', mt = S.svcMetric || 'profit';
+  var keep = SS.drivers.filter(function(d){ return f === 'all' || (f === 'tank' ? d.kind === 'Tanker' : d.kind !== 'Tanker'); });
+  var T = { days:0, jobs:0, miles:0, fuel:0, wages:0, wagon:0, revenue:0, profit:0 };
+  var rows = keep.map(function(d){
+    var o = { days:0, jobs:0, miles:0, fuel:0, wages:0, wagon:0, revenue:0, profit:0 };
+    d.days.forEach(function(x){ if (x[7] || x[0] > 0) o.days++; var fu = x[2] * k; o.jobs += x[0]; o.miles += x[1]; o.fuel += fu; o.wages += x[3]; o.wagon += x[4]; o.revenue += x[5]; o.profit += x[6] + x[2] - fu; });
+    Object.keys(T).forEach(function(n){ T[n] += o[n]; });
+    var cost = o.fuel + o.wages + o.wagon;
+    return '<tr><td><span class="av" style="width:30px;height:30px;font-size:12px;background:' + (d.kind === 'Tanker' ? '#2a5bd7' : '#201e1d') + '">' + esc(d.ini) + '</span></td><td><b>' + esc(d.name) + '</b><div class="muted" style="font-size:11px">' + esc(d.kind) + ' · ' + esc(d.reg) + '</div></td>' +
+      '<td class="n">' + o.days + '</td><td class="n">' + o.jobs + '</td><td class="n">' + svcNum(o.miles) + '</td><td class="n">' + svcGbp(o.fuel) + '</td><td class="n">' + svcGbp(o.wages) + '</td><td class="n">' + (d.wagon_week == null ? '<span class="muted">n/a</span>' : svcGbp(o.wagon)) + '</td>' +
+      '<td class="n">' + svcGbp(cost) + '</td><td class="n"><b>' + svcGbp(o.revenue) + '</b></td><td class="n">' + svcGbp(o.revenue / Math.max(o.days, 1)) + '</td><td class="n">' + (o.jobs ? svcGbp(o.revenue / o.jobs) : '£0') + '</td>' +
+      '<td class="n ' + (o.profit < 0 ? 'neg' : 'pos') + '">' + svcGbp(o.profit) + '</td></tr>';
+  }).join('');
+  var cost = T.fuel + T.wages + T.wagon, margin = T.revenue ? Math.round(T.profit / T.revenue * 100) : 0;
+  var tile = function(l, v, sub, cls){ return '<div class="metric"><div class="l">' + l + '</div><div class="v' + (cls ? ' ' + cls : '') + '">' + v + '</div><div class="sub">' + sub + '</div></div>'; };
+  var pc = T.profit < 0 ? 'neg' : 'pos';
+  var tiles = '<div class="metrics svc6">' + tile('Service Miles', svcNum(T.miles), svcNum(T.miles / Math.max(T.days, 1)) + ' per driver day') +
+    tile('Route Cost', svcGbp(cost), 'fuel ' + svcGbp(T.fuel) + ' · wages ' + svcGbp(T.wages) + ' · wagon ' + svcGbp(T.wagon)) +
+    tile('Revenue', svcGbp(T.revenue), T.jobs + ' jobs on drivers' + (f === 'all' ? ' · fleet ' + svcGbp(T.revenue + SS.unassigned.revenue) + ' with unassigned' : '')) +
+    tile('Revenue Per Job', T.jobs ? svcGbp(T.revenue / T.jobs, 2) : '£0', 'Big Change job price, invoiced or not') +
+    tile('Profit Per Job', T.jobs ? svcGbp(T.profit / T.jobs, 2) : '£0', 'after fuel, wages and wagon', pc) +
+    tile('Weekly Profit', svcGbp(T.profit), margin + '% margin', pc) + '</div>';
+  var pill = function(act, v, on, l){ return '<button class="svcpill' + (on ? ' on' : '') + '" data-act="' + act + '" data-v="' + v + '">' + l + '</button>'; };
+  var base = SS.base_fuel * T.fuel / Math.max(price, 0.0001);
+  var pump = '<div class="pump"><div class="pumpic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v17"></path><path d="M2 22h13"></path><path d="M3 10h11"></path><path d="M14 13h2a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 3 0V9l-3-3"></path></svg><span>DIESEL</span></div>' +
+    '<div class="pumpbody"><label for="svcfuel">PRICE PER LITRE</label><div class="pumprow"><button data-act="svcFuel" data-v="-1" aria-label="Lower fuel price by 1p">−</button><div class="pumpled">£<input id="svcfuel" type="text" inputmode="decimal" value="' + price.toFixed(2) + '"></div><button data-act="svcFuel" data-v="1" aria-label="Raise fuel price by 1p">+</button></div>' +
+    '<div class="pumpnote">Fuel ' + svcGbp(T.fuel) + ' this week · ' + (Math.abs(price - SS.base_fuel) < 0.001 ? 'base £' + SS.base_fuel.toFixed(2) : (price > SS.base_fuel ? '+' : '-') + svcGbp(Math.abs(T.fuel - base)) + ' vs £' + SS.base_fuel.toFixed(2)) + '</div></div></div>';
+  var DL = ['MON','TUE','WED','THU','FRI','SAT','SUN'], wk0 = SS.week_start;
+  var grid = keep.map(function(d){
+    return '<tr><td><b>' + esc(d.name) + '</b></td>' + d.days.map(function(x){
+      if (!(x[7] || x[0] > 0)) return '<td class="gc off">Off</td>';
+      var pr = x[6] + x[2] - x[2] * k, v = mt === 'profit' ? pr : mt === 'revenue' ? x[5] : x[1];
+      var cls = mt === 'profit' ? (v < 0 ? ' neg' : v >= 300 ? ' good' : '') : '';
+      return '<td class="gc' + cls + '"><b>' + (mt === 'miles' ? svcNum(v) + ' mi' : svcGbp(v)) + '</b><span>' + x[0] + (x[0] === 1 ? ' job · ' : ' jobs · ') + x[1] + ' mi</span></td>';
+    }).join('') + '</tr>';
+  }).join('');
+  var mix = SS.types.map(function(t){ return '<div class="mixrow"><span class="mixn">' + esc(t[0]) + '</span><span class="mixb"><i style="width:' + Math.round(t[1] / SS.types[0][1] * 100) + '%"></i></span><b>' + t[1] + '</b></div>'; }).join('');
+  return '<div class="svcbar"><div class="svcf">' + pill('svcFilter', 'all', f === 'all', 'ALL DRIVERS') + pill('svcFilter', 'tank', f === 'tank', 'TANKERS') + pill('svcFilter', 'wagon', f === 'wagon', '18T WAGONS') + '</div>' + pump + '</div>' + tiles +
+    '<div class="mdbody"><table class="mdt"><tr><th></th><th>DRIVER</th><th class="n">DAYS</th><th class="n">JOBS</th><th class="n">MILES</th><th class="n">FUEL</th><th class="n">WAGES</th><th class="n">WAGON</th><th class="n">COST</th><th class="n">REVENUE</th><th class="n">REV / DAY</th><th class="n">REV / JOB</th><th class="n">PROFIT</th></tr>' + rows +
+    '<tr class="tot"><td></td><td><b>TOTAL</b></td><td class="n">' + T.days + '</td><td class="n">' + T.jobs + '</td><td class="n">' + svcNum(T.miles) + '</td><td class="n">' + svcGbp(T.fuel) + '</td><td class="n">' + svcGbp(T.wages) + '</td><td class="n">' + svcGbp(T.wagon) + '</td><td class="n">' + svcGbp(cost) + '</td><td class="n">' + svcGbp(T.revenue) + '</td><td class="n">' + svcGbp(T.revenue / Math.max(T.days, 1)) + '</td><td class="n">' + (T.jobs ? svcGbp(T.revenue / T.jobs) : '£0') + '</td><td class="n ' + pc + '">' + svcGbp(T.profit) + '</td></tr></table>' +
+    '<div class="svchd"><span>DAY BY DAY</span><span class="svcf">' + pill('svcMetric', 'profit', mt === 'profit', 'PROFIT') + pill('svcMetric', 'revenue', mt === 'revenue', 'REVENUE') + pill('svcMetric', 'miles', mt === 'miles', 'MILES') + '</span></div>' +
+    '<table class="mdt grid7"><tr><th>DRIVER</th>' + DL.map(function(l, i){ return '<th class="c">' + l + ' ' + (+isoAdd(wk0, i).slice(8)) + '</th>'; }).join('') + '</tr>' + grid + '</table>' +
+    '<div class="svc2"><div class="svcbox"><div class="l">JOB MIX</div>' + mix + '</div><div class="svcbox"><div class="l">NOTES</div><div>' + SS.unassigned.jobs + ' jobs (' + svcGbp(SS.unassigned.revenue) + ') not on a driver: ' + esc(SS.unassigned.note) + '. Counted in fleet revenue only.</div>' + SS.notes.map(function(n){ return '<div>' + esc(n) + '</div>'; }).join('') + '</div></div>' +
+    '<div class="mdnote">A one week sample from Big Change for review: ' + esc(SS.source) + '. Wages and wagon costs count on every rostered day, fuel follows the miles at the price on the pump. It does not refresh yet; the live version will fill every week from Ken.</div></div>';
+}
+function renderRouting(SS){
+  var R = SS.routing, view = S.rtView || 'plan', src = view === 'plan' ? R.plan : R.actual;
+  var tiles = '<div class="metrics md4">' + R.tiles.map(function(t){ return '<div class="metric"><div class="l">' + esc(t[0]) + '</div><div class="v' + (t[3] ? ' ' + t[3] : '') + '">' + esc(t[1]) + '</div><div class="sub">' + esc(t[2]) + '</div></div>'; }).join('') + '</div>';
+  var steps = R.steps.map(function(s){ return '<tr' + (s[6] ? ' class="hl"' : '') + '><td><b>' + esc(s[0]) + '</b></td><td class="n">' + s[1] + '</td><td class="n"><b>' + s[2] + '</b></td><td class="n">' + s[3] + '</td><td class="n">' + s[4] + '</td><td>' + esc(s[5]) + '</td></tr>'; }).join('');
+  var ppm = R.ppm.map(function(p){ return '<div class="mixrow"><span class="mixn">' + esc(p[0]) + '</span><span class="mixb"><i style="width:' + Math.round(p[1] / 85.2 * 100) + '%;background:' + (p[1] > 50 ? '#c0261a' : '#0d823b') + '"></i></span><b>' + p[1].toFixed(1) + 'p</b></div>'; }).join('');
+  var who = R.who.map(function(w){ return '<tr><td><b>' + esc(w[0]) + '</b></td><td class="n">' + w[1] + '</td><td class="n">' + w[2] + '</td><td class="n">' + w[3] + '</td></tr>'; }).join('');
+  var DL = ['MON','TUE','WED','THU','FRI'];
+  var grid = R.crew.map(function(c){
+    return '<tr><td><b>' + esc(c[1]) + '</b><div class="muted" style="font-size:11px">' + esc(c[2]) + '</div></td>' + (src[c[0]] || [null,null,null,null,null]).map(function(x, i){
+      if (!x) { var ro = c[3].indexOf(i) >= 0; return '<td class="gc ' + (ro ? 'free' : 'off') + '">' + (ro ? 'Free<span>rostered, no service work</span>' : 'Off') + '</td>'; }
+      return '<td class="gc' + (x[2] > 9.01 ? ' neg' : '') + '"><b>' + x[0] + ' stops</b><span>' + x[1] + ' mi · ' + x[2].toFixed(1) + 'h</span>' + (x[3] ? '<span class="ar">' + esc(x[3]) + '</span>' : '') + '</td>';
+    }).join('') + '</tr>';
+  }).join('');
+  return tiles + '<div class="mdbody">' +
+    '<div class="svchd"><span>THREE STEPS, EACH ON TOP OF THE LAST</span></div>' +
+    '<table class="mdt steps"><tr><th>PLAN</th><th class="n">MILES</th><th class="n">FUEL</th><th class="n">DRIVER DAYS</th><th class="n">HOURS</th><th>WHAT CHANGES</th></tr>' + steps + '</table>' +
+    '<div class="svc2"><div class="svcbox"><div class="l">WHERE THE SAVING COMES FROM</div><div style="font-size:14px;line-height:1.5">A mile in John\'s 18t wagon burns 85p of diesel. The same mile in Stephen\'s tanker burns 23p. This week the two 18t wagons did 57 of the 59 waste empties. Most of the saving is moving waste onto the tankers and keeping the 18t wagons for water.</div>' + ppm + '<div class="muted" style="font-size:11px">Diesel per mile at £1.50 a litre.</div></div>' +
+    '<div class="svcbox"><div class="l">WHO DOES WHAT, ACTUAL TO PLAN</div><table class="mdt"><tr><th>DRIVER</th><th class="n">WASTE EMPTIES</th><th class="n">WATER FILLS</th><th class="n">TOILET AND WELFARE</th></tr>' + who + '</table></div></div>' +
+    '<div class="svchd"><span>THE WEEK, DRIVER BY DAY</span><span class="svcf"><button class="svcpill' + (view === 'actual' ? ' on' : '') + '" data-act="rtView" data-v="actual">AS DRIVEN</button><button class="svcpill' + (view === 'plan' ? ' on' : '') + '" data-act="rtView" data-v="plan">THE PLAN</button></span></div>' +
+    '<table class="mdt grid7"><tr><th>DRIVER</th>' + DL.map(function(l, i){ return '<th class="c">' + l + ' ' + (+isoAdd(SS.week_start, i).slice(8)) + '</th>'; }).join('') + '</tr>' + grid + '</table>' +
+    '<div class="mdnote">Each cell: stops, road miles, hours depot to depot, and the main postcode areas. Red is over the 9 hour day.</div>' +
+    '<div class="svc2"><div class="svcbox"><div class="l">RULES KEPT TO</div>' + R.rules.map(function(n){ return '<div>' + esc(n) + '</div>'; }).join('') + '</div>' +
+    '<div class="svcbox"><div class="l">WHAT WAS ASSUMED</div>' + R.assumptions.map(function(n){ return '<div>' + esc(n) + '</div>'; }).join('') + '</div></div></div>';
+}
 function renderMd(){
+  if ((S.mdTab || 'transport') !== 'transport') return renderMdService();
   var scope = S.mdScope || 'week', st = mdStats(scope), f = st.fleet;
   var w0 = st.weeks[0], w1 = st.weeks[st.weeks.length - 1], range = fFull(weekMon(w0)) + ' to ' + fFull(isoAdd(weekMon(w1), 6));
   var opt = function(v, t){ return '<option value="' + v + '"' + (scope === v ? ' selected' : '') + '>' + t + '</option>'; };
@@ -889,7 +1011,7 @@ function renderMd(){
       '</tr>';
   }).join('');
   return '<div class="ov" data-act="closeBg"><div class="panel md" role="dialog" aria-label="Mother Delta Dashboard">' +
-    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' +
+    '<div class="ph"><div class="t"><div class="eyebrow">MOTHER DELTA DASHBOARD</div><h2>MD</h2></div>' + mdTabs() +
       '<div class="cell"><select id="mdscope" aria-label="Period">' + opt('week', 'Week On Show') + opt('next4', 'Next 4 Weeks') + opt('all', 'All 18 Weeks Loaded') + '</select></div>' +
       '<div class="cell">' + range + '</div><button class="done lockbtn" data-act="mdLock" title="Lock the dashboard again; the PIN is asked for next time">LOCK</button><button class="done" data-act="closeMd">CLOSE</button></div>' +
     '<div class="metrics md4">' + tile('Fleet Miles', f.miles + (f.gaps ? '+' : ''), 'planned road miles, every run out and back') + tile('Days With Runs', f.days, 'day slots with at least one planned run') +
@@ -989,6 +1111,11 @@ document.addEventListener('click', function(e){
   if (act === 'closeBg') { if (e.target !== t) return; S.modalDay = null; S.vhOpen = false; S.enqOpen = false; S.viewJob = null; S.mdOpen = false; S.warn = ''; }
   else if (act === 'openMd') S.mdOpen = true;
   else if (act === 'closeMd') S.mdOpen = false;
+  else if (act === 'mdTab') S.mdTab = v;
+  else if (act === 'svcFilter') S.svcFilter = v;
+  else if (act === 'svcMetric') S.svcMetric = v;
+  else if (act === 'rtView') S.rtView = v;
+  else if (act === 'svcFuel') { var b0 = S.svcFuel != null ? S.svcFuel : ((ARGS && ARGS.service_study && ARGS.service_study.base_fuel) || 1.5); S.svcFuel = Math.max(0, Math.round((b0 + (+v) / 100) * 100) / 100); }
   else if (act === 'mdPinGo') { var pinEl = document.getElementById('mdpin'); if (pinEl && pinEl.value) { S.mdPinSent = true; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_unlock', pin:pinEl.value }, dataType:'json' }); } return; }
   else if (act === 'mdLock') { S.mdOpen = false; REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'md_lock' }, dataType:'json' }); return; }
   else if (act === 'close') { if (S.mdOpen) S.mdOpen = false; else if (S.viewJob) S.viewJob = null; else if (S.enqOpen) S.enqOpen = false; else if (S.vhOpen) S.vhOpen = false; else { S.modalDay = null; S.warn = ''; } }
@@ -1048,6 +1175,7 @@ document.addEventListener('change', function(e){
   var id = e.target.id, val = e.target.value;
   if (id === 'flt') S.filter = val;
   else if (id === 'mdscope') S.mdScope = val;
+  else if (id === 'svcfuel') { var pv = parseFloat(val); if (isFinite(pv) && pv >= 0) S.svcFuel = Math.round(pv * 100) / 100; }
   else if (id === 'wkjump') S.week = +val;
   else if (id === 'hd') S.holDraft.drv = val;
   else if (id === 'ec') S.enqDraft.col = val;

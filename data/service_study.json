@@ -1,0 +1,1049 @@
+{
+ "version": "1.0",
+ "week": "5 to 11 Oct 2026",
+ "week_start": "2026-10-05",
+ "base_fuel": 1.5,
+ "source": "Big Change service jobs pulled by Ken (V25.2) on 9 Oct 2026; miles are Google road miles in the order each job was actually started",
+ "drivers": [
+  {
+   "ini": "SE",
+   "name": "Stephen Ennion",
+   "kind": "Tanker",
+   "reg": "PN25 FKS",
+   "wagon_week": 287.5,
+   "days": [
+    [
+     10,
+     122,
+     28.69,
+     130.5,
+     57.5,
+     360.0,
+     143.31,
+     1
+    ],
+    [
+     11,
+     98,
+     23.04,
+     130.5,
+     57.5,
+     315.0,
+     103.96,
+     1
+    ],
+    [
+     9,
+     149,
+     35.04,
+     130.5,
+     57.5,
+     246.0,
+     22.96,
+     1
+    ],
+    [
+     7,
+     51,
+     11.99,
+     130.5,
+     57.5,
+     200.0,
+     0.01,
+     1
+    ],
+    [
+     3,
+     8,
+     1.88,
+     130.5,
+     57.5,
+     60.0,
+     -129.88,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "ini": "SB",
+   "name": "Stephen Bond",
+   "kind": "Tanker",
+   "reg": "PN25 FKT",
+   "wagon_week": 287.5,
+   "days": [
+    [
+     8,
+     120,
+     28.22,
+     130.5,
+     57.5,
+     350.0,
+     133.78,
+     1
+    ],
+    [
+     12,
+     145,
+     34.1,
+     130.5,
+     57.5,
+     445.0,
+     222.9,
+     1
+    ],
+    [
+     13,
+     71,
+     16.7,
+     130.5,
+     57.5,
+     665.2,
+     460.5,
+     1
+    ],
+    [
+     11,
+     113,
+     26.57,
+     130.5,
+     57.5,
+     375.0,
+     160.43,
+     1
+    ],
+    [
+     12,
+     49,
+     11.52,
+     130.5,
+     57.5,
+     280.0,
+     80.48,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "ini": "AU",
+   "name": "Alan Unsworth",
+   "kind": "Tanker",
+   "reg": "MK68 WGF",
+   "wagon_week": 0,
+   "days": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     11,
+     180,
+     55.79,
+     137.75,
+     0,
+     365.0,
+     171.46,
+     1
+    ],
+    [
+     7,
+     174,
+     53.93,
+     137.75,
+     0,
+     251.0,
+     59.32,
+     1
+    ],
+    [
+     1,
+     10,
+     3.1,
+     137.75,
+     0,
+     75.0,
+     -65.85,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "ini": "JM",
+   "name": "Jeff Matthews",
+   "kind": "18t wagon",
+   "reg": "PN21 JRO",
+   "wagon_week": 250,
+   "days": [
+    [
+     7,
+     201,
+     152.29,
+     135,
+     50,
+     365.0,
+     27.71,
+     1
+    ],
+    [
+     12,
+     145,
+     109.86,
+     135,
+     50,
+     685.0,
+     390.14,
+     1
+    ],
+    [
+     9,
+     157,
+     118.96,
+     135,
+     50,
+     525.0,
+     221.04,
+     1
+    ],
+    [
+     16,
+     86,
+     65.16,
+     135,
+     50,
+     1020.0,
+     769.84,
+     1
+    ],
+    [
+     2,
+     28,
+     21.22,
+     135,
+     50,
+     225.0,
+     18.78,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "ini": "JP",
+   "name": "John Purtill",
+   "kind": "18t wagon",
+   "reg": "PJ70 ZFY",
+   "wagon_week": 250,
+   "days": [
+    [
+     26,
+     136,
+     115.93,
+     135,
+     50,
+     1805.0,
+     1504.07,
+     1
+    ],
+    [
+     16,
+     101,
+     86.09,
+     135,
+     50,
+     1135.0,
+     863.91,
+     1
+    ],
+    [
+     18,
+     176,
+     150.02,
+     135,
+     50,
+     1320.0,
+     984.98,
+     1
+    ],
+    [
+     24,
+     130,
+     110.81,
+     135,
+     50,
+     1590.0,
+     1294.19,
+     1
+    ],
+    [
+     2,
+     134,
+     114.22,
+     135,
+     50,
+     750.0,
+     450.78,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "ini": "DB",
+   "name": "Danny Ball",
+   "kind": "18t wagon",
+   "reg": "J25 AES",
+   "wagon_week": null,
+   "days": [
+    [
+     0,
+     0,
+     0,
+     144,
+     0,
+     0,
+     -144,
+     1
+    ],
+    [
+     2,
+     59,
+     33.53,
+     144,
+     0,
+     0,
+     -177.53,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     144,
+     0,
+     0,
+     -144,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     144,
+     0,
+     0,
+     -144,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     144,
+     0,
+     0,
+     -144,
+     1
+    ],
+    [
+     1,
+     73,
+     41.48,
+     0,
+     0,
+     360.0,
+     318.52,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ ],
+ "unassigned": {
+  "jobs": 8,
+  "revenue": 215,
+  "note": "WasteLine 7, Rob Brown 1"
+ },
+ "types": [
+  [
+   "Chemical Toilet Service",
+   62
+  ],
+  [
+   "1000G Waste Empty",
+   59
+  ],
+  [
+   "1000Ltr Water Fill",
+   49
+  ],
+  [
+   "SCMW Service (chemical)",
+   41
+  ],
+  [
+   "Eco welfare service",
+   16
+  ],
+  [
+   "Solar Toilet Service",
+   10
+  ],
+  [
+   "Static Welfare 24in",
+   8
+  ],
+  [
+   "Water Fill",
+   6
+  ]
+ ],
+ "notes": [
+  "Miles are Google road miles: depot, each job in the order the driver actually started it on the day he did it, then back to the depot.",
+  "Odometer logging from Big Change started on 9 Oct (Ken V25.3); from Mon 12 Oct each wagon's actual miles per day can sit beside the route miles.",
+  "Waste tipping and water refill stops are not in Big Change, so tanker route miles are understated.",
+  "J25 AES has no weekly wagon cost yet, so Danny Ball's cost is wages and fuel only.",
+  "Alan Unsworth works Tue to Thu, 9.5 hours a day."
+ ],
+ "routing": {
+  "tiles": [
+   [
+    "FUEL A WEEK",
+    "£842 less",
+    "£1,568 down to £726, about £42,000 over 50 weeks",
+    "pos"
+   ],
+   [
+    "ROAD MILES",
+    "2,817 to 1,830",
+    "987 fewer miles, tipping runs included",
+    ""
+   ],
+   [
+    "DRIVER DAYS USED",
+    "24 to 18",
+    "6 driver days free to sell, Danny not needed at all",
+    ""
+   ],
+   [
+    "LONGEST DAY",
+    "11.7h to 9.0h",
+    "John's 11 hour Wednesday and Thursday are gone",
+    ""
+   ]
+  ],
+  "steps": [
+   [
+    "As driven",
+    "2,817",
+    "£1,568",
+    "24",
+    "162",
+    "John over 9 hours on Mon, Wed and Thu; Jeff and John doing the waste empties",
+    0
+   ],
+   [
+    "1. Better order only",
+    "2,509",
+    "£1,411",
+    "24",
+    "156",
+    "Same driver, same day, stops in the shortest order. John still runs over 9 hours three days",
+    0
+   ],
+   [
+    "2. Swap drivers, same days",
+    "2,189",
+    "£896",
+    "20",
+    "145",
+    "Waste empties onto the tankers, water onto the 18t wagons, four driver days freed",
+    0
+   ],
+   [
+    "3. Swap and move a day",
+    "1,830",
+    "£726",
+    "18",
+    "138",
+    "Single visit sites may move one weekday to sit with their neighbours. The plan",
+    1
+   ],
+   [
+    "Same, without Alan",
+    "1,896",
+    "£806",
+    "17",
+    "138",
+    "Stephen, Stephen, Jeff and John cover the whole week",
+    0
+   ]
+  ],
+  "ppm": [
+   [
+    "Stephen Ennion, tanker",
+    23.5
+   ],
+   [
+    "Stephen Bond, tanker",
+    23.5
+   ],
+   [
+    "Alan, tanker",
+    31.0
+   ],
+   [
+    "Jeff, 18t",
+    75.8
+   ],
+   [
+    "John, 18t",
+    85.2
+   ]
+  ],
+  "who": [
+   [
+    "Stephen Ennion",
+    "1 to 10",
+    "0",
+    "38 to 40"
+   ],
+   [
+    "Stephen Bond",
+    "1 to 12",
+    "0",
+    "55 to 40"
+   ],
+   [
+    "Alan Unsworth",
+    "0 to 6",
+    "0",
+    "19 to 29"
+   ],
+   [
+    "Jeff Matthews",
+    "30 to 21",
+    "10 to 37",
+    "7 to 21"
+   ],
+   [
+    "John Purtill",
+    "27 to 10",
+    "41 to 16",
+    "18 to 7"
+   ],
+   [
+    "Danny Ball",
+    "0 to 0",
+    "2 to 0",
+    "0 to 0"
+   ]
+  ],
+  "crew": [
+   [
+    "SE",
+    "Stephen Ennion",
+    "Tanker PN25 FKS",
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   [
+    "SB",
+    "Stephen Bond",
+    "Tanker PN25 FKT",
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   [
+    "AU",
+    "Alan Unsworth",
+    "Tanker MK68 WGF",
+    [
+     1,
+     2,
+     3
+    ]
+   ],
+   [
+    "JM",
+    "Jeff Matthews",
+    "18t PN21 JRO",
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   [
+    "JP",
+    "John Purtill",
+    "18t PJ70 ZFY",
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   [
+    "DB",
+    "Danny Ball",
+    "18t J25 AES",
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ]
+  ],
+  "actual": {
+   "SE": [
+    [
+     10,
+     119,
+     7.1,
+     ""
+    ],
+    [
+     9,
+     96,
+     7.2,
+     ""
+    ],
+    [
+     8,
+     124,
+     6.8,
+     ""
+    ],
+    [
+     7,
+     49,
+     4.5,
+     ""
+    ],
+    [
+     3,
+     8,
+     1.8,
+     ""
+    ]
+   ],
+   "SB": [
+    [
+     7,
+     121,
+     6.4,
+     ""
+    ],
+    [
+     11,
+     146,
+     8.5,
+     ""
+    ],
+    [
+     12,
+     72,
+     7.9,
+     ""
+    ],
+    [
+     11,
+     116,
+     8.0,
+     ""
+    ],
+    [
+     12,
+     53,
+     6.6,
+     ""
+    ]
+   ],
+   "AU": [
+    null,
+    [
+     11,
+     172,
+     9.0,
+     ""
+    ],
+    [
+     6,
+     166,
+     7.1,
+     ""
+    ],
+    [
+     1,
+     12,
+     1.2,
+     ""
+    ],
+    null
+   ],
+   "JM": [
+    [
+     7,
+     198,
+     7.3,
+     ""
+    ],
+    [
+     7,
+     195,
+     8.1,
+     ""
+    ],
+    [
+     9,
+     193,
+     8.4,
+     ""
+    ],
+    [
+     9,
+     114,
+     7.9,
+     ""
+    ],
+    [
+     2,
+     29,
+     1.8,
+     ""
+    ]
+   ],
+   "JP": [
+    [
+     12,
+     135,
+     9.9,
+     ""
+    ],
+    [
+     10,
+     108,
+     7.8,
+     ""
+    ],
+    [
+     11,
+     218,
+     11.1,
+     ""
+    ],
+    [
+     14,
+     184,
+     11.7,
+     ""
+    ],
+    [
+     2,
+     131,
+     3.6,
+     ""
+    ]
+   ],
+   "DB": [
+    null,
+    [
+     1,
+     58,
+     1.7,
+     ""
+    ],
+    null,
+    null,
+    null
+   ]
+  },
+  "plan": {
+   "SE": [
+    [
+     12,
+     141,
+     9.0,
+     "BB BD BL"
+    ],
+    [
+     11,
+     162,
+     8.8,
+     "L CW CH"
+    ],
+    [
+     15,
+     76,
+     8.0,
+     "WA L WN"
+    ],
+    [
+     10,
+     170,
+     8.9,
+     "M BD LS"
+    ],
+    null
+   ],
+   "SB": [
+    [
+     10,
+     205,
+     8.9,
+     "LA BB BL"
+    ],
+    [
+     12,
+     128,
+     8.9,
+     "SK WA CW"
+    ],
+    [
+     14,
+     106,
+     9.0,
+     "SK M"
+    ],
+    null,
+    [
+     14,
+     128,
+     8.9,
+     "SK M WA"
+    ]
+   ],
+   "AU": [
+    null,
+    [
+     12,
+     104,
+     8.0,
+     "PR FY BL"
+    ],
+    [
+     6,
+     32,
+     3.9,
+     "BL"
+    ],
+    [
+     14,
+     68,
+     8.9,
+     "M OL"
+    ],
+    null
+   ],
+   "JM": [
+    [
+     9,
+     96,
+     8.7,
+     "WA CH L"
+    ],
+    [
+     11,
+     88,
+     7.4,
+     "M SK WN"
+    ],
+    [
+     5,
+     77,
+     5.2,
+     "CW WN"
+    ],
+    [
+     12,
+     69,
+     7.7,
+     "WN L WA"
+    ],
+    [
+     8,
+     31,
+     4.8,
+     "WN BL"
+    ]
+   ],
+   "JP": [
+    [
+     9,
+     96,
+     7.7,
+     "PR FY BB"
+    ],
+    null,
+    null,
+    [
+     8,
+     53,
+     5.0,
+     "M OL SK"
+    ],
+    null
+   ],
+   "DB": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "rules": [
+   "Sites visited more than once in the week (twice weekly and up) keep their exact days, so the gap between visits is untouched.",
+   "A site visited once moves at most one weekday either way.",
+   "The tankers carry no water. John 6,000 gal waste and 6,000 L water, Jeff 5,000 gal and 2,750 L, the tankers 9,000 gal.",
+   "Full tank: back to the depot to tip (20 minutes), and every day ends with a tip. Water: refill at a standpipe by the road (20 minutes).",
+   "Nobody works more than 9 hours depot to depot. Alan only Tuesday to Thursday."
+  ],
+  "assumptions": [
+   "Waste per job: chemical or solar toilet 60 gal, W4H 100, SCMW 100, eco welfare 150, static welfare 200, waste empty 1,000 (800G 800). Water fill 1,000 L.",
+   "Time on site and road times are tuned so the actual week comes out within 1% of the hours Big Change recorded.",
+   "Alan's tanker is taken as the same 9,000 gal as Stephen's. Danny is left out, his wagon's tank sizes are not known. WasteLine and the Saturday job are left as they were.",
+   "If the tankers hold 9,000 litres rather than gallons, the plan still saves £629 a week and uses 19 driver days.",
+   "Without Alan at all, four drivers cover the week in 17 days for £806 of fuel.",
+   "The stop by stop plan is Service Routing Study 5 to 11 Oct V1.0.csv in the AES Planner V2 folder."
+  ]
+ }
+}

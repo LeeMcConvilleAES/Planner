@@ -1,5 +1,14 @@
 """AES Transport Planner
-Version 4.6
+Version 4.7
+
+4.7: the MD dashboard gets two more tabs, SERVICE and ROUTING STUDY, for
+review with colleagues (Nathan, 09/10/2026). Both read data/service_study.json
+in the repo: a one week sample of AES service jobs from Big Change (5 to 11
+Oct 2026, Ken V25.2) with per driver, per day jobs, miles, fuel, wages,
+wagon, revenue and profit, plus the routing study (how the same jobs could
+have run with fewer miles). Like the costs, it reaches the page only once the
+MD PIN has been given. The fuel price on the service tab is a live pump: it
+changes the figures on screen only, nothing is saved. TRANSPORT is unchanged.
 
 4.6: reads from GitHub are shared between everyone who has the planner open,
 for 30 seconds at a time. Until now every screen fetched the feed and the
@@ -178,12 +187,13 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.5"
+VERSION = "4.7"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
 HEARTBEAT_PATH = "data/feed_heartbeat.json"   # Ken writes it after every Big Change check
 COSTS_PATH = "data/costs.json"                 # driver rates, leases, mpg, fuel price: the MD dashboard cost basis
+STUDY_PATH = "data/service_study.json"         # service week sample and routing study for the MD SERVICE and ROUTING STUDY tabs
 LOCAL_DATA_DIR = os.environ.get("PLANNER_LOCAL_DATA")   # tests: read and write files here, no GitHub
 DAY_LABELS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat/Sun"]
 
@@ -573,6 +583,12 @@ def _secret(name):
 
 MD_PIN = os.environ.get("PLANNER_MD_PIN") or _secret("md_pin") or str(costs_all.get("md_pin") or "")
 costs = {k: v for k, v in costs_all.items() if k != "md_pin"} if (ss["md_unlocked"] and costs_all) else None
+service_study = None
+if ss["md_unlocked"]:
+    try:
+        service_study, _ssha = read_file(STUDY_PATH)
+    except Exception:                                            # noqa: BLE001
+        service_study = None
 if load_error:
     st.error(f"Could not read the planner data: {load_error}. Showing the last copy this browser had; nothing will be saved until it clears.")
 ss["planner_cache"] = planner
@@ -589,7 +605,7 @@ _planner_ui = components.declare_component("aes_planner", path=str(HERE / "plann
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
         "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
-        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN)}
+        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN), "service_study": service_study}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
