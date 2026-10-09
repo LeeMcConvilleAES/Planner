@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T11:42:11",
+ "generated_at": "2026-10-09T12:24:17",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4969,7 +4969,7 @@
       "bigchange_id": 199733070,
       "ref": "AES/60495",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -4979,7 +4979,7 @@
     ],
     "notes": "COLLECTION OF 20FT STORE - 8448 AND STAIRCASE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199733070
     ],
@@ -5054,7 +5054,7 @@
       "bigchange_id": 201310252,
       "ref": "AES/61532",
       "desc": "20ft mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 225.0,
       "est_price": null,
@@ -5064,7 +5064,7 @@
     ],
     "notes": "On Site Move of 20ft mobile welfare",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201310252
     ],
