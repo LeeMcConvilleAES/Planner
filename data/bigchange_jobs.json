@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T13:11:25",
+ "generated_at": "2026-10-09T13:45:25",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -18051,25 +18051,17 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 100
-  },
-  "Service Job | Solar Toilet Service": {
-   "median": 55.0,
-   "count": 102
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
-   "count": 923
-  },
-  "Tanker Service | 1000Ltr Water Fill": {
-   "median": 70.0,
-   "count": 455
+   "count": 922
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 681
+   "count": 680
+  },
+  "Tanker Service | 1000Ltr Water Fill": {
+   "median": 70.0,
+   "count": 453
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
@@ -18111,6 +18103,10 @@
    "median": 195.0,
    "count": 7
   },
+  "Tanker Service | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 99
+  },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
    "count": 142
@@ -18134,6 +18130,10 @@
   "Tanker Service | Solar Toilet Service": {
    "median": 55.0,
    "count": 66
+  },
+  "Service Job | Solar Toilet Service": {
+   "median": 55.0,
+   "count": 101
   },
   "Hiab Transport | Site Move / Exchange": {
    "median": 270.0,
