@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T15:18:19",
+ "generated_at": "2026-10-09T15:47:51",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5007,7 +5007,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -18553,10 +18553,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 922
-  },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
    "count": 127
@@ -18567,7 +18563,7 @@
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
-   "count": 101
+   "count": 102
   },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
@@ -18584,6 +18580,10 @@
   "Service Job | Static Welfare 24''": {
    "median": 75.0,
    "count": 60
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 921
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
