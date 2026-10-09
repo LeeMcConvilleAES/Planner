@@ -1022,12 +1022,6 @@
  ],
  "holidays": [
   {
-   "id": "h-1791301866868",
-   "driver": "AU",
-   "from": "2026-10-13",
-   "to": "2026-10-15"
-  },
-  {
    "id": "h-1791359735164",
    "driver": "CR",
    "from": "2026-10-06",
@@ -1307,6 +1301,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-09T10:23:01+01:00",
+ "updated_at": "2026-10-09T10:23:03+01:00",
  "updated_by": "office"
 }
