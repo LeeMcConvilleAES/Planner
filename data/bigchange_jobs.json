@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T12:43:58",
+ "generated_at": "2026-10-09T12:54:33",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -5167,7 +5167,7 @@
       "bigchange_id": 201057799,
       "ref": "AES/61258",
       "desc": "old runner unit",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -5177,7 +5177,7 @@
     ],
     "notes": "collection of old runner unit",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201057799
     ],
