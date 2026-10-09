@@ -1,5 +1,15 @@
 """AES Transport Planner
-Version 4.5
+Version 4.6
+
+4.6: reads from GitHub are shared between everyone who has the planner open,
+for 30 seconds at a time. Until now every screen fetched the feed and the
+planner afresh on every refresh (every 30 to 45 seconds, two calls each),
+and with the planner open on a dozen screens that was the bulk of about
+5,800 GitHub calls an hour against an allowance of 5,000: for the last few
+minutes of every hour GitHub refused everything, which stopped Ken's
+estate jobs on the same account and sent Nathan a failure email each time
+(09/10/2026). A write still re-reads the live sha and clears the shared
+copy, so nothing is saved against a stale version.
 
 4.5: every load on a run in the day view carries its own job code (RS1,
 RS2) rather than a bare number, so a delivery and a collection on the same
@@ -229,8 +239,22 @@ def gh_headers():
             "X-GitHub-Api-Version": "2022-11-28"}
 
 
-def read_file(path):
-    """(parsed JSON, sha) for a file in the repo, (None, None) when it is not there."""
+@st.cache_data(ttl=30, show_spinner=False)
+def _shared_read(repo, branch, path):
+    """One fetch every 30 seconds for everyone with the planner open (4.6)."""
+    r = requests.get(f"https://api.github.com/repos/{repo}/contents/{path}",
+                     params={"ref": branch}, headers=gh_headers(), timeout=30)
+    if r.status_code == 404:
+        return None, None
+    r.raise_for_status()
+    body = r.json()
+    raw = base64.b64decode(body.get("content") or "").decode("utf-8")
+    return json.loads(raw) if raw.strip() else None, body.get("sha")
+
+
+def read_file(path, fresh=False):
+    """(parsed JSON, sha) for a file in the repo, (None, None) when it is not
+    there. Shared across sessions for 30 seconds unless fresh=True."""
     if LOCAL_DATA_DIR:
         p = Path(LOCAL_DATA_DIR) / Path(path).name
         if not p.exists():
@@ -240,14 +264,9 @@ def read_file(path):
     c = gh_conf()
     if not c["token"]:
         raise RuntimeError("No GitHub token in secrets ([github] token).")
-    r = requests.get(f"https://api.github.com/repos/{c['repo']}/contents/{path}",
-                     params={"ref": c["branch"]}, headers=gh_headers(), timeout=30)
-    if r.status_code == 404:
-        return None, None
-    r.raise_for_status()
-    body = r.json()
-    raw = base64.b64decode(body.get("content") or "").decode("utf-8")
-    return json.loads(raw) if raw.strip() else None, body.get("sha")
+    if fresh:
+        _shared_read.clear()
+    return _shared_read(c["repo"], c["branch"], path)
 
 
 def write_file(path, obj, sha, message):
@@ -266,9 +285,10 @@ def write_file(path, obj, sha, message):
     for attempt in range(2):
         r = requests.put(url, json=payload, headers=gh_headers(), timeout=60)
         if r.status_code in (200, 201):
+            _shared_read.clear()
             return r.json()["content"]["sha"]
         if r.status_code in (409, 422) and attempt == 0:
-            _cur, fresh = read_file(path)
+            _cur, fresh = read_file(path, fresh=True)
             if fresh:
                 payload["sha"] = fresh
             continue
