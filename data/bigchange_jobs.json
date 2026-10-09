@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T14:46:42",
+ "generated_at": "2026-10-09T15:16:10",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -6493,9 +6493,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Delivery",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "delivery of boss unit",
