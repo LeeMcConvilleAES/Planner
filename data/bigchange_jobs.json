@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T07:58:43",
+ "generated_at": "2026-10-09T08:11:29",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4829,7 +4829,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 320.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 320.0
      }
     ],
@@ -17486,10 +17486,6 @@
   ]
  },
  "rate_card": {
-  "Tanker Service | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 683
-  },
   "Transport | 7.5t Transport Delivery": {
    "median": 100.0,
    "count": 112
@@ -17509,6 +17505,10 @@
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 735
+  },
+  "Tanker Service | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 682
   },
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
@@ -17532,11 +17532,11 @@
   },
   "Service Job | Solar Toilet Service": {
    "median": 55.0,
-   "count": 103
+   "count": 104
   },
   "(no category) | 1000G Waste Empty": {
    "median": 75.0,
-   "count": 126
+   "count": 127
   },
   "Tanker Service | Static Welfare 24''": {
    "median": 75.0,
@@ -17588,7 +17588,7 @@
   },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
-   "count": 66
+   "count": 67
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
