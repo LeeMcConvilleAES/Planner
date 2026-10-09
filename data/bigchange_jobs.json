@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-09T16:35:49",
+ "generated_at": "2026-10-09T16:44:13",
  "window": [
   "2026-06-11",
   "2027-02-01"
@@ -4599,42 +4599,6 @@
     ],
     "pc_key": "ST46NT",
     "miles": 50
-   },
-   {
-    "id": "bc-201057799",
-    "type": "Collection",
-    "col": "col",
-    "customer": "Zurich Assurance Ltd",
-    "postcode": "SK13 8HB",
-    "address": "HuGH STREET  WEST - GLOSSOP WREN NEST RETAIL PARK , STOCKPORT , SK13 8HB",
-    "order_number": "01-003213",
-    "units": {
-     "old runner unit": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201057799,
-      "ref": "AES/61258",
-      "desc": "old runner unit",
-      "status": "live",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     }
-    ],
-    "notes": "collection of old runner unit",
-    "destack": "",
-    "status": "live",
-    "bigchange_ids": [
-     201057799
-    ],
-    "refs": [
-     "AES/61258"
-    ],
-    "pc_key": "SK138HB",
-    "miles": 32
    }
   ],
   "2026-10-12": [
@@ -5469,6 +5433,42 @@
     ],
     "pc_key": "WF128QT",
     "miles": 44
+   },
+   {
+    "id": "bc-201057799",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Zurich Assurance Ltd",
+    "postcode": "SK13 8HB",
+    "address": "HuGH STREET  WEST - GLOSSOP WREN NEST RETAIL PARK , STOCKPORT , SK13 8HB",
+    "order_number": "01-003213",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201057799,
+      "ref": "AES/61258",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of old runner unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201057799
+    ],
+    "refs": [
+     "AES/61258"
+    ],
+    "pc_key": "SK138HB",
+    "miles": 32
    }
   ],
   "2026-10-16": [
