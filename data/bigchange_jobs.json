@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-10T15:43:00",
+ "generated_at": "2026-10-10T16:44:56",
  "window": [
   "2026-06-12",
   "2027-02-02"
@@ -17761,10 +17761,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 917
-  },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 678
@@ -17784,6 +17780,10 @@
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 729
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 916
   },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
