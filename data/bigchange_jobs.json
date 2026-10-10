@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-10T12:37:34",
+ "generated_at": "2026-10-10T13:38:56",
  "window": [
   "2026-06-12",
   "2027-02-02"
@@ -17761,10 +17761,6 @@
   ]
  },
  "rate_card": {
-  "(no category) | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 5
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 918
@@ -17888,6 +17884,10 @@
   "Fuel Delivery | Fuel Delivery": {
    "median": 195.0,
    "count": 6
+  },
+  "(no category) | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 4
   },
   "Tanker Service | SCMW Service (chemical)": {
    "median": 50.0,
