@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-10T14:40:55",
+ "generated_at": "2026-10-10T15:43:00",
  "window": [
   "2026-06-12",
   "2027-02-02"
@@ -17761,18 +17761,6 @@
   ]
  },
  "rate_card": {
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 730
-  },
-  "Transport | 7.5t Transport Delivery": {
-   "median": 100.0,
-   "count": 108
-  },
-  "Hiab Transport | 0-25miles Hiab Collection": {
-   "median": 220.0,
-   "count": 102
-  },
   "Service Job | Chemical Toilet Service": {
    "median": 20.0,
    "count": 917
@@ -17793,6 +17781,10 @@
    "median": 190.0,
    "count": 64
   },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 729
+  },
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
    "count": 142
@@ -17805,9 +17797,17 @@
    "median": 55.0,
    "count": 101
   },
+  "Transport | 7.5t Transport Delivery": {
+   "median": 100.0,
+   "count": 107
+  },
   "Hiab Transport | Site Move / Exchange": {
    "median": 270.0,
    "count": 51
+  },
+  "Hiab Transport | 0-25miles Hiab Collection": {
+   "median": 220.0,
+   "count": 101
   },
   "Hiab Transport | 0-25m Hiab Delivery": {
    "median": 220.0,
