@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-10T10:33:40",
+ "generated_at": "2026-10-10T11:35:20",
  "window": [
   "2026-06-12",
   "2027-02-02"
@@ -17761,26 +17761,6 @@
   ]
  },
  "rate_card": {
-  "Hiab Transport | Hiab Collection": {
-   "median": 420.0,
-   "count": 59
-  },
-  "Fuel Delivery | Fuel Delivery": {
-   "median": 195.0,
-   "count": 7
-  },
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 920
-  },
-  "Service Job | SCMW Service (chemical)": {
-   "median": 25.0,
-   "count": 731
-  },
-  "Tanker Service | Static Welfare 24''": {
-   "median": 75.0,
-   "count": 99
-  },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
    "count": 679
@@ -17792,6 +17772,10 @@
   "Hiab Transport | 25-50 Miles Hiab Collection": {
    "median": 265.0,
    "count": 143
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 919
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
@@ -17812,6 +17796,10 @@
   "Transport | 7.5t Transport Collection": {
    "median": 100.0,
    "count": 101
+  },
+  "Service Job | SCMW Service (chemical)": {
+   "median": 25.0,
+   "count": 730
   },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
@@ -17877,6 +17865,14 @@
    "median": 75.0,
    "count": 9
   },
+  "Hiab Transport | Hiab Collection": {
+   "median": 450.0,
+   "count": 58
+  },
+  "Tanker Service | Static Welfare 24''": {
+   "median": 75.0,
+   "count": 98
+  },
   "Water Fill | Water Fill": {
    "median": 70.0,
    "count": 21
@@ -17888,6 +17884,10 @@
   "Tanker Service | Water Fill": {
    "median": 70.0,
    "count": 25
+  },
+  "Fuel Delivery | Fuel Delivery": {
+   "median": 195.0,
+   "count": 6
   },
   "Tanker Service | SCMW Service (chemical)": {
    "median": 50.0,
