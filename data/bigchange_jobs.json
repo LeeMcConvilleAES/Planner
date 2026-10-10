@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-10T13:38:56",
+ "generated_at": "2026-10-10T14:40:55",
  "window": [
   "2026-06-12",
   "2027-02-02"
@@ -17761,33 +17761,21 @@
   ]
  },
  "rate_card": {
-  "Service Job | Chemical Toilet Service": {
-   "median": 20.0,
-   "count": 918
-  },
-  "Service Job | 1000G Waste Empty": {
-   "median": 75.0,
-   "count": 26
-  },
-  "Transport | 7.5t Transport Delivery": {
-   "median": 100.0,
-   "count": 109
-  },
-  "Hiab Transport | 0-15m Hiab Delivery": {
-   "median": 190.0,
-   "count": 71
-  },
-  "Transport | 7.5t Transport Collection": {
-   "median": 100.0,
-   "count": 101
-  },
   "Service Job | SCMW Service (chemical)": {
    "median": 25.0,
    "count": 730
   },
+  "Transport | 7.5t Transport Delivery": {
+   "median": 100.0,
+   "count": 108
+  },
   "Hiab Transport | 0-25miles Hiab Collection": {
    "median": 220.0,
    "count": 102
+  },
+  "Service Job | Chemical Toilet Service": {
+   "median": 20.0,
+   "count": 917
   },
   "Tanker Service | 1000G Waste Empty": {
    "median": 75.0,
@@ -17796,6 +17784,10 @@
   "Tanker Service | 1000Ltr Water Fill": {
    "median": 70.0,
    "count": 451
+  },
+  "Hiab Transport | 0-15m Hiab Delivery": {
+   "median": 190.0,
+   "count": 70
   },
   "Hiab Transport | 0-15m Hiab Collection": {
    "median": 190.0,
@@ -17828,6 +17820,10 @@
   "Hiab Transport | 25-50m Hiab Delivery": {
    "median": 265.0,
    "count": 122
+  },
+  "Transport | 7.5t Transport Collection": {
+   "median": 100.0,
+   "count": 100
   },
   "Tanker Service | Chemical Toilet Service": {
    "median": 20.0,
@@ -17884,6 +17880,10 @@
   "Fuel Delivery | Fuel Delivery": {
    "median": 195.0,
    "count": 6
+  },
+  "Service Job | 1000G Waste Empty": {
+   "median": 75.0,
+   "count": 25
   },
   "(no category) | Static Welfare 24''": {
    "median": 75.0,
