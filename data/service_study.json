@@ -1,5 +1,5 @@
 {
- "version": "1.0",
+ "version": "1.1",
  "week": "5 to 11 Oct 2026",
  "week_start": "2026-10-05",
  "base_fuel": 1.5,
@@ -530,20 +530,20 @@
   "tiles": [
    [
     "FUEL A WEEK",
-    "£842 less",
-    "£1,568 down to £726, about £42,000 over 50 weeks",
+    "£523 less",
+    "£1,569 down to £1,046, about £26,000 over 50 weeks",
     "pos"
    ],
    [
     "ROAD MILES",
-    "2,817 to 1,830",
-    "987 fewer miles, tipping runs included",
+    "3,029 to 1,994",
+    "1,035 fewer miles, tipping runs included",
     ""
    ],
    [
     "DRIVER DAYS USED",
     "24 to 18",
-    "6 driver days free to sell, Danny not needed at all",
+    "Stephen Ennion and Alan free all week in the best plan found",
     ""
    ],
    [
@@ -556,62 +556,62 @@
   "steps": [
    [
     "As driven",
-    "2,817",
-    "£1,568",
+    "3,029",
+    "£1,569",
     "24",
-    "162",
-    "John over 9 hours on Mon, Wed and Thu; Jeff and John doing the waste empties",
+    "172",
+    "John over 9 hours on Mon, Wed and Thu; Alan's Tuesday nearly 12 hours with depot tips",
     0
    ],
    [
     "1. Better order only",
-    "2,509",
-    "£1,411",
+    "2,863",
+    "£1,452",
     "24",
-    "156",
-    "Same driver, same day, stops in the shortest order. John still runs over 9 hours three days",
+    "170",
+    "Same driver, same day, stops in the shortest order. John and Alan still run long",
     0
    ],
    [
     "2. Swap drivers, same days",
-    "2,189",
-    "£896",
-    "20",
-    "145",
-    "Waste empties onto the tankers, water onto the 18t wagons, four driver days freed",
+    "2,404",
+    "£1,189",
+    "23",
+    "153",
+    "Empties onto Jeff and Danny, water onto John, Danny and the tankers",
     0
    ],
    [
     "3. Swap and move a day",
-    "1,830",
-    "£726",
+    "1,994",
+    "£1,046",
     "18",
-    "138",
+    "141",
     "Single visit sites may move one weekday to sit with their neighbours. The plan",
     1
    ],
    [
-    "Same, without Alan",
-    "1,896",
-    "£806",
-    "17",
-    "138",
-    "Stephen, Stephen, Jeff and John cover the whole week",
+    "Toilets kept on the tankers",
+    "2,502",
+    "£1,057",
+    "23",
+    "156",
+    "Toilet and welfare services only on the 7.5t tankers: 3 Yorkshire stops will not fit if the tankers can only tip at the depot",
     0
    ]
   ],
   "ppm": [
    [
-    "Stephen Ennion, tanker",
-    23.5
-   ],
-   [
-    "Stephen Bond, tanker",
+    "Stephen and Stephen, tankers",
     23.5
    ],
    [
     "Alan, tanker",
     31.0
+   ],
+   [
+    "Danny, 18t",
+    56.8
    ],
    [
     "Jeff, 18t",
@@ -625,39 +625,39 @@
   "who": [
    [
     "Stephen Ennion",
-    "1 to 10",
-    "0",
-    "38 to 40"
+    "1 to 0",
+    "0 to 0",
+    "38 to 0"
    ],
    [
     "Stephen Bond",
-    "1 to 12",
-    "0",
-    "55 to 40"
+    "1 to 0",
+    "0 to 7",
+    "55 to 43"
    ],
    [
     "Alan Unsworth",
-    "0 to 6",
-    "0",
-    "19 to 29"
+    "0 to 0",
+    "0 to 0",
+    "19 to 0"
    ],
    [
     "Jeff Matthews",
-    "30 to 21",
-    "10 to 37",
-    "7 to 21"
+    "30 to 15",
+    "10 to 0",
+    "7 to 40"
    ],
    [
     "John Purtill",
-    "27 to 10",
-    "41 to 16",
-    "18 to 7"
+    "27 to 18",
+    "41 to 31",
+    "18 to 25"
    ],
    [
     "Danny Ball",
-    "0 to 0",
-    "2 to 0",
-    "0 to 0"
+    "0 to 26",
+    "2 to 15",
+    "0 to 29"
    ]
   ],
   "crew": [
@@ -736,20 +736,20 @@
    "SE": [
     [
      10,
-     119,
-     7.1,
+     152,
+     8.4,
      ""
     ],
     [
      9,
-     96,
-     7.2,
+     103,
+     7.7,
      ""
     ],
     [
      8,
-     124,
-     6.8,
+     166,
+     8.5,
      ""
     ],
     [
@@ -768,32 +768,32 @@
    "SB": [
     [
      7,
-     121,
-     6.4,
+     142,
+     7.4,
      ""
     ],
     [
      11,
-     146,
-     8.5,
+     180,
+     9.7,
+     ""
+    ],
+    [
+     12,
+     95,
+     9.0,
+     ""
+    ],
+    [
+     11,
+     160,
+     9.5,
      ""
     ],
     [
      12,
      72,
-     7.9,
-     ""
-    ],
-    [
-     11,
-     116,
-     8.0,
-     ""
-    ],
-    [
-     12,
-     53,
-     6.6,
+     7.6,
      ""
     ]
    ],
@@ -801,8 +801,8 @@
     null,
     [
      11,
-     172,
-     9.0,
+     269,
+     11.6,
      ""
     ],
     [
@@ -828,20 +828,20 @@
     ],
     [
      7,
-     195,
-     8.1,
+     139,
+     7.2,
      ""
     ],
     [
      9,
-     193,
+     164,
+     7.2,
+     ""
+    ],
+    [
+     9,
+     91,
      8.4,
-     ""
-    ],
-    [
-     9,
-     114,
-     7.9,
      ""
     ],
     [
@@ -898,152 +898,154 @@
   },
   "plan": {
    "SE": [
-    [
-     12,
-     141,
-     9.0,
-     "BB BD BL"
-    ],
-    [
-     11,
-     162,
-     8.8,
-     "L CW CH"
-    ],
-    [
-     15,
-     76,
-     8.0,
-     "WA L WN"
-    ],
-    [
-     10,
-     170,
-     8.9,
-     "M BD LS"
-    ],
+    null,
+    null,
+    null,
+    null,
     null
    ],
    "SB": [
     [
+     8,
+     112,
+     7.9,
+     "CW WA SK"
+    ],
+    [
      10,
-     205,
-     8.9,
-     "LA BB BL"
+     142,
+     8.6,
+     "SK L CH"
     ],
     [
-     12,
-     128,
-     8.9,
-     "SK WA CW"
+     8,
+     162,
+     7.5,
+     "BD L WA"
     ],
     [
-     14,
-     106,
-     9.0,
-     "SK M"
+     7,
+     167,
+     7.8,
+     "BD OL LS"
     ],
-    null,
     [
-     14,
-     128,
-     8.9,
-     "SK M WA"
+     11,
+     108,
+     7.6,
+     "M SK WA"
     ]
    ],
    "AU": [
     null,
-    [
-     12,
-     104,
-     8.0,
-     "PR FY BL"
-    ],
-    [
-     6,
-     32,
-     3.9,
-     "BL"
-    ],
-    [
-     14,
-     68,
-     8.9,
-     "M OL"
-    ],
+    null,
+    null,
+    null,
     null
    ],
    "JM": [
     [
-     9,
-     96,
-     8.7,
-     "WA CH L"
-    ],
-    [
-     11,
+     13,
      88,
-     7.4,
-     "M SK WN"
+     8.6,
+     "BB BL"
     ],
     [
-     5,
-     77,
-     5.2,
-     "CW WN"
+     15,
+     90,
+     8.9,
+     "M SK CW"
     ],
     [
      12,
-     69,
-     7.7,
-     "WN L WA"
+     144,
+     8.5,
+     "SK WA L"
     ],
+    null,
     [
-     8,
-     31,
-     4.8,
-     "WN BL"
+     12,
+     38,
+     5.7,
+     "WN WA"
     ]
    ],
    "JP": [
     [
-     9,
-     96,
-     7.7,
-     "PR FY BB"
+     4,
+     79,
+     4.9,
+     "WA CH L"
     ],
-    null,
-    null,
     [
-     8,
-     53,
-     5.0,
-     "M OL SK"
+     12,
+     80,
+     8.7,
+     "PR BB WN"
+    ],
+    [
+     13,
+     46,
+     7.3,
+     "M OL BL"
+    ],
+    [
+     12,
+     61,
+     7.3,
+     "WA L WN"
     ],
     null
    ],
    "DB": [
-    null,
-    null,
-    null,
-    null,
-    null
+    [
+     12,
+     145,
+     8.6,
+     "FY L PR"
+    ],
+    [
+     10,
+     206,
+     8.9,
+     "LA PR BL"
+    ],
+    [
+     9,
+     113,
+     8.2,
+     "CW BL WA"
+    ],
+    [
+     11,
+     142,
+     8.6,
+     "WN SK M"
+    ],
+    [
+     13,
+     72,
+     7.7,
+     "M SK OL"
+    ]
    ]
   },
   "rules": [
    "Sites visited more than once in the week (twice weekly and up) keep their exact days, so the gap between visits is untouched.",
    "A site visited once moves at most one weekday either way.",
-   "The tankers carry no water. John 6,000 gal waste and 6,000 L water, Jeff 5,000 gal and 2,750 L, the tankers 9,000 gal.",
-   "Full tank: back to the depot to tip (20 minutes), and every day ends with a tip. Water: refill at a standpipe by the road (20 minutes).",
+   "Tank sizes from Lee (11 Oct): 7.5t tankers about 750 gal waste and 1,000 L water; Jeff 9,000 gal waste, no water; John 6,000 gal waste and 6,000 L water, refilling on route to no more than 12,000 L a day; Danny 6,000 gal waste and 2,000 L water.",
+   "Full tank: back to the depot to tip (20 minutes), and every day ends with a tip. Water: refill at a standpipe by the road (20 minutes a refill).",
    "Nobody works more than 9 hours depot to depot. Alan only Tuesday to Thursday."
   ],
   "assumptions": [
-   "Waste per job: chemical or solar toilet 60 gal, W4H 100, SCMW 100, eco welfare 150, static welfare 200, waste empty 1,000 (800G 800). Water fill 1,000 L.",
-   "Time on site and road times are tuned so the actual week comes out within 1% of the hours Big Change recorded.",
-   "Alan's tanker is taken as the same 9,000 gal as Stephen's. Danny is left out, his wagon's tank sizes are not known. WasteLine and the Saturday job are left as they were.",
-   "If the tankers hold 9,000 litres rather than gallons, the plan still saves £629 a week and uses 19 driver days.",
-   "Without Alan at all, four drivers cover the week in 17 days for £806 of fuel.",
-   "The stop by stop plan is Service Routing Study 5 to 11 Oct V1.0.csv in the AES Planner V2 folder."
-  ]
+   "Waste per job: chemical or solar toilet 60 gal, W4H 100, SCMW 100, eco welfare 150, static welfare 200, waste empty 1,000 (800G 800). Water fill 1,000 L. With 750 gallon tankers these guesses matter: please correct them.",
+   "Any wagon can do toilet and welfare services in the main plan, so Jeff, John and Danny pick some up. If those must stay on the 7.5t tankers, see the last line of the steps table.",
+   "Tankers tip only at the depot. If they tip somewhere nearer their round, tanker miles and hours fall and the toilets kept on the tankers option gets better.",
+   "Danny's wagon has no weekly cost in costs.json yet, so he is costed on wages and fuel only, which flatters him.",
+   "Time on site and road times are tuned so the actual week comes out within 1% of the hours Big Change recorded. WasteLine and the Saturday job are left as they were.",
+   "The stop by stop plan is Service Routing Study 5 to 11 Oct V1.1.csv in the AES Planner V2 folder."
+  ],
+  "basis": "Version 1.1, 11 Oct 2026: tank sizes from Lee's email of 11 Oct",
+  "why": "Lee's tank sizes change where the saving comes from. The 7.5t tankers hold about 750 gallons, so they cannot take a 1,000 gallon waste empty, and Jeff carries no water. The saving now comes from Jeff's 9,000 gallon wagon and Danny (57p a mile, 6,000 gallons and 2,000 L) taking empties off John's 18t (85p a mile), John keeping the water, and fewer, fuller days."
  }
 }

@@ -1,5 +1,10 @@
 """AES Transport Planner
-Version 4.7
+Version 4.8
+
+4.8: the routing study's explanation of where the saving comes from, and
+the line saying which tank sizes it used, now come from service_study.json
+rather than being written into the page, so a re-run of the study (version
+1.1, 11/10/2026, Lee's tank sizes) updates the whole ROUTING STUDY tab.
 
 4.7: the MD dashboard gets two more tabs, SERVICE and ROUTING STUDY, for
 review with colleagues (Nathan, 09/10/2026). Both read data/service_study.json
@@ -187,7 +192,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.7"
+VERSION = "4.8"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

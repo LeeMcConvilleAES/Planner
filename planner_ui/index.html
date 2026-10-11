@@ -982,11 +982,11 @@ function renderRouting(SS){
   return tiles + '<div class="mdbody">' +
     '<div class="svchd"><span>THREE STEPS, EACH ON TOP OF THE LAST</span></div>' +
     '<table class="mdt steps"><tr><th>PLAN</th><th class="n">MILES</th><th class="n">FUEL</th><th class="n">DRIVER DAYS</th><th class="n">HOURS</th><th>WHAT CHANGES</th></tr>' + steps + '</table>' +
-    '<div class="svc2"><div class="svcbox"><div class="l">WHERE THE SAVING COMES FROM</div><div style="font-size:14px;line-height:1.5">A mile in John\'s 18t wagon burns 85p of diesel. The same mile in Stephen\'s tanker burns 23p. This week the two 18t wagons did 57 of the 59 waste empties. Most of the saving is moving waste onto the tankers and keeping the 18t wagons for water.</div>' + ppm + '<div class="muted" style="font-size:11px">Diesel per mile at £1.50 a litre.</div></div>' +
+    '<div class="svc2"><div class="svcbox"><div class="l">WHERE THE SAVING COMES FROM</div><div style="font-size:14px;line-height:1.5">' + esc(R.why || '') + '</div>' + ppm + '<div class="muted" style="font-size:11px">Diesel per mile at £1.50 a litre.</div></div>' +
     '<div class="svcbox"><div class="l">WHO DOES WHAT, ACTUAL TO PLAN</div><table class="mdt"><tr><th>DRIVER</th><th class="n">WASTE EMPTIES</th><th class="n">WATER FILLS</th><th class="n">TOILET AND WELFARE</th></tr>' + who + '</table></div></div>' +
     '<div class="svchd"><span>THE WEEK, DRIVER BY DAY</span><span class="svcf"><button class="svcpill' + (view === 'actual' ? ' on' : '') + '" data-act="rtView" data-v="actual">AS DRIVEN</button><button class="svcpill' + (view === 'plan' ? ' on' : '') + '" data-act="rtView" data-v="plan">THE PLAN</button></span></div>' +
     '<table class="mdt grid7"><tr><th>DRIVER</th>' + DL.map(function(l, i){ return '<th class="c">' + l + ' ' + (+isoAdd(SS.week_start, i).slice(8)) + '</th>'; }).join('') + '</tr>' + grid + '</table>' +
-    '<div class="mdnote">Each cell: stops, road miles, hours depot to depot, and the main postcode areas. Red is over the 9 hour day.</div>' +
+    '<div class="mdnote">Each cell: stops, road miles, hours depot to depot, and the main postcode areas. Red is over the 9 hour day.' + (R.basis ? ' ' + esc(R.basis) + '.' : '') + '</div>' +
     '<div class="svc2"><div class="svcbox"><div class="l">RULES KEPT TO</div>' + R.rules.map(function(n){ return '<div>' + esc(n) + '</div>'; }).join('') + '</div>' +
     '<div class="svcbox"><div class="l">WHAT WAS ASSUMED</div>' + R.assumptions.map(function(n){ return '<div>' + esc(n) + '</div>'; }).join('') + '</div></div></div>';
 }
