@@ -1272,6 +1272,23 @@
    "notes": "",
    "created_at": "2026-09-28T13:07:15+01:00",
    "created_by": "migration"
+  },
+  {
+   "id": "e-1791796083141",
+   "day": "2026-10-21",
+   "col": "del",
+   "customer": "jake",
+   "postcode": "MANCHESTER",
+   "po": "",
+   "items": [
+    "3 x24s",
+    "1x 3+1",
+    "2 x stair case",
+    "stackking x 2"
+   ],
+   "notes": "",
+   "created_at": "2026-10-12T09:08:03",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -1364,6 +1381,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-09T16:45:21+01:00",
+ "updated_at": "2026-10-12T10:08:03+01:00",
  "updated_by": "office"
 }
