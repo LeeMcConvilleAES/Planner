@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T18:26:00",
+ "generated_at": "2026-10-14T21:56:39",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5347,7 +5347,7 @@
       "bigchange_id": 201093428,
       "ref": "AES/61265",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "Hiab Collection",
       "price": 450.0,
       "est_price": null,
@@ -5357,7 +5357,7 @@
     ],
     "notes": "Collection 20ft Event Unit 10.30pm",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201093428
     ],
