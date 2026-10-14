@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T13:23:45",
+ "generated_at": "2026-10-14T13:33:55",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5736,7 +5736,7 @@
       "last_price": 483.0
      }
     ],
-    "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store / delivery of 24ft toilet  and steps - 4th delivery",
+    "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store ,Steps, Empty IBC - last delivery / delivery of 24ft toilet  and steps - 4th delivery",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
