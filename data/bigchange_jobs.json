@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T13:03:26",
+ "generated_at": "2026-10-14T13:13:41",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5347,7 +5347,7 @@
       "bigchange_id": 201700762,
       "ref": "AES/61725",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -5389,7 +5389,7 @@
     ],
     "notes": "collect 32ft Eldapoint",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      201700762,
      201702578,
@@ -5736,7 +5736,7 @@
       "last_price": 483.0
      }
     ],
-    "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store / delivery of 24ft toilet holding tank and steps",
+    "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store / delivery of 24ft toilet  and steps - 4th delivery",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
