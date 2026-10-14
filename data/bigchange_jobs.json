@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T12:12:54",
+ "generated_at": "2026-10-14T12:23:02",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5795,6 +5795,42 @@
   ],
   "2026-10-19": [
    {
+    "id": "bc-201769787",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A CONNOLLY",
+    "postcode": "M25 0AL",
+    "address": "Beechcroft next to block 39 - 41, Prestwich, M25 0AL",
+    "order_number": "01-003269",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201769787,
+      "ref": "AES/61802",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Delivery",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "delivery of a boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201769787
+    ],
+    "refs": [
+     "AES/61802"
+    ],
+    "pc_key": "M250AL",
+    "miles": 13
+   },
+   {
     "id": "bc-200286961",
     "type": "Delivery",
     "col": "del",
@@ -6140,7 +6176,7 @@
       "last_price": 290.0
      }
     ],
-    "notes": "collection of 20ft store",
+    "notes": "collection of 20ft store & turn 20ft office 180deg on site",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
