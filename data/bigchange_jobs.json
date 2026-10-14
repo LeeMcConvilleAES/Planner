@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T11:58:54",
+ "generated_at": "2026-10-14T12:08:55",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5274,7 +5274,7 @@
       "bigchange_id": 201674855,
       "ref": "AES/61714",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -5283,7 +5283,7 @@
     ],
     "notes": "c0ollect 20ft 8035 / collect 20ft 7947",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201671420,
      201674855
@@ -5457,7 +5457,7 @@
       "bigchange_id": 201057799,
       "ref": "AES/61258",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -5467,7 +5467,7 @@
     ],
     "notes": "collection of old runner unit",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201057799
     ],
@@ -6237,7 +6237,9 @@
     "address": "Lancaster DWP Car Park Approach Ramp, Lancaster, LA1 1JW",
     "order_number": "01-003277",
     "units": {
-     "20ft": 1
+     "20ft": 2,
+     "2+1 toilet": 1,
+     "10ft store": 1
     },
     "loads": [
      {
@@ -6250,16 +6252,55 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 201767400,
+      "ref": "AES/61799",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 201767573,
+      "ref": "AES/61800",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 201767742,
+      "ref": "AES/61801",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "20ft office",
+    "notes": "20ft office / del 20ft cant/dry / del 2+1, HT, steps, IBC / del 10ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     201767192
+     201767192,
+     201767400,
+     201767573,
+     201767742
     ],
     "refs": [
-     "AES/61798"
+     "AES/61798",
+     "AES/61799",
+     "AES/61800",
+     "AES/61801"
     ],
     "pc_key": "LA11JW",
     "miles": 44
