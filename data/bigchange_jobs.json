@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T12:43:18",
+ "generated_at": "2026-10-14T12:53:25",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -6613,7 +6613,8 @@
     "order_number": "01-003280",
     "units": {
      "20ft": 2,
-     "3+1 toilet": 1
+     "3+1 toilet": 1,
+     "stairs": 1
     },
     "loads": [
      {
@@ -6648,20 +6649,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 365.0
+     },
+     {
+      "bigchange_id": 201773765,
+      "ref": "AES/61806",
+      "desc": "stairs",
+      "status": "booked",
+      "type": "7.5t Transport Delivery",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
-    "notes": "deliver 20ft office (top) / 20 ft canteen bottom unit / 3+1 toilet block effluent tank ibc and steps",
+    "notes": "deliver 20ft office (top) / 20 ft canteen bottom unit / 3+1 toilet block effluent tank ibc and steps / delivery of stairs",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      201771494,
      201771736,
-     201773407
+     201773407,
+     201773765
     ],
     "refs": [
      "AES/61803",
      "AES/61804",
-     "AES/61805"
+     "AES/61805",
+     "AES/61806"
     ],
     "pc_key": "BB79UE",
     "miles": 36
