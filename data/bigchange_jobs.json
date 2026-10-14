@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T13:54:06",
+ "generated_at": "2026-10-14T14:04:16",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5380,7 +5380,7 @@
       "bigchange_id": 201703195,
       "ref": "AES/61728",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -5389,7 +5389,7 @@
     ],
     "notes": "collect 32ft Eldapoint",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201700762,
      201702578,
