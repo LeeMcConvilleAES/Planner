@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-14T13:33:55",
+ "generated_at": "2026-10-14T13:54:06",
  "window": [
   "2026-06-16",
   "2027-02-06"
@@ -5193,7 +5193,7 @@
       "bigchange_id": 201093120,
       "ref": "AES/61263",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "Hiab Delivery",
       "price": 325.0,
       "est_price": null,
@@ -5203,7 +5203,7 @@
     ],
     "notes": "20ft Store Delivery (Event cabin) On site for 3pm",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201093120
     ],
@@ -5311,7 +5311,7 @@
       "bigchange_id": 201566835,
       "ref": "AES/61710",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 325.0,
       "est_price": null,
@@ -5321,7 +5321,7 @@
     ],
     "notes": "COLLECT 20FT BOX",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201566835
     ],
@@ -5380,7 +5380,7 @@
       "bigchange_id": 201703195,
       "ref": "AES/61728",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": null,
       "est_price": null,
@@ -5389,7 +5389,7 @@
     ],
     "notes": "collect 32ft Eldapoint",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201700762,
      201702578,
