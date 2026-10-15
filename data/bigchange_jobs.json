@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T12:22:04",
+ "generated_at": "2026-10-15T12:52:56",
  "window": [
   "2026-06-17",
   "2027-02-07"
@@ -5489,7 +5489,7 @@
     "miles": 4
    },
    {
-    "id": "bc-201210511",
+    "id": "bc-201210745",
     "type": "Delivery",
     "col": "del",
     "customer": "Man & Cheshire Con",
@@ -5497,33 +5497,9 @@
     "address": "0219 Oxford Place, Manchester, M14 5RR",
     "order_number": "01-003236",
     "units": {
-     "24ft": 2,
-     "20ft store": 1,
-     "2+1 toilet": 1
+     "20ft store": 1
     },
     "loads": [
-     {
-      "bigchange_id": 201210511,
-      "ref": "AES/61454",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     },
-     {
-      "bigchange_id": 201210635,
-      "ref": "AES/61455",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     },
      {
       "bigchange_id": 201210745,
       "ref": "AES/61456",
@@ -5534,33 +5510,16 @@
       "est_price": null,
       "price_source": "invoice",
       "last_price": 190.0
-     },
-     {
-      "bigchange_id": 201210909,
-      "ref": "AES/61457",
-      "desc": "2+1 toilet",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
      }
     ],
-    "notes": "del 24ft / del 20ft store / del 2+1 , HT, steps, IBC",
+    "notes": "del 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
-     201210511,
-     201210635,
-     201210745,
-     201210909
+     201210745
     ],
     "refs": [
-     "AES/61454",
-     "AES/61455",
-     "AES/61456",
-     "AES/61457"
+     "AES/61456"
     ],
     "pc_key": "M145RR",
     "miles": 14
@@ -6052,6 +6011,69 @@
     ],
     "pc_key": "ST163BW",
     "miles": 61
+   },
+   {
+    "id": "bc-201210511",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Man & Cheshire Con",
+    "postcode": "M14 5RR",
+    "address": "0219 Oxford Place, Manchester, M14 5RR",
+    "order_number": "01-003236",
+    "units": {
+     "24ft": 2,
+     "2+1 toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201210511,
+      "ref": "AES/61454",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 201210635,
+      "ref": "AES/61455",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 201210909,
+      "ref": "AES/61457",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "del 24ft / del 2+1 , HT, steps, IBC",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201210511,
+     201210635,
+     201210909
+    ],
+    "refs": [
+     "AES/61454",
+     "AES/61455",
+     "AES/61457"
+    ],
+    "pc_key": "M145RR",
+    "miles": 14
    },
    {
     "id": "bc-201576046",
