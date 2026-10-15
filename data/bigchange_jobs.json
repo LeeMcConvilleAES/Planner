@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T10:47:41",
+ "generated_at": "2026-10-15T10:58:14",
  "window": [
   "2026-06-17",
   "2027-02-07"
@@ -5468,7 +5468,7 @@
       "bigchange_id": 201287444,
       "ref": "AES/61530",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "Hiab Delivery",
       "price": 375.0,
       "est_price": null,
@@ -5478,7 +5478,7 @@
     ],
     "notes": "32ft Unit from Zenex Yard Chorley PR7",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201287444
     ],
