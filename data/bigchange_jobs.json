@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T10:05:46",
+ "generated_at": "2026-10-15T10:16:10",
  "window": [
   "2026-06-17",
   "2027-02-07"
@@ -5581,7 +5581,7 @@
       "bigchange_id": 201854907,
       "ref": "AES/61884",
       "desc": "Solar Loo",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -5591,7 +5591,7 @@
     ],
     "notes": "collect solar loo",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201854907
     ],
@@ -6812,7 +6812,8 @@
     "address": "Prescott Street, Wigan, WN6 7DD",
     "order_number": "01-003288",
     "units": {
-     "24ft": 2
+     "24ft": 2,
+     "2+1 toilet": 1
     },
     "loads": [
      {
@@ -6836,18 +6837,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 201863876,
+      "ref": "AES/61887",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 380.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 380.0
      }
     ],
-    "notes": "24ft cant / coll24ft off",
+    "notes": "24ft cant / coll24ft off / collect 2+1, staircase, landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      201859045,
-     201861378
+     201861378,
+     201863876
     ],
     "refs": [
      "AES/61885",
-     "AES/61886"
+     "AES/61886",
+     "AES/61887"
     ],
     "pc_key": "WN67DD",
     "miles": 8
