@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T15:23:01",
+ "generated_at": "2026-10-15T16:16:08",
  "window": [
   "2026-06-17",
   "2027-02-07"
@@ -5759,6 +5759,42 @@
     "miles": 107
    },
    {
+    "id": "bc-201684803",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003266",
+    "units": {
+     "100l diesel": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201684803,
+      "ref": "AES/61716",
+      "desc": "100l diesel",
+      "status": "booked",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "del 100l diesel",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201684803
+    ],
+    "refs": [
+     "AES/61716"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
+   },
+   {
     "id": "bc-200639764",
     "type": "Collection",
     "col": "col",
@@ -5958,42 +5994,6 @@
     ],
     "pc_key": "M84JZ",
     "miles": 15
-   },
-   {
-    "id": "bc-201684803",
-    "type": "Fuel Delivery",
-    "col": "fuel",
-    "customer": "GREENMOUNT PROJECTS",
-    "postcode": "WN6 7DD",
-    "address": "Prescott Street, Wigan, WN6 7DD",
-    "order_number": "01-003266",
-    "units": {
-     "100l diesel": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201684803,
-      "ref": "AES/61716",
-      "desc": "100l diesel",
-      "status": "booked",
-      "type": "Fuel Delivery",
-      "price": 195.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 195.0
-     }
-    ],
-    "notes": "del 100l diesel",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     201684803
-    ],
-    "refs": [
-     "AES/61716"
-    ],
-    "pc_key": "WN67DD",
-    "miles": 8
    },
    {
     "id": "bc-201250032",
