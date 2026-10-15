@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T10:16:10",
+ "generated_at": "2026-10-15T10:47:41",
  "window": [
   "2026-06-17",
   "2027-02-07"
@@ -5432,7 +5432,7 @@
       "bigchange_id": 201094057,
       "ref": "AES/61266",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -5442,7 +5442,7 @@
     ],
     "notes": "Return 20ft to Event Structure Yard - Carrington M31 4QZ",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201094057
     ],
@@ -5566,42 +5566,6 @@
     "miles": 14
    },
    {
-    "id": "bc-201854907",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "Morris Homes",
-    "postcode": "BL9 5JE",
-    "address": "Greenmount Manor Springside Road, Bury, BL9 5JE",
-    "order_number": "01-003286",
-    "units": {
-     "Solar Loo": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201854907,
-      "ref": "AES/61884",
-      "desc": "Solar Loo",
-      "status": "live",
-      "type": "0-15m Hiab Delivery",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     }
-    ],
-    "notes": "collect solar loo",
-    "destack": "",
-    "status": "live",
-    "bigchange_ids": [
-     201854907
-    ],
-    "refs": [
-     "AES/61884"
-    ],
-    "pc_key": "BL95JE",
-    "miles": 19
-   },
-   {
     "id": "bc-200968625",
     "type": "Collection",
     "col": "col",
@@ -5636,6 +5600,42 @@
     ],
     "pc_key": "WF128QT",
     "miles": 44
+   },
+   {
+    "id": "bc-201854907",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Morris Homes",
+    "postcode": "BL9 5JE",
+    "address": "Greenmount Manor Springside Road, Bury, BL9 5JE",
+    "order_number": "01-003286",
+    "units": {
+     "Solar Loo": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201854907,
+      "ref": "AES/61884",
+      "desc": "Solar Loo",
+      "status": "live",
+      "type": "0-15m Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     }
+    ],
+    "notes": "collect solar loo",
+    "destack": "",
+    "status": "live",
+    "bigchange_ids": [
+     201854907
+    ],
+    "refs": [
+     "AES/61884"
+    ],
+    "pc_key": "BL95JE",
+    "miles": 19
    }
   ],
   "2026-10-16": [
