@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T15:10:30",
+ "generated_at": "2026-10-16T15:16:37",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -6628,8 +6628,8 @@
    },
    {
     "id": "bc-201338010",
-    "type": "Collection",
-    "col": "col",
+    "type": "Site Move",
+    "col": "move",
     "customer": "DWH Tudor",
     "postcode": "L32 8SA",
     "address": "Cherryfield Drive, Liverpool, L32 8SA",
@@ -6643,7 +6643,7 @@
       "ref": "AES/61544",
       "desc": "work moving pallets on site and other eq",
       "status": "booked",
-      "type": "0-25miles Hiab Collection",
+      "type": "Site Move / Exchange",
       "price": 565.0,
       "est_price": null,
       "price_source": "job",
