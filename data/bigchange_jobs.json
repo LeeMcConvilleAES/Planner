@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T09:12:54",
+ "generated_at": "2026-10-16T09:31:15",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -6628,7 +6628,7 @@
       "price_source": null
      }
     ],
-    "notes": "coll 24ft & de stack / coll 3+1, HT, steps",
+    "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
