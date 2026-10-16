@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T10:03:49",
+ "generated_at": "2026-10-16T10:09:56",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -6094,7 +6094,8 @@
     "address": "Campbelltown RD, Birkenhead, CH41 9BP",
     "order_number": "01-003302",
     "units": {
-     "24ft": 1
+     "24ft": 1,
+     "Effluent Tank & Steps": 1
     },
     "loads": [
      {
@@ -6107,16 +6108,28 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 201982405,
+      "ref": "AES/62204",
+      "desc": "Effluent Tank & Steps",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "24ft 4+2 toilet",
+    "notes": "24ft 4+2 toilet / HT, steps, IBC",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     201981523
+     201981523,
+     201982405
     ],
     "refs": [
-     "AES/62203"
+     "AES/62203",
+     "AES/62204"
     ],
     "pc_key": "CH419BP",
     "miles": 30
