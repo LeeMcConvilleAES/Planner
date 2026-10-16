@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T18:14:36",
+ "generated_at": "2026-10-16T22:01:46",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -7157,9 +7157,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 787.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 787.0
      },
      {
       "bigchange_id": 202036413,
@@ -7167,10 +7168,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": 687.0,
+      "price": 787.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 687.0
+      "last_price": 787.0
      },
      {
       "bigchange_id": 202036731,
@@ -7178,10 +7179,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": 687.0,
+      "price": 787.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 687.0
+      "last_price": 787.0
      },
      {
       "bigchange_id": 202036908,
@@ -7189,10 +7190,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": 687.0,
+      "price": 787.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 687.0
+      "last_price": 787.0
      },
      {
       "bigchange_id": 202037622,
