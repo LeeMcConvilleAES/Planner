@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T15:57:23",
+ "generated_at": "2026-10-16T15:59:27",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -7147,7 +7147,7 @@
     "address": "DQ190 DIDCOT QUATER, SUTTONCOURTENAY ROAD,, Abingdon, OX14 4TA",
     "order_number": "01-003320",
     "units": {
-     "32ft": 2
+     "32ft": 3
     },
     "loads": [
      {
@@ -7170,18 +7170,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 687.0
+     },
+     {
+      "bigchange_id": 202036731,
+      "ref": "AES/62861",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 687.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 687.0
      }
     ],
-    "notes": "collect 32ft 8695 / coll 32ft 8701",
+    "notes": "collect 32ft 8695 / coll 32ft 8701 / coll 32ft 8508",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202035739,
-     202036413
+     202036413,
+     202036731
     ],
     "refs": [
      "AES/62859",
-     "AES/62860"
+     "AES/62860",
+     "AES/62861"
     ],
     "pc_key": "OX144TA",
     "miles": 176
