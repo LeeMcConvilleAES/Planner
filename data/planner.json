@@ -1438,28 +1438,7 @@
    "to": "2026-10-23"
   }
  ],
- "enquiries": [
-  {
-   "id": "e-j-3646ba72bb",
-   "day": "2026-10-28",
-   "col": "col",
-   "customer": "PETE",
-   "postcode": "HX6 1HL",
-   "po": "",
-   "items": [
-    "32FT",
-    "32FT",
-    "32FT",
-    "32FT",
-    "20FT",
-    "20FT",
-    "STAIRCASE"
-   ],
-   "notes": "",
-   "created_at": "2026-09-28T13:07:15+01:00",
-   "created_by": "migration"
-  }
- ],
+ "enquiries": [],
  "conversions": {
   "e-j-cfe2675e3b": {
    "card": "bc-200296895",
@@ -1506,6 +1485,14 @@
    "level": "sure",
    "why": "same day, same postcode",
    "enquiry_customer": "Eldapoint"
+  },
+  "e-j-3646ba72bb": {
+   "card": "bc-201967867",
+   "at": "2026-10-16T08:19:53+01:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "PETE"
   }
  },
  "dismissed_matches": [],
@@ -1515,7 +1502,8 @@
   "bc-200140265": "Not in Big Change. / enquiry: 10FT STORE",
   "bc-199947330": "Not in Big Change. PRE 7AM / enquiry: 4+2",
   "bc-200803941": "enquiry: 10ft store",
-  "bc-201403131": "Not in Big Change. / enquiry: 32ft, 32ft, 32ft, 32ft"
+  "bc-201403131": "Not in Big Change. / enquiry: 32ft, 32ft, 32ft, 32ft",
+  "bc-201967867": "enquiry: 32FT, 32FT, 32FT, 32FT, 20FT, 20FT, STAIRCASE"
  },
  "card_order": {},
  "migration": {
@@ -1550,6 +1538,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-16T08:15:26+01:00",
- "updated_by": "office"
+ "updated_at": "2026-10-16T08:19:53+01:00",
+ "updated_by": "ken"
 }
