@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T16:05:44",
+ "generated_at": "2026-10-16T16:22:05",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -7205,7 +7205,7 @@
       "price_source": null
      }
     ],
-    "notes": "collect 32ft 8695 / coll 32ft 8701 / coll 32ft 8508 / 20ft store 8045",
+    "notes": "collect 32ft 8695 / coll 32ft 8701 / coll 32ft 8508 / 20ft store 8045 & 2xstairs",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
