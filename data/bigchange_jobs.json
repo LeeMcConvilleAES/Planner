@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-15T16:55:02",
+ "generated_at": "2026-10-16T08:01:01",
  "window": [
-  "2026-06-17",
-  "2027-02-07"
+  "2026-06-18",
+  "2027-02-08"
  ],
  "jobs": {
   "2026-09-12": [
@@ -41,6 +41,7 @@
     "refs": [
      "AES/59025"
     ],
+    "archived": true,
     "pc_key": "CW14QJ",
     "miles": 37
    }
@@ -4003,6 +4004,7 @@
     "refs": [
      "AES/61267"
     ],
+    "archived": true,
     "pc_key": "M36WP",
     "miles": 11
    },
@@ -4050,6 +4052,7 @@
      201192532
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "WA35NX",
     "miles": 6
    },
@@ -4086,6 +4089,7 @@
     "refs": [
      "AES/61229"
     ],
+    "archived": true,
     "pc_key": "BB23UY",
     "miles": 26
    },
@@ -4120,6 +4124,7 @@
      196806980
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "L337SF",
     "miles": 20
    },
@@ -4156,6 +4161,7 @@
     "refs": [
      "AES/61385"
     ],
+    "archived": true,
     "pc_key": "M113DL",
     "miles": null
    },
@@ -4285,6 +4291,7 @@
      "AES/60439",
      "AES/60440"
     ],
+    "archived": true,
     "pc_key": "BB51ER",
     "miles": 28
    }
@@ -5561,6 +5568,51 @@
     "miles": 14
    },
    {
+    "id": "bc-201210511",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Man & Cheshire Con",
+    "postcode": "M14 5RR",
+    "address": "0219 Oxford Place, Manchester, M14 5RR",
+    "order_number": "01-003236",
+    "units": {
+     "24ft": 2,
+     "20ft store": 1,
+     "2+1 toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201210745,
+      "ref": "AES/61456",
+      "desc": "20ft store",
+      "status": "complete",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "del 24ft / del 20ft store / del 2+1 , HT, steps, IBC",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     201210511,
+     201210635,
+     201210745,
+     201210909
+    ],
+    "refs": [
+     "AES/61454",
+     "AES/61455",
+     "AES/61456",
+     "AES/61457"
+    ],
+    "archived": true,
+    "pc_key": "M145RR",
+    "miles": 14
+   },
+   {
     "id": "bc-200968625",
     "type": "Collection",
     "col": "col",
@@ -5686,7 +5738,7 @@
       "bigchange_id": 201163845,
       "ref": "AES/61382",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
@@ -5708,7 +5760,7 @@
       "bigchange_id": 201164134,
       "ref": "AES/61384",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
@@ -5740,7 +5792,7 @@
     ],
     "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store ,Steps,  IBC - last delivery / delivery of 24ft toilet   - 4th delivery",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201163845,
      201163946,
@@ -5774,7 +5826,7 @@
       "bigchange_id": 201684803,
       "ref": "AES/61716",
       "desc": "100l diesel",
-      "status": "booked",
+      "status": "live",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -5784,7 +5836,7 @@
     ],
     "notes": "del 100l diesel",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201684803
     ],
@@ -5810,7 +5862,7 @@
       "bigchange_id": 200639764,
       "ref": "AES/61055",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Collection",
       "price": 104.5,
       "est_price": null,
@@ -5820,7 +5872,7 @@
     ],
     "notes": "COLLECTION OF BOSS UNIT",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      200639764
     ],
