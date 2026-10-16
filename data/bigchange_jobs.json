@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T10:28:26",
+ "generated_at": "2026-10-16T10:48:12",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -5826,7 +5826,7 @@
       "bigchange_id": 201684803,
       "ref": "AES/61716",
       "desc": "100l diesel",
-      "status": "live",
+      "status": "complete",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -5836,7 +5836,7 @@
     ],
     "notes": "del 100l diesel",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201684803
     ],
