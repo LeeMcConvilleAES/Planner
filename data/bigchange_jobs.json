@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T14:53:50",
+ "generated_at": "2026-10-16T14:55:53",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -5702,7 +5702,7 @@
       "bigchange_id": 201916955,
       "ref": "",
       "desc": "chemical toilet",
-      "status": "booked",
+      "status": "complete",
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
@@ -5712,7 +5712,7 @@
     ],
     "notes": "delivery of chemical toilet",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201916955
     ],
