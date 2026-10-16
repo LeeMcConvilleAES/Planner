@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T10:01:53",
+ "generated_at": "2026-10-16T11:29:26",
  "window": [
   "2026-07-20",
   "2026-10-12"
@@ -326,7 +326,7 @@
    },
    "JP": {
     "jobs": 49,
-    "booked": 51,
+    "booked": 52,
     "charged": 3295.0,
     "invoiced": 45,
     "unpriced": 4,
@@ -560,7 +560,7 @@
    },
    "DB": {
     "jobs": 1,
-    "booked": 3,
+    "booked": 1,
     "charged": 360.0,
     "invoiced": 1,
     "unpriced": 0,
@@ -576,7 +576,7 @@
    },
    "JP": {
     "jobs": 86,
-    "booked": 86,
+    "booked": 88,
     "charged": 6600.0,
     "invoiced": 83,
     "unpriced": 2,
@@ -609,20 +609,20 @@
     "miles": 1228.0
    },
    "JP": {
-    "jobs": 86,
+    "jobs": 88,
     "booked": 93,
-    "charged": 5970.0,
-    "invoiced": 82,
+    "charged": 6015.0,
+    "invoiced": 85,
     "unpriced": 3,
-    "miles": 1895.0
+    "miles": 1955.0
    },
    "SB": {
-    "jobs": 46,
+    "jobs": 49,
     "booked": 54,
-    "charged": 1491.0,
-    "invoiced": 41,
-    "unpriced": 5,
-    "miles": 897.0
+    "charged": 1631.0,
+    "invoiced": 46,
+    "unpriced": 3,
+    "miles": 936.0
    },
    "SE": {
     "jobs": 0,
@@ -637,9 +637,10 @@
  "skipped": {
   "transport_or_stack": 738,
   "cancelled": 0,
-  "unallocated": 43,
+  "unallocated": 41,
   "unknown_driver": {
    "rob sawyer": 131,
+   "re schedule temp": 1,
    "wasteline": 75,
    "universal tankers": 14,
    "darren fishwick": 1,
