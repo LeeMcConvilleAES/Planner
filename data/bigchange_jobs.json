@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T08:42:11",
+ "generated_at": "2026-10-16T08:44:13",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -6579,6 +6579,42 @@
     ],
     "refs": [
      "AES/62199"
+    ],
+    "pc_key": "M347PJ",
+    "miles": 25
+   },
+   {
+    "id": "bc-201970712",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly Limited",
+    "postcode": "M34 7PJ",
+    "address": "1 TATTON ROAD, MANCHESTER, M34 7PJ",
+    "order_number": "01-003299",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201970712,
+      "ref": "AES/62200",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     }
+    ],
+    "notes": "coll 24ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201970712
+    ],
+    "refs": [
+     "AES/62200"
     ],
     "pc_key": "M347PJ",
     "miles": 25
