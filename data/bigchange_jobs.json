@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T10:09:56",
+ "generated_at": "2026-10-16T10:28:26",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -5866,7 +5866,7 @@
       "type": "7.5t Transport Collection",
       "price": 104.5,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 104.5
      }
     ],
@@ -6115,9 +6115,10 @@
       "desc": "Effluent Tank & Steps",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "24ft 4+2 toilet / HT, steps, IBC",
@@ -6614,9 +6615,10 @@
       "desc": "please relocate 20ft store",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "please relocate 20ft store 7272 on 22/10",
@@ -6650,10 +6652,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": 220.0,
+      "price": 320.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 220.0
+      "last_price": 320.0
      },
      {
       "bigchange_id": 201970712,
@@ -6672,9 +6674,10 @@
       "desc": "3+1 toilet",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
     "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
@@ -7070,10 +7073,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
+      "price": 365.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 265.0
+      "last_price": 365.0
      },
      {
       "bigchange_id": 201968075,
