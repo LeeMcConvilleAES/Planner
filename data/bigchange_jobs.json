@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T22:01:46",
+ "generated_at": "2026-10-16T22:16:50",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -7201,9 +7201,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 687.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 687.0
      }
     ],
     "notes": "collect 32ft 8695 / coll 32ft 8701 / coll 32ft 8508 / 20ft store 8045 & 2xstairs",
