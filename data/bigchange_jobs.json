@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-16T12:18:04",
+ "generated_at": "2026-10-16T12:25:18",
  "window": [
   "2026-06-18",
   "2027-02-08"
@@ -5742,7 +5742,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 483.0
      },
      {
@@ -5753,14 +5753,14 @@
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 483.0
      },
      {
       "bigchange_id": 201164134,
       "ref": "AES/61384",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
@@ -5775,7 +5775,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 483.0
      },
      {
@@ -5786,13 +5786,13 @@
       "type": "25-50m Hiab Delivery",
       "price": 483.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 483.0
      }
     ],
     "notes": "delivery of  32ft office -  1st delivery / delivery of 32ft Canteen - 2nd delivery / delivery of 32ft dry room - 3rd delivery / 10ft store ,Steps,  IBC - last delivery / delivery of 24ft toilet   - 4th delivery",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201163845,
      201163946,
@@ -5830,7 +5830,7 @@
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 195.0
      }
     ],
@@ -6029,9 +6029,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Delivery",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "del BOSS",
@@ -6300,9 +6301,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Delivery",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "Del BOSS",
