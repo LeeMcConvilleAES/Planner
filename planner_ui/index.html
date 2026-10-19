@@ -399,7 +399,11 @@ function build(args){
   Object.keys(FEED.jobs || {}).sort().forEach(function(iso){
     (FEED.jobs[iso] || []).forEach(function(c){
       var conv = convByCard[c.id], recent = conv && conv.at && (dObj(TODAY) - dObj(String(conv.at).slice(0, 10))) / 86400000 <= 7;
-      var j = { id:c.id, cardId:c.id, ref:(c.refs || [])[0] ? c.refs[0] + ((c.refs || []).length > 1 ? ' +' + (c.refs.length - 1) : '') : '', refs:c.refs || [],
+      /* key, not id, is what the page opens a job by: Ken names a card after the lowest
+         Big Change id on it, and a job moved to another day can leave an archived card
+         behind under the same name. Two cards, one id, and a lookup by id alone always
+         found the earlier day. id still carries the card order and the drag and drop. */
+      var j = { id:c.id, key:c.id + '|' + iso, cardId:c.id, ref:(c.refs || [])[0] ? c.refs[0] + ((c.refs || []).length > 1 ? ' +' + (c.refs.length - 1) : '') : '', refs:c.refs || [],
         customerPo:c.order_number || '', customer:c.customer || '', postcode:c.postcode || '', col:c.col || 'del', iso:iso,
         week:weekIndexOf(iso), day:dayIndexOf(iso), status:'b', state:c.status || 'booked',
         notes:[c.notes || '', notesFor[c.id] || ''].filter(Boolean).join(' / '), destack:c.destack || '', price:'', slot:'',
@@ -413,7 +417,7 @@ function build(args){
   });
   (P.enquiries || []).forEach(function(q){
     if (!q.day) return;
-    var j = { id:q.id, cardId:'', ref:'', refs:[], customerPo:q.po || '', customer:q.customer || '', postcode:q.postcode || '', col:q.col || 'del', iso:q.day,
+    var j = { id:q.id, key:q.id + '|' + q.day, cardId:'', ref:'', refs:[], customerPo:q.po || '', customer:q.customer || '', postcode:q.postcode || '', col:q.col || 'del', iso:q.day,
       week:weekIndexOf(q.day), day:dayIndexOf(q.day), status:'e', state:'enquiry', notes:q.notes || '', destack:'', price:'', slot:'', converted:null, loads:[], enquiry:q };
     (q.items || []).forEach(function(t, i){ lid++; var l = { id:'enq:' + q.id + ':' + i, desc:t, ref:'', state:'enquiry', driver:'', run:null, seq:lid, movedFrom:'', job:j, idx:i }; j.loads.push(l); LOADS[l.id] = l; });
     JOBS.push(j);
@@ -626,7 +630,7 @@ function jobCard(j){
     return '<div class="ld"><span>' + esc(l.desc) + '</span>' + right + '</div>' + (l.movedFrom ? '<div class="flagline">MOVED FROM ' + fFull(l.movedFrom).toUpperCase() + ': RE-PLAN</div>' : '');
   }).join('');
   var po = j.customerPo ? '<span>PO ' + esc(j.customerPo) + '</span>' : '<span class="tag t-nopo">NO PO</span>';
-  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '"' + (isTeam() ? ' draggable="true"' : '') + ' data-card="' + esc(j.id) + '" data-act="openJob" data-v="' + esc(j.id) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
+  return '<div class="card ' + kind(j) + (j.customerPo ? '' : ' nopo') + '"' + (isTeam() ? ' draggable="true"' : '') + ' data-card="' + esc(j.id) + '" data-act="openJob" data-v="' + esc(j.key) + '" title="' + (j.status === 'e' ? 'Click To Edit This Enquiry' : 'Click To View') + '">' +
     '<div class="tags">' + tagSet(j) + '</div>' +
     '<div class="cust">' + esc(j.customer) + '</div>' + loads +
     '<div class="post">' + esc(j.postcode) + '</div>' +
@@ -831,7 +835,7 @@ function setRunFromCard(sel){
   /* V2.5: the RUN cell on a job card. Driver + number = CR1, DF3, SUB2. None takes the load off its run. */
   var cell = sel.closest('.runset'), drv = cell.querySelector('.rs-drv').value, num = +cell.querySelector('.rs-num').value || 1;
   var key = sel.getAttribute('data-set-drv') || sel.getAttribute('data-set-run');
-  var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) return;
+  var j = JOBS.filter(function(x){ return x.key === S.viewJob; })[0]; if (!j) return;
   var targets = key === '*' ? j.loads : j.loads.filter(function(l){ return l.id === key; });
   if (!drv) { if (sel.hasAttribute('data-set-run')) return; targets.forEach(function(l){ move(l.id, null); }); }
   else targets.forEach(function(l){ var k = l.job.week + '|' + l.job.day + '|' + drv; S.extraRuns[k] = Math.max(S.extraRuns[k] || 0, num); move(l.id, { drv:drv, run:num }); });
@@ -1026,7 +1030,7 @@ function renderMd(){
       (money ? ' Cost per day is the driver\'s wage for the day (hourly rate × hours per day) plus the wagon\'s weekly lease spread over the working days plus fuel for the miles planned (miles ÷ mpg × 4.546 litres × the fuel price); wages and leases count on every working day in the period whether or not a run is planned, so a quiet week shows its true cost. Overtime, employer NI, pension, insurance, tyres and servicing are not in. Rates are in data/costs.json in the repo and only reach the page once the MD PIN has been given. Revenue is each planned load\'s price in Big Change: the sale lines on the job (quantity × unit selling price, there from booking), replaced by the invoiced total ex VAT once invoiced. A load with no sale lines and no invoice adds nothing and is counted as having no price. The fleet revenue, margin and profit per job count every booked job in the period whether or not it is on a run yet; the driver rows count only the loads planned onto that driver\'s runs.' : '') + '</div></div></div></div>';
 }
 function renderView(){
-  var j = JOBS.filter(function(x){ return x.id === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
+  var j = JOBS.filter(function(x){ return x.key === S.viewJob; })[0]; if (!j) { S.viewJob = null; return ''; }
   var canSet = isTeam() && j.status !== 'e';
   var runCell = function(l){
     var c = codeOf(l), moved = l.movedFrom ? ' <span class="muted">(moved from ' + fFull(l.movedFrom) + ')</span>' : '';
@@ -1125,9 +1129,9 @@ document.addEventListener('click', function(e){
   else if (act === 'teamEdit') { if (!isTeam()) S.pwOpen = true; }
   else if (act === 'lock') { if (isTeam()) { REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'lock' }, dataType:'json' }); } S.pwOpen = false; }
   else if (act === 'unlockGo') { var pw = document.getElementById('pwin'); if (pw && pw.value) { REV++; post({ type:'streamlit:setComponentValue', value:{ rev:REV, action:'unlock', password:pw.value }, dataType:'json' }); } return; }
-  else if (act === 'openJob') { var jb = JOBS.filter(function(j){ return j.id === v; })[0]; if (!jb) return;
+  else if (act === 'openJob') { var jb = JOBS.filter(function(j){ return j.key === v; })[0] || JOBS.filter(function(j){ return j.id === v; })[0]; if (!jb) return;
     if (jb.status === 'e' && isTeam()) { var q = jb.enquiry; S.enqEdit = q.id; S.enqDraft = { col:q.col || 'del', customer:q.customer || '', postcode:q.postcode || '', items:(q.items || []).join('\n'), notes:q.notes || '', date:q.day }; S.enqOpen = true; }
-    else S.viewJob = v; }
+    else S.viewJob = jb.key; }
   else if (act === 'closeView') S.viewJob = null;
   else if (act === 'addEnq') { var wasEdit = !!S.enqEdit; if (addEnquiry()) dirty = wasEdit ? 'edited enquiry' : 'added enquiry'; }
   else if (act === 'week') S.week = +v;
