@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T16:37:35",
+ "generated_at": "2026-10-19T16:41:21",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -6023,7 +6023,7 @@
       "type": "Site Move / Exchange",
       "price": 350.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 350.0
      }
     ],
@@ -7793,9 +7793,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "collect 20ft store",
