@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T13:51:34",
+ "generated_at": "2026-10-19T14:08:16",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -5938,7 +5938,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 475.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 475.0
      },
      {
@@ -5949,7 +5949,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 375.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 375.0
      },
      {
