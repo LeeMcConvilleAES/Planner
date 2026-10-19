@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T09:26:34",
+ "generated_at": "2026-10-19T09:28:35",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -7486,7 +7486,7 @@
     "address": "DQ190 DIDCOT QUATER, SUTTONCOURTENAY ROAD,, Abingdon, OX14 4TA",
     "order_number": "01-003321",
     "units": {
-     "on site move 32ft": 3
+     "on site move 32ft": 4
     },
     "loads": [
      {
@@ -7520,20 +7520,32 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 121.42
+     },
+     {
+      "bigchange_id": 202131609,
+      "ref": "AES/63012",
+      "desc": "on site move 32ft",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "On site move 32ft- 8694 / on site move 32ft - 8697 / on site move 32ft - 8718",
+    "notes": "On site move 32ft- 8694 / on site move 32ft - 8697 / on site move 32ft - 8718 / on site move 32ft - 8657",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202127042,
      202129462,
-     202131007
+     202131007,
+     202131609
     ],
     "refs": [
      "AES/63009",
      "AES/63010",
-     "AES/63011"
+     "AES/63011",
+     "AES/63012"
     ],
     "pc_key": "OX144TA",
     "miles": 176
