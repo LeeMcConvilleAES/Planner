@@ -203,7 +203,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "5.0"
+VERSION = "5.1"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
