@@ -1,5 +1,16 @@
 """AES Transport Planner
-Version 4.8
+Version 5.0
+
+5.0: a vehicle booking's work is MOT, PMI or Service (Nathan, 19/10/2026),
+replacing MOT, Repair, Service and Test. Bookings already saved as Repair or
+Test still show with their own colour; new ones can only be the three.
+
+4.9: Ken V25.8 checks Big Change on a working day schedule (every 2 minutes
+on weekdays 06:30 to 17:00, every 15 minutes outside that, every 30 at
+weekends, hourly overnight), so a fixed "late after 6 minutes" turned the
+header red every evening and weekend. Ken's heartbeat now says how often he
+is checking (interval_seconds); the header goes red only when the last check
+is more than that interval plus 4 minutes old.
 
 4.8: the routing study's explanation of where the saving comes from, and
 the line saying which tank sizes it used, now come from service_study.json
@@ -192,7 +203,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "4.8"
+VERSION = "5.0"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"
@@ -561,6 +572,18 @@ def checked_minutes():
 checked_min = checked_minutes()
 
 
+def checked_late_after():
+    """Minutes after which the header calls the check late: Ken's current interval plus 4."""
+    try:
+        hb, _ = read_file(HEARTBEAT_PATH)
+        return int(int((hb or {}).get("interval_seconds") or 120) // 60) + 4
+    except Exception:                                            # noqa: BLE001
+        return 6
+
+
+late_after = checked_late_after()
+
+
 def load_costs():
     """The AES cost basis for the MD dashboard: data/costs.json in the repo
     (or the local data folder), else [aes_costs] in the secrets, else a JSON
@@ -610,7 +633,7 @@ _planner_ui = components.declare_component("aes_planner", path=str(HERE / "plann
 args = {"feed": feed or {}, "planner": planner, "can_edit": ss["unlocked"],
         "today": now_uk().date().isoformat(), "version": VERSION,
         "server_rev": ss["last_seen_rev"], "notice": notice, "notice_kind": notice_kind,
-        "checked_min": checked_min, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN), "service_study": service_study}
+        "checked_min": checked_min, "late_after": late_after, "costs": costs, "md_unlocked": ss["md_unlocked"], "md_error": ss["md_error"], "md_has_pin": bool(MD_PIN), "service_study": service_study}
 value = _planner_ui(**args, key="planner_ui", default=None)
 
 if value and isinstance(value, dict) and value.get("rev", 0) > ss["last_seen_rev"] and value.get("action"):
