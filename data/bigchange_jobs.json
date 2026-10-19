@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T14:41:47",
+ "generated_at": "2026-10-19T14:52:16",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -5923,7 +5923,7 @@
       "bigchange_id": 200287245,
       "ref": "AES/60846",
       "desc": "24ft unit",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 365.0,
       "est_price": null,
@@ -5966,7 +5966,7 @@
     ],
     "notes": "DELIVERY OF 24FT / DELIVERY OF 24FT UNIT / DELIVERY OF 32FT UNIT / DELIVERY OF 2 X STAIRCASES",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      200286961,
      200287245,
