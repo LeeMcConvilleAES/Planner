@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T13:12:59",
+ "generated_at": "2026-10-19T13:45:17",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -6072,7 +6072,7 @@
       "bigchange_id": 202161719,
       "ref": "AES/63026",
       "desc": "exchange generator",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 350.0,
       "est_price": null,
@@ -6082,7 +6082,7 @@
     ],
     "notes": "exchange generator from greans to protos site ch2 4lb",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202161719
     ],
