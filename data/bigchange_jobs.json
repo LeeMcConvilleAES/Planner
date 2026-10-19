@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T11:12:00",
+ "generated_at": "2026-10-19T11:14:02",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -7876,12 +7876,23 @@
     "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
     "order_number": "01-003306",
     "units": {
-     "24ft": 2
+     "24ft": 3
     },
     "loads": [
      {
       "bigchange_id": 202148516,
       "ref": "AES/63019",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-25m Hiab Delivery",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     },
+     {
+      "bigchange_id": 202149120,
+      "ref": "AES/63020",
       "desc": "24ft",
       "status": "booked",
       "type": "0-25m Hiab Delivery",
@@ -7902,15 +7913,17 @@
       "last_price": 220.0
      }
     ],
-    "notes": "del24ft off / del 4+2 toilet",
+    "notes": "del24ft off / del 24ft meet / del 4+2 toilet",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202148516,
+     202149120,
      202149328
     ],
     "refs": [
      "AES/63019",
+     "AES/63020",
      "AES/63021"
     ],
     "pc_key": "M36WP",
