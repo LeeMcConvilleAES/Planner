@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T10:29:52",
+ "generated_at": "2026-10-19T10:31:56",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -6608,7 +6608,8 @@
     "address": "Peelers Yard Goulden Street, Manchester, M4 4FN",
     "order_number": "01-003268",
     "units": {
-     "32ft": 1
+     "32ft": 1,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -6621,16 +6622,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 290.0
+     },
+     {
+      "bigchange_id": 202143165,
+      "ref": "AES/63017",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
-    "notes": "delivery of a 32ft office",
+    "notes": "delivery of a 32ft office / delivery of staircase",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202142802
+     202142802,
+     202143165
     ],
     "refs": [
-     "AES/63016"
+     "AES/63016",
+     "AES/63017"
     ],
     "pc_key": "M44FN",
     "miles": 12
