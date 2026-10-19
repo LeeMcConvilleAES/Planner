@@ -298,20 +298,6 @@
    "run": 2,
    "seq": 1
   },
-  "199342309": {
-   "day": "2026-10-05",
-   "driver": "SL",
-   "run": 3,
-   "seq": 1,
-   "dropped_at": "2026-10-09"
-  },
-  "199342438": {
-   "day": "2026-10-05",
-   "driver": "RB",
-   "run": 2,
-   "seq": 1,
-   "dropped_at": "2026-10-09"
-  },
   "199344068": {
    "day": "2026-10-01",
    "driver": "SL",
@@ -1317,8 +1303,8 @@
   "201982405": {
    "day": "2026-10-20",
    "driver": "CR",
-   "run": 1,
-   "seq": 2
+   "run": 2,
+   "seq": 1
   },
   "201992752": {
    "day": "2026-10-20",
@@ -1629,6 +1615,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-16T16:42:00+01:00",
+ "updated_at": "2026-10-19T08:18:31+01:00",
  "updated_by": "office"
 }
