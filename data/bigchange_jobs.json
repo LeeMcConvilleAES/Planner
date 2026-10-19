@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T14:52:16",
+ "generated_at": "2026-10-19T15:07:07",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -7699,9 +7699,10 @@
       "desc": "3+1 toilet",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 687.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 687.0
      }
     ],
     "notes": "collect 3 +1 toilet& steps",
