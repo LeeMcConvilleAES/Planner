@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T08:13:33",
+ "generated_at": "2026-10-19T08:15:34",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -6572,7 +6572,9 @@
     "address": "Bolton, BL6 7RU",
     "order_number": "01-003324",
     "units": {
-     "24ft": 1
+     "24ft": 1,
+     "2+1 toilet": 1,
+     "20ft": 1
     },
     "loads": [
      {
@@ -6585,16 +6587,42 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 202119243,
+      "ref": "AES/62997",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 202119320,
+      "ref": "AES/62998",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
-    "notes": "delivery of a 24ft office",
+    "notes": "delivery of a 24ft office / 2+1 toilet block / delivery of a 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202119178
+     202119178,
+     202119243,
+     202119320
     ],
     "refs": [
-     "AES/62996"
+     "AES/62996",
+     "AES/62997",
+     "AES/62998"
     ],
     "pc_key": "BL67RU",
     "miles": 10
