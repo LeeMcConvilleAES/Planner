@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T09:35:00",
+ "generated_at": "2026-10-19T09:37:02",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -6072,7 +6072,7 @@
       "bigchange_id": 201250032,
       "ref": "AES/61521",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -6082,7 +6082,7 @@
     ],
     "notes": "collection of boss unit please take spare keys as the site will be taking key and bringing it to depot there self",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201250032
     ],
