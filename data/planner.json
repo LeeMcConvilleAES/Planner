@@ -1669,7 +1669,13 @@
   "bc-201967867": "enquiry: 32FT, 32FT, 32FT, 32FT, 20FT, 20FT, STAIRCASE",
   "bc-202156496": "enquiry: 24ft, 20ft store, 10 ft store"
  },
- "card_order": {},
+ "card_order": {
+  "2026-11-02|del": [
+   "bc-201771494",
+   "bc-201793986",
+   "bc-202148040"
+  ]
+ },
  "migration": {
   "at": "2026-09-28T13:07:15+01:00",
   "summary": "Migrated from the Sheet on 28/09/2026 13:07: 35 booked jobs matched to Big Change, 61 run entries, 10 enquiries kept, 0 holidays, 12 vehicle bookings, 11 capacity days; 0 driver codes not placed.",
@@ -1702,6 +1708,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-19T12:30:43+01:00",
+ "updated_at": "2026-10-19T12:30:49+01:00",
  "updated_by": "office"
 }
