@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T12:27:25",
+ "generated_at": "2026-10-19T13:01:22",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -5956,7 +5956,7 @@
       "bigchange_id": 200287792,
       "ref": "AES/60849",
       "desc": "staircases",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 375.0,
       "est_price": null,
