@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T15:32:09",
+ "generated_at": "2026-10-19T15:36:21",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -7793,9 +7793,10 @@
       "desc": "on site 10ft cosh",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 121.42,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 121.42
      },
      {
       "bigchange_id": 202134710,
