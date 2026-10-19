@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T15:23:55",
+ "generated_at": "2026-10-19T15:30:04",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -7771,9 +7771,10 @@
       "desc": "on site move 32ft",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 121.42,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 121.42
      },
      {
       "bigchange_id": 202131995,
