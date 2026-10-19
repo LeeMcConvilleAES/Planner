@@ -1581,7 +1581,24 @@
    "to": "2026-10-23"
   }
  ],
- "enquiries": [],
+ "enquiries": [
+  {
+   "id": "e-1792406051268",
+   "day": "2026-10-22",
+   "col": "col",
+   "customer": "klaudia",
+   "postcode": "BB7 1DX",
+   "po": "",
+   "items": [
+    "24ft",
+    "20ft store",
+    "10 ft store"
+   ],
+   "notes": "",
+   "created_at": "2026-10-19T10:34:11",
+   "created_by": "office"
+  }
+ ],
  "conversions": {
   "e-j-cfe2675e3b": {
    "card": "bc-200296895",
@@ -1681,6 +1698,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-19T10:43:09+01:00",
+ "updated_at": "2026-10-19T11:34:11+01:00",
  "updated_by": "office"
 }
