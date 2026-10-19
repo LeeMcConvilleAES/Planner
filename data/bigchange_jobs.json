@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-19T15:36:21",
+ "generated_at": "2026-10-19T15:39:39",
  "window": [
   "2026-06-21",
   "2027-02-11"
@@ -388,7 +388,7 @@
   ],
   "2026-09-24": [
    {
-    "id": "bc-199621520",
+    "id": "bc-199621557",
     "type": "Delivery",
     "col": "del",
     "customer": "A Connolly",
@@ -415,18 +415,10 @@
     "destack": "",
     "status": "complete",
     "bigchange_ids": [
-     199621520,
-     199621557,
-     199621558,
-     199621559,
-     199621560
+     199621557
     ],
     "refs": [
-     "AES/60381",
-     "AES/60382",
-     "AES/60383",
-     "AES/60384",
-     "AES/60385"
+     "AES/60382"
     ],
     "archived": true,
     "pc_key": "BL31SU",
@@ -5541,51 +5533,6 @@
     "miles": 14
    },
    {
-    "id": "bc-201210511",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "Man & Cheshire Con",
-    "postcode": "M14 5RR",
-    "address": "0219 Oxford Place, Manchester, M14 5RR",
-    "order_number": "01-003236",
-    "units": {
-     "24ft": 2,
-     "20ft store": 1,
-     "2+1 toilet": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201210745,
-      "ref": "AES/61456",
-      "desc": "20ft store",
-      "status": "complete",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 190.0
-     }
-    ],
-    "notes": "del 24ft / del 20ft store / del 2+1 , HT, steps, IBC",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     201210511,
-     201210635,
-     201210745,
-     201210909
-    ],
-    "refs": [
-     "AES/61454",
-     "AES/61455",
-     "AES/61456",
-     "AES/61457"
-    ],
-    "archived": true,
-    "pc_key": "M145RR",
-    "miles": 14
-   },
-   {
     "id": "bc-200968625",
     "type": "Collection",
     "col": "col",
@@ -5927,7 +5874,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 365.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 365.0
      },
      {
@@ -5960,7 +5907,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 375.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 375.0
      }
     ],
@@ -6072,7 +6019,7 @@
       "bigchange_id": 202161719,
       "ref": "AES/63026",
       "desc": "exchange generator",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 350.0,
       "est_price": null,
@@ -6082,7 +6029,7 @@
     ],
     "notes": "exchange generator from greans to protos site ch2 4lb",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202161719
     ],
@@ -6950,9 +6897,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "collection of 24ft",
@@ -7713,123 +7661,6 @@
     ],
     "refs": [
      "AES/63008"
-    ],
-    "pc_key": "OX144TA",
-    "miles": 176
-   },
-   {
-    "id": "bc-202127042",
-    "type": "Site Move",
-    "col": "move",
-    "customer": "JUST WELFARE",
-    "postcode": "OX14 4TA",
-    "address": "DQ190 DIDCOT QUATER, SUTTONCOURTENAY ROAD,, Abingdon, OX14 4TA",
-    "order_number": "01-003321",
-    "units": {
-     "on site move 32ft": 4,
-     "on site move 20ft": 1,
-     "on site 10ft cosh": 1,
-     "on site move 3+1 toilet & steps": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202127042,
-      "ref": "AES/63009",
-      "desc": "on site move 32ft",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 221.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 221.42
-     },
-     {
-      "bigchange_id": 202129462,
-      "ref": "AES/63010",
-      "desc": "on site move 32ft",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 221.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 221.42
-     },
-     {
-      "bigchange_id": 202131007,
-      "ref": "AES/63011",
-      "desc": "on site move 32ft",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 121.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 121.42
-     },
-     {
-      "bigchange_id": 202131609,
-      "ref": "AES/63012",
-      "desc": "on site move 32ft",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 121.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 121.42
-     },
-     {
-      "bigchange_id": 202131995,
-      "ref": "AES/63013",
-      "desc": "on site move 20ft",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 121.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 121.42
-     },
-     {
-      "bigchange_id": 202133344,
-      "ref": "AES/63014",
-      "desc": "on site 10ft cosh",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 121.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 121.42
-     },
-     {
-      "bigchange_id": 202134710,
-      "ref": "AES/63015",
-      "desc": "on site move 3+1 toilet & steps",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 121.42,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 121.42
-     }
-    ],
-    "notes": "On site move 32ft- 8694 / on site move 32ft - 8697 / on site move 32ft - 8718 / on site move 32ft - 8657 / on site move 20ft - 7612 / on site 10ft cosh / on site move 3+1 toilet & steps",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     202127042,
-     202129462,
-     202131007,
-     202131609,
-     202131995,
-     202133344,
-     202134710
-    ],
-    "refs": [
-     "AES/63009",
-     "AES/63010",
-     "AES/63011",
-     "AES/63012",
-     "AES/63013",
-     "AES/63014",
-     "AES/63015"
     ],
     "pc_key": "OX144TA",
     "miles": 176
