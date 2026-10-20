@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T15:36:00",
+ "generated_at": "2026-10-20T15:42:14",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -7541,42 +7541,6 @@
     ],
     "pc_key": "SK121NW",
     "miles": 23
-   },
-   {
-    "id": "bc-200640261",
-    "type": "Collection",
-    "col": "col",
-    "customer": "Termrim Construction Ltd",
-    "postcode": "LS29 6AR",
-    "address": "MOOR LANE, MENSTON, Menston, LS29 6AR",
-    "order_number": "01-003173",
-    "units": {
-     "mobile welfare": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 200640261,
-      "ref": "AES/61056",
-      "desc": "mobile welfare",
-      "status": "booked",
-      "type": "7.5t Transport Collection",
-      "price": 104.5,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 104.5
-     }
-    ],
-    "notes": "COLLECTION OF BOSS UNIT",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     200640261
-    ],
-    "refs": [
-     "AES/61056"
-    ],
-    "pc_key": "LS296AR",
-    "miles": 54
    }
   ],
   "2026-10-27": [
@@ -8019,6 +7983,42 @@
     ],
     "pc_key": "CW12BD",
     "miles": 40
+   },
+   {
+    "id": "bc-200640261",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Termrim Construction Ltd",
+    "postcode": "LS29 6AR",
+    "address": "MOOR LANE, MENSTON, Menston, LS29 6AR",
+    "order_number": "01-003173",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 200640261,
+      "ref": "AES/61056",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 104.5,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 104.5
+     }
+    ],
+    "notes": "COLLECTION OF BOSS UNIT",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     200640261
+    ],
+    "refs": [
+     "AES/61056"
+    ],
+    "pc_key": "LS296AR",
+    "miles": 54
    }
   ],
   "2026-10-31": [
