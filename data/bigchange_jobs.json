@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T08:05:30",
+ "generated_at": "2026-10-20T08:07:35",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6331,7 +6331,7 @@
       "bigchange_id": 201576046,
       "ref": "AES/61711",
       "desc": "a 24ft office",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
@@ -6341,7 +6341,7 @@
     ],
     "notes": "on site move of a 24ft office 8140",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201576046
     ],
