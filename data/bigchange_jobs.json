@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T11:53:29",
+ "generated_at": "2026-10-20T12:01:06",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6062,7 +6062,7 @@
       "bigchange_id": 201981523,
       "ref": "AES/62203",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -6083,7 +6083,7 @@
     ],
     "notes": "24ft 4+2 toilet ask for steven mcgetrick / HT, steps, IBC",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201981523,
      201982405
