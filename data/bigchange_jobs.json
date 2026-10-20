@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T15:29:13",
+ "generated_at": "2026-10-20T15:36:00",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6122,7 +6122,7 @@
       "bigchange_id": 200764295,
       "ref": "AES/61139",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -6132,7 +6132,7 @@
     ],
     "notes": "del 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      200764078,
      200764295
