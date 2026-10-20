@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T15:25:10",
+ "generated_at": "2026-10-20T15:27:12",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -7378,6 +7378,42 @@
     ],
     "refs": [
      "AES/63109"
+    ],
+    "pc_key": "WN60SR",
+    "miles": 20
+   },
+   {
+    "id": "bc-202292943",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly",
+    "postcode": "WN6 0SR",
+    "address": "Britannia Wigan Hotel 234a Almond Brook Road, Standish, WN6 0SR",
+    "order_number": "01-003348",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202292943,
+      "ref": "AES/63110",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "collect 22ft towable",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202292943
+    ],
+    "refs": [
+     "AES/63110"
     ],
     "pc_key": "WN60SR",
     "miles": 20
