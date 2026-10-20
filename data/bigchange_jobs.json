@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T00:00:05",
+ "generated_at": "2026-10-20T05:46:26",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6073,7 +6073,7 @@
       "bigchange_id": 201982405,
       "ref": "AES/62204",
       "desc": "Effluent Tank & Steps",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -6083,7 +6083,7 @@
     ],
     "notes": "24ft 4+2 toilet ask for steven mcgetrick / HT, steps, IBC",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201981523,
      201982405
