@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T11:09:59",
+ "generated_at": "2026-10-20T11:12:05",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6077,7 +6077,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -6263,7 +6263,7 @@
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -6335,7 +6335,7 @@
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -7822,7 +7822,8 @@
     "address": "Niddries Lane, Moulton, CW9 8QE",
     "order_number": "01-003343",
     "units": {
-     "24ft": 1
+     "24ft": 1,
+     "20ft store": 2
     },
     "loads": [
      {
@@ -7835,16 +7836,42 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202254467,
+      "ref": "AES/63092",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202254618,
+      "ref": "AES/63093",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "del 24ft office",
+    "notes": "del 24ft office / del 20ft store & IBC",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202254198
+     202254198,
+     202254467,
+     202254618
     ],
     "refs": [
-     "AES/63090"
+     "AES/63090",
+     "AES/63092",
+     "AES/63093"
     ],
     "pc_key": "CW98QE",
     "miles": 30
