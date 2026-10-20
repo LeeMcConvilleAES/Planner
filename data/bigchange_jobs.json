@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T08:07:35",
+ "generated_at": "2026-10-20T08:09:40",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6295,7 +6295,7 @@
       "bigchange_id": 202029004,
       "ref": "AES/62858",
       "desc": "on sit move of a solar loo",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
@@ -6305,7 +6305,7 @@
     ],
     "notes": "on sit move of a solar loo",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202029004
     ],
