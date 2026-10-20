@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T12:26:45",
+ "generated_at": "2026-10-20T12:30:56",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6101,7 +6101,7 @@
     "col": "del",
     "customer": "CLC contractors",
     "postcode": "ST16 3BW",
-    "address": "Stafford, ST16 3BW",
+    "address": "George Hill Court Fancy Walk, Stafford, ST16 3BW",
     "order_number": "01-003182",
     "units": {
      "20ft store": 2
