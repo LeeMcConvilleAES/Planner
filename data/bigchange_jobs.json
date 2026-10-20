@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T09:57:43",
+ "generated_at": "2026-10-20T10:39:58",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6172,7 +6172,7 @@
       "bigchange_id": 201210635,
       "ref": "AES/61455",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
@@ -6193,7 +6193,7 @@
     ],
     "notes": "del 24ft / del 2+1 , HT, steps, IBC",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      201210511,
      201210635,
