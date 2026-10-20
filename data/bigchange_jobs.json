@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-20T11:37:30",
+ "generated_at": "2026-10-20T11:46:39",
  "window": [
   "2026-06-22",
   "2027-02-12"
@@ -6174,10 +6174,10 @@
       "desc": "24ft",
       "status": "complete",
       "type": "0-15m Hiab Delivery",
-      "price": 190.0,
+      "price": 340.0,
       "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
+      "price_source": "invoice",
+      "last_price": 340.0
      },
      {
       "bigchange_id": 201210909,
@@ -6371,7 +6371,7 @@
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
