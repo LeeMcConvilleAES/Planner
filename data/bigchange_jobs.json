@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-21T10:13:26",
+ "generated_at": "2026-10-21T11:45:08",
  "window": [
   "2026-06-23",
   "2027-02-13"
@@ -6573,7 +6573,7 @@
       "bigchange_id": 202142802,
       "ref": "AES/63016",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery",
       "price": 290.0,
       "est_price": null,
@@ -6594,7 +6594,7 @@
     ],
     "notes": "delivery of a 32ft office / delivery of staircase",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202142802,
      202143165
