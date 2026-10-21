@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-21T18:14:56",
+ "generated_at": "2026-10-22T00:00:08",
  "window": [
-  "2026-06-23",
-  "2027-02-13"
+  "2026-06-24",
+  "2027-02-14"
  ],
  "jobs": {
   "2026-07-15": [
@@ -5165,6 +5165,7 @@
     "refs": [
      "AES/61529"
     ],
+    "archived": true,
     "pc_key": "CH654BD",
     "miles": null
    },
@@ -5201,6 +5202,7 @@
     "refs": [
      "AES/61263"
     ],
+    "archived": true,
     "pc_key": "L192JW",
     "miles": 28
    },
@@ -5235,6 +5237,7 @@
      201142826
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "L403SS",
     "miles": 23
    },
@@ -5284,6 +5287,7 @@
      "AES/61713",
      "AES/61714"
     ],
+    "archived": true,
     "pc_key": "WN60SR",
     "miles": 20
    },
@@ -5320,6 +5324,7 @@
     "refs": [
      "AES/61710"
     ],
+    "archived": true,
     "pc_key": "L366HY",
     "miles": 21
    },
@@ -5395,6 +5400,7 @@
      "AES/61727",
      "AES/61728"
     ],
+    "archived": true,
     "pc_key": "L337SG",
     "miles": 21
    },
@@ -5431,6 +5437,7 @@
     "refs": [
      "AES/61265"
     ],
+    "archived": true,
     "pc_key": "L192JW",
     "miles": 28
    },
@@ -5467,6 +5474,7 @@
     "refs": [
      "AES/61258"
     ],
+    "archived": true,
     "pc_key": "SK138HB",
     "miles": 32
    }
