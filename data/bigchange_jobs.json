@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-21T05:30:18",
+ "generated_at": "2026-10-21T06:15:25",
  "window": [
   "2026-06-23",
   "2027-02-13"
@@ -6686,7 +6686,7 @@
       "bigchange_id": 201437199,
       "ref": "AES/61625",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 290.0,
       "est_price": null,
@@ -6696,7 +6696,7 @@
     ],
     "notes": "collection of 20ft store & turn 20ft office 180deg ON SITE FOR 7AM",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201437199
     ],
