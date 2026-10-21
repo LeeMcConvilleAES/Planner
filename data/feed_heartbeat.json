@@ -1,7 +1,7 @@
 {
- "checked_at": "2026-10-21T18:00:21+00:00",
- "checked_at_local": "2026-10-21 19:00:21",
- "outcome": "unchanged since the last write",
- "ken_version": "27.9",
+ "checked_at": "2026-10-21T18:16:10+00:00",
+ "checked_at_local": "2026-10-21 19:16:10",
+ "outcome": "unchanged in GitHub",
+ "ken_version": "28.0",
  "interval_seconds": 900
 }
