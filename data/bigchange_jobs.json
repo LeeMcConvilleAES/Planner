@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T11:48:43",
+ "generated_at": "2026-10-22T11:55:30",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -7094,7 +7094,7 @@
       "bigchange_id": 201971089,
       "ref": "AES/62201",
       "desc": "3+1 toilet",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -7104,7 +7104,7 @@
     ],
     "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201970589,
      201970712,
