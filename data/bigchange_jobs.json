@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T11:17:20",
+ "generated_at": "2026-10-22T11:19:23",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6670,7 +6670,7 @@
       "bigchange_id": 202119178,
       "ref": "AES/62996",
       "desc": "24ft",
-      "status": "booked",
+      "status": "complete",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
@@ -6681,7 +6681,7 @@
       "bigchange_id": 202119243,
       "ref": "AES/62997",
       "desc": "2+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
@@ -6702,7 +6702,7 @@
     ],
     "notes": "delivery of a 24ft office / 2+1 toilet block / delivery of a 20ft store",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202119178,
      202119243,
