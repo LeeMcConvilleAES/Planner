@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T15:48:28",
+ "generated_at": "2026-10-22T15:52:39",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -7322,7 +7322,7 @@
       "last_price": 220.0
      }
     ],
-    "notes": "DELIVERY OF 32FT / DELIVERY OF HT, 3 X IBC",
+    "notes": "DELIVERY OF 32FT / DELIVERY OF HT, 3 X IBC, steps",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
