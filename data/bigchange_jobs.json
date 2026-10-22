@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T13:43:16",
+ "generated_at": "2026-10-22T13:51:36",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6840,7 +6840,7 @@
       "bigchange_id": 201767192,
       "ref": "AES/61798",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -6883,7 +6883,7 @@
     ],
     "notes": "20ft office / del 20ft cant/dry / del 2+1, HT, steps, IBC / delivery of stair case",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201767192,
      201767400,
