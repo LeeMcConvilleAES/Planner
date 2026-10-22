@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T09:13:04",
+ "generated_at": "2026-10-22T09:27:12",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6832,7 +6832,8 @@
     "order_number": "01-003277",
     "units": {
      "20ft": 2,
-     "2+1 toilet": 1
+     "2+1 toilet": 1,
+     "toilet stairs": 1
     },
     "loads": [
      {
@@ -6867,20 +6868,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202456425,
+      "ref": "AES/63372",
+      "desc": "toilet stairs",
+      "status": "booked",
+      "type": "7.5t Transport Delivery",
+      "price": 202.75,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 202.75
      }
     ],
-    "notes": "20ft office / del 20ft cant/dry / del 2+1, HT, steps, IBC",
+    "notes": "20ft office / del 20ft cant/dry / del 2+1, HT, steps, IBC / delivery of stair case",
     "destack": "",
     "status": "live",
     "bigchange_ids": [
      201767192,
      201767400,
-     201767573
+     201767573,
+     202456425
     ],
     "refs": [
      "AES/61798",
      "AES/61799",
-     "AES/61800"
+     "AES/61800",
+     "AES/63372"
     ],
     "pc_key": "LA11JW",
     "miles": 44
