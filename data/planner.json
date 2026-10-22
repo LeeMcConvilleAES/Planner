@@ -1720,9 +1720,10 @@
     "24ft canteen",
     "3+1 tank steps ibc"
    ],
-   "notes": "DRIVERS NEED ALL PPE SAFTEY GEAR ETC",
+   "notes": "",
    "created_at": "2026-10-22T07:58:36",
-   "created_by": "office"
+   "created_by": "office",
+   "edited_at": "2026-10-22T07:58:49"
   }
  ],
  "conversions": {
@@ -1839,6 +1840,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-22T08:58:36+01:00",
+ "updated_at": "2026-10-22T08:58:49+01:00",
  "updated_by": "office"
 }
