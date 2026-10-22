@@ -1691,14 +1691,6 @@
    "driver": "SL",
    "from": "2026-10-21",
    "to": "2026-10-21"
-  },
-  {
-   "id": "v-1791359409814",
-   "reg": "PJ70 ZFY",
-   "type": "TEST",
-   "driver": "",
-   "from": "2026-10-23",
-   "to": "2026-10-23"
   }
  ],
  "enquiries": [],
@@ -1816,6 +1808,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-22T08:39:19+01:00",
+ "updated_at": "2026-10-22T08:40:04+01:00",
  "updated_by": "office"
 }
