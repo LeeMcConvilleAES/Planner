@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T14:10:29",
+ "generated_at": "2026-10-22T14:32:26",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -8132,6 +8132,42 @@
     ],
     "pc_key": "SK71RA",
     "miles": 21
+   },
+   {
+    "id": "bc-202501410",
+    "type": "Site Move",
+    "col": "move",
+    "customer": "A Connolly",
+    "postcode": "M25 0AL",
+    "address": "Beechcroft, Prestwich, M25 0AL",
+    "order_number": "01-003362",
+    "units": {
+     "a store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202501410,
+      "ref": "AES/63377",
+      "desc": "a store",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "Collect a store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202501410
+    ],
+    "refs": [
+     "AES/63377"
+    ],
+    "pc_key": "M250AL",
+    "miles": 13
    },
    {
     "id": "bc-202126369",
