@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T14:36:37",
+ "generated_at": "2026-10-22T14:38:46",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -8178,6 +8178,41 @@
     "refs": [
      "AES/63377",
      "AES/63378"
+    ],
+    "pc_key": "M250AL",
+    "miles": 13
+   },
+   {
+    "id": "bc-202502361",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly",
+    "postcode": "M25 0AL",
+    "address": "Beechcroft, Prestwich, M25 0AL",
+    "order_number": "01-003362",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202502361,
+      "ref": "AES/63379",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collect store 7687",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202502361
+    ],
+    "refs": [
+     "AES/63379"
     ],
     "pc_key": "M250AL",
     "miles": 13
