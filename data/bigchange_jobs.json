@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T11:19:23",
+ "generated_at": "2026-10-22T11:21:23",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -7643,6 +7643,40 @@
     ],
     "pc_key": "WA145RZ",
     "miles": 15
+   },
+   {
+    "id": "bc-202474469",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Exact Property LTD",
+    "postcode": "WN6 7QD",
+    "address": "Beech Hill Avenue, Wigan, WN6 7QD",
+    "order_number": "01-003293",
+    "units": {
+     "chem toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202474469,
+      "ref": "",
+      "desc": "chem toilet",
+      "status": "booked",
+      "type": "Toilet Collection",
+      "price": 15.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 15.0
+     }
+    ],
+    "notes": "collection of chem toilet",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202474469
+    ],
+    "refs": [],
+    "pc_key": "WN67QD",
+    "miles": 9
    },
    {
     "id": "bc-202418832",
