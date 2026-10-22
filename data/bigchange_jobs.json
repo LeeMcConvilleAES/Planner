@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T13:51:36",
+ "generated_at": "2026-10-22T14:10:29",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -7072,7 +7072,7 @@
       "bigchange_id": 201970589,
       "ref": "AES/62199",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 320.0,
       "est_price": null,
@@ -7104,7 +7104,7 @@
     ],
     "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201970589,
      201970712,
