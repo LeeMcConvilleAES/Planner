@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T18:28:42",
+ "generated_at": "2026-10-22T20:44:36",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -7592,9 +7592,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 354.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 354.0
      },
      {
       "bigchange_id": 202502852,
@@ -8202,9 +8203,10 @@
       "desc": "on site move",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "Collect a store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ / ON SITE MOVE",
@@ -8239,9 +8241,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "0-15m Hiab Collection",
-      "price": null,
+      "price": 190.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
     "notes": "collect store 7687",
