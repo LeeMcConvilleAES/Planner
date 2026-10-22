@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T16:19:54",
+ "generated_at": "2026-10-22T18:28:42",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6919,7 +6919,7 @@
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
@@ -7026,7 +7026,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
