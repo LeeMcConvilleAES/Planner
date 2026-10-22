@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T14:40:56",
+ "generated_at": "2026-10-22T14:42:58",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6985,7 +6985,7 @@
       "bigchange_id": 202156496,
       "ref": "AES/63023",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -6995,7 +6995,7 @@
     ],
     "notes": "collection of 24ft",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202156496
     ],
@@ -7617,7 +7617,7 @@
     "address": "common lane south mill ford , South Milford, ls25 5dw",
     "order_number": "01-003368",
     "units": {
-     "24ft": 1
+     "24ft": 2
     },
     "loads": [
      {
@@ -7629,16 +7629,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 202502852,
+      "ref": "AES/63381",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 354.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 354.0
      }
     ],
-    "notes": "24ft office",
+    "notes": "24ft office / 24ft canteen",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202502378
+     202502378,
+     202502852
     ],
     "refs": [
-     "AES/63380"
+     "AES/63380",
+     "AES/63381"
     ],
     "pc_key": "LS255DW",
     "miles": 67
