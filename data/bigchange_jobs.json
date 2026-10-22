@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T09:02:30",
+ "generated_at": "2026-10-22T09:13:04",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6935,7 +6935,7 @@
       "bigchange_id": 201971802,
       "ref": "AES/62202",
       "desc": "please relocate 20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
@@ -6945,7 +6945,7 @@
     ],
     "notes": "please relocate 20ft store 7272 on 22/10",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201971802
     ],
