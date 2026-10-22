@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T14:32:26",
+ "generated_at": "2026-10-22T14:36:37",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -8142,7 +8142,8 @@
     "address": "Beechcroft, Prestwich, M25 0AL",
     "order_number": "01-003362",
     "units": {
-     "a store": 1
+     "a store": 1,
+     "on site move": 1
     },
     "loads": [
      {
@@ -8155,16 +8156,28 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 202502057,
+      "ref": "AES/63378",
+      "desc": "on site move",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "Collect a store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ",
+    "notes": "Collect a store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ / ON SITE MOVE",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202501410
+     202501410,
+     202502057
     ],
     "refs": [
-     "AES/63377"
+     "AES/63377",
+     "AES/63378"
     ],
     "pc_key": "M250AL",
     "miles": 13
