@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T15:33:48",
+ "generated_at": "2026-10-22T15:48:28",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6915,7 +6915,7 @@
       "bigchange_id": 202167069,
       "ref": "",
       "desc": "please exchange toilet",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
@@ -6925,7 +6925,7 @@
     ],
     "notes": "please exchange toilet at above site take one from the yard a swap with the site not the disabled toilet",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202167069
     ],
