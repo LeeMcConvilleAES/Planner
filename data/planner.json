@@ -1418,7 +1418,8 @@
    "day": "2026-10-23",
    "driver": "RS",
    "run": 1,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-10-22"
   },
   "202126369": {
    "day": "2026-10-29",
@@ -1773,25 +1774,7 @@
    "to": "2026-10-23"
   }
  ],
- "enquiries": [
-  {
-   "id": "e-1792655916474",
-   "day": "2026-10-26",
-   "col": "del",
-   "customer": "JAKE",
-   "postcode": "LS25 6JE",
-   "po": "",
-   "items": [
-    "24ft office ]",
-    "24ft canteen",
-    "3+1 tank steps ibc"
-   ],
-   "notes": "",
-   "created_at": "2026-10-22T07:58:36",
-   "created_by": "office",
-   "edited_at": "2026-10-22T07:58:49"
-  }
- ],
+ "enquiries": [],
  "conversions": {
   "e-j-cfe2675e3b": {
    "card": "bc-200296895",
@@ -1906,6 +1889,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-22T11:30:18+01:00",
+ "updated_at": "2026-10-22T14:54:55+01:00",
  "updated_by": "office"
 }
