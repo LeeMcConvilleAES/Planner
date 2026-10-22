@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T15:25:26",
+ "generated_at": "2026-10-22T15:27:31",
  "window": [
   "2026-06-24",
   "2027-02-14"
@@ -6774,7 +6774,7 @@
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
@@ -6844,7 +6844,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 415.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 415.0
      },
      {
@@ -6855,7 +6855,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 415.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 415.0
      },
      {
@@ -6875,10 +6875,10 @@
       "desc": "toilet stairs",
       "status": "complete",
       "type": "7.5t Transport Delivery",
-      "price": 202.75,
+      "price": 352.75,
       "est_price": null,
-      "price_source": "job",
-      "last_price": 202.75
+      "price_source": "invoice",
+      "last_price": 352.75
      }
     ],
     "notes": "20ft office / del 20ft cant/dry / del 2+1, HT, steps, IBC / delivery of stair case",
@@ -6915,7 +6915,7 @@
       "bigchange_id": 202167069,
       "ref": "",
       "desc": "please exchange toilet",
-      "status": "booked",
+      "status": "live",
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
@@ -6925,7 +6925,7 @@
     ],
     "notes": "please exchange toilet at above site take one from the yard a swap with the site not the disabled toilet",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202167069
     ],
@@ -6989,7 +6989,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -7098,7 +7098,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -7138,7 +7138,7 @@
       "type": "Site Move / Exchange",
       "price": 290.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 290.0
      }
     ],
