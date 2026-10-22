@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-22T20:59:41",
+ "generated_at": "2026-10-23T00:00:09",
  "window": [
-  "2026-06-24",
-  "2027-02-14"
+  "2026-06-25",
+  "2027-02-15"
  ],
  "jobs": {
   "2026-07-15": [
@@ -5513,6 +5513,7 @@
     "refs": [
      "AES/61266"
     ],
+    "archived": true,
     "pc_key": "M314QZ",
     "miles": 14
    },
@@ -5549,6 +5550,7 @@
     "refs": [
      "AES/61530"
     ],
+    "archived": true,
     "pc_key": "WN73NA",
     "miles": 4
    },
@@ -5585,6 +5587,7 @@
     "refs": [
      "AES/61456"
     ],
+    "archived": true,
     "pc_key": "M145RR",
     "miles": 14
    },
@@ -5621,6 +5624,7 @@
     "refs": [
      "AES/61227"
     ],
+    "archived": true,
     "pc_key": "WF128QT",
     "miles": 44
    },
@@ -5657,6 +5661,7 @@
     "refs": [
      "AES/61884"
     ],
+    "archived": true,
     "pc_key": "BL95JE",
     "miles": 19
    }
@@ -6934,6 +6939,42 @@
     "miles": 6
    },
    {
+    "id": "bc-202292337",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "Rowland Homes",
+    "postcode": "LA12 9QE",
+    "address": "Priory Road, Ulverston, LA12 9QE",
+    "order_number": "01-003350",
+    "units": {
+     "100ltrs": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202292337,
+      "ref": "AES/63108",
+      "desc": "100ltrs",
+      "status": "complete",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "please deliver 100ltrs",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     202292337
+    ],
+    "refs": [
+     "AES/63108"
+    ],
+    "pc_key": "LA129QE",
+    "miles": 81
+   },
+   {
     "id": "bc-201971802",
     "type": "Site Move",
     "col": "move",
@@ -7153,42 +7194,6 @@
     ],
     "pc_key": "M314QZ",
     "miles": 14
-   },
-   {
-    "id": "bc-202292337",
-    "type": "Fuel Delivery",
-    "col": "fuel",
-    "customer": "Rowland Homes",
-    "postcode": "LA12 9QE",
-    "address": "Priory Road, Ulverston, LA12 9QE",
-    "order_number": "01-003350",
-    "units": {
-     "100ltrs": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202292337,
-      "ref": "AES/63108",
-      "desc": "100ltrs",
-      "status": "complete",
-      "type": "Fuel Delivery",
-      "price": 195.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 195.0
-     }
-    ],
-    "notes": "please deliver 100ltrs",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     202292337
-    ],
-    "refs": [
-     "AES/63108"
-    ],
-    "pc_key": "LA129QE",
-    "miles": 81
    }
   ],
   "2026-10-23": [
