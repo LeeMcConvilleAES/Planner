@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T16:28:02",
+ "generated_at": "2026-10-23T18:15:02",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -8452,9 +8452,10 @@
       "desc": "collect 24ft static",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
     "notes": "SITE MOVE - COLLECT 24FT STATIC",
