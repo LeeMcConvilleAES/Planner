@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T13:44:47",
+ "generated_at": "2026-10-23T15:05:15",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7213,7 +7213,7 @@
       "bigchange_id": 201938344,
       "ref": "AES/62133",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -7223,7 +7223,7 @@
     ],
     "notes": "DELIVERY 24FT STATIC WELFARE",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201938344
     ],
