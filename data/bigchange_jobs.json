@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T12:35:10",
+ "generated_at": "2026-10-23T12:37:19",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7628,7 +7628,7 @@
       "bigchange_id": 202504235,
       "ref": "AES/63383",
       "desc": "toilet stairs",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 354.0,
       "est_price": null,
@@ -7638,7 +7638,7 @@
     ],
     "notes": "24ft office / 24ft canteen / 3+1  tank steps ibc / staircase",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      202502378,
      202502852,
