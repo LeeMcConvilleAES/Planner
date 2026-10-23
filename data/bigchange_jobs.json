@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T12:51:51",
+ "generated_at": "2026-10-23T13:13:06",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7433,7 +7433,7 @@
       "bigchange_id": 202200508,
       "ref": "AES/63046",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -7443,7 +7443,7 @@
     ],
     "notes": "collection of 20ft store cabin 8343",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202200508
     ],
