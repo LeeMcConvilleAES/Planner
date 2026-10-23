@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T18:45:04",
+ "generated_at": "2026-10-23T21:30:57",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -8634,9 +8634,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 303.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 303.0
      }
     ],
     "notes": "collect 20ft store",
