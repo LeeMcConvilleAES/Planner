@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T13:42:46",
+ "generated_at": "2026-10-23T13:44:47",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7519,7 +7519,7 @@
       "bigchange_id": 201525849,
       "ref": "AES/61698",
       "desc": "Effluent Tank",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -7529,7 +7529,7 @@
     ],
     "notes": "collection of effluent tank",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201525849
     ],
