@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T12:37:19",
+ "generated_at": "2026-10-23T12:39:22",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7290,7 +7290,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 295.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 295.0
      },
      {
@@ -7301,7 +7301,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 295.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 295.0
      },
      {
@@ -7312,7 +7312,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 395.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 395.0
      },
      {
@@ -7321,10 +7321,10 @@
       "desc": "Effluent Tank Steps & IBC",
       "status": "complete",
       "type": "0-25m Hiab Delivery",
-      "price": 220.0,
+      "price": 295.0,
       "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
+      "price_source": "invoice",
+      "last_price": 295.0
      }
     ],
     "notes": "DELIVERY OF 32FT / DELIVERY OF HT, 3 X IBC, steps",
@@ -7559,7 +7559,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -7595,7 +7595,7 @@
       "bigchange_id": 202502378,
       "ref": "AES/63380",
       "desc": "24ft",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 354.0,
       "est_price": null,
