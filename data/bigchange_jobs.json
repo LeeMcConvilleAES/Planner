@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T12:05:52",
+ "generated_at": "2026-10-23T12:10:02",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -8299,14 +8299,14 @@
     "address": "Beechcroft, Prestwich, M25 0AL",
     "order_number": "01-003362",
     "units": {
-     "a store": 1,
+     "a 20ft store": 1,
      "on site move": 1
     },
     "loads": [
      {
       "bigchange_id": 202501410,
       "ref": "AES/63377",
-      "desc": "a store",
+      "desc": "a 20ft store",
       "status": "booked",
       "type": "Site Move / Exchange",
       "price": 190.0,
@@ -8326,7 +8326,7 @@
       "last_price": 100.0
      }
     ],
-    "notes": "Collect a store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ / ON SITE MOVE",
+    "notes": "Collect a 20ft store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ / ON SITE MOVE",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
