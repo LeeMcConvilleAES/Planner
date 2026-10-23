@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T07:02:03",
+ "generated_at": "2026-10-23T07:38:03",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -6809,7 +6809,7 @@
       "bigchange_id": 202242384,
       "ref": "",
       "desc": "a chem toilet",
-      "status": "booked",
+      "status": "live",
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
@@ -6819,7 +6819,7 @@
     ],
     "notes": "delivery of a chem toilet",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202242384
     ],
