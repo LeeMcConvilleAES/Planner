@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T12:43:32",
+ "generated_at": "2026-10-23T12:45:32",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7481,7 +7481,7 @@
       "bigchange_id": 202292943,
       "ref": "AES/63110",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 190.0,
       "est_price": null,
@@ -7491,7 +7491,7 @@
     ],
     "notes": "collect 20ft store 7712 / collect 22ft towable",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      202292395,
      202292943
