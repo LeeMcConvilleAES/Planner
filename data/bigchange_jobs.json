@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T13:34:17",
+ "generated_at": "2026-10-23T13:42:46",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7249,7 +7249,7 @@
       "bigchange_id": 202449433,
       "ref": "AES/63370",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 375.0,
       "est_price": null,
@@ -7259,7 +7259,7 @@
     ],
     "notes": "Collect Generator from Greanpower Yard deliver to Protos site CH2 4LB ( Grean Power Yard WA16 6JN)",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202449433
     ],
