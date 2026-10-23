@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T00:00:09",
+ "generated_at": "2026-10-23T05:45:46",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7286,7 +7286,7 @@
       "bigchange_id": 199927479,
       "ref": "AES/60592",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -7329,7 +7329,7 @@
     ],
     "notes": "DELIVERY OF 32FT / DELIVERY OF HT, 3 X IBC, steps",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      199927479,
      199927560,
