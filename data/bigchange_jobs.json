@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T11:40:37",
+ "generated_at": "2026-10-23T11:44:47",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -8042,7 +8042,7 @@
     "address": "Saint Andrew's Close, Ramsbottom, BL0 9LB",
     "order_number": "01-003391",
     "units": {
-     "20ft store": 1
+     "20ft store": 3
     },
     "loads": [
      {
@@ -8055,16 +8055,42 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 220.0
+     },
+     {
+      "bigchange_id": 202580719,
+      "ref": "AES/63482",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-25m Hiab Delivery",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     },
+     {
+      "bigchange_id": 202580885,
+      "ref": "AES/63483",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-25m Hiab Delivery",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
-    "notes": "Deliver 20ft store",
+    "notes": "Deliver 20ft store / del 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     202580251
+     202580251,
+     202580719,
+     202580885
     ],
     "refs": [
-     "AES/63481"
+     "AES/63481",
+     "AES/63482",
+     "AES/63483"
     ],
     "pc_key": "BL09LB",
     "miles": 21
