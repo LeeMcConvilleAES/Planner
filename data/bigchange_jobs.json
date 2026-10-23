@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T15:21:37",
+ "generated_at": "2026-10-23T15:23:41",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -8215,42 +8215,6 @@
     ],
     "pc_key": "WA120JQ",
     "miles": 11
-   },
-   {
-    "id": "bc-201987146",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "Silverglide",
-    "postcode": "BL6 7RU",
-    "address": "Bolton, BL6 7RU",
-    "order_number": "01-003304",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201987146,
-      "ref": "AES/62205",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     }
-    ],
-    "notes": "deliver 4+2 toilet",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     201987146
-    ],
-    "refs": [
-     "AES/62205"
-    ],
-    "pc_key": "BL67RU",
-    "miles": 10
    }
   ],
   "2026-10-29": [
