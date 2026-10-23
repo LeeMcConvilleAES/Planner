@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T15:23:41",
+ "generated_at": "2026-10-23T15:25:51",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7055,8 +7055,7 @@
     "address": "John Wall Court Car Park Area, Clitheroe, BB7 1DX",
     "order_number": "01-003331",
     "units": {
-     "20ft": 1,
-     "10ft store": 1
+     "20ft": 1
     },
     "loads": [
      {
@@ -7069,29 +7068,16 @@
       "est_price": null,
       "price_source": "invoice",
       "last_price": 265.0
-     },
-     {
-      "bigchange_id": 202157333,
-      "ref": "AES/63025",
-      "desc": "10ft store",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
      }
     ],
-    "notes": "collection of 20ft unit / collection of a 10ft unit",
+    "notes": "collection of 20ft unit",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
-     202157171,
-     202157333
+     202157171
     ],
     "refs": [
-     "AES/63024",
-     "AES/63025"
+     "AES/63024"
     ],
     "pc_key": "BB71DX",
     "miles": 36
@@ -8215,6 +8201,42 @@
     ],
     "pc_key": "WA120JQ",
     "miles": 11
+   },
+   {
+    "id": "bc-202157333",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly",
+    "postcode": "BB7 1DX",
+    "address": "John Wall Court Car Park Area, Clitheroe, BB7 1DX",
+    "order_number": "01-003331",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202157333,
+      "ref": "AES/63025",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of a 20ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202157333
+    ],
+    "refs": [
+     "AES/63025"
+    ],
+    "pc_key": "BB71DX",
+    "miles": 36
    }
   ],
   "2026-10-29": [
