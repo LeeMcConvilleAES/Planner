@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T11:44:47",
+ "generated_at": "2026-10-23T11:46:47",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7433,7 +7433,7 @@
       "bigchange_id": 202200508,
       "ref": "AES/63046",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -7443,7 +7443,7 @@
     ],
     "notes": "collection of 20ft store cabin 8343",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202200508
     ],
@@ -8042,7 +8042,7 @@
     "address": "Saint Andrew's Close, Ramsbottom, BL0 9LB",
     "order_number": "01-003391",
     "units": {
-     "20ft store": 3
+     "20ft store": 4
     },
     "loads": [
      {
@@ -8077,6 +8077,17 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 220.0
+     },
+     {
+      "bigchange_id": 202581001,
+      "ref": "AES/63484",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-25m Hiab Delivery",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
     "notes": "Deliver 20ft store / del 20ft store",
@@ -8085,12 +8096,14 @@
     "bigchange_ids": [
      202580251,
      202580719,
-     202580885
+     202580885,
+     202581001
     ],
     "refs": [
      "AES/63481",
      "AES/63482",
-     "AES/63483"
+     "AES/63483",
+     "AES/63484"
     ],
     "pc_key": "BL09LB",
     "miles": 21
