@@ -1779,6 +1779,12 @@
    "driver": "RS",
    "from": "2026-11-30",
    "to": "2026-11-30"
+  },
+  {
+   "id": "h-1792742289255",
+   "driver": "RS",
+   "from": "2026-11-30",
+   "to": "2026-11-30"
   }
  ],
  "vehicle_bookings": [
@@ -2010,6 +2016,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-23T08:56:58+01:00",
+ "updated_at": "2026-10-23T08:58:09+01:00",
  "updated_by": "office"
 }
