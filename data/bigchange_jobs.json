@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-23T11:13:32",
+ "generated_at": "2026-10-23T11:17:41",
  "window": [
   "2026-06-25",
   "2027-02-15"
@@ -7308,7 +7308,7 @@
       "bigchange_id": 199927615,
       "ref": "AES/60594",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25m Hiab Delivery",
       "price": 395.0,
       "est_price": null,
@@ -7319,7 +7319,7 @@
       "bigchange_id": 199927677,
       "ref": "AES/60595",
       "desc": "Effluent Tank Steps & IBC",
-      "status": "live",
+      "status": "complete",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
