@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T10:46:37",
+ "generated_at": "2026-10-26T10:50:49",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7582,7 +7582,7 @@
       "bigchange_id": 202502852,
       "ref": "AES/63381",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 354.0,
       "est_price": null,
@@ -7614,7 +7614,7 @@
     ],
     "notes": "24ft office / 24ft canteen / 3+1  tank steps ibc / staircase",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202502378,
      202502852,
@@ -7896,7 +7896,7 @@
       "bigchange_id": 202699144,
       "ref": "AES/63687",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 350.0,
       "est_price": null,
@@ -7906,7 +7906,7 @@
     ],
     "notes": "Collect New Thurston Fire rated unit from Thurston Group , Drop back at Kensite Yard",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202699144
     ],
