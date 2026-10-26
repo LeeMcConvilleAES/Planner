@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T08:18:08",
+ "generated_at": "2026-10-26T08:26:42",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7095,7 +7095,7 @@
     "address": "1 TATTON ROAD, MANCHESTER, M34 7PJ",
     "order_number": "01-003298",
     "units": {
-     "24ft": 2,
+     "24ft": 1,
      "3+1 toilet": 1
     },
     "loads": [
@@ -7111,17 +7111,6 @@
       "last_price": 320.0
      },
      {
-      "bigchange_id": 201970712,
-      "ref": "AES/62200",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     },
-     {
       "bigchange_id": 201971089,
       "ref": "AES/62201",
       "desc": "3+1 toilet",
@@ -7135,15 +7124,13 @@
     ],
     "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201970589,
-     201970712,
      201971089
     ],
     "refs": [
      "AES/62199",
-     "AES/62200",
      "AES/62201"
     ],
     "pc_key": "M347PJ",
@@ -8619,6 +8606,42 @@
     ],
     "pc_key": "CH52RD",
     "miles": 42
+   },
+   {
+    "id": "bc-201970712",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly Limited",
+    "postcode": "M34 7PJ",
+    "address": "1 TATTON ROAD, MANCHESTER, M34 7PJ",
+    "order_number": "01-003298",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201970712,
+      "ref": "AES/62200",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     }
+    ],
+    "notes": "coll 24ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201970712
+    ],
+    "refs": [
+     "AES/62200"
+    ],
+    "pc_key": "M347PJ",
+    "miles": 25
    },
    {
     "id": "bc-202561290",
