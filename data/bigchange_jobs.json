@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T12:22:38",
+ "generated_at": "2026-10-26T12:24:38",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7897,7 +7897,7 @@
       "bigchange_id": 202699144,
       "ref": "AES/63687",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 350.0,
       "est_price": null,
@@ -7907,7 +7907,7 @@
     ],
     "notes": "Collect New Thurston Fire rated unit from Thurston Group , Drop back at Kensite Yard",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202699144
     ],
