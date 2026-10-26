@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T16:24:31",
+ "generated_at": "2026-10-26T16:32:49",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -9048,42 +9048,6 @@
     "miles": 49
    },
    {
-    "id": "bc-202148040",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "CBG CONSTRUCTION",
-    "postcode": "M3 6WP",
-    "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
-    "order_number": "01-003306",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202148040,
-      "ref": "AES/63018",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery",
-      "price": 320.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 320.0
-     }
-    ],
-    "notes": "del 24ft cant",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     202148040
-    ],
-    "refs": [
-     "AES/63018"
-    ],
-    "pc_key": "M36WP",
-    "miles": 11
-   },
-   {
     "id": "bc-202811502",
     "type": "Delivery",
     "col": "del",
@@ -9158,68 +9122,6 @@
   ],
   "2026-11-03": [
    {
-    "id": "bc-202148516",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "CBG CONSTRUCTION",
-    "postcode": "M3 6WP",
-    "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
-    "order_number": "01-003306",
-    "units": {
-     "24ft": 3
-    },
-    "loads": [
-     {
-      "bigchange_id": 202148516,
-      "ref": "AES/63019",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     },
-     {
-      "bigchange_id": 202149120,
-      "ref": "AES/63020",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     },
-     {
-      "bigchange_id": 202149328,
-      "ref": "AES/63021",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-25m Hiab Delivery",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     }
-    ],
-    "notes": "del24ft off / del 24ft meet / del 4+2 toilet",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     202148516,
-     202149120,
-     202149328
-    ],
-    "refs": [
-     "AES/63019",
-     "AES/63020",
-     "AES/63021"
-    ],
-    "pc_key": "M36WP",
-    "miles": 11
-   },
-   {
     "id": "bc-202017723",
     "type": "Delivery",
     "col": "del",
@@ -9254,42 +9156,6 @@
     ],
     "pc_key": "M298ES",
     "miles": 1
-   },
-   {
-    "id": "bc-202149461",
-    "type": "Collection",
-    "col": "col",
-    "customer": "CBG CONSTRUCTION",
-    "postcode": "M3 6WP",
-    "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
-    "order_number": "01-003306",
-    "units": {
-     "stairs c/w landing": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202149461,
-      "ref": "AES/63022",
-      "desc": "stairs c/w landing",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     }
-    ],
-    "notes": "del staircase / landing",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     202149461
-    ],
-    "refs": [
-     "AES/63022"
-    ],
-    "pc_key": "M36WP",
-    "miles": 11
    }
   ],
   "2026-11-04": [
