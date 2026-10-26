@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-24T12:41:38",
+ "generated_at": "2026-10-26T00:45:05",
  "window": [
-  "2026-07-27",
-  "2026-10-19"
+  "2026-08-03",
+  "2026-10-26"
  ],
  "drivers": {
   "AU": "Alan Unsworth",
@@ -15,56 +15,6 @@
   "SE": "Stephen Ennion"
  },
  "weeks": {
-  "2026-07-27": {
-   "AU": {
-    "jobs": 19,
-    "booked": 19,
-    "charged": 566.0,
-    "invoiced": 19,
-    "unpriced": 0,
-    "miles": 792.0
-   },
-   "DB": {
-    "jobs": 19,
-    "booked": 19,
-    "charged": 2330.0,
-    "invoiced": 19,
-    "unpriced": 0,
-    "miles": 404.0
-   },
-   "JM": {
-    "jobs": 41,
-    "booked": 41,
-    "charged": 2875.0,
-    "invoiced": 40,
-    "unpriced": 1,
-    "miles": 872.0
-   },
-   "JP": {
-    "jobs": 71,
-    "booked": 71,
-    "charged": 5070.0,
-    "invoiced": 69,
-    "unpriced": 2,
-    "miles": 1426.0
-   },
-   "SB": {
-    "jobs": 47,
-    "booked": 49,
-    "charged": 1655.0,
-    "invoiced": 47,
-    "unpriced": 0,
-    "miles": 973.0
-   },
-   "SE": {
-    "jobs": 71,
-    "booked": 71,
-    "charged": 1856.0,
-    "invoiced": 71,
-    "unpriced": 0,
-    "miles": 1370.0
-   }
-  },
   "2026-08-03": {
    "AU": {
     "jobs": 22,
@@ -624,16 +574,58 @@
     "unpriced": 0,
     "miles": 991.0
    }
+  },
+  "2026-10-26": {
+   "AU": {
+    "jobs": 0,
+    "booked": 24,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "JM": {
+    "jobs": 0,
+    "booked": 44,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "JP": {
+    "jobs": 0,
+    "booked": 89,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SB": {
+    "jobs": 0,
+    "booked": 64,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SE": {
+    "jobs": 0,
+    "booked": 58,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   }
   }
  },
  "skipped": {
-  "transport_or_stack": 744,
+  "transport_or_stack": 725,
   "cancelled": 0,
-  "unallocated": 35,
+  "unallocated": 33,
   "unknown_driver": {
-   "rob sawyer": 145,
+   "rob sawyer": 135,
    "re schedule temp": 1,
-   "wasteline": 81,
+   "wasteline": 84,
    "universal tankers": 13,
    "darren fishwick": 1,
    "ste longworth": 1,
