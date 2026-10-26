@@ -1982,6 +1982,14 @@
    "bc-202199404",
    "bc-202335183",
    "bc-200640261"
+  ],
+  "2026-10-28|del": [
+   "bc-202479428",
+   "bc-202580251",
+   "bc-202490754",
+   "bc-202590193",
+   "bc-202456931",
+   "bc-202633526"
   ]
  },
  "migration": {
@@ -2016,6 +2024,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-26T08:18:32+00:00",
+ "updated_at": "2026-10-26T08:18:36+00:00",
  "updated_by": "office"
 }
