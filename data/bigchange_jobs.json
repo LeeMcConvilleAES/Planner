@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T08:47:41",
+ "generated_at": "2026-10-26T08:54:08",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7717,7 +7717,7 @@
       "bigchange_id": 202630952,
       "ref": "AES/63501",
       "desc": "Generator",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 650.0,
       "est_price": null,
@@ -7727,7 +7727,7 @@
     ],
     "notes": "COLLECT 100KVA GENERATOR FROM CH5 2LW  DELIVER THIS UNIT TO L5 9TF FOR A EXCHANGE OF THE UNIT  THEN HEAD TO PICKERING AT WA3 3QA  COLLECT ANOTHER GENRATOR FROM THERE AND DELIVER THE 2 UNITS BACK TO GREAN POWRS YARD",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202630952
     ],
