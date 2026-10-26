@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T15:29:08",
+ "generated_at": "2026-10-26T15:31:18",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -8688,7 +8688,7 @@
     "order_number": "01-003376",
     "units": {
      "32ft": 1,
-     "24ft office": 1
+     "24ft": 2
     },
     "loads": [
      {
@@ -8696,7 +8696,7 @@
       "ref": "AES/63815",
       "desc": "32ft",
       "status": "booked",
-      "type": "0-25m Hiab Delivery",
+      "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
       "price_source": "job",
@@ -8705,25 +8705,38 @@
      {
       "bigchange_id": 202818197,
       "ref": "AES/63816",
-      "desc": "24ft office",
+      "desc": "24ft",
       "status": "booked",
-      "type": "0-25m Hiab Delivery",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 202818353,
+      "ref": "AES/63817",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
      }
     ],
-    "notes": "delivery of 32 3+1 dry room / 24ft office",
+    "notes": "delivery of 32 3+1 dry room / 24ft office / 24ft canteen",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202817973,
-     202818197
+     202818197,
+     202818353
     ],
     "refs": [
      "AES/63815",
-     "AES/63816"
+     "AES/63816",
+     "AES/63817"
     ],
     "pc_key": "M84JZ",
     "miles": 15
