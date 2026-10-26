@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T13:00:25",
+ "generated_at": "2026-10-26T13:02:30",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7534,7 +7534,7 @@
       "bigchange_id": 202764673,
       "ref": "AES/63811",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 250.0,
       "est_price": null,
@@ -7544,7 +7544,7 @@
     ],
     "notes": "deliver 2 generators co-op live",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202764673
     ],
