@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T13:21:47",
+ "generated_at": "2026-10-26T14:21:49",
  "window": [
   "2026-08-03",
   "2026-10-26"
@@ -234,7 +234,7 @@
    },
    "JP": {
     "jobs": 49,
-    "booked": 52,
+    "booked": 53,
     "charged": 3295.0,
     "invoiced": 45,
     "unpriced": 4,
@@ -545,25 +545,25 @@
    "JM": {
     "jobs": 49,
     "booked": 51,
-    "charged": 2820.0,
-    "invoiced": 40,
-    "unpriced": 8,
+    "charged": 3415.0,
+    "invoiced": 49,
+    "unpriced": 0,
     "miles": 1300.0
    },
    "JP": {
     "jobs": 80,
     "booked": 82,
-    "charged": 5490.0,
-    "invoiced": 76,
-    "unpriced": 3,
+    "charged": 5560.0,
+    "invoiced": 78,
+    "unpriced": 2,
     "miles": 1864.0
    },
    "SB": {
     "jobs": 64,
     "booked": 66,
-    "charged": 2066.0,
-    "invoiced": 63,
-    "unpriced": 1,
+    "charged": 2091.0,
+    "invoiced": 64,
+    "unpriced": 0,
     "miles": 1263.0
    },
    "SE": {
@@ -585,43 +585,43 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 4,
+    "jobs": 5,
     "booked": 43,
-    "charged": 125.0,
-    "invoiced": 2,
-    "unpriced": 1,
-    "miles": 296.0
+    "charged": 275.0,
+    "invoiced": 5,
+    "unpriced": 0,
+    "miles": 338.0
    },
    "JP": {
     "jobs": 0,
-    "booked": 91,
+    "booked": 89,
     "charged": 0.0,
     "invoiced": 0,
     "unpriced": 0,
     "miles": 0
    },
    "SB": {
-    "jobs": 6,
+    "jobs": 7,
     "booked": 65,
-    "charged": 240.0,
-    "invoiced": 4,
-    "unpriced": 1,
-    "miles": 242.0
+    "charged": 280.0,
+    "invoiced": 7,
+    "unpriced": 0,
+    "miles": 271.0
    },
    "SE": {
-    "jobs": 9,
+    "jobs": 11,
     "booked": 58,
-    "charged": 380.0,
-    "invoiced": 6,
+    "charged": 450.0,
+    "invoiced": 10,
     "unpriced": 1,
-    "miles": 320.0
+    "miles": 360.0
    }
   }
  },
  "skipped": {
   "transport_or_stack": 728,
   "cancelled": 0,
-  "unallocated": 33,
+  "unallocated": 32,
   "unknown_driver": {
    "rob sawyer": 135,
    "re schedule temp": 1,
