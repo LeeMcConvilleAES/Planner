@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T15:31:18",
+ "generated_at": "2026-10-26T16:24:31",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -9293,6 +9293,56 @@
    }
   ],
   "2026-11-04": [
+   {
+    "id": "bc-202826925",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "KKB Remediation",
+    "postcode": "LE7 4PN",
+    "address": "Roadnook Garden Village , Wanlip, LE7 4PN",
+    "order_number": "01-003399",
+    "units": {
+     "24ft": 1,
+     "10ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202826925,
+      "ref": "AES/63819",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 483.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 483.0
+     },
+     {
+      "bigchange_id": 202827038,
+      "ref": "AES/63820",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 483.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 483.0
+     }
+    ],
+    "notes": "24FT UNIT / 10FT",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202826925,
+     202827038
+    ],
+    "refs": [
+     "AES/63819",
+     "AES/63820"
+    ],
+    "pc_key": "LE74PN",
+    "miles": 107
+   },
    {
     "id": "bc-202556835",
     "type": "Site Move",
