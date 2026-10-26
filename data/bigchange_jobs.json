@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T08:45:33",
+ "generated_at": "2026-10-26T08:47:41",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7647,7 +7647,7 @@
       "bigchange_id": 202200187,
       "ref": "AES/63045",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -7657,7 +7657,7 @@
     ],
     "notes": "collection of 20ft store 7756 cabin number",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202200187
     ],
