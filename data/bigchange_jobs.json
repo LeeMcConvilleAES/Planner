@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T00:00:07",
+ "generated_at": "2026-10-26T07:46:21",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -7660,7 +7660,7 @@
       "bigchange_id": 202200187,
       "ref": "AES/63045",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -7670,7 +7670,7 @@
     ],
     "notes": "collection of 20ft store 7756 cabin number",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202200187
     ],
@@ -7766,7 +7766,7 @@
       "bigchange_id": 202418832,
       "ref": "AES/63295",
       "desc": "100 ltrs of fuel",
-      "status": "booked",
+      "status": "live",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -7776,7 +7776,7 @@
     ],
     "notes": "100 ltrs of fuel",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202418832
     ],
