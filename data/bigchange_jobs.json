@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T08:54:08",
+ "generated_at": "2026-10-26T09:02:37",
  "window": [
   "2026-06-28",
   "2027-02-18"
@@ -8616,7 +8616,8 @@
     "address": "1 TATTON ROAD, MANCHESTER, M34 7PJ",
     "order_number": "01-003298",
     "units": {
-     "24ft": 1
+     "24ft": 1,
+     "a staircase": 1
     },
     "loads": [
      {
@@ -8629,16 +8630,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 220.0
+     },
+     {
+      "bigchange_id": 202748159,
+      "ref": "AES/63810",
+      "desc": "a staircase",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
-    "notes": "coll 24ft",
+    "notes": "coll 24ft / collection of a staircase",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     201970712
+     201970712,
+     202748159
     ],
     "refs": [
-     "AES/62200"
+     "AES/62200",
+     "AES/63810"
     ],
     "pc_key": "M347PJ",
     "miles": 25
