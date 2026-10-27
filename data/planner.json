@@ -1961,6 +1961,14 @@
    "driver": "DF",
    "from": "2026-10-29",
    "to": "2026-10-29"
+  },
+  {
+   "id": "v-1793091243717",
+   "reg": "YK25 CXE",
+   "type": "PMI",
+   "driver": "DF",
+   "from": "2026-10-29",
+   "to": "2026-10-29"
   }
  ],
  "enquiries": [],
@@ -2091,6 +2099,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-27T08:28:32+00:00",
+ "updated_at": "2026-10-27T08:54:05+00:00",
  "updated_by": "office"
 }
