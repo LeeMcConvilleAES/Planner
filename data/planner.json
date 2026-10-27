@@ -1457,31 +1457,36 @@
    "day": "2026-11-02",
    "driver": "CR",
    "run": 1,
-   "seq": 2
+   "seq": 2,
+   "dropped_at": "2026-10-27"
   },
   "202148516": {
    "day": "2026-11-03",
    "driver": "SL",
    "run": 1,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-10-27"
   },
   "202149120": {
    "day": "2026-11-03",
    "driver": "DF",
    "run": 1,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-10-27"
   },
   "202149328": {
    "day": "2026-11-03",
    "driver": "CR",
    "run": 1,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-10-27"
   },
   "202149461": {
    "day": "2026-11-03",
    "driver": "CR",
    "run": 1,
-   "seq": 2
+   "seq": 2,
+   "dropped_at": "2026-10-27"
   },
   "202156496": {
    "day": "2026-10-22",
@@ -1942,6 +1947,14 @@
    "driver": "",
    "from": "2026-10-23",
    "to": "2026-10-23"
+  },
+  {
+   "id": "v-1793089626952",
+   "reg": "YK25 CXE",
+   "type": "PMI",
+   "driver": "DF",
+   "from": "2026-10-29",
+   "to": "2026-10-29"
   }
  ],
  "enquiries": [],
@@ -2072,6 +2085,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-26T14:26:05+00:00",
+ "updated_at": "2026-10-27T08:27:08+00:00",
  "updated_by": "office"
 }
