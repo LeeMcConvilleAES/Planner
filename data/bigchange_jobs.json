@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T09:20:02",
+ "generated_at": "2026-10-27T09:26:16",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -7988,7 +7988,7 @@
       "bigchange_id": 202036413,
       "ref": "AES/62860",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 787.0,
       "est_price": null,
@@ -8021,7 +8021,7 @@
       "bigchange_id": 202037622,
       "ref": "AES/62863",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "Hiab Collection",
       "price": 687.0,
       "est_price": null,
