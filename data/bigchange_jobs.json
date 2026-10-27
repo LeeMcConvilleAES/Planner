@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T13:30:40",
+ "generated_at": "2026-10-27T14:15:08",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -8796,6 +8796,41 @@
     ],
     "pc_key": "M347PJ",
     "miles": 25
+   },
+   {
+    "id": "bc-202945123",
+    "type": "Collection",
+    "col": "col",
+    "customer": "CoOp Live Arena",
+    "postcode": "M11 3DL",
+    "address": "Manchester, M11 3DL",
+    "order_number": "ryan greans",
+    "units": {
+     "Generator": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202945123,
+      "ref": "AES/63973",
+      "desc": "Generator",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collect 2 100kva and deliver them back to greans yard wa16 6jn",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202945123
+    ],
+    "refs": [
+     "AES/63973"
+    ],
+    "pc_key": "M113DL",
+    "miles": null
    },
    {
     "id": "bc-202561290",
