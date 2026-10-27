@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T08:18:22",
+ "generated_at": "2026-10-27T08:20:32",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -9209,7 +9209,8 @@
     "order_number": "01-003400",
     "units": {
      "32ft": 3,
-     "3+1 toilet": 1
+     "3+1 toilet": 1,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -9253,22 +9254,35 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 202887640,
+      "ref": "AES/63939",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "del 32ft / del 3+1 toilet, HT, 2x steps, IBC",
+    "notes": "del 32ft / del 3+1 toilet, HT, 2x steps, IBC / deliver stairs/landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202886290,
      202886875,
      202887065,
-     202887502
+     202887502,
+     202887640
     ],
     "refs": [
      "AES/63934",
      "AES/63935",
      "AES/63936",
-     "AES/63938"
+     "AES/63938",
+     "AES/63939"
     ],
     "pc_key": "LS31JZ",
     "miles": 50
