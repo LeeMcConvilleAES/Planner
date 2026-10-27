@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T12:42:44",
+ "generated_at": "2026-10-27T12:56:45",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -8003,7 +8003,7 @@
       "type": "Hiab Collection",
       "price": 787.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 787.0
      },
      {
