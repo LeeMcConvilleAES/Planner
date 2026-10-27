@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-26T18:43:44",
+ "generated_at": "2026-10-27T00:00:08",
  "window": [
-  "2026-06-28",
-  "2027-02-18"
+  "2026-06-29",
+  "2027-02-19"
  ],
  "jobs": {
   "2026-07-15": [
@@ -5902,6 +5902,7 @@
     "refs": [
      "AES/61802"
     ],
+    "archived": true,
     "pc_key": "M251DZ",
     "miles": 12
    },
@@ -5993,6 +5994,7 @@
      "AES/60848",
      "AES/60849"
     ],
+    "archived": true,
     "pc_key": "HG12NE",
     "miles": 66
    },
@@ -6029,6 +6031,7 @@
     "refs": [
      "AES/61405"
     ],
+    "archived": true,
     "pc_key": "M84JZ",
     "miles": 15
    },
@@ -6065,6 +6068,7 @@
     "refs": [
      "AES/63026"
     ],
+    "archived": true,
     "pc_key": "WA166JN",
     "miles": 24
    },
@@ -6101,6 +6105,7 @@
     "refs": [
      "AES/61521"
     ],
+    "archived": true,
     "pc_key": "BL34JJ",
     "miles": 4
    }
@@ -7632,6 +7637,42 @@
     "miles": 70
    },
    {
+    "id": "bc-202418832",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003363",
+    "units": {
+     "100 ltrs of fuel": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202418832,
+      "ref": "AES/63295",
+      "desc": "100 ltrs of fuel",
+      "status": "complete",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "100 ltrs of fuel",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     202418832
+    ],
+    "refs": [
+     "AES/63295"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
+   },
+   {
     "id": "bc-201427559",
     "type": "Delivery",
     "col": "del",
@@ -7772,42 +7813,6 @@
     ],
     "pc_key": "CH52LW",
     "miles": 44
-   },
-   {
-    "id": "bc-202418832",
-    "type": "Fuel Delivery",
-    "col": "fuel",
-    "customer": "GREENMOUNT PROJECTS",
-    "postcode": "WN6 7DD",
-    "address": "Prescott Street, Wigan, WN6 7DD",
-    "order_number": "01-003363",
-    "units": {
-     "100 ltrs of fuel": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202418832,
-      "ref": "AES/63295",
-      "desc": "100 ltrs of fuel",
-      "status": "complete",
-      "type": "Fuel Delivery",
-      "price": 195.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 195.0
-     }
-    ],
-    "notes": "100 ltrs of fuel",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     202418832
-    ],
-    "refs": [
-     "AES/63295"
-    ],
-    "pc_key": "WN67DD",
-    "miles": 8
    },
    {
     "id": "bc-199946986",
