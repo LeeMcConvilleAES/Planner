@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T00:00:08",
+ "generated_at": "2026-10-27T04:15:01",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -7988,7 +7988,7 @@
       "bigchange_id": 202036413,
       "ref": "AES/62860",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "Hiab Collection",
       "price": 787.0,
       "est_price": null,
@@ -8031,7 +8031,7 @@
     ],
     "notes": "collect 32ft 8695 / coll 32ft 8701 / coll 32ft 8508 / 20ft store 8045 & 2xstairs",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202035739,
      202036413,
