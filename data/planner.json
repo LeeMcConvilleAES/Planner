@@ -2001,7 +2001,22 @@
    "to": "2026-10-29"
   }
  ],
- "enquiries": [],
+ "enquiries": [
+  {
+   "id": "e-1793095898484",
+   "day": "2026-11-02",
+   "col": "del",
+   "customer": "greans",
+   "postcode": "L3",
+   "po": "",
+   "items": [
+    "60kva  deliver 60kva to liverpool L3"
+   ],
+   "notes": "£300",
+   "created_at": "2026-10-27T10:11:38",
+   "created_by": "office"
+  }
+ ],
  "conversions": {
   "e-j-cfe2675e3b": {
    "card": "bc-200296895",
@@ -2129,6 +2144,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-27T10:06:58+00:00",
+ "updated_at": "2026-10-27T10:11:38+00:00",
  "updated_by": "office"
 }
