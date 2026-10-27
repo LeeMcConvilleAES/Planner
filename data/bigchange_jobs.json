@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T15:16:27",
+ "generated_at": "2026-10-27T15:18:27",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -9782,7 +9782,7 @@
     "address": "Barry Avenue, Preston, PR2 3XL",
     "order_number": "01-003415",
     "units": {
-     "20ft": 1,
+     "20ft": 2,
      "20ft store": 1
     },
     "loads": [
@@ -9807,18 +9807,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202956230,
+      "ref": "AES/64020",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collect 20ft store 8373 / collect 20ft store 7599",
+    "notes": "collect 20ft store 8373 / collect 20ft store 7599 / collect 20ft store 7938",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202955750,
-     202955853
+     202955853,
+     202956230
     ],
     "refs": [
      "AES/64018",
-     "AES/64019"
+     "AES/64019",
+     "AES/64020"
     ],
     "pc_key": "PR23XL",
     "miles": 29
