@@ -1795,7 +1795,8 @@
   "2026-09-24",
   "2026-09-25",
   "2026-09-28",
-  "2026-10-27"
+  "2026-10-27",
+  "2026-10-28"
  ],
  "holidays": [
   {
@@ -2144,6 +2145,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-27T10:34:06+00:00",
+ "updated_at": "2026-10-27T10:38:08+00:00",
  "updated_by": "office"
 }
