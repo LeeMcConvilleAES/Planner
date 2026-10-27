@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T11:23:54",
+ "generated_at": "2026-10-27T12:15:13",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -9183,9 +9183,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 365.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 365.0
      },
      {
       "bigchange_id": 202886875,
@@ -9215,9 +9216,10 @@
       "desc": "3+1 toilet",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      },
      {
       "bigchange_id": 202887640,
