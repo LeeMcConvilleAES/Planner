@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T08:16:21",
+ "generated_at": "2026-10-27T08:18:22",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -9208,7 +9208,8 @@
     "address": "Leeds, LS3 1JZ",
     "order_number": "01-003400",
     "units": {
-     "32ft": 3
+     "32ft": 3,
+     "3+1 toilet": 1
     },
     "loads": [
      {
@@ -9242,20 +9243,32 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202887502,
+      "ref": "AES/63938",
+      "desc": "3+1 toilet",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "del 32ft",
+    "notes": "del 32ft / del 3+1 toilet, HT, 2x steps, IBC",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      202886290,
      202886875,
-     202887065
+     202887065,
+     202887502
     ],
     "refs": [
      "AES/63934",
      "AES/63935",
-     "AES/63936"
+     "AES/63936",
+     "AES/63938"
     ],
     "pc_key": "LS31JZ",
     "miles": 50
