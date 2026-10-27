@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T15:18:27",
+ "generated_at": "2026-10-27T15:35:40",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -8752,9 +8752,10 @@
       "desc": "Generator",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 250.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 250.0
      }
     ],
     "notes": "collect 2 100kva and deliver them back to greans yard wa16 6jn",
@@ -8787,9 +8788,10 @@
       "desc": "a exchange",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 275.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 275.0
      }
     ],
     "notes": "collect a exchange from greans yard take it to talbot road swap it onsite then deliver the  other exchange back to there yard at wa16 6jn",
@@ -9114,9 +9116,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "0-25m Hiab Delivery",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
     "notes": "deliver 20ft store",
