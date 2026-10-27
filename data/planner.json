@@ -2106,20 +2106,6 @@
    "notes": "",
    "created_at": "2026-10-27T10:48:22",
    "created_by": "office"
-  },
-  {
-   "id": "e-1793101634529",
-   "day": "2026-11-06",
-   "col": "del",
-   "customer": "PETE",
-   "postcode": "PR2 3XL",
-   "po": "",
-   "items": [
-    "4 x 20ft stores"
-   ],
-   "notes": "",
-   "created_at": "2026-10-27T11:47:14",
-   "created_by": "office"
   }
  ],
  "conversions": {
@@ -2249,6 +2235,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-27T16:03:55+00:00",
+ "updated_at": "2026-10-27T16:43:43+00:00",
  "updated_by": "office"
 }
