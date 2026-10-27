@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T08:14:11",
+ "generated_at": "2026-10-27T08:16:21",
  "window": [
   "2026-06-29",
   "2027-02-19"
@@ -8575,6 +8575,42 @@
     "miles": 21
    },
    {
+    "id": "bc-202887108",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003402",
+    "units": {
+     "100ltrs of fuel": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202887108,
+      "ref": "AES/63937",
+      "desc": "100ltrs of fuel",
+      "status": "booked",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "delivery of 100ltrs of fuel",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     202887108
+    ],
+    "refs": [
+     "AES/63937"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
+   },
+   {
     "id": "bc-202126369",
     "type": "Collection",
     "col": "col",
@@ -9172,7 +9208,7 @@
     "address": "Leeds, LS3 1JZ",
     "order_number": "01-003400",
     "units": {
-     "32ft": 2
+     "32ft": 3
     },
     "loads": [
      {
@@ -9195,6 +9231,17 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 202887065,
+      "ref": "AES/63936",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "del 32ft",
@@ -9202,11 +9249,13 @@
     "status": "booked",
     "bigchange_ids": [
      202886290,
-     202886875
+     202886875,
+     202887065
     ],
     "refs": [
      "AES/63934",
-     "AES/63935"
+     "AES/63935",
+     "AES/63936"
     ],
     "pc_key": "LS31JZ",
     "miles": 50
