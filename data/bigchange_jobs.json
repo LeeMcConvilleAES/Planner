@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T10:09:42",
+ "generated_at": "2026-10-28T10:11:48",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -10085,17 +10085,7 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [
-  {
-   "enquiry_id": "e-1793177069445",
-   "bigchange_card": "bc-203072232",
-   "level": "sure",
-   "why": "same day, same postcode",
-   "enquiry_customer": "pete",
-   "bigchange_customer": "GRS Contractors",
-   "day": "2026-11-03"
-  }
- ],
+ "enquiry_matches": [],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
