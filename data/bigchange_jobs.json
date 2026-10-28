@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T09:28:06",
+ "generated_at": "2026-10-28T09:30:07",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8340,7 +8340,7 @@
       "bigchange_id": 202969032,
       "ref": "AES/64022",
       "desc": "please move ibc off waste tank",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 150.0,
       "est_price": null,
@@ -8350,7 +8350,7 @@
     ],
     "notes": "please move ibc off waste tank",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202969032
     ],
