@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T13:53:50",
+ "generated_at": "2026-10-28T14:19:22",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8053,7 +8053,7 @@
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
@@ -8164,7 +8164,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -8380,7 +8380,7 @@
       "type": "7.5t Transport Collection",
       "price": 260.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 260.0
      }
     ],
@@ -9514,10 +9514,10 @@
       "desc": "a chemi",
       "status": "booked",
       "type": "Toilet Collection",
-      "price": 20.0,
+      "price": 58.5,
       "est_price": null,
       "price_source": "job",
-      "last_price": 20.0
+      "last_price": 58.5
      }
     ],
     "notes": "collect a chemi",
@@ -10073,9 +10073,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 365.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 365.0
      },
      {
       "bigchange_id": 203082559,
@@ -10207,9 +10208,10 @@
       "desc": "20ft store",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      },
      {
       "bigchange_id": 203086171,
