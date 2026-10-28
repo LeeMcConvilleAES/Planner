@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T07:33:33",
+ "generated_at": "2026-10-28T08:01:13",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -9423,42 +9423,6 @@
     ],
     "pc_key": "M298ES",
     "miles": 1
-   },
-   {
-    "id": "bc-202578349",
-    "type": "Collection",
-    "col": "col",
-    "customer": "MCI Developments",
-    "postcode": "OL11 2XG",
-    "address": "Trub Farm, Rochdale, OL11 2XG",
-    "order_number": "01-003390",
-    "units": {
-     "mobile welfare": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202578349,
-      "ref": "AES/63472",
-      "desc": "mobile welfare",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     }
-    ],
-    "notes": "collect welfare unit - HIAB required",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     202578349
-    ],
-    "refs": [
-     "AES/63472"
-    ],
-    "pc_key": "OL112XG",
-    "miles": 20
    }
   ],
   "2026-11-04": [
