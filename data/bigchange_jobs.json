@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T11:51:00",
+ "generated_at": "2026-10-28T11:53:09",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8118,7 +8118,7 @@
       "bigchange_id": 202581001,
       "ref": "AES/63484",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -10179,7 +10179,8 @@
     "address": "The Bulls Head, 115 London Road North, Poynton, SK12 1AG",
     "order_number": "01-003429",
     "units": {
-     "20ft store": 2
+     "20ft store": 1,
+     "20ft": 2
     },
     "loads": [
      {
@@ -10196,7 +10197,18 @@
      {
       "bigchange_id": 203089226,
       "ref": "AES/64241",
-      "desc": "20ft store",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 203089572,
+      "ref": "AES/64242",
+      "desc": "20ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
@@ -10205,16 +10217,18 @@
       "last_price": 265.0
      }
     ],
-    "notes": "20ft 8731 / 20ft 8672",
+    "notes": "20ft 8731 / 20ft office 8672 / 20ft canteen 8665",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      203088921,
-     203089226
+     203089226,
+     203089572
     ],
     "refs": [
      "AES/64240",
-     "AES/64241"
+     "AES/64241",
+     "AES/64242"
     ],
     "pc_key": "SK121AG",
     "miles": 23
