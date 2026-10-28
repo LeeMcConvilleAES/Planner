@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T13:38:07",
+ "generated_at": "2026-10-28T14:19:46",
  "window": [
   "2026-08-03",
   "2026-10-26"
@@ -593,36 +593,36 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 28,
-    "booked": 53,
-    "charged": 1375.0,
-    "invoiced": 21,
+    "jobs": 29,
+    "booked": 54,
+    "charged": 1450.0,
+    "invoiced": 22,
     "unpriced": 7,
-    "miles": 879.0
+    "miles": 883.0
    },
    "JP": {
-    "jobs": 9,
+    "jobs": 14,
     "booked": 53,
-    "charged": 595.0,
-    "invoiced": 8,
-    "unpriced": 1,
-    "miles": 188.0
+    "charged": 880.0,
+    "invoiced": 12,
+    "unpriced": 2,
+    "miles": 353.0
    },
    "SB": {
-    "jobs": 29,
+    "jobs": 30,
     "booked": 63,
-    "charged": 1100.0,
-    "invoiced": 28,
+    "charged": 1150.0,
+    "invoiced": 29,
     "unpriced": 1,
-    "miles": 666.0
+    "miles": 684.0
    },
    "SE": {
-    "jobs": 33,
+    "jobs": 35,
     "booked": 59,
-    "charged": 990.0,
-    "invoiced": 30,
-    "unpriced": 3,
-    "miles": 769.0
+    "charged": 1076.0,
+    "invoiced": 34,
+    "unpriced": 1,
+    "miles": 816.0
    }
   }
  },
@@ -633,7 +633,7 @@
   "unknown_driver": {
    "rob sawyer": 135,
    "re schedule temp": 1,
-   "wasteline": 103,
+   "wasteline": 102,
    "universal tankers": 13,
    "darren fishwick": 2,
    "ste longworth": 1,
