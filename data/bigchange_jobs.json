@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T07:29:32",
+ "generated_at": "2026-10-28T07:33:33",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8085,7 +8085,7 @@
       "bigchange_id": 202580251,
       "ref": "AES/63481",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
