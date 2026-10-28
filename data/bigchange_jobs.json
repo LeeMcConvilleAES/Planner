@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T10:35:08",
+ "generated_at": "2026-10-28T10:45:42",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8412,7 +8412,7 @@
       "bigchange_id": 200140265,
       "ref": "AES/60763",
       "desc": "10ft store",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -8422,7 +8422,7 @@
     ],
     "notes": "COLLECTION OF 10FT STORE",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      200140265
     ],
