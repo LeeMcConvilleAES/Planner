@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T12:05:34",
+ "generated_at": "2026-10-28T12:09:45",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8701,42 +8701,6 @@
     "miles": 176
    },
    {
-    "id": "bc-203071227",
-    "type": "Collection",
-    "col": "col",
-    "customer": "RICHARD O'BRIEN JOINERY",
-    "postcode": "CH47 6BD",
-    "address": "7 Beachcroft Road, Meols, CH47 6BD",
-    "order_number": "01-003431",
-    "units": {
-     "a chemi": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 203071227,
-      "ref": "AES/64219",
-      "desc": "a chemi",
-      "status": "booked",
-      "type": "Toilet Collection",
-      "price": 20.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 20.0
-     }
-    ],
-    "notes": "collect a chemi",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     203071227
-    ],
-    "refs": [
-     "AES/64219"
-    ],
-    "pc_key": "CH476BD",
-    "miles": 36
-   },
-   {
     "id": "bc-203073962",
     "type": "Collection",
     "col": "col",
@@ -9531,6 +9495,42 @@
     ],
     "pc_key": "OL139PA",
     "miles": 29
+   },
+   {
+    "id": "bc-203071227",
+    "type": "Collection",
+    "col": "col",
+    "customer": "RICHARD O'BRIEN JOINERY",
+    "postcode": "CH47 6BD",
+    "address": "7 Beachcroft Road, Meols, CH47 6BD",
+    "order_number": "01-003431",
+    "units": {
+     "a chemi": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203071227,
+      "ref": "AES/64219",
+      "desc": "a chemi",
+      "status": "booked",
+      "type": "Toilet Collection",
+      "price": 20.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 20.0
+     }
+    ],
+    "notes": "collect a chemi",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203071227
+    ],
+    "refs": [
+     "AES/64219"
+    ],
+    "pc_key": "CH476BD",
+    "miles": 36
    }
   ],
   "2026-11-04": [
