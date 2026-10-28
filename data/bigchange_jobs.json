@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T11:08:58",
+ "generated_at": "2026-10-28T11:10:58",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -10012,7 +10012,7 @@
     "address": "Lower Aston Hall Lane, Hawarden, CH5 3EY",
     "order_number": "01-003422",
     "units": {
-     "24ft": 1
+     "24ft": 2
     },
     "loads": [
      {
@@ -10024,16 +10024,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 203082559,
+      "ref": "AES/64232",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "24ft office",
+    "notes": "24ft office / 24ft canteen",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203082106
+     203082106,
+     203082559
     ],
     "refs": [
-     "AES/64231"
+     "AES/64231",
+     "AES/64232"
     ],
     "pc_key": "CH53EY",
     "miles": 43
