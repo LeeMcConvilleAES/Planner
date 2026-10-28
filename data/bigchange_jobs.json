@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-27T22:15:34",
+ "generated_at": "2026-10-28T00:00:05",
  "window": [
-  "2026-06-29",
-  "2027-02-19"
+  "2026-06-30",
+  "2027-02-20"
  ],
  "jobs": {
   "2026-07-15": [
@@ -6158,6 +6158,7 @@
      "AES/62203",
      "AES/62204"
     ],
+    "archived": true,
     "pc_key": "CH419BP",
     "miles": 30
    },
@@ -6207,6 +6208,7 @@
      "AES/61138",
      "AES/61139"
     ],
+    "archived": true,
     "pc_key": "ST163BW",
     "miles": 61
    },
@@ -6224,17 +6226,6 @@
     },
     "loads": [
      {
-      "bigchange_id": 201210511,
-      "ref": "AES/61454",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     },
-     {
       "bigchange_id": 201210635,
       "ref": "AES/61455",
       "desc": "24ft",
@@ -6244,22 +6235,11 @@
       "est_price": null,
       "price_source": "invoice",
       "last_price": 340.0
-     },
-     {
-      "bigchange_id": 201210909,
-      "ref": "AES/61457",
-      "desc": "2+1 toilet",
-      "status": "booked",
-      "type": "0-15m Hiab Delivery",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
      }
     ],
     "notes": "del 24ft / del 2+1 , HT, steps, IBC",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201210511,
      201210635,
@@ -6270,44 +6250,9 @@
      "AES/61455",
      "AES/61457"
     ],
+    "archived": true,
     "pc_key": "M145RR",
     "miles": 14
-   },
-   {
-    "id": "bc-201992512",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "Mountain Earth",
-    "postcode": "PR8 2HG",
-    "address": "Breeze Road, Southport, PR8 2HG",
-    "order_number": "01-003311",
-    "units": {
-     "mobile welfare": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 201992512,
-      "ref": "AES/62286",
-      "desc": "mobile welfare",
-      "status": "complete",
-      "type": "7.5t Transport Delivery",
-      "price": 100.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 100.0
-     }
-    ],
-    "notes": "del BOSS",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     201992512
-    ],
-    "refs": [
-     "AES/62286"
-    ],
-    "pc_key": "PR82HG",
-    "miles": 32
    },
    {
     "id": "bc-201992752",
@@ -6342,6 +6287,44 @@
     "refs": [
      "AES/62287"
     ],
+    "archived": true,
+    "pc_key": "PR82HG",
+    "miles": 32
+   },
+   {
+    "id": "bc-201992512",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Mountain Earth",
+    "postcode": "PR8 2HG",
+    "address": "Breeze Road, Southport, PR8 2HG",
+    "order_number": "01-003311",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 201992512,
+      "ref": "AES/62286",
+      "desc": "mobile welfare",
+      "status": "complete",
+      "type": "7.5t Transport Delivery",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "del BOSS",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     201992512
+    ],
+    "refs": [
+     "AES/62286"
+    ],
+    "archived": true,
     "pc_key": "PR82HG",
     "miles": 32
    },
@@ -6414,6 +6397,7 @@
     "refs": [
      "AES/61711"
     ],
+    "archived": true,
     "pc_key": "FY38NP",
     "miles": 41
    },
@@ -6450,6 +6434,7 @@
     "refs": [
      "AES/61709"
     ],
+    "archived": true,
     "pc_key": "WA27EN",
     "miles": 13
    },
@@ -6486,6 +6471,7 @@
     "refs": [
      "AES/62480"
     ],
+    "archived": true,
     "pc_key": "M275UA",
     "miles": 7
    }
