@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T09:30:07",
+ "generated_at": "2026-10-28T09:38:19",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8089,7 +8089,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      },
      {
@@ -8111,7 +8111,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      },
      {
@@ -8236,7 +8236,7 @@
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
@@ -8272,7 +8272,7 @@
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -8308,7 +8308,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
