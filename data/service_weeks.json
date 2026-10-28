@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T11:37:51",
+ "generated_at": "2026-10-28T12:38:00",
  "window": [
   "2026-08-03",
   "2026-10-26"
@@ -593,41 +593,41 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 26,
+    "jobs": 27,
     "booked": 31,
-    "charged": 1150.0,
-    "invoiced": 18,
-    "unpriced": 8,
-    "miles": 837.0
+    "charged": 1375.0,
+    "invoiced": 21,
+    "unpriced": 6,
+    "miles": 869.0
    },
    "JP": {
-    "jobs": 8,
+    "jobs": 9,
     "booked": 74,
-    "charged": 445.0,
-    "invoiced": 6,
-    "unpriced": 2,
-    "miles": 141.0
+    "charged": 595.0,
+    "invoiced": 8,
+    "unpriced": 1,
+    "miles": 188.0
    },
    "SB": {
-    "jobs": 26,
+    "jobs": 28,
     "booked": 64,
-    "charged": 905.0,
-    "invoiced": 22,
-    "unpriced": 2,
-    "miles": 635.0
+    "charged": 1100.0,
+    "invoiced": 28,
+    "unpriced": 0,
+    "miles": 657.0
    },
    "SE": {
-    "jobs": 29,
+    "jobs": 30,
     "booked": 59,
-    "charged": 925.0,
-    "invoiced": 26,
-    "unpriced": 2,
-    "miles": 681.0
+    "charged": 990.0,
+    "invoiced": 30,
+    "unpriced": 0,
+    "miles": 705.0
    }
   }
  },
  "skipped": {
-  "transport_or_stack": 733,
+  "transport_or_stack": 732,
   "cancelled": 0,
   "unallocated": 32,
   "unknown_driver": {
