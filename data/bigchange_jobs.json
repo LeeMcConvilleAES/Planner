@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T12:45:37",
+ "generated_at": "2026-10-28T12:47:38",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8376,7 +8376,7 @@
       "bigchange_id": 202966871,
       "ref": "AES/64021",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 260.0,
       "est_price": null,
@@ -8386,7 +8386,7 @@
     ],
     "notes": "collect boss unit from ls10 1df pickereings yard deliver to there golborne depot",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202966871
     ],
