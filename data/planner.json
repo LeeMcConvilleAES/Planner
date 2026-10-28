@@ -2151,20 +2151,6 @@
    "notes": "",
    "created_at": "2026-10-27T10:48:22",
    "created_by": "office"
-  },
-  {
-   "id": "e-1793177069445",
-   "day": "2026-11-03",
-   "col": "col",
-   "customer": "pete",
-   "postcode": "OL13 9PA",
-   "po": "",
-   "items": [
-    "20ft office"
-   ],
-   "notes": "",
-   "created_at": "2026-10-28T08:44:29",
-   "created_by": "office"
   }
  ],
  "conversions": {
@@ -2229,6 +2215,14 @@
    "level": "sure",
    "why": "same day, same postcode",
    "enquiry_customer": "klaudia"
+  },
+  "e-1793177069445": {
+   "card": "bc-203072232",
+   "at": "2026-10-28T10:10:15+00:00",
+   "by": "ken",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "pete"
   }
  },
  "dismissed_matches": [],
@@ -2240,7 +2234,8 @@
   "bc-200803941": "enquiry: 10ft store",
   "bc-201403131": "Not in Big Change. / enquiry: 32ft, 32ft, 32ft, 32ft",
   "bc-201967867": "enquiry: 32FT, 32FT, 32FT, 32FT, 20FT, 20FT, STAIRCASE",
-  "bc-202156496": "enquiry: 24ft, 20ft store, 10 ft store"
+  "bc-202156496": "enquiry: 24ft, 20ft store, 10 ft store",
+  "bc-203072232": "enquiry: 20ft office"
  },
  "card_order": {
   "2026-11-02|del": [
@@ -2294,6 +2289,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-28T08:44:29+00:00",
- "updated_by": "office"
+ "updated_at": "2026-10-28T10:10:15+00:00",
+ "updated_by": "ken"
 }
