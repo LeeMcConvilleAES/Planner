@@ -2153,6 +2153,20 @@
    "notes": "",
    "created_at": "2026-10-28T14:52:50",
    "created_by": "office"
+  },
+  {
+   "id": "e-1793199218485",
+   "day": "2026-11-10",
+   "col": "col",
+   "customer": "pete",
+   "postcode": "WA8 8LY",
+   "po": "",
+   "items": [
+    "2+1 tank steps ibc"
+   ],
+   "notes": "",
+   "created_at": "2026-10-28T14:53:38",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -2291,6 +2305,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-28T14:52:50+00:00",
+ "updated_at": "2026-10-28T14:53:39+00:00",
  "updated_by": "office"
 }
