@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-28T11:15:11",
+ "generated_at": "2026-10-28T11:17:12",
  "window": [
   "2026-06-30",
   "2027-02-20"
@@ -8340,7 +8340,7 @@
       "bigchange_id": 202969032,
       "ref": "AES/64022",
       "desc": "please move ibc off waste tank",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 150.0,
       "est_price": null,
@@ -8350,7 +8350,7 @@
     ],
     "notes": "please move ibc off waste tank",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202969032
     ],
@@ -10013,7 +10013,8 @@
     "order_number": "01-003422",
     "units": {
      "24ft": 2,
-     "2+1 toilet": 1
+     "2+1 toilet": 1,
+     "20ft store": 1
     },
     "loads": [
      {
@@ -10047,20 +10048,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 203083686,
+      "ref": "AES/64234",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "24ft office / 24ft canteen / 2+1toilet block (IBC, effluent tank, steps)",
+    "notes": "24ft office / 24ft canteen / 2+1toilet block (IBC, effluent tank, steps) / 20ft store & Staircase/landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      203082106,
      203082559,
-     203083338
+     203083338,
+     203083686
     ],
     "refs": [
      "AES/64231",
      "AES/64232",
-     "AES/64233"
+     "AES/64233",
+     "AES/64234"
     ],
     "pc_key": "CH53EY",
     "miles": 43
