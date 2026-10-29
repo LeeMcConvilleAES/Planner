@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T13:57:42",
+ "generated_at": "2026-10-29T13:59:42",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -9843,6 +9843,42 @@
     ],
     "refs": [
      "AES/64362"
+    ],
+    "pc_key": "M389XE",
+    "miles": 4
+   },
+   {
+    "id": "bc-203248249",
+    "type": "Site Move",
+    "col": "move",
+    "customer": "J Riley Ltd",
+    "postcode": "M38 9XE",
+    "address": "STONEBOND PROPERTIES LITTLE HULTON, Manchester Road West, Little Hulton, M38 9XE",
+    "order_number": "01-003451",
+    "units": {
+     "a unit on the same site": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203248249,
+      "ref": "AES/64363",
+      "desc": "a unit on the same site",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "move a unit on the same site",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203248249
+    ],
+    "refs": [
+     "AES/64363"
     ],
     "pc_key": "M389XE",
     "miles": 4
