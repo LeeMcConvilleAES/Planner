@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T11:49:35",
+ "generated_at": "2026-10-29T11:55:53",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8742,6 +8742,42 @@
     ],
     "pc_key": "OX144TA",
     "miles": 176
+   },
+   {
+    "id": "bc-203231405",
+    "type": "Collection",
+    "col": "col",
+    "customer": "PAS NW",
+    "postcode": "M8 4JZ",
+    "address": "193 Middleton Road, Manchester, M8 4JZ",
+    "order_number": "01-003448",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203231405,
+      "ref": "AES/64323",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "collection of boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203231405
+    ],
+    "refs": [
+     "AES/64323"
+    ],
+    "pc_key": "M84JZ",
+    "miles": 15
    },
    {
     "id": "bc-203073962",
