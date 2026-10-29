@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T12:08:17",
+ "generated_at": "2026-10-29T12:12:35",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8529,7 +8529,7 @@
       "bigchange_id": 202787890,
       "ref": "AES/63812",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
@@ -8539,7 +8539,7 @@
     ],
     "notes": "deliver 24 ft 4+2 toilet",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202787890
     ],
@@ -8651,7 +8651,7 @@
       "bigchange_id": 202589620,
       "ref": "AES/63486",
       "desc": "collect 24ft static",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
@@ -8661,7 +8661,7 @@
     ],
     "notes": "SITE MOVE - COLLECT 24FT STATIC",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202589620
     ],
