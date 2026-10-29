@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T10:18:12",
+ "generated_at": "2026-10-29T10:43:12",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -9636,14 +9636,13 @@
     "address": "Hornby Court, Blackburn, BB2 1UB",
     "order_number": "01-003385",
     "units": {
-     "please site move 04/11": 1,
-     "please site move 20ft store 04/11": 1
+     "20ft x 2 site move": 2
     },
     "loads": [
      {
       "bigchange_id": 202556835,
       "ref": "AES/63460",
-      "desc": "please site move 04/11",
+      "desc": "20ft x 2 site move",
       "status": "booked",
       "type": "Site Move / Exchange",
       "price": 220.0,
@@ -9654,7 +9653,7 @@
      {
       "bigchange_id": 202557331,
       "ref": "AES/63461",
-      "desc": "please site move 20ft store 04/11",
+      "desc": "20ft x 2 site move",
       "status": "booked",
       "type": "Site Move / Exchange",
       "price": 220.0,
@@ -9663,7 +9662,7 @@
       "last_price": 220.0
      }
     ],
-    "notes": "PLEASE SITE MOVE 04/11 / PLEASE SITE MOVE 20ft store 04/11",
+    "notes": "20ft x 2 SITE MOVE",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
