@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T11:55:53",
+ "generated_at": "2026-10-29T12:06:16",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -9864,7 +9864,7 @@
     "miles": 45
    },
    {
-    "id": "bc-201967867",
+    "id": "bc-201967941",
     "type": "Collection",
     "col": "col",
     "customer": "Termrim",
@@ -9872,21 +9872,10 @@
     "address": "Wood Croft, Sowerby Bridge, HX6 1HL",
     "order_number": "01-003299",
     "units": {
-     "32ft": 4,
+     "32ft": 2,
      "20ft store": 2
     },
     "loads": [
-     {
-      "bigchange_id": 201967867,
-      "ref": "AES/62193",
-      "desc": "32ft",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     },
      {
       "bigchange_id": 201967941,
       "ref": "AES/62194",
@@ -9908,17 +9897,6 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 365.0
-     },
-     {
-      "bigchange_id": 201968075,
-      "ref": "AES/62196",
-      "desc": "32ft",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
      },
      {
       "bigchange_id": 201968266,
@@ -9943,22 +9921,18 @@
       "last_price": 265.0
      }
     ],
-    "notes": "coll 32ft / coll32ft / collect 20ft store and Staircase/landing / coll 20ft store",
+    "notes": "coll 32ft / collect 20ft store and Staircase/landing / coll 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     201967867,
      201967941,
      201967994,
-     201968075,
      201968266,
      201968416
     ],
     "refs": [
-     "AES/62193",
      "AES/62194",
      "AES/62195",
-     "AES/62196",
      "AES/62197",
      "AES/62198"
     ],
@@ -10619,6 +10593,57 @@
     ],
     "pc_key": "LA11PW",
     "miles": 44
+   }
+  ],
+  "2026-11-12": [
+   {
+    "id": "bc-201967867",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Termrim",
+    "postcode": "HX6 1HL",
+    "address": "Wood Croft, Sowerby Bridge, HX6 1HL",
+    "order_number": "01-003299",
+    "units": {
+     "32ft": 2
+    },
+    "loads": [
+     {
+      "bigchange_id": 201967867,
+      "ref": "AES/62193",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 201968075,
+      "ref": "AES/62196",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "coll 32ft / coll32ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201967867,
+     201968075
+    ],
+    "refs": [
+     "AES/62193",
+     "AES/62196"
+    ],
+    "pc_key": "HX61HL",
+    "miles": 33
    }
   ],
   "2026-11-13": [
