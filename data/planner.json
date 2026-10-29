@@ -2229,20 +2229,6 @@
    "notes": "",
    "created_at": "2026-10-27T10:48:22",
    "created_by": "office"
-  },
-  {
-   "id": "e-1793199170643",
-   "day": "2026-11-09",
-   "col": "col",
-   "customer": "pete",
-   "postcode": "WA8",
-   "po": "",
-   "items": [
-    "2 x 20s"
-   ],
-   "notes": "",
-   "created_at": "2026-10-28T14:52:50",
-   "created_by": "office"
   }
  ],
  "conversions": {
@@ -2390,6 +2376,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-29T08:39:19+00:00",
- "updated_by": "ken"
+ "updated_at": "2026-10-29T08:47:36+00:00",
+ "updated_by": "office"
 }
