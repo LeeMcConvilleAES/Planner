@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T11:23:16",
+ "generated_at": "2026-10-29T11:38:06",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8687,7 +8687,7 @@
       "bigchange_id": 202887108,
       "ref": "AES/63937",
       "desc": "100ltrs of fuel",
-      "status": "booked",
+      "status": "live",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -8697,7 +8697,7 @@
     ],
     "notes": "delivery of 100ltrs of fuel",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202887108
     ],
