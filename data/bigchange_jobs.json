@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T15:35:16",
+ "generated_at": "2026-10-29T15:56:19",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8651,7 +8651,7 @@
       "bigchange_id": 202589620,
       "ref": "AES/63486",
       "desc": "collect 24ft static",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
@@ -8661,7 +8661,7 @@
     ],
     "notes": "SITE MOVE - COLLECT 24FT STATIC",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202589620
     ],
