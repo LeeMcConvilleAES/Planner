@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T08:34:58",
+ "generated_at": "2026-10-29T08:39:08",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -10433,6 +10433,42 @@
     ],
     "pc_key": "PR75HT",
     "miles": 16
+   },
+   {
+    "id": "bc-203198637",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Chandos",
+    "postcode": "WA8 8LY",
+    "address": "Keepmoat Homes Hale Gate Road, Widnes, WA8 8LY",
+    "order_number": "01-003440",
+    "units": {
+     "2+1 toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203198637,
+      "ref": "AES/64317",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "2+1 , HT, steps",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203198637
+    ],
+    "refs": [
+     "AES/64317"
+    ],
+    "pc_key": "WA88LY",
+    "miles": 25
    }
   ],
   "2026-11-13": [
@@ -10721,7 +10757,17 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [],
+ "enquiry_matches": [
+  {
+   "enquiry_id": "e-1793199218485",
+   "bigchange_card": "bc-203198637",
+   "level": "sure",
+   "why": "same day, same postcode",
+   "enquiry_customer": "pete",
+   "bigchange_customer": "Chandos",
+   "day": "2026-11-10"
+  }
+ ],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
