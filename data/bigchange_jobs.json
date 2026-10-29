@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T13:59:42",
+ "generated_at": "2026-10-29T14:40:15",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8493,7 +8493,7 @@
       "bigchange_id": 203209943,
       "ref": "AES/64318",
       "desc": "x2 black swivel chairs",
-      "status": "booked",
+      "status": "complete",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -8503,7 +8503,7 @@
     ],
     "notes": "please deliver x2 black swivel chairs",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      203209943
     ],
