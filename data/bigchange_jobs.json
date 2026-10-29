@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T08:32:57",
+ "generated_at": "2026-10-29T08:34:58",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8530,7 +8530,7 @@
       "bigchange_id": 202501410,
       "ref": "AES/63377",
       "desc": "a 20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 190.0,
       "est_price": null,
@@ -8541,7 +8541,7 @@
       "bigchange_id": 202502057,
       "ref": "AES/63378",
       "desc": "on site move",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 100.0,
       "est_price": null,
@@ -8579,7 +8579,7 @@
       "bigchange_id": 202502361,
       "ref": "AES/63379",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -8589,7 +8589,7 @@
     ],
     "notes": "collect store 7687",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      202502361
     ],
@@ -10254,7 +10254,7 @@
     "address": "Keepmoat Homes Hale Gate Road, Widnes, WA8 8LY",
     "order_number": "01-003439",
     "units": {
-     "24ft": 1
+     "24ft": 2
     },
     "loads": [
      {
@@ -10267,16 +10267,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 203198224,
+      "ref": "AES/64316",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "24ft - 7988",
+    "notes": "24ft - 7988 / 24ft - 8253",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203198057
+     203198057,
+     203198224
     ],
     "refs": [
-     "AES/64315"
+     "AES/64315",
+     "AES/64316"
     ],
     "pc_key": "WA88LY",
     "miles": 25
