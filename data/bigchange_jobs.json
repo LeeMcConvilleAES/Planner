@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T13:41:42",
+ "generated_at": "2026-10-29T13:44:57",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8533,7 +8533,7 @@
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
@@ -8691,7 +8691,7 @@
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 195.0
      }
     ],
@@ -8799,7 +8799,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
