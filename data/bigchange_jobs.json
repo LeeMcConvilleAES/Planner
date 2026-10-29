@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T08:39:08",
+ "generated_at": "2026-10-29T08:41:09",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -10757,17 +10757,7 @@
   ]
  },
  "stacking_unmatched": [],
- "enquiry_matches": [
-  {
-   "enquiry_id": "e-1793199218485",
-   "bigchange_card": "bc-203198637",
-   "level": "sure",
-   "why": "same day, same postcode",
-   "enquiry_customer": "pete",
-   "bigchange_customer": "Chandos",
-   "day": "2026-11-10"
-  }
- ],
+ "enquiry_matches": [],
  "distance": {
   "depot": "M469BE",
   "postcodes": [
