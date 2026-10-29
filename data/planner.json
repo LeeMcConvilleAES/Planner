@@ -2233,7 +2233,7 @@
   {
    "id": "e-1793272429788",
    "day": "2026-11-04",
-   "col": "del",
+   "col": "col",
    "customer": "Pete",
    "postcode": "L11 9DX",
    "po": "",
@@ -2242,7 +2242,8 @@
    ],
    "notes": ".",
    "created_at": "2026-10-29T11:13:49",
-   "created_by": "office"
+   "created_by": "office",
+   "edited_at": "2026-10-29T11:14:12"
   }
  ],
  "conversions": {
@@ -2390,6 +2391,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-10-29T11:13:50+00:00",
+ "updated_at": "2026-10-29T11:14:12+00:00",
  "updated_by": "office"
 }
