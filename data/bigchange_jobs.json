@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T16:45:15",
+ "generated_at": "2026-10-29T19:58:52",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8993,10 +8993,10 @@
       "desc": "a exchange",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": 275.0,
+      "price": 360.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 275.0
+      "last_price": 360.0
      }
     ],
     "notes": "collect a exchange from greans yard take it to talbot road swap it onsite then deliver the  other exchange back to there yard at wa16 6jn",
