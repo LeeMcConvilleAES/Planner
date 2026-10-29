@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T15:56:19",
+ "generated_at": "2026-10-29T16:45:15",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8497,7 +8497,7 @@
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -8655,7 +8655,7 @@
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
