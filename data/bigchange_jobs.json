@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T10:16:11",
+ "generated_at": "2026-10-29T10:18:12",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -8566,7 +8566,7 @@
       "bigchange_id": 202501410,
       "ref": "AES/63377",
       "desc": "a 20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 190.0,
       "est_price": null,
@@ -8587,7 +8587,7 @@
     ],
     "notes": "Collect a 20ft store 8454 from A Connolly Ltd HARDSTANDING 1-7 HOUGH WALK HOUGH WALK M7 1PJ / ON SITE MOVE",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202501410,
      202502057
