@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T08:12:01",
+ "generated_at": "2026-10-29T08:20:20",
  "window": [
   "2026-07-01",
   "2027-02-21"
@@ -10254,9 +10254,10 @@
     "customer": "A Connolly",
     "postcode": "CH5 3EY",
     "address": "Lower Aston Hall Lane, Hawarden, CH5 3EY",
-    "order_number": "01-002422",
+    "order_number": "01-003422",
     "units": {
-     "20ft store": 5
+     "20ft store": 5,
+     "24ft": 1
     },
     "loads": [
      {
@@ -10313,40 +10314,7 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
-     }
-    ],
-    "notes": "20ft store delivery / del 20ft store",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     203083918,
-     203084079,
-     203084476,
-     203086171,
-     203086414
-    ],
-    "refs": [
-     "AES/64235",
-     "AES/64236",
-     "AES/64237",
-     "AES/64238",
-     "AES/64239"
-    ],
-    "pc_key": "CH53EY",
-    "miles": 43
-   },
-   {
-    "id": "bc-203195952",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "A Connolly",
-    "postcode": "CH5 3EY",
-    "address": "Lower Aston Hall Lane, Hawarden, CH5 3EY",
-    "order_number": "01-003422",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
+     },
      {
       "bigchange_id": 203195952,
       "ref": "AES/64306",
@@ -10359,13 +10327,23 @@
       "last_price": 265.0
      }
     ],
-    "notes": "24ft cant",
+    "notes": "20ft store delivery / del 20ft store / 24ft cant",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
+     203083918,
+     203084079,
+     203084476,
+     203086171,
+     203086414,
      203195952
     ],
     "refs": [
+     "AES/64235",
+     "AES/64236",
+     "AES/64237",
+     "AES/64238",
+     "AES/64239",
      "AES/64306"
     ],
     "pc_key": "CH53EY",
