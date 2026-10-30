@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T13:48:10",
+ "generated_at": "2026-10-30T14:41:08",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -9459,9 +9459,10 @@
       "desc": "a chemi loo",
       "status": "booked",
       "type": "Toilet Collection",
-      "price": null,
+      "price": 25.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 25.0
      }
     ],
     "notes": "collection of a chemi loo",
