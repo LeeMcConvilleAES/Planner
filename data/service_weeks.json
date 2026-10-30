@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T16:45:48",
+ "generated_at": "2026-10-30T07:46:58",
  "window": [
   "2026-08-03",
   "2026-10-26"
@@ -593,20 +593,20 @@
     "miles": 1178.0
    },
    "JP": {
-    "jobs": 35,
+    "jobs": 36,
     "booked": 53,
-    "charged": 3040.0,
-    "invoiced": 34,
+    "charged": 3110.0,
+    "invoiced": 35,
     "unpriced": 1,
-    "miles": 935.0
+    "miles": 951.0
    },
    "SB": {
-    "jobs": 46,
+    "jobs": 47,
     "booked": 63,
-    "charged": 1781.0,
-    "invoiced": 46,
+    "charged": 1801.0,
+    "invoiced": 47,
     "unpriced": 0,
-    "miles": 1037.0
+    "miles": 1038.0
    },
    "SE": {
     "jobs": 48,
