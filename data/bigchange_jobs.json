@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-29T19:58:52",
+ "generated_at": "2026-10-30T00:00:03",
  "window": [
-  "2026-07-01",
-  "2027-02-21"
+  "2026-07-02",
+  "2027-02-22"
  ],
  "jobs": {
   "2026-07-15": [
@@ -6788,6 +6788,7 @@
      202173503
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "WN24BU",
     "miles": 5
    },
@@ -6899,6 +6900,7 @@
      "AES/61800",
      "AES/63372"
     ],
+    "archived": true,
     "pc_key": "LA11JW",
     "miles": 44
    },
@@ -6933,6 +6935,7 @@
      202167069
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "BL13AW",
     "miles": 6
    },
@@ -6969,6 +6972,7 @@
     "refs": [
      "AES/63108"
     ],
+    "archived": true,
     "pc_key": "LA129QE",
     "miles": 81
    },
@@ -7005,6 +7009,7 @@
     "refs": [
      "AES/62202"
     ],
+    "archived": true,
     "pc_key": "SK62JX",
     "miles": 22
    },
@@ -7041,6 +7046,7 @@
     "refs": [
      "AES/63023"
     ],
+    "archived": true,
     "pc_key": "BB71DX",
     "miles": 36
    },
@@ -7077,6 +7083,7 @@
     "refs": [
      "AES/63024"
     ],
+    "archived": true,
     "pc_key": "BB71DX",
     "miles": 36
    },
@@ -7089,8 +7096,7 @@
     "address": "1 TATTON ROAD, MANCHESTER, M34 7PJ",
     "order_number": "01-003298",
     "units": {
-     "24ft": 1,
-     "3+1 toilet": 1
+     "24ft": 1
     },
     "loads": [
      {
@@ -7103,29 +7109,16 @@
       "est_price": null,
       "price_source": "invoice",
       "last_price": 320.0
-     },
-     {
-      "bigchange_id": 201971089,
-      "ref": "AES/62201",
-      "desc": "3+1 toilet",
-      "status": "complete",
-      "type": "0-25miles Hiab Collection",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 220.0
      }
     ],
-    "notes": "coll 24ft & de stack / coll 3+1, HT, steps,stairs",
+    "notes": "coll 24ft & de stack",
     "destack": "",
     "status": "complete",
     "bigchange_ids": [
-     201970589,
-     201971089
+     201970589
     ],
     "refs": [
-     "AES/62199",
-     "AES/62201"
+     "AES/62199"
     ],
     "pc_key": "M347PJ",
     "miles": 25
@@ -7163,6 +7156,7 @@
     "refs": [
      "AES/63248"
     ],
+    "archived": true,
     "pc_key": "M314QZ",
     "miles": 14
    }
@@ -8442,6 +8436,42 @@
   ],
   "2026-10-29": [
    {
+    "id": "bc-202887108",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003402",
+    "units": {
+     "100ltrs of fuel": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202887108,
+      "ref": "AES/63937",
+      "desc": "100ltrs of fuel",
+      "status": "complete",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "delivery of 100ltrs of fuel",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     202887108
+    ],
+    "refs": [
+     "AES/63937"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
+   },
+   {
     "id": "bc-202270236",
     "type": "Delivery",
     "col": "del",
@@ -8670,42 +8700,6 @@
     ],
     "pc_key": "BL09LB",
     "miles": 21
-   },
-   {
-    "id": "bc-202887108",
-    "type": "Fuel Delivery",
-    "col": "fuel",
-    "customer": "GREENMOUNT PROJECTS",
-    "postcode": "WN6 7DD",
-    "address": "Prescott Street, Wigan, WN6 7DD",
-    "order_number": "01-003402",
-    "units": {
-     "100ltrs of fuel": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202887108,
-      "ref": "AES/63937",
-      "desc": "100ltrs of fuel",
-      "status": "complete",
-      "type": "Fuel Delivery",
-      "price": 195.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 195.0
-     }
-    ],
-    "notes": "delivery of 100ltrs of fuel",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     202887108
-    ],
-    "refs": [
-     "AES/63937"
-    ],
-    "pc_key": "WN67DD",
-    "miles": 8
    },
    {
     "id": "bc-202126369",
