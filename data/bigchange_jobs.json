@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T10:12:03",
+ "generated_at": "2026-10-30T10:48:03",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -8867,7 +8867,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -9025,7 +9025,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -9061,7 +9061,7 @@
       "type": "Hiab Collection",
       "price": 303.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 303.0
      }
     ],
@@ -9133,7 +9133,7 @@
       "type": "Site Move / Exchange",
       "price": 349.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 349.0
      }
     ],
