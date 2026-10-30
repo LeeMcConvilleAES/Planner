@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T12:36:13",
+ "generated_at": "2026-10-30T13:01:35",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -8900,7 +8900,7 @@
       "bigchange_id": 201970712,
       "ref": "AES/62200",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -8921,7 +8921,7 @@
     ],
     "notes": "coll 24ft / collection of a staircase",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201970712,
      202748159
