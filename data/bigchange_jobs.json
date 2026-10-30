@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T15:10:35",
+ "generated_at": "2026-10-30T15:37:54",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -11120,9 +11120,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "collection of 2+1 toilet tank steps and ibc / collection 20ft canteen / collection 20ft  canteen",
