@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T10:48:03",
+ "generated_at": "2026-10-30T11:19:50",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -8985,7 +8985,7 @@
       "bigchange_id": 202945732,
       "ref": "AES/63974",
       "desc": "a exchange",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 360.0,
       "est_price": null,
@@ -8995,7 +8995,7 @@
     ],
     "notes": "collect a exchange from greans yard take it to talbot road swap it onsite then deliver the  other exchange back to there yard at wa16 6jn",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202945732
     ],
