@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T00:00:03",
+ "generated_at": "2026-10-30T06:30:04",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -8863,7 +8863,7 @@
       "bigchange_id": 202447716,
       "ref": "AES/63368",
       "desc": "bowser",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -8873,7 +8873,7 @@
     ],
     "notes": "Deliver X1 Full IBC",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202447716
     ],
