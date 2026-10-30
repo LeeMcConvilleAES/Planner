@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T09:52:48",
+ "generated_at": "2026-10-30T09:56:56",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -10718,6 +10718,42 @@
    }
   ],
   "2026-11-12": [
+   {
+    "id": "bc-203321348",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A CONNOLLY",
+    "postcode": "BD4 6JZ",
+    "address": "GRASS VERGE AT MILES HALL, Bradford, BD4 6JZ",
+    "order_number": "01-003455",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203321348,
+      "ref": "AES/64425",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "delivery of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203321348
+    ],
+    "refs": [
+     "AES/64425"
+    ],
+    "pc_key": "BD46JZ",
+    "miles": 43
+   },
    {
     "id": "bc-201967867",
     "type": "Collection",
