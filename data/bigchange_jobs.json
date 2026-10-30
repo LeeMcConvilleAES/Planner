@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T09:36:00",
+ "generated_at": "2026-10-30T09:48:39",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -9213,7 +9213,7 @@
       "last_price": 265.0
      }
     ],
-    "notes": "delivery of 24ft",
+    "notes": "delivery of 20ft  towable",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
