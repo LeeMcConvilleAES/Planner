@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T08:05:00",
+ "generated_at": "2026-10-30T08:19:52",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -9129,7 +9129,7 @@
       "bigchange_id": 202335183,
       "ref": "AES/63228",
       "desc": "10ft store (",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 349.0,
       "est_price": null,
@@ -9139,7 +9139,7 @@
     ],
     "notes": "Site move of 10ft store (7695) FROM Wain Homes,",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202335183
     ],
