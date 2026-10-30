@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T09:33:59",
+ "generated_at": "2026-10-30T09:36:00",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -11038,7 +11038,8 @@
     "address": "Flagged area between shops Donald Avenue, Bradford, BD6 1HU",
     "order_number": "01-003454",
     "units": {
-     "2+1 toilet": 1
+     "2+1 toilet": 1,
+     "20ft": 2
     },
     "loads": [
      {
@@ -11051,16 +11052,41 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 203317890,
+      "ref": "AES/64423",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 203318125,
+      "ref": "AES/64424",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "collection of 2+1 toilet tank steps and ibc",
+    "notes": "collection of 2+1 toilet tank steps and ibc / collection 20ft canteen / collection 20ft  canteen",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203317625
+     203317625,
+     203317890,
+     203318125
     ],
     "refs": [
-     "AES/64422"
+     "AES/64422",
+     "AES/64423",
+     "AES/64424"
     ],
     "pc_key": "BD61HU",
     "miles": 43
