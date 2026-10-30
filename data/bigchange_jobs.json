@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T12:34:03",
+ "generated_at": "2026-10-30T12:36:13",
  "window": [
   "2026-07-02",
   "2027-02-22"
@@ -8949,7 +8949,7 @@
       "bigchange_id": 202945123,
       "ref": "AES/63973",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 250.0,
       "est_price": null,
@@ -8959,7 +8959,7 @@
     ],
     "notes": "collect 2 100kva and deliver them back to greans yard wa16 6jn",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      202945123
     ],
