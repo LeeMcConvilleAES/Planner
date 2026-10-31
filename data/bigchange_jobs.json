@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-30T19:59:08",
+ "generated_at": "2026-10-31T00:00:09",
  "window": [
-  "2026-07-02",
-  "2027-02-22"
+  "2026-07-03",
+  "2027-02-23"
  ],
  "jobs": {
   "2026-07-15": [
@@ -6823,6 +6823,7 @@
      202242384
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "L274BH",
     "miles": 22
    },
@@ -7120,6 +7121,7 @@
     "refs": [
      "AES/62199"
     ],
+    "archived": true,
     "pc_key": "M347PJ",
     "miles": 25
    },
@@ -7195,6 +7197,7 @@
     "refs": [
      "AES/62133"
     ],
+    "archived": true,
     "pc_key": "SK84RT",
     "miles": 18
    },
@@ -7231,6 +7234,7 @@
     "refs": [
      "AES/63370"
     ],
+    "archived": true,
     "pc_key": "CH24LB",
     "miles": null
    },
@@ -7307,6 +7311,7 @@
      "AES/60594",
      "AES/60595"
     ],
+    "archived": true,
     "pc_key": "OL112XG",
     "miles": 20
    },
@@ -7343,6 +7348,7 @@
     "refs": [
      "AES/63044"
     ],
+    "archived": true,
     "pc_key": "M314JY",
     "miles": null
    },
@@ -7379,6 +7385,7 @@
     "refs": [
      "AES/63046"
     ],
+    "archived": true,
     "pc_key": "M314JY",
     "miles": null
    },
@@ -7429,6 +7436,7 @@
      "AES/63109",
      "AES/63110"
     ],
+    "archived": true,
     "pc_key": "WN60SR",
     "miles": 20
    },
@@ -7465,6 +7473,7 @@
     "refs": [
      "AES/61698"
     ],
+    "archived": true,
     "pc_key": "L376BR",
     "miles": 30
    },
@@ -7501,6 +7510,7 @@
     "refs": [
      "AES/63371"
     ],
+    "archived": true,
     "pc_key": "WA20AN",
     "miles": 12
    }
@@ -7541,6 +7551,42 @@
     ],
     "pc_key": "M113DL",
     "miles": null
+   },
+   {
+    "id": "bc-202502852",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Gascoigne wood",
+    "postcode": "LS25 6JE",
+    "address": "common lane south mill ford , South Milford, ls25 6JE",
+    "order_number": "01-003368",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202502852,
+      "ref": "AES/63381",
+      "desc": "24ft",
+      "status": "complete",
+      "type": "25-50m Hiab Delivery",
+      "price": 354.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 354.0
+     }
+    ],
+    "notes": "24ft canteen",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     202502852
+    ],
+    "refs": [
+     "AES/63381"
+    ],
+    "pc_key": "LS256JE",
+    "miles": 70
    },
    {
     "id": "bc-202502378",
@@ -7616,6 +7662,7 @@
      "AES/63382",
      "AES/63383"
     ],
+    "archived": true,
     "pc_key": "LS256JE",
     "miles": 70
    },
