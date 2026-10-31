@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-10-31T08:30:56",
+ "generated_at": "2026-10-31T11:01:22",
  "window": [
   "2026-07-03",
   "2027-02-23"
@@ -9218,7 +9218,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 675.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 675.0
      }
     ],
