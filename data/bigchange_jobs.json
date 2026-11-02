@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T09:12:28",
+ "generated_at": "2026-11-02T09:14:30",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -10845,7 +10845,7 @@
     "address": "Windermere Police Station Lake Road, Windermere, LA23 2JD",
     "order_number": "01-003467",
     "units": {
-     "20ft": 1
+     "20ft": 2
     },
     "loads": [
      {
@@ -10857,16 +10857,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 203512556,
+      "ref": "AES/64558",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collection of  20ft office",
+    "notes": "collection of  20ft office / collection of 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203512320
+     203512320,
+     203512556
     ],
     "refs": [
-     "AES/64557"
+     "AES/64557",
+     "AES/64558"
     ],
     "pc_key": "LA232JD",
     "miles": 72
