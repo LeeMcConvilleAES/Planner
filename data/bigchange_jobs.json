@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T13:17:05",
+ "generated_at": "2026-11-02T13:27:52",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9508,7 +9508,7 @@
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -9580,7 +9580,7 @@
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
@@ -10926,9 +10926,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      },
      {
       "bigchange_id": 203512556,
@@ -11334,9 +11335,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Collection",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "collection of a boss unit",
