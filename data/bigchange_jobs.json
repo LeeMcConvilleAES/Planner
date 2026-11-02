@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T10:55:41",
+ "generated_at": "2026-11-02T10:57:51",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9468,7 +9468,7 @@
       "bigchange_id": 199246660,
       "ref": "AES/60090",
       "desc": "24ft unit",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 387.0,
       "est_price": null,
@@ -9478,7 +9478,7 @@
     ],
     "notes": "COLLECTION OF 24FT UNIT",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      199246660
     ],
@@ -9540,7 +9540,7 @@
       "bigchange_id": 202926730,
       "ref": "AES/63963",
       "desc": "24ft",
-      "status": "live",
+      "status": "booked",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -9550,7 +9550,7 @@
     ],
     "notes": "collection of 24ft towable",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      202926730
     ],
