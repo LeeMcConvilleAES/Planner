@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T10:57:51",
+ "generated_at": "2026-11-02T10:59:51",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9540,7 +9540,7 @@
       "bigchange_id": 202926730,
       "ref": "AES/63963",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -9550,7 +9550,7 @@
     ],
     "notes": "collection of 24ft towable",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202926730
     ],
