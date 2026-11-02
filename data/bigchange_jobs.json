@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T09:08:20",
+ "generated_at": "2026-11-02T09:12:28",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -10837,7 +10837,7 @@
     "miles": 44
    },
    {
-    "id": "bc-203511724",
+    "id": "bc-203512320",
     "type": "Collection",
     "col": "col",
     "customer": "Pinington Ltd",
@@ -10849,8 +10849,8 @@
     },
     "loads": [
      {
-      "bigchange_id": 203511724,
-      "ref": "AES/64556",
+      "bigchange_id": 203512320,
+      "ref": "AES/64557",
       "desc": "20ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
@@ -10859,14 +10859,14 @@
       "price_source": null
      }
     ],
-    "notes": "collection of 20ft office",
+    "notes": "collection of  20ft office",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203511724
+     203512320
     ],
     "refs": [
-     "AES/64556"
+     "AES/64557"
     ],
     "pc_key": "LA232JD",
     "miles": 72
