@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T09:56:39",
+ "generated_at": "2026-11-02T10:28:20",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9288,7 +9288,7 @@
       "bigchange_id": 201793986,
       "ref": "AES/61819",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -9298,7 +9298,7 @@
     ],
     "notes": "delivery of 20ft  towable",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201793986
     ],
