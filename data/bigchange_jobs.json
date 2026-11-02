@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T10:34:30",
+ "generated_at": "2026-11-02T10:36:30",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -11164,41 +11164,6 @@
     ],
     "pc_key": "DN161XA",
     "miles": 99
-   },
-   {
-    "id": "bc-203527673",
-    "type": "Collection",
-    "col": "col",
-    "customer": "WILLIAM PYE",
-    "postcode": "SK10 3DE",
-    "address": "BELONG MACCLESFIELD Kennedy Avenue, Macclesfield, SK10 3DE",
-    "order_number": "01-003468",
-    "units": {
-     "mobile welfare": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 203527673,
-      "ref": "AES/64559",
-      "desc": "mobile welfare",
-      "status": "booked",
-      "type": "7.5t Transport Collection",
-      "price": null,
-      "est_price": null,
-      "price_source": null
-     }
-    ],
-    "notes": "collection of a boss unit",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     203527673
-    ],
-    "refs": [
-     "AES/64559"
-    ],
-    "pc_key": "SK103DE",
-    "miles": 29
    }
   ],
   "2026-11-17": [
@@ -11278,6 +11243,41 @@
     ],
     "pc_key": "BB79UE",
     "miles": 36
+   },
+   {
+    "id": "bc-203527673",
+    "type": "Collection",
+    "col": "col",
+    "customer": "WILLIAM PYE",
+    "postcode": "SK10 3DE",
+    "address": "BELONG MACCLESFIELD Kennedy Avenue, Macclesfield, SK10 3DE",
+    "order_number": "01-003468",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203527673,
+      "ref": "AES/64559",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collection of a boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203527673
+    ],
+    "refs": [
+     "AES/64559"
+    ],
+    "pc_key": "SK103DE",
+    "miles": 29
    }
   ],
   "2026-11-18": [
