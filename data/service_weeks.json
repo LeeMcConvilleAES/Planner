@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T13:35:26",
+ "generated_at": "2026-11-02T14:35:30",
  "window": [
   "2026-08-10",
   "2026-11-02"
@@ -570,7 +570,7 @@
   "2026-11-02": {
    "AU": {
     "jobs": 0,
-    "booked": 24,
+    "booked": 23,
     "charged": 0.0,
     "invoiced": 0,
     "unpriced": 0,
@@ -585,12 +585,12 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 3,
+    "jobs": 4,
     "booked": 47,
-    "charged": 150.0,
+    "charged": 200.0,
     "invoiced": 3,
     "unpriced": 0,
-    "miles": 244.0
+    "miles": 296.0
    },
    "JP": {
     "jobs": 21,
@@ -601,20 +601,20 @@
     "miles": 450.0
    },
    "SB": {
-    "jobs": 7,
+    "jobs": 8,
     "booked": 62,
     "charged": 255.0,
     "invoiced": 6,
-    "unpriced": 1,
-    "miles": 258.0
+    "unpriced": 2,
+    "miles": 283.0
    },
    "SE": {
-    "jobs": 9,
+    "jobs": 12,
     "booked": 42,
     "charged": 375.0,
     "invoiced": 8,
-    "unpriced": 1,
-    "miles": 298.0
+    "unpriced": 4,
+    "miles": 348.0
    }
   }
  },
@@ -623,7 +623,7 @@
   "cancelled": 0,
   "unallocated": 32,
   "unknown_driver": {
-   "rob sawyer": 147,
+   "rob sawyer": 145,
    "re schedule temp": 1,
    "wasteline": 103,
    "universal tankers": 13,
