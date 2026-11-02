@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T05:45:33",
+ "generated_at": "2026-11-02T07:05:54",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9324,7 +9324,7 @@
       "bigchange_id": 202811502,
       "ref": "AES/63813",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -9334,7 +9334,7 @@
     ],
     "notes": "delivery of 24ft dry room",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202811502
     ],
