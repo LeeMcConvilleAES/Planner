@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T09:28:59",
+ "generated_at": "2026-11-02T09:56:39",
  "window": [
   "2026-07-05",
   "2027-02-25"
@@ -9504,7 +9504,7 @@
       "bigchange_id": 202828424,
       "ref": "AES/63821",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
@@ -9514,7 +9514,7 @@
     ],
     "notes": "20FT STORE TO BE MOVED ONSITE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202828424
     ],
