@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T00:00:10",
+ "generated_at": "2026-11-03T05:45:37",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -9624,7 +9624,7 @@
       "bigchange_id": 202886290,
       "ref": "AES/63934",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 365.0,
       "est_price": null,
@@ -9678,7 +9678,7 @@
     ],
     "notes": "del 32ft / del 3+1 toilet, HT, 2x steps, IBC / deliver stairs/landing",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      202886290,
      202886875,
