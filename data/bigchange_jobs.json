@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:19:09",
+ "generated_at": "2026-11-03T10:25:57",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -9628,7 +9628,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 365.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 365.0
      },
      {
@@ -9639,7 +9639,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -11609,9 +11609,10 @@
       "desc": "3+1 toilet",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 320.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 320.0
      }
     ],
     "notes": "7am collect 3+1 , HT, steps",
@@ -11644,9 +11645,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 320.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 320.0
      },
      {
       "bigchange_id": 203633895,
@@ -11654,9 +11656,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
     "notes": "9am  collect 24ft and de-stack / 9am collect 2ft",
