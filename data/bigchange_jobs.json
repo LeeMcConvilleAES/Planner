@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:42:32",
+ "generated_at": "2026-11-03T10:46:44",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -9784,7 +9784,7 @@
       "bigchange_id": 203588730,
       "ref": "AES/64641",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
@@ -9794,7 +9794,7 @@
     ],
     "notes": "colection of boss unit must be hiab",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203588730
     ],
