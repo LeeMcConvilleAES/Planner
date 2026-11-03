@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T16:29:42",
+ "generated_at": "2026-11-03T17:13:16",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -11648,6 +11648,80 @@
     ],
     "pc_key": "BD61HU",
     "miles": 43
+   }
+  ],
+  "2026-11-19": [
+   {
+    "id": "bc-203697618",
+    "type": "Collection",
+    "col": "col",
+    "customer": "connolly cromer place",
+    "postcode": "PR2 3XL",
+    "address": "Barry Avenue, Preston, PR2 3XL",
+    "order_number": "01-003490",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203697618,
+      "ref": "AES/64682",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection 20ft store 7764",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203697618
+    ],
+    "refs": [
+     "AES/64682"
+    ],
+    "pc_key": "PR23XL",
+    "miles": 29
+   },
+   {
+    "id": "bc-203697719",
+    "type": "Collection",
+    "col": "col",
+    "customer": "connolly cromer place",
+    "postcode": "PR2 3XL",
+    "address": "Barry Avenue, Preston, PR2 3XL",
+    "order_number": "01-003491",
+    "units": {
+     "20 ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203697719,
+      "ref": "AES/64683",
+      "desc": "20 ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection 20 ft store 8375",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203697719
+    ],
+    "refs": [
+     "AES/64683"
+    ],
+    "pc_key": "PR23XL",
+    "miles": 29
    }
   ],
   "2026-12-17": [
