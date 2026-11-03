@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:06:39",
+ "generated_at": "2026-11-03T10:08:41",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -11511,7 +11511,7 @@
     "address": "Vernon Primary School Clumber Road, Poynton, SK12 1NW",
     "order_number": "01-001572",
     "units": {
-     "20ft store": 1
+     "20ft store": 2
     },
     "loads": [
      {
@@ -11524,16 +11524,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 320.0
+     },
+     {
+      "bigchange_id": 203631793,
+      "ref": "AES/64643",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 320.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 320.0
      }
     ],
-    "notes": "20ft store 7560",
+    "notes": "20ft store 7560 / coll 20ft 8172",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203631511
+     203631511,
+     203631793
     ],
     "refs": [
-     "AES/64642"
+     "AES/64642",
+     "AES/64643"
     ],
     "pc_key": "SK121NW",
     "miles": 23
