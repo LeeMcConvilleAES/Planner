@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:40:28",
+ "generated_at": "2026-11-03T10:42:32",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -11330,7 +11330,8 @@
     "order_number": "01-003479",
     "units": {
      "3+1 toilet": 1,
-     "20ft": 2
+     "20ft": 2,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -11364,20 +11365,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 320.0
+     },
+     {
+      "bigchange_id": 203637493,
+      "ref": "AES/64650",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
-    "notes": "8050 - 3+1, HT, steps collect / 8010 - 20ft canteen collect / de-stack 8273 20ft office - collect",
+    "notes": "8050 - 3+1, HT, steps collect / 8010 - 20ft canteen collect / de-stack 8273 20ft office - collect / collect staircase/landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      203636782,
      203637050,
-     203637268
+     203637268,
+     203637493
     ],
     "refs": [
      "AES/64647",
      "AES/64648",
-     "AES/64649"
+     "AES/64649",
+     "AES/64650"
     ],
     "pc_key": "OL83RU",
     "miles": 19
