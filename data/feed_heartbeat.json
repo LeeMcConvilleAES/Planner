@@ -1,7 +1,7 @@
 {
- "checked_at": "2026-11-03T12:10:19+00:00",
- "checked_at_local": "2026-11-03 12:10:19",
- "outcome": "written",
+ "checked_at": "2026-11-03T12:11:28+00:00",
+ "checked_at_local": "2026-11-03 12:11:28",
+ "outcome": "unchanged since the last write",
  "ken_version": "30.0",
  "interval_seconds": 120
 }
