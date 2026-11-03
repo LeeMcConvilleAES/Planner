@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T14:07:27",
+ "generated_at": "2026-11-03T14:09:27",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -9820,7 +9820,7 @@
       "bigchange_id": 203071227,
       "ref": "AES/64219",
       "desc": "a chemi",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Collection",
       "price": 58.5,
       "est_price": null,
@@ -9830,7 +9830,7 @@
     ],
     "notes": "collect a chemi",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203071227
     ],
