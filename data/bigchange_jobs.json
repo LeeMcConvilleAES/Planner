@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:46:44",
+ "generated_at": "2026-11-03T11:05:28",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -9668,7 +9668,7 @@
       "bigchange_id": 202887640,
       "ref": "AES/63939",
       "desc": "stairs c/w landing",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -9788,7 +9788,7 @@
       "type": "0-25miles Hiab Collection",
       "price": 220.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 220.0
      }
     ],
@@ -11351,9 +11351,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 220.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 220.0
      },
      {
       "bigchange_id": 203637268,
