@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T10:28:03",
+ "generated_at": "2026-11-03T10:30:03",
  "window": [
   "2026-07-06",
   "2027-02-26"
@@ -11598,9 +11598,10 @@
     "customer": "Manchester and Cheshire Construction",
     "postcode": "SK12 1NW",
     "address": "Vernon Primary School Clumber Road, Poynton, SK12 1NW",
-    "order_number": "01-002477",
+    "order_number": "01-003477",
     "units": {
-     "3+1 toilet": 1
+     "3+1 toilet": 1,
+     "24ft": 2
     },
     "loads": [
      {
@@ -11613,32 +11614,7 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 320.0
-     }
-    ],
-    "notes": "7am collect 3+1 , HT, steps",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     203632277
-    ],
-    "refs": [
-     "AES/64644"
-    ],
-    "pc_key": "SK121NW",
-    "miles": 23
-   },
-   {
-    "id": "bc-203633354",
-    "type": "Collection",
-    "col": "col",
-    "customer": "Manchester and Cheshire Construction",
-    "postcode": "SK12 1NW",
-    "address": "Vernon Primary School Clumber Road, Poynton, SK12 1NW",
-    "order_number": "01-003477",
-    "units": {
-     "24ft": 2
-    },
-    "loads": [
+     },
      {
       "bigchange_id": 203633354,
       "ref": "AES/64645",
@@ -11662,14 +11638,16 @@
       "last_price": 220.0
      }
     ],
-    "notes": "9am  collect 24ft and de-stack / 9am collect 24ft",
+    "notes": "7am collect 3+1 , HT, steps / 9am  collect 24ft and de-stack / 9am collect 24ft",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
+     203632277,
      203633354,
      203633895
     ],
     "refs": [
+     "AES/64644",
      "AES/64645",
      "AES/64646"
     ],
