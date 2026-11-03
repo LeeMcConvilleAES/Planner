@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-02T16:51:42",
+ "generated_at": "2026-11-03T00:00:10",
  "window": [
-  "2026-07-05",
-  "2027-02-25"
+  "2026-07-06",
+  "2027-02-26"
  ],
  "jobs": {
   "2026-07-15": [
@@ -7549,44 +7549,9 @@
     "refs": [
      "AES/63811"
     ],
+    "archived": true,
     "pc_key": "M113DL",
     "miles": null
-   },
-   {
-    "id": "bc-202502852",
-    "type": "Delivery",
-    "col": "del",
-    "customer": "Gascoigne wood",
-    "postcode": "LS25 6JE",
-    "address": "common lane south mill ford , South Milford, ls25 6JE",
-    "order_number": "01-003368",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 202502852,
-      "ref": "AES/63381",
-      "desc": "24ft",
-      "status": "complete",
-      "type": "25-50m Hiab Delivery",
-      "price": 354.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 354.0
-     }
-    ],
-    "notes": "24ft canteen",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     202502852
-    ],
-    "refs": [
-     "AES/63381"
-    ],
-    "pc_key": "LS256JE",
-    "miles": 70
    },
    {
     "id": "bc-202502378",
@@ -7667,6 +7632,43 @@
     "miles": 70
    },
    {
+    "id": "bc-202502852",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Gascoigne wood",
+    "postcode": "LS25 6JE",
+    "address": "common lane south mill ford , South Milford, ls25 6JE",
+    "order_number": "01-003368",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 202502852,
+      "ref": "AES/63381",
+      "desc": "24ft",
+      "status": "complete",
+      "type": "25-50m Hiab Delivery",
+      "price": 354.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 354.0
+     }
+    ],
+    "notes": "24ft canteen",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     202502852
+    ],
+    "refs": [
+     "AES/63381"
+    ],
+    "archived": true,
+    "pc_key": "LS256JE",
+    "miles": 70
+   },
+   {
     "id": "bc-202418832",
     "type": "Fuel Delivery",
     "col": "fuel",
@@ -7699,6 +7701,7 @@
     "refs": [
      "AES/63295"
     ],
+    "archived": true,
     "pc_key": "WN67DD",
     "miles": 8
    },
@@ -7735,6 +7738,7 @@
     "refs": [
      "AES/61618"
     ],
+    "archived": true,
     "pc_key": "WA145RZ",
     "miles": 15
    },
@@ -7771,6 +7775,7 @@
     "refs": [
      "AES/63045"
     ],
+    "archived": true,
     "pc_key": "M314JY",
     "miles": null
    },
@@ -7805,6 +7810,7 @@
      202474469
     ],
     "refs": [],
+    "archived": true,
     "pc_key": "WN67QD",
     "miles": 9
    },
@@ -7841,6 +7847,7 @@
     "refs": [
      "AES/63501"
     ],
+    "archived": true,
     "pc_key": "CH52LW",
     "miles": 44
    },
@@ -7877,6 +7884,7 @@
     "refs": [
      "AES/60605"
     ],
+    "archived": true,
     "pc_key": "SK121NW",
     "miles": 23
    },
@@ -7913,6 +7921,7 @@
     "refs": [
      "AES/63369"
     ],
+    "archived": true,
     "pc_key": "BB53BJ",
     "miles": 29
    },
@@ -7949,6 +7958,7 @@
     "refs": [
      "AES/63687"
     ],
+    "archived": true,
     "pc_key": "WF46AJ",
     "miles": 48
    }
