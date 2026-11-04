@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T13:09:21",
+ "generated_at": "2026-11-04T13:48:55",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -9995,7 +9995,7 @@
       "bigchange_id": 201863876,
       "ref": "AES/61887",
       "desc": "2+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 380.0,
       "est_price": null,
@@ -10005,7 +10005,7 @@
     ],
     "notes": "collect 2+1, staircase, landing",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      201863876
     ],
