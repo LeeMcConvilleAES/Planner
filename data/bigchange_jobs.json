@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T10:16:38",
+ "generated_at": "2026-11-04T10:18:42",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -9946,7 +9946,7 @@
       "bigchange_id": 202556835,
       "ref": "AES/63460",
       "desc": "20ft site move pr5-bb2",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
@@ -9957,7 +9957,7 @@
       "bigchange_id": 202557331,
       "ref": "AES/63461",
       "desc": "20ft site move pr5-bb2",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 220.0,
       "est_price": null,
