@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T12:36:01",
+ "generated_at": "2026-11-04T13:07:12",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -10031,7 +10031,7 @@
       "bigchange_id": 203248061,
       "ref": "AES/64362",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -10041,7 +10041,7 @@
     ],
     "notes": "collection of a 20t store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203248061
     ],
@@ -10067,7 +10067,7 @@
       "bigchange_id": 203248249,
       "ref": "AES/64363",
       "desc": "a unit on the same site",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 100.0,
       "est_price": null,
@@ -10077,7 +10077,7 @@
     ],
     "notes": "move a unit on the same site",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203248249
     ],
