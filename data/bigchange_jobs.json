@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T14:36:58",
+ "generated_at": "2026-11-04T14:39:00",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -10505,7 +10505,8 @@
     "address": "Barry Avenue, Preston, PR2 3XL",
     "order_number": "01-003493",
     "units": {
-     "please take unit": 1
+     "please take unit": 1,
+     "unit number": 1
     },
     "loads": [
      {
@@ -10518,16 +10519,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 200.0
+     },
+     {
+      "bigchange_id": 203787598,
+      "ref": "AES/64740",
+      "desc": "unit number",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": 200.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 200.0
      }
     ],
-    "notes": "please take unit 8378 from PR2 3XL TO OL1 3LA CAR PARK OF SUSTAINABLE TRADE FARMERS",
+    "notes": "please take unit 8378 from PR2 3XL TO OL1 3LA CAR PARK OF SUSTAINABLE TRADE FARMERS / SITE MOVE OF UNIT NUMBER 7938",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203787342
+     203787342,
+     203787598
     ],
     "refs": [
-     "AES/64739"
+     "AES/64739",
+     "AES/64740"
     ],
     "pc_key": "PR23XL",
     "miles": 29
