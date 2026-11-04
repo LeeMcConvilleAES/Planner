@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T15:55:38",
+ "generated_at": "2026-11-04T21:31:16",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -11762,9 +11762,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "0-25miles Hiab Collection",
-      "price": null,
+      "price": 190.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
     "notes": "collection of a 32ft  store",
@@ -11797,9 +11798,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "0-15m Hiab Collection",
-      "price": null,
+      "price": 190.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
     "notes": "collection of 20ft store",
