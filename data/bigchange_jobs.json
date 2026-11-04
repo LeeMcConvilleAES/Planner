@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T12:08:40",
+ "generated_at": "2026-11-04T12:14:59",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -10067,7 +10067,7 @@
       "bigchange_id": 203248249,
       "ref": "AES/64363",
       "desc": "a unit on the same site",
-      "status": "booked",
+      "status": "live",
       "type": "Site Move / Exchange",
       "price": 100.0,
       "est_price": null,
@@ -10077,7 +10077,7 @@
     ],
     "notes": "move a unit on the same site",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203248249
     ],
