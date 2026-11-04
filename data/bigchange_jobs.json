@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-03T17:13:16",
+ "generated_at": "2026-11-04T00:00:00",
  "window": [
-  "2026-07-06",
-  "2027-02-26"
+  "2026-07-07",
+  "2027-02-27"
  ],
  "jobs": {
   "2026-07-15": [
@@ -7997,6 +7997,7 @@
     "refs": [
      "AES/63257"
     ],
+    "archived": true,
     "pc_key": "OX144TE",
     "miles": 175
    },
@@ -8086,6 +8087,7 @@
      "AES/62862",
      "AES/62863"
     ],
+    "archived": true,
     "pc_key": "OX144TA",
     "miles": 176
    }
