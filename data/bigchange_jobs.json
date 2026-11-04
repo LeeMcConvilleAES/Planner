@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T12:29:44",
+ "generated_at": "2026-11-04T12:36:01",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -11571,6 +11571,42 @@
     ],
     "pc_key": "BB79UE",
     "miles": 36
+   },
+   {
+    "id": "bc-203770236",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A CONNOLLY",
+    "postcode": "M25 1DZ",
+    "address": "49 bannerman , Prestwich, m25 1dz",
+    "order_number": "01-003494",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203770236,
+      "ref": "AES/64738",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "boss unit collection",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203770236
+    ],
+    "refs": [
+     "AES/64738"
+    ],
+    "pc_key": "M251DZ",
+    "miles": 12
    },
    {
     "id": "bc-203527673",
