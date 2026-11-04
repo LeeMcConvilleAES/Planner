@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T15:05:33",
+ "generated_at": "2026-11-04T15:07:39",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -9910,7 +9910,7 @@
       "bigchange_id": 203678685,
       "ref": "AES/64680",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -9920,7 +9920,7 @@
     ],
     "notes": "delivery of 24ft towable unit",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203678685
     ],
@@ -11439,7 +11439,8 @@
     "address": "Mark Close, Bradford, BD10 9NF",
     "order_number": "01-003498",
     "units": {
-     "unit number": 1
+     "unit number": 1,
+     "20ft store": 1
     },
     "loads": [
      {
@@ -11452,16 +11453,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 321.0
+     },
+     {
+      "bigchange_id": 203791832,
+      "ref": "AES/64742",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": 321.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 321.0
      }
     ],
-    "notes": "SITE MOVE UNIT NUMBER 7769 FROM BD10 9NF  TO BD19 3PX",
+    "notes": "SITE MOVE UNIT NUMBER 7769 FROM BD10 9NF  TO BD19 3PX / SITE MOVE 20FT STORE FROM BD10 9NF TO BD19 3PX UNIT NUMBER 7678",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203791506
+     203791506,
+     203791832
     ],
     "refs": [
-     "AES/64741"
+     "AES/64741",
+     "AES/64742"
     ],
     "pc_key": "BD109NF",
     "miles": 49
