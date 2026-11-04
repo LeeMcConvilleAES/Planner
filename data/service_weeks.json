@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T16:27:58",
+ "generated_at": "2026-11-04T17:28:07",
  "window": [
   "2026-08-10",
   "2026-11-02"
@@ -570,7 +570,7 @@
   "2026-11-02": {
    "AU": {
     "jobs": 6,
-    "booked": 13,
+    "booked": 14,
     "charged": 172.0,
     "invoiced": 6,
     "unpriced": 0,
@@ -586,7 +586,7 @@
    },
    "JP": {
     "jobs": 60,
-    "booked": 93,
+    "booked": 94,
     "charged": 4135.0,
     "invoiced": 59,
     "unpriced": 1,
@@ -602,7 +602,7 @@
    },
    "SE": {
     "jobs": 35,
-    "booked": 51,
+    "booked": 49,
     "charged": 1111.0,
     "invoiced": 35,
     "unpriced": 0,
