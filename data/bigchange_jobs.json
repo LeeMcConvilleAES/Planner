@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T10:18:42",
+ "generated_at": "2026-11-04T10:29:15",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -9980,7 +9980,7 @@
     "miles": 24
    },
    {
-    "id": "bc-201859045",
+    "id": "bc-201863876",
     "type": "Collection",
     "col": "col",
     "customer": "GREENMOUNT PROJECTS",
@@ -9988,32 +9988,9 @@
     "address": "Prescott Street, Wigan, WN6 7DD",
     "order_number": "01-003288",
     "units": {
-     "24ft": 2,
      "2+1 toilet": 1
     },
     "loads": [
-     {
-      "bigchange_id": 201859045,
-      "ref": "AES/61885",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Collection",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     },
-     {
-      "bigchange_id": 201861378,
-      "ref": "AES/61886",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Collection",
-      "price": 290.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 290.0
-     },
      {
       "bigchange_id": 201863876,
       "ref": "AES/61887",
@@ -10026,17 +10003,13 @@
       "last_price": 380.0
      }
     ],
-    "notes": "24ft cant / coll24ft off / collect 2+1, staircase, landing",
+    "notes": "collect 2+1, staircase, landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     201859045,
-     201861378,
      201863876
     ],
     "refs": [
-     "AES/61885",
-     "AES/61886",
      "AES/61887"
     ],
     "pc_key": "WN67DD",
@@ -10237,6 +10210,55 @@
     ],
     "pc_key": "WA11LD",
     "miles": 14
+   },
+   {
+    "id": "bc-201859045",
+    "type": "Collection",
+    "col": "col",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003288",
+    "units": {
+     "24ft": 2
+    },
+    "loads": [
+     {
+      "bigchange_id": 201859045,
+      "ref": "AES/61885",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 201861378,
+      "ref": "AES/61886",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 290.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 290.0
+     }
+    ],
+    "notes": "24ft cant / coll24ft off",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     201859045,
+     201861378
+    ],
+    "refs": [
+     "AES/61885",
+     "AES/61886"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
    },
    {
     "id": "bc-201967994",
