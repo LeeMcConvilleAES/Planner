@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T15:18:11",
+ "generated_at": "2026-11-04T15:26:33",
  "window": [
   "2026-07-07",
   "2027-02-27"
@@ -11739,6 +11739,41 @@
     ],
     "refs": [
      "AES/64743"
+    ],
+    "pc_key": "WN35XL",
+    "miles": 9
+   },
+   {
+    "id": "bc-203794923",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A Connolly  Baucher Lane",
+    "postcode": "WN3 5XL",
+    "address": "WORSLEY MESNES , BAUCHER ROAD , WIGAN, WN3 5XL",
+    "order_number": "01-003504",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203794923,
+      "ref": "AES/64744",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collection of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203794923
+    ],
+    "refs": [
+     "AES/64744"
     ],
     "pc_key": "WN35XL",
     "miles": 9
