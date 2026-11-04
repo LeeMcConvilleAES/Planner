@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-04T10:27:37",
+ "generated_at": "2026-11-04T11:27:39",
  "window": [
   "2026-08-10",
   "2026-11-02"
@@ -569,44 +569,44 @@
   },
   "2026-11-02": {
    "AU": {
-    "jobs": 2,
+    "jobs": 3,
     "booked": 15,
     "charged": 25.0,
     "invoiced": 1,
-    "unpriced": 1,
-    "miles": 111.0
+    "unpriced": 2,
+    "miles": 161.0
    },
    "JM": {
-    "jobs": 23,
+    "jobs": 25,
     "booked": 48,
     "charged": 1095.0,
     "invoiced": 17,
-    "unpriced": 6,
-    "miles": 772.0
+    "unpriced": 8,
+    "miles": 808.0
    },
    "JP": {
-    "jobs": 52,
+    "jobs": 54,
     "booked": 93,
-    "charged": 3400.0,
+    "charged": 3470.0,
     "invoiced": 46,
-    "unpriced": 3,
-    "miles": 1188.0
+    "unpriced": 4,
+    "miles": 1285.0
    },
    "SB": {
-    "jobs": 22,
-    "booked": 61,
+    "jobs": 25,
+    "booked": 62,
     "charged": 825.0,
     "invoiced": 20,
-    "unpriced": 2,
-    "miles": 547.0
+    "unpriced": 5,
+    "miles": 581.0
    },
    "SE": {
-    "jobs": 26,
+    "jobs": 28,
     "booked": 51,
     "charged": 830.0,
     "invoiced": 24,
-    "unpriced": 2,
-    "miles": 573.0
+    "unpriced": 4,
+    "miles": 616.0
    }
   }
  },
@@ -621,7 +621,8 @@
    "universal tankers": 13,
    "darren fishwick": 2,
    "ste longworth": 1,
-   "rob brown": 1
+   "rob brown": 1,
+   "colin rogers": 1
   },
   "no_day": 0
  },
