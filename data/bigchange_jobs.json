@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T16:29:42",
+ "generated_at": "2026-11-05T16:40:20",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10266,8 +10266,7 @@
     "address": "Prescott Street, Wigan, WN6 7DD",
     "order_number": "01-003288",
     "units": {
-     "24ft": 2,
-     "staircase and landing": 1
+     "24ft": 2
     },
     "loads": [
      {
@@ -10291,31 +10290,18 @@
       "est_price": null,
       "price_source": "invoice",
       "last_price": 290.0
-     },
-     {
-      "bigchange_id": 203841459,
-      "ref": "AES/64809",
-      "desc": "staircase and landing",
-      "status": "booked",
-      "type": "0-15m Hiab Collection",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
      }
     ],
-    "notes": "24ft cant / coll24ft off / collection of staircase and landing",
+    "notes": "24ft cant / coll24ft off",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      201859045,
-     201861378,
-     203841459
+     201861378
     ],
     "refs": [
      "AES/61885",
-     "AES/61886",
-     "AES/64809"
+     "AES/61886"
     ],
     "pc_key": "WN67DD",
     "miles": 8
@@ -10605,6 +10591,42 @@
     ],
     "pc_key": "PR23XL",
     "miles": 29
+   },
+   {
+    "id": "bc-203841459",
+    "type": "Collection",
+    "col": "col",
+    "customer": "GREENMOUNT PROJECTS",
+    "postcode": "WN6 7DD",
+    "address": "Prescott Street, Wigan, WN6 7DD",
+    "order_number": "01-003288",
+    "units": {
+     "staircase and landing": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203841459,
+      "ref": "AES/64809",
+      "desc": "staircase and landing",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "collection of staircase and landing",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203841459
+    ],
+    "refs": [
+     "AES/64809"
+    ],
+    "pc_key": "WN67DD",
+    "miles": 8
    }
   ],
   "2026-11-09": [
