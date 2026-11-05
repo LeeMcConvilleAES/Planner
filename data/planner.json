@@ -2373,20 +2373,6 @@
  ],
  "enquiries": [
   {
-   "id": "e-1793098102554",
-   "day": "2026-11-11",
-   "col": "col",
-   "customer": "jake",
-   "postcode": "IP8",
-   "po": "",
-   "items": [
-    "collection 32 shower unit"
-   ],
-   "notes": "",
-   "created_at": "2026-10-27T10:48:22",
-   "created_by": "office"
-  },
-  {
    "id": "e-1793789426300",
    "day": "2026-11-06",
    "col": "col",
@@ -2547,6 +2533,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-05T15:24:57+00:00",
+ "updated_at": "2026-11-05T16:33:11+00:00",
  "updated_by": "office"
 }
