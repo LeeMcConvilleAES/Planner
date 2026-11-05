@@ -2386,6 +2386,20 @@
    "created_at": "2026-11-04T10:50:26",
    "created_by": "office",
    "edited_at": "2026-11-04T10:55:27"
+  },
+  {
+   "id": "e-1793896461385",
+   "day": "2026-11-23",
+   "col": "del",
+   "customer": "jake",
+   "postcode": "",
+   "po": "",
+   "items": [
+    "jake airside manchester airpoty"
+   ],
+   "notes": "",
+   "created_at": "2026-11-05T16:34:21",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -2533,6 +2547,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-05T16:33:11+00:00",
+ "updated_at": "2026-11-05T16:34:21+00:00",
  "updated_by": "office"
 }
