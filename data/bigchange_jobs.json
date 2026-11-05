@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T14:56:39",
+ "generated_at": "2026-11-05T15:30:13",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -6995,10 +6995,10 @@
       "desc": "please relocate 20ft store",
       "status": "complete",
       "type": "Site Move / Exchange",
-      "price": 265.0,
+      "price": 200.0,
       "est_price": null,
       "price_source": "invoice",
-      "last_price": 265.0
+      "last_price": 200.0
      }
     ],
     "notes": "please relocate 20ft store 7272 on 22/10",
@@ -8752,10 +8752,10 @@
       "desc": "collect 24ft static",
       "status": "complete",
       "type": "Site Move / Exchange",
-      "price": 220.0,
+      "price": 200.0,
       "est_price": null,
       "price_source": "invoice",
-      "last_price": 220.0
+      "last_price": 200.0
      }
     ],
     "notes": "SITE MOVE - COLLECT 24FT STATIC",
@@ -8826,7 +8826,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -10120,7 +10120,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 438.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 438.0
      },
      {
@@ -10131,7 +10131,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 438.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 438.0
      }
     ],
@@ -10278,7 +10278,7 @@
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      },
      {
@@ -10289,7 +10289,7 @@
       "type": "0-15m Hiab Collection",
       "price": 290.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 290.0
      },
      {
