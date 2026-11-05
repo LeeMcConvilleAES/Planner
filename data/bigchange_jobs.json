@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T10:46:10",
+ "generated_at": "2026-11-05T11:42:37",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10274,7 +10274,7 @@
       "bigchange_id": 201859045,
       "ref": "AES/61885",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -10306,7 +10306,7 @@
     ],
     "notes": "24ft cant / coll24ft off / collection of staircase and landing",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201859045,
      201861378,
