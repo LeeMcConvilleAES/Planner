@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T09:26:32",
+ "generated_at": "2026-11-05T09:28:36",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10201,7 +10201,7 @@
       "bigchange_id": 203583172,
       "ref": "AES/64632",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -10211,7 +10211,7 @@
     ],
     "notes": "boss unit delivery Damian Rigby",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203583172
     ],
