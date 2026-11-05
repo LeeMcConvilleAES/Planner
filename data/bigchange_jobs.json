@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T09:01:51",
+ "generated_at": "2026-11-05T09:03:55",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10209,7 +10209,7 @@
       "last_price": 100.0
      }
     ],
-    "notes": "boss unit delivery",
+    "notes": "boss unit delivery Damian Rigby",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
