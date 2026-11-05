@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T09:22:29",
+ "generated_at": "2026-11-05T09:26:32",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10165,7 +10165,7 @@
       "bigchange_id": 203144218,
       "ref": "AES/64254",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -10175,7 +10175,7 @@
     ],
     "notes": "delivery of 20ft store A Connolly Ltd",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203144218
     ],
