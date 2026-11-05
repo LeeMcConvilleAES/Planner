@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T13:46:56",
+ "generated_at": "2026-11-05T14:01:09",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10127,7 +10127,7 @@
       "bigchange_id": 203107929,
       "ref": "AES/64249",
       "desc": "Effluent Tank",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 438.0,
       "est_price": null,
@@ -10237,7 +10237,7 @@
       "bigchange_id": 203799805,
       "ref": "AES/64745",
       "desc": "100 ltrs fuel delivery",
-      "status": "booked",
+      "status": "live",
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
@@ -10247,7 +10247,7 @@
     ],
     "notes": "100 ltrs fuel delivery",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203799805
     ],
