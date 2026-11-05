@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T15:29:50",
+ "generated_at": "2026-11-05T17:30:09",
  "window": [
   "2026-08-10",
   "2026-11-02"
@@ -613,7 +613,7 @@
  "skipped": {
   "transport_or_stack": 712,
   "cancelled": 0,
-  "unallocated": 32,
+  "unallocated": 31,
   "unknown_driver": {
    "rob sawyer": 145,
    "re schedule temp": 1,
