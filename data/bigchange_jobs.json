@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T16:40:20",
+ "generated_at": "2026-11-05T18:44:22",
  "window": [
   "2026-07-08",
   "2027-02-28"
@@ -10241,7 +10241,7 @@
       "type": "Fuel Delivery",
       "price": 195.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 195.0
      }
     ],
