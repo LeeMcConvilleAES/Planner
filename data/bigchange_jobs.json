@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T15:39:24",
+ "generated_at": "2026-11-06T15:41:26",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -12347,7 +12347,8 @@
     "order_number": "01-003515",
     "units": {
      "3+1 toilet": 2,
-     "32ft": 2
+     "32ft": 2,
+     "bowser": 1
     },
     "loads": [
      {
@@ -12393,22 +12394,35 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 204040518,
+      "ref": "AES/64913",
+      "desc": "bowser",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
-    "notes": "del 3+1 toilet,HT, steps,IBC / deliver 3+1 toilet, HT, steps, IBC / del 32ft canteen, / del32ft canteen",
+    "notes": "del 3+1 toilet,HT, steps,IBC / deliver 3+1 toilet, HT, steps, IBC / del 32ft canteen, / del32ft canteen / del 4 x IBC's",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204039673,
      204039882,
      204040177,
-     204040394
+     204040394,
+     204040518
     ],
     "refs": [
      "AES/64907",
      "AES/64908",
      "AES/64909",
-     "AES/64910"
+     "AES/64910",
+     "AES/64913"
     ],
     "pc_key": "BL66JL",
     "miles": 8
@@ -12523,6 +12537,56 @@
    }
   ],
   "2026-11-20": [
+   {
+    "id": "bc-204040514",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "Brookfield School",
+    "postcode": "FY6 7HE",
+    "address": "Fouldrey Avenue, Poulton-le-Fylde, FY6 7HE",
+    "order_number": "01-003525",
+    "units": {
+     "24ft": 1,
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204040514,
+      "ref": "AES/64912",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204040652,
+      "ref": "AES/64914",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "delivery of 24ft office/meeting room / 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204040514,
+     204040652
+    ],
+    "refs": [
+     "AES/64912",
+     "AES/64914"
+    ],
+    "pc_key": "FY67HE",
+    "miles": 40
+   },
    {
     "id": "bc-204040417",
     "type": "Collection",
