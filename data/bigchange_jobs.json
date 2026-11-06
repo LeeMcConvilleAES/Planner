@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T12:58:09",
+ "generated_at": "2026-11-06T13:02:12",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -10570,7 +10570,7 @@
       "bigchange_id": 203787342,
       "ref": "AES/64739",
       "desc": "please take unit",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 200.0,
       "est_price": null,
@@ -10591,7 +10591,7 @@
     ],
     "notes": "please take unit 8373 from PR2 3XL TO OL1 3LA CAR PARK OF SUSTAINABLE TRADE FARMERS / SITE MOVE OF UNIT NUMBER 7938",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203787342,
      203787598
@@ -12301,7 +12301,8 @@
     "order_number": "01-003518",
     "units": {
      "24ft": 2,
-     "2+1 toilet": 1
+     "2+1 toilet": 1,
+     "tank steps staircase 10ft store": 1
     },
     "loads": [
      {
@@ -12335,20 +12336,33 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 204014961,
+      "ref": "AES/64895",
+      "desc": "tank steps staircase 10ft store",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
      }
     ],
-    "notes": "collection of 24ft office / collection of 24ft canteen / collection of 2 + 1toilet block",
+    "notes": "collection of 24ft office / collection of 24ft canteen / collection of 2 + 1toilet block / collection of tank steps staircase  10ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204013252,
      204013911,
-     204014208
+     204014208,
+     204014961
     ],
     "refs": [
      "AES/64892",
      "AES/64893",
-     "AES/64894"
+     "AES/64894",
+     "AES/64895"
     ],
     "pc_key": "BB23HH",
     "miles": 27
