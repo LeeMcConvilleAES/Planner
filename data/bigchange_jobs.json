@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T15:00:16",
+ "generated_at": "2026-11-06T15:02:21",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -10434,7 +10434,7 @@
       "bigchange_id": 203554111,
       "ref": "AES/64563",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -10444,7 +10444,7 @@
     ],
     "notes": "delivery of 12ft boss unit",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203554111
     ],
