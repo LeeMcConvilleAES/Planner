@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-05T18:44:22",
+ "generated_at": "2026-11-06T00:00:06",
  "window": [
-  "2026-07-08",
-  "2027-02-28"
+  "2026-07-09",
+  "2027-03-01"
  ],
  "jobs": {
   "2026-07-15": [
@@ -8537,6 +8537,7 @@
     "refs": [
      "AES/63937"
     ],
+    "archived": true,
     "pc_key": "WN67DD",
     "miles": 8
    },
@@ -8573,6 +8574,7 @@
     "refs": [
      "AES/63098"
     ],
+    "archived": true,
     "pc_key": "SK71RA",
     "miles": 21
    },
@@ -8609,6 +8611,7 @@
     "refs": [
      "AES/64318"
     ],
+    "archived": true,
     "pc_key": "OL112XG",
     "miles": 20
    },
@@ -8645,6 +8648,7 @@
     "refs": [
      "AES/63812"
     ],
+    "archived": true,
     "pc_key": "BL67RU",
     "miles": 10
    },
@@ -8695,6 +8699,7 @@
      "AES/63377",
      "AES/63378"
     ],
+    "archived": true,
     "pc_key": "M250AL",
     "miles": 13
    },
@@ -8731,6 +8736,7 @@
     "refs": [
      "AES/63379"
     ],
+    "archived": true,
     "pc_key": "M250AL",
     "miles": 13
    },
@@ -8767,6 +8773,7 @@
     "refs": [
      "AES/63486"
     ],
+    "archived": true,
     "pc_key": "BL09LB",
     "miles": 21
    },
@@ -8803,6 +8810,7 @@
     "refs": [
      "AES/63008"
     ],
+    "archived": true,
     "pc_key": "OX144TA",
     "miles": 176
    },
@@ -8839,6 +8847,7 @@
     "refs": [
      "AES/64361"
     ],
+    "archived": true,
     "pc_key": "SK71RA",
     "miles": 21
    },
@@ -8875,6 +8884,7 @@
     "refs": [
      "AES/64323"
     ],
+    "archived": true,
     "pc_key": "M84JZ",
     "miles": 15
    },
@@ -8911,6 +8921,7 @@
     "refs": [
      "AES/64230"
     ],
+    "archived": true,
     "pc_key": "LS268EW",
     "miles": 53
    }
@@ -10150,6 +10161,42 @@
     "miles": 99
    },
    {
+    "id": "bc-203799805",
+    "type": "Fuel Delivery",
+    "col": "fuel",
+    "customer": "CBG CONSTRUCTION",
+    "postcode": "M3 6WP",
+    "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
+    "order_number": "01-003485",
+    "units": {
+     "100 ltrs fuel delivery": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203799805,
+      "ref": "AES/64745",
+      "desc": "100 ltrs fuel delivery",
+      "status": "complete",
+      "type": "Fuel Delivery",
+      "price": 195.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 195.0
+     }
+    ],
+    "notes": "100 ltrs fuel delivery",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     203799805
+    ],
+    "refs": [
+     "AES/64745"
+    ],
+    "pc_key": "M36WP",
+    "miles": 11
+   },
+   {
     "id": "bc-203144218",
     "type": "Delivery",
     "col": "del",
@@ -10220,42 +10267,6 @@
     ],
     "pc_key": "WA11LD",
     "miles": 14
-   },
-   {
-    "id": "bc-203799805",
-    "type": "Fuel Delivery",
-    "col": "fuel",
-    "customer": "CBG CONSTRUCTION",
-    "postcode": "M3 6WP",
-    "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
-    "order_number": "01-003485",
-    "units": {
-     "100 ltrs fuel delivery": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 203799805,
-      "ref": "AES/64745",
-      "desc": "100 ltrs fuel delivery",
-      "status": "complete",
-      "type": "Fuel Delivery",
-      "price": 195.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 195.0
-     }
-    ],
-    "notes": "100 ltrs fuel delivery",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     203799805
-    ],
-    "refs": [
-     "AES/64745"
-    ],
-    "pc_key": "M36WP",
-    "miles": 11
    },
    {
     "id": "bc-201859045",
