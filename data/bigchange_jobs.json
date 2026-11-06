@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T12:56:06",
+ "generated_at": "2026-11-06T12:58:09",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -12300,7 +12300,8 @@
     "address": "Blackburn Hospital Tower View Haslingden Road, Blackburn, BB2 3HH",
     "order_number": "01-003518",
     "units": {
-     "24ft": 1
+     "24ft": 2,
+     "2+1 toilet": 1
     },
     "loads": [
      {
@@ -12313,16 +12314,41 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 220.0
+     },
+     {
+      "bigchange_id": 204013911,
+      "ref": "AES/64893",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 220.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 220.0
+     },
+     {
+      "bigchange_id": 204014208,
+      "ref": "AES/64894",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "collection of 24ft office",
+    "notes": "collection of 24ft office / collection of 24ft canteen / collection of 2 + 1toilet block",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204013252
+     204013252,
+     204013911,
+     204014208
     ],
     "refs": [
-     "AES/64892"
+     "AES/64892",
+     "AES/64893",
+     "AES/64894"
     ],
     "pc_key": "BB23HH",
     "miles": 27
