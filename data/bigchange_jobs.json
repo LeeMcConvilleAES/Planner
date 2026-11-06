@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T15:43:31",
+ "generated_at": "2026-11-06T15:47:40",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -12538,7 +12538,7 @@
   ],
   "2026-11-20": [
    {
-    "id": "bc-204040514",
+    "id": "bc-204040417",
     "type": "Delivery",
     "col": "del",
     "customer": "Brookfield School",
@@ -12546,11 +12546,22 @@
     "address": "Fouldrey Avenue, Poulton-le-Fylde, FY6 7HE",
     "order_number": "01-003525",
     "units": {
-     "24ft": 1,
+     "24ft": 2,
      "20ft": 1,
      "32ft": 1
     },
     "loads": [
+     {
+      "bigchange_id": 204040417,
+      "ref": "AES/64911",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
      {
       "bigchange_id": 204040514,
       "ref": "AES/64912",
@@ -12585,54 +12596,20 @@
       "last_price": 265.0
      }
     ],
-    "notes": "delivery of 24ft office/meeting room / 20ft store / delivery  a 32ft 3+1 toilet with dry room",
+    "notes": "delivery of 24ft canteen / delivery of 24ft office/meeting room / 20ft store / delivery  a 32ft 3+1 toilet with dry room",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
+     204040417,
      204040514,
      204040652,
      204040977
     ],
     "refs": [
+     "AES/64911",
      "AES/64912",
      "AES/64914",
      "AES/64915"
-    ],
-    "pc_key": "FY67HE",
-    "miles": 40
-   },
-   {
-    "id": "bc-204040417",
-    "type": "Collection",
-    "col": "col",
-    "customer": "Brookfield School",
-    "postcode": "FY6 7HE",
-    "address": "Fouldrey Avenue, Poulton-le-Fylde, FY6 7HE",
-    "order_number": "01-003525",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 204040417,
-      "ref": "AES/64911",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     }
-    ],
-    "notes": "delivery of 24ft canteen",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     204040417
-    ],
-    "refs": [
-     "AES/64911"
     ],
     "pc_key": "FY67HE",
     "miles": 40
