@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T10:14:13",
+ "generated_at": "2026-11-06T10:22:33",
  "window": [
   "2026-07-09",
   "2027-03-01"
@@ -11944,6 +11944,42 @@
     ],
     "pc_key": "WN35XL",
     "miles": 9
+   },
+   {
+    "id": "bc-203981104",
+    "type": "Collection",
+    "col": "col",
+    "customer": "DLP SERVICES",
+    "postcode": "OL12 7LG",
+    "address": "FIELD ADJACENT TO 109 Ings Lane, Rochdale, OL12 7LG",
+    "order_number": "01-003082",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203981104,
+      "ref": "AES/64881",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of  20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203981104
+    ],
+    "refs": [
+     "AES/64881"
+    ],
+    "pc_key": "OL127LG",
+    "miles": 21
    },
    {
     "id": "bc-203527673",
