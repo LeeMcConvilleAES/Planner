@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-06T18:58:47",
+ "generated_at": "2026-11-07T00:00:05",
  "window": [
-  "2026-07-09",
-  "2027-03-01"
+  "2026-07-10",
+  "2027-03-02"
  ],
  "jobs": {
   "2026-07-15": [
@@ -8960,6 +8960,7 @@
     "refs": [
      "AES/63368"
     ],
+    "archived": true,
     "pc_key": "CH52RD",
     "miles": 42
    },
@@ -9010,6 +9011,7 @@
      "AES/62200",
      "AES/63810"
     ],
+    "archived": true,
     "pc_key": "M347PJ",
     "miles": 25
    },
@@ -9046,6 +9048,7 @@
     "refs": [
      "AES/63973"
     ],
+    "archived": true,
     "pc_key": "M113DL",
     "miles": null
    },
@@ -9082,6 +9085,7 @@
     "refs": [
      "AES/63974"
     ],
+    "archived": true,
     "pc_key": "M160TW",
     "miles": null
    },
@@ -9118,6 +9122,7 @@
     "refs": [
      "AES/63462"
     ],
+    "archived": true,
     "pc_key": "PR71EB",
     "miles": 16
    },
@@ -9154,6 +9159,7 @@
     "refs": [
      "AES/63498"
     ],
+    "archived": true,
     "pc_key": "CH40DP",
     "miles": 46
    },
@@ -9190,6 +9196,7 @@
     "refs": [
      "AES/63043"
     ],
+    "archived": true,
     "pc_key": "CW12BD",
     "miles": 40
    },
@@ -9226,6 +9233,7 @@
     "refs": [
      "AES/63228"
     ],
+    "archived": true,
     "pc_key": "M84JZ",
     "miles": 15
    }
