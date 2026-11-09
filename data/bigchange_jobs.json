@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T11:18:40",
+ "generated_at": "2026-11-09T12:01:09",
  "window": [
   "2026-07-12",
   "2027-03-04"
@@ -10829,7 +10829,7 @@
       "bigchange_id": 204045357,
       "ref": "",
       "desc": "toilet collection chemi",
-      "status": "booked",
+      "status": "live",
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
@@ -10839,7 +10839,7 @@
     ],
     "notes": "toilet collection  chemi",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204045357
     ],
@@ -12626,10 +12626,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "25-50m Hiab Delivery",
-      "price": 265.0,
+      "price": 365.0,
       "est_price": null,
       "price_source": "job",
-      "last_price": 265.0
+      "last_price": 365.0
      },
      {
       "bigchange_id": 204046257,
