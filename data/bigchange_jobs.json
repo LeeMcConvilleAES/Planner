@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T06:36:19",
+ "generated_at": "2026-11-09T06:53:16",
  "window": [
   "2026-07-12",
   "2027-03-04"
@@ -10744,7 +10744,7 @@
       "bigchange_id": 203091597,
       "ref": "AES/64244",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "Hiab Delivery",
       "price": 600.0,
       "est_price": null,
@@ -10754,7 +10754,7 @@
     ],
     "notes": "NEED TO BE ONSITE FOR 6AM They will need to go to Gate 1 at 6am who will let them round to VE door 18.1.",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      203091597
     ],
