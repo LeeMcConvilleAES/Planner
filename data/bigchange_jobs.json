@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T00:00:01",
+ "generated_at": "2026-11-09T06:30:08",
  "window": [
   "2026-07-12",
   "2027-03-04"
@@ -10691,7 +10691,7 @@
       "bigchange_id": 203083338,
       "ref": "AES/64233",
       "desc": "2+1 toilet",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -10712,7 +10712,7 @@
     ],
     "notes": "24ft office / 24ft canteen / 2+1toilet block (IBC, effluent tank, steps) / 20ft store & Staircase/landing",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203082106,
      203082559,
