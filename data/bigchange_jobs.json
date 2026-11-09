@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T13:30:25",
+ "generated_at": "2026-11-09T13:36:37",
  "window": [
   "2026-07-12",
   "2027-03-04"
@@ -10680,7 +10680,7 @@
       "bigchange_id": 203082559,
       "ref": "AES/64232",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -10695,7 +10695,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -10706,13 +10706,13 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
     "notes": "24ft office / 24ft canteen / 2+1toilet block (IBC, effluent tank, steps) / 20ft store & Staircase/landing",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203082106,
      203082559,
@@ -10833,7 +10833,7 @@
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
