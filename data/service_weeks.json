@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T16:37:06",
+ "generated_at": "2026-11-09T17:37:15",
  "window": [
   "2026-08-17",
   "2026-11-09"
@@ -562,7 +562,7 @@
   "2026-11-09": {
    "AU": {
     "jobs": 0,
-    "booked": 26,
+    "booked": 27,
     "charged": 0.0,
     "invoiced": 0,
     "unpriced": 0,
@@ -578,7 +578,7 @@
    },
    "JP": {
     "jobs": 19,
-    "booked": 86,
+    "booked": 85,
     "charged": 1275.0,
     "invoiced": 19,
     "unpriced": 0,
