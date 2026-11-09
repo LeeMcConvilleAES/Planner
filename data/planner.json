@@ -2535,11 +2535,12 @@
    "postcode": "",
    "po": "",
    "items": [
-    "jake airside manchester airpoty"
+    "jake airside manchester airport"
    ],
    "notes": "",
    "created_at": "2026-11-05T16:34:21",
-   "created_by": "office"
+   "created_by": "office",
+   "edited_at": "2026-11-09T09:23:26"
   },
   {
    "id": "e-1793896525630",
@@ -2716,6 +2717,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-09T08:18:04+00:00",
+ "updated_at": "2026-11-09T09:23:27+00:00",
  "updated_by": "office"
 }
