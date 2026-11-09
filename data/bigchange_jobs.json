@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-09T13:47:13",
+ "generated_at": "2026-11-09T14:21:14",
  "window": [
   "2026-07-12",
   "2027-03-04"
@@ -10863,7 +10863,7 @@
       "bigchange_id": 204027007,
       "ref": "",
       "desc": "4 chemi loos and one disabled chemi",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Collection",
       "price": 75.0,
       "est_price": null,
@@ -10873,7 +10873,7 @@
     ],
     "notes": "collect 4 chemi loos and one disabled chemi",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204027007
     ],
