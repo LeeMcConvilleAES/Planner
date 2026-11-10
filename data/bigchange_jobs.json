@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T11:35:56",
+ "generated_at": "2026-11-10T11:38:05",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11375,7 +11375,7 @@
       "ref": "AES/65099",
       "desc": "100kva skid mounted",
       "status": "booked",
-      "type": "Hiab Collection",
+      "type": "25-50 Miles Hiab Collection",
       "price": 350.0,
       "est_price": null,
       "price_source": "job",
