@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T18:45:14",
+ "generated_at": "2026-11-10T21:31:17",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -12932,9 +12932,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Collection",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "collection of boss unit",
