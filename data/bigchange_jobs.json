@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T08:54:17",
+ "generated_at": "2026-11-10T08:58:36",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11225,6 +11225,42 @@
     ],
     "pc_key": "LA11PW",
     "miles": 44
+   },
+   {
+    "id": "bc-204228232",
+    "type": "Collection",
+    "col": "col",
+    "customer": "HCC Construction",
+    "postcode": "SK1 1YA",
+    "address": "St Marys Gate, Stockport, SK1 1YA",
+    "order_number": "01-003538",
+    "units": {
+     "10ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204228232,
+      "ref": "AES/65097",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 10ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204228232
+    ],
+    "refs": [
+     "AES/65097"
+    ],
+    "pc_key": "SK11YA",
+    "miles": 20
    },
    {
     "id": "bc-203978859",
