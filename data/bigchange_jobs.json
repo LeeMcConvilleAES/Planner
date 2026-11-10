@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T12:27:51",
+ "generated_at": "2026-11-10T12:29:55",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -12308,7 +12308,8 @@
     "address": "Gondal Court, Bradford, BD5 9JW",
     "order_number": "01-003541",
     "units": {
-     "20ft": 2
+     "20ft": 2,
+     "mobile welfare": 1
     },
     "loads": [
      {
@@ -12332,18 +12333,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204260837,
+      "ref": "AES/65103",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Delivery",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
-    "notes": "Delivery of a 20ft store",
+    "notes": "Delivery of a 20ft store / delivery of 24ft boss unit",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204260376,
-     204260570
+     204260570,
+     204260837
     ],
     "refs": [
      "AES/65101",
-     "AES/65102"
+     "AES/65102",
+     "AES/65103"
     ],
     "pc_key": "BD59JW",
     "miles": 44
