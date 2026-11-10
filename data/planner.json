@@ -2637,6 +2637,14 @@
    "driver": "DB",
    "from": "2026-11-13",
    "to": "2026-11-13"
+  },
+  {
+   "id": "v-1794313964073",
+   "reg": "PN25 FKS",
+   "type": "PMI",
+   "driver": "",
+   "from": "2026-11-13",
+   "to": "2026-11-13"
   }
  ],
  "enquiries": [
@@ -2831,6 +2839,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-10T12:31:23+00:00",
+ "updated_at": "2026-11-10T12:32:44+00:00",
  "updated_by": "office"
 }
