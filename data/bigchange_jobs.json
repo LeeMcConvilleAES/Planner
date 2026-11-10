@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T12:40:19",
+ "generated_at": "2026-11-10T12:42:22",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11149,7 +11149,7 @@
     "address": "Bashford Park way , Crewe, CW2 5NL",
     "order_number": "01-003542",
     "units": {
-     "bowser": 1
+     "bowser": 2
     },
     "loads": [
      {
@@ -11161,16 +11161,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 204262413,
+      "ref": "AES/65105",
+      "desc": "bowser",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "deliver 1 x full ibc",
+    "notes": "deliver 1 x full ibc / deliver 1x full ibc",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204262294
+     204262294,
+     204262413
     ],
     "refs": [
-     "AES/65104"
+     "AES/65104",
+     "AES/65105"
     ],
     "pc_key": "CW25NL",
     "miles": 42
