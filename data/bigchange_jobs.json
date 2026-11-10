@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T14:44:35",
+ "generated_at": "2026-11-10T14:59:53",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11118,7 +11118,7 @@
       "bigchange_id": 203581720,
       "ref": "AES/64631",
       "desc": "Effluent Tank",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -11128,7 +11128,7 @@
     ],
     "notes": "collection of holding tank",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203581720
     ],
