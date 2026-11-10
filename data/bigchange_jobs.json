@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T11:31:46",
+ "generated_at": "2026-11-10T11:35:56",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11356,7 +11356,8 @@
     "address": "Charnock Richard, PR7 5LP",
     "order_number": "PO-15545635 PW",
     "units": {
-     "25-50 Miles Hiab Collection": 1
+     "25-50 Miles Hiab Collection": 1,
+     "100kva skid mounted": 1
     },
     "loads": [
      {
@@ -11368,16 +11369,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 204252710,
+      "ref": "AES/65099",
+      "desc": "100kva skid mounted",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 350.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 350.0
      }
     ],
-    "notes": "Please collect",
+    "notes": "Please collect / 100kVA Skid Mounted",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204252093
+     204252093,
+     204252710
     ],
     "refs": [
-     "AES/65098"
+     "AES/65098",
+     "AES/65099"
     ],
     "pc_key": "PR75LP",
     "miles": 20
