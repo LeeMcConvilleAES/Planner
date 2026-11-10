@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T09:59:34",
+ "generated_at": "2026-11-10T10:43:24",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11046,7 +11046,7 @@
       "bigchange_id": 203198637,
       "ref": "AES/64317",
       "desc": "2+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11056,7 +11056,7 @@
     ],
     "notes": "2+1 , HT, steps",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203198637
     ],
