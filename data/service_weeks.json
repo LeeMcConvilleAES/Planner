@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T16:42:49",
+ "generated_at": "2026-11-10T17:42:58",
  "window": [
   "2026-08-17",
   "2026-11-09"
@@ -603,7 +603,7 @@
   }
  },
  "skipped": {
-  "transport_or_stack": 701,
+  "transport_or_stack": 702,
   "cancelled": 0,
   "unallocated": 29,
   "unknown_driver": {
