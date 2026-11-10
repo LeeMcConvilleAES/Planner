@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-10T16:53:32",
+ "generated_at": "2026-11-10T17:45:01",
  "window": [
   "2026-07-13",
   "2027-03-05"
@@ -11122,7 +11122,7 @@
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
@@ -11414,9 +11414,10 @@
       "desc": "25-50 Miles Hiab Collection",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 350.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 350.0
      },
      {
       "bigchange_id": 204252710,
