@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T08:37:53",
+ "generated_at": "2026-11-11T09:11:42",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11418,7 +11418,7 @@
       "bigchange_id": 204252093,
       "ref": "AES/65098",
       "desc": "25-50 Miles Hiab Collection",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 350.0,
       "est_price": null,
@@ -11439,7 +11439,7 @@
     ],
     "notes": "Please collect / 100kVA Skid Mounted",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204252093,
      204252710
