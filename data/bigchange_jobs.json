@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T10:43:08",
+ "generated_at": "2026-11-11T11:25:16",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11197,7 +11197,7 @@
       "bigchange_id": 204262294,
       "ref": "AES/65104",
       "desc": "bowser",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -11208,7 +11208,7 @@
       "bigchange_id": 204262413,
       "ref": "AES/65105",
       "desc": "bowser",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -11218,7 +11218,7 @@
     ],
     "notes": "deliver 1 x full ibc / deliver 1x full ibc",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204262294,
      204262413
