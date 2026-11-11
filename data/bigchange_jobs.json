@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T16:04:02",
+ "generated_at": "2026-11-11T16:22:43",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -13079,7 +13079,8 @@
     "address": "Niddries Lane, Moulton, CW9 8RF",
     "order_number": "01-003526",
     "units": {
-     "32ft": 3
+     "32ft": 3,
+     "staircase 3 x ibc and steps": 1
     },
     "loads": [
      {
@@ -13114,20 +13115,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204403458,
+      "ref": "AES/65211",
+      "desc": "staircase 3 x ibc and steps",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 365.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 365.0
      }
     ],
-    "notes": "delivery of 32ft",
+    "notes": "delivery of 32ft / delivery of 1 x staircase 3 x  ibc and steps",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204046107,
      204046257,
-     204046362
+     204046362,
+     204403458
     ],
     "refs": [
      "AES/64916",
      "AES/64917",
-     "AES/64918"
+     "AES/64918",
+     "AES/65211"
     ],
     "pc_key": "CW98RF",
     "miles": 30
