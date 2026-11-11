@@ -1,5 +1,13 @@
 """AES Transport Planner
-Version 5.0
+Version 5.2
+
+5.2: the holiday form's name list also offers Steve Ennion, Steven Bond,
+Jeff Matthews and Kirt Seddon (Nathan, 11/11/2026). They are service staff,
+not transport drivers, so they get no lane on the planner; their holidays
+are saved and listed like anyone else's. The list is HOLIDAY_STAFF in
+planner_ui/index.html.
+
+5.1: see the README (a job is opened by card id and day together).
 
 5.0: a vehicle booking's work is MOT, PMI or Service (Nathan, 19/10/2026),
 replacing MOT, Repair, Service and Test. Bookings already saved as Repair or
@@ -203,7 +211,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-VERSION = "5.1"
+VERSION = "5.2"
 HERE = Path(__file__).resolve().parent
 FEED_PATH = "data/bigchange_jobs.json"
 PLANNER_PATH = "data/planner.json"

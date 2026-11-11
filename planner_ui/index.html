@@ -468,7 +468,10 @@ function setHeight(){ var h = Math.max(720, (window.screen && window.screen.avai
 
 function isRes(ini){ return RESOURCES.some(function(r){ return r.ini === ini; }); }
 function resNames(){ return RESOURCES.filter(function(r){ return !r.sub; }); }
-function res(ini){ return RESOURCES.filter(function(r){ return r.ini === ini; })[0]; }
+function res(ini){ return RESOURCES.filter(function(r){ return r.ini === ini; })[0] || HOLIDAY_STAFF.filter(function(r){ return r.ini === ini; })[0]; }
+/* V5.1: staff who can be booked on holiday but are not transport drivers (no planner lane) */
+var HOLIDAY_STAFF = [{ ini:'SE', name:'Steve Ennion' }, { ini:'SB', name:'Steven Bond' }, { ini:'JM', name:'Jeff Matthews' }, { ini:'KS', name:'Kirt Seddon' }];
+function holNames(){ var have = {}; resNames().forEach(function(r){ have[r.ini] = 1; }); return resNames().concat(HOLIDAY_STAFF.filter(function(h){ return !have[h.ini]; })); }
 function vehOf(ini){ var r = res(ini); return r && r.reg ? VEHICLES.filter(function(v){ return v.reg === r.reg; })[0] : null; }
 function onRun(l){ return isRes(l.driver) && l.run; }
 function jobNo(l){
@@ -1083,7 +1086,7 @@ function renderVh(){
       '<button class="done" data-act="close">DONE</button></div>' +
     '<div class="vhgrid"><div class="vhcol"><div class="sechd"><b>DRIVER HOLIDAYS</b><span>' + holsWk.length + ' this week, ' + wkLabel + '</span></div>' +
       (hols || '<div class="none">No Holidays This Week.</div>') + others(S.hols, holsWk, 'holiday' + (S.hols.length - holsWk.length === 1 ? '' : 's')) +
-      '<div class="form h"><label><span>DRIVER</span><select id="hd">' + opts(d.drv) + '</select><em></em></label>' +
+      '<div class="form h"><label><span>DRIVER</span><select id="hd">' + holNames().map(function(r){ return '<option value="' + r.ini + '"' + (r.ini === d.drv ? ' selected' : '') + '>' + esc(r.name) + '</option>'; }).join('') + '</select><em></em></label>' +
       '<label><span>FROM</span><input type="date" id="hf" min="2024-01-01" max="2030-12-31" value="' + d.from + '"><em>' + fFull(d.from) + '</em></label>' +
       '<label><span>TO</span><input type="date" id="ht" min="2024-01-01" max="2030-12-31" value="' + d.to + '"><em>' + fFull(d.to) + '</em></label>' +
       '<button class="go" data-act="addHol">+ Add Holiday</button></div></div>' +
