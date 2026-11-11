@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T09:11:42",
+ "generated_at": "2026-11-11T09:37:14",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11258,7 +11258,7 @@
       "bigchange_id": 203211510,
       "ref": "AES/64321",
       "desc": "2+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -11268,7 +11268,7 @@
     ],
     "notes": "24ft / 2+1 toilet, HT, Steps",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203211090,
      203211510
@@ -11368,7 +11368,7 @@
       "bigchange_id": 203512320,
       "ref": "AES/64557",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11389,7 +11389,7 @@
     ],
     "notes": "collection of  20ft office / collection of 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203512320,
      203512556
