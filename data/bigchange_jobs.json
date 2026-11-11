@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T13:07:00",
+ "generated_at": "2026-11-11T13:38:54",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11332,7 +11332,7 @@
       "bigchange_id": 203978859,
       "ref": "AES/64880",
       "desc": "solar loo",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11342,7 +11342,7 @@
     ],
     "notes": "collection of solar loo",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203978859
     ],
