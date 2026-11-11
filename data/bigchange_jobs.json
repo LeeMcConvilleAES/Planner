@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T16:22:43",
+ "generated_at": "2026-11-11T16:26:54",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11583,8 +11583,7 @@
     "address": "Wood Croft, Sowerby Bridge, HX6 1HL",
     "order_number": "01-003299",
     "units": {
-     "32ft": 2,
-     "20ft store": 1
+     "32ft": 3
     },
     "loads": [
      {
@@ -11612,7 +11611,7 @@
      {
       "bigchange_id": 201968416,
       "ref": "AES/62198",
-      "desc": "20ft store",
+      "desc": "32ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
@@ -11621,7 +11620,7 @@
       "last_price": 265.0
      }
     ],
-    "notes": "coll 32ft / coll 20ft store",
+    "notes": "coll 32ft",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
