@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T00:00:08",
+ "generated_at": "2026-11-11T05:45:33",
  "window": [
   "2026-07-14",
   "2027-03-06"
@@ -11247,7 +11247,7 @@
       "bigchange_id": 203211090,
       "ref": "AES/64320",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -11268,7 +11268,7 @@
     ],
     "notes": "24ft / 2+1 toilet, HT, Steps",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203211090,
      203211510
