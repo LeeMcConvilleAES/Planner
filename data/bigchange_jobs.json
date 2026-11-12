@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T12:01:49",
+ "generated_at": "2026-11-12T12:03:49",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -13235,7 +13235,8 @@
     "address": "Barry Avenue, Preston, PR2 3XL",
     "order_number": "01-003549",
     "units": {
-     "3+1 toilet": 1
+     "3+1 toilet": 1,
+     "24ft office": 1
     },
     "loads": [
      {
@@ -13247,16 +13248,29 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 204478232,
+      "ref": "AES/65296",
+      "desc": "24ft office",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collection of 3+1 toilet block steps ibcs",
+    "notes": "collection of 3+1 toilet block steps ibcs / collection 24ft office",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204478078
+     204478078,
+     204478232
     ],
     "refs": [
-     "AES/65295"
+     "AES/65295",
+     "AES/65296"
     ],
     "pc_key": "PR23XL",
     "miles": 29
