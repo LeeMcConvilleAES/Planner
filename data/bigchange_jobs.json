@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T16:29:02",
+ "generated_at": "2026-11-12T16:33:13",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -12855,6 +12855,42 @@
     ],
     "pc_key": "CW14QR",
     "miles": 36
+   },
+   {
+    "id": "bc-204527032",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Jones Homes",
+    "postcode": "FY6 7SY",
+    "address": "Moorfield Park, Poulton-le-Fylde, FY6 7SY",
+    "order_number": "01-003570",
+    "units": {
+     "boss unit": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204527032,
+      "ref": "AES/65314",
+      "desc": "boss unit",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "collection  of boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204527032
+    ],
+    "refs": [
+     "AES/65314"
+    ],
+    "pc_key": "FY67SY",
+    "miles": 39
    },
    {
     "id": "bc-204039581",
