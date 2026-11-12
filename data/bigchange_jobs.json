@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T16:57:37",
+ "generated_at": "2026-11-12T16:59:43",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -13342,6 +13342,42 @@
     ],
     "pc_key": "WN60PY",
     "miles": 14
+   },
+   {
+    "id": "bc-204531607",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Termrim",
+    "postcode": "HX6 1HL",
+    "address": "Wood Croft, Sowerby Bridge, HX6 1HL",
+    "order_number": "01-003568",
+    "units": {
+     "32ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204531607,
+      "ref": "AES/65315",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 32ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204531607
+    ],
+    "refs": [
+     "AES/65315"
+    ],
+    "pc_key": "HX61HL",
+    "miles": 33
    }
   ],
   "2026-11-30": [
