@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T10:28:15",
+ "generated_at": "2026-11-12T10:49:27",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -11554,13 +11554,13 @@
     "address": "Niddries Lane, Moulton, CW9 8RF",
     "order_number": "01-003526",
     "units": {
-     "effluent tank and stair case staircase": 1
+     "effluent tank": 1
     },
     "loads": [
      {
       "bigchange_id": 204372141,
       "ref": "AES/65202",
-      "desc": "effluent tank and stair case staircase",
+      "desc": "effluent tank",
       "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
@@ -11569,7 +11569,7 @@
       "last_price": 265.0
      }
     ],
-    "notes": "delivery of effluent tank  and stair case staircase",
+    "notes": "delivery of effluent tank",
     "destack": "",
     "status": "live",
     "bigchange_ids": [
@@ -11644,7 +11644,7 @@
       "bigchange_id": 201967941,
       "ref": "AES/62194",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
