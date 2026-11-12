@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T15:00:43",
+ "generated_at": "2026-11-12T15:02:47",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -13217,7 +13217,9 @@
     "address": "Pepper Lane, Standish, WN6 0PY",
     "order_number": "01-003564",
     "units": {
-     "32ft": 1
+     "32ft": 1,
+     "24ft": 1,
+     "Effluent Tank & Steps": 1
     },
     "loads": [
      {
@@ -13230,16 +13232,42 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 204508822,
+      "ref": "AES/65310",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 204509025,
+      "ref": "AES/65311",
+      "desc": "Effluent Tank & Steps",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
-    "notes": "32ft office",
+    "notes": "32ft office / collection of 24ft canteen / collection of steps tank ibcs",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204508666
+     204508666,
+     204508822,
+     204509025
     ],
     "refs": [
-     "AES/65309"
+     "AES/65309",
+     "AES/65310",
+     "AES/65311"
     ],
     "pc_key": "WN60PY",
     "miles": 14
