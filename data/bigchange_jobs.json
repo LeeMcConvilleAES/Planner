@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T16:59:43",
+ "generated_at": "2026-11-12T17:14:46",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -13342,7 +13342,9 @@
     ],
     "pc_key": "WN60PY",
     "miles": 14
-   },
+   }
+  ],
+  "2026-11-25": [
    {
     "id": "bc-204531607",
     "type": "Collection",
@@ -13352,7 +13354,8 @@
     "address": "Wood Croft, Sowerby Bridge, HX6 1HL",
     "order_number": "01-003568",
     "units": {
-     "32ft": 1
+     "32ft": 2,
+     "20ft": 2
     },
     "loads": [
      {
@@ -13365,16 +13368,55 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204531792,
+      "ref": "AES/65316",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204531947,
+      "ref": "AES/65317",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204532124,
+      "ref": "AES/65318",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collection of 32ft",
+    "notes": "collection of 32ft / collection of 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204531607
+     204531607,
+     204531792,
+     204531947,
+     204532124
     ],
     "refs": [
-     "AES/65315"
+     "AES/65315",
+     "AES/65316",
+     "AES/65317",
+     "AES/65318"
     ],
     "pc_key": "HX61HL",
     "miles": 33
