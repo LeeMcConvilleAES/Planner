@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T13:03:09",
+ "generated_at": "2026-11-12T13:28:39",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -11525,7 +11525,7 @@
       "bigchange_id": 204463694,
       "ref": "AES/65291",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 300.0,
       "est_price": null,
@@ -11535,7 +11535,7 @@
     ],
     "notes": "deliver generator to ruthin jcb",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204463694
     ],
@@ -13197,6 +13197,43 @@
     ],
     "pc_key": "LS296AR",
     "miles": 54
+   }
+  ],
+  "2026-11-24": [
+   {
+    "id": "bc-204493650",
+    "type": "Site Move",
+    "col": "move",
+    "customer": "Bellway Homes Ltd North West",
+    "postcode": "CW12 4QQ",
+    "address": "SOMERFORD GATE, Black Firs Lane, Somerford, CW12 4QQ",
+    "order_number": "01-003565",
+    "units": {
+     "onsite move of a solar toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204493650,
+      "ref": "AES/65307",
+      "desc": "onsite move of a solar toilet",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "onsite move of a solar toilet",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204493650
+    ],
+    "refs": [
+     "AES/65307"
+    ],
+    "pc_key": "CW124QQ",
+    "miles": 36
    }
   ],
   "2026-11-30": [
