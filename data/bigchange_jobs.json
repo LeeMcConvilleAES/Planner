@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T19:30:37",
+ "generated_at": "2026-11-12T22:32:02",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -11735,9 +11735,10 @@
       "desc": "please go",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "please go to site and complete the erecting of stair case and landing",
