@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T16:33:13",
+ "generated_at": "2026-11-12T16:57:37",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -13243,42 +13243,6 @@
     ],
     "pc_key": "WN74PG",
     "miles": 4
-   },
-   {
-    "id": "bc-204514759",
-    "type": "Collection",
-    "col": "col",
-    "customer": "Almond Civils",
-    "postcode": "PR7 5HT",
-    "address": "Blainscough Lane, Coppull, PR7 5HT",
-    "order_number": "01-003427",
-    "units": {
-     "12ft office": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 204514759,
-      "ref": "AES/65312",
-      "desc": "12ft office",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": 220.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 220.0
-     }
-    ],
-    "notes": "collection of 12ft office   new",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     204514759
-    ],
-    "refs": [
-     "AES/65312"
-    ],
-    "pc_key": "PR75HT",
-    "miles": 16
    },
    {
     "id": "bc-204493650",
