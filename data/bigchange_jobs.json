@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-11T16:26:54",
+ "generated_at": "2026-11-12T00:00:03",
  "window": [
-  "2026-07-14",
-  "2027-03-06"
+  "2026-07-15",
+  "2027-03-07"
  ],
  "jobs": {
   "2026-07-15": [
@@ -9936,6 +9936,7 @@
      "AES/63819",
      "AES/63820"
     ],
+    "archived": true,
     "pc_key": "LE74PN",
     "miles": 107
    },
@@ -9972,6 +9973,7 @@
     "refs": [
      "AES/64680"
     ],
+    "archived": true,
     "pc_key": "SK103LQ",
     "miles": 30
    },
@@ -10021,6 +10023,7 @@
      "AES/63460",
      "AES/63461"
     ],
+    "archived": true,
     "pc_key": "BB21UB",
     "miles": 24
    },
@@ -10057,6 +10060,7 @@
     "refs": [
      "AES/61887"
     ],
+    "archived": true,
     "pc_key": "WN67DD",
     "miles": 8
    },
@@ -10093,6 +10097,7 @@
     "refs": [
      "AES/64362"
     ],
+    "archived": true,
     "pc_key": "M389XE",
     "miles": 4
    },
@@ -10129,6 +10134,7 @@
     "refs": [
      "AES/64363"
     ],
+    "archived": true,
     "pc_key": "M389XE",
     "miles": 4
    }
@@ -10401,6 +10407,7 @@
      "AES/62196",
      "AES/62197"
     ],
+    "archived": true,
     "pc_key": "HX61HL",
     "miles": 33
    }
