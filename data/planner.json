@@ -2727,21 +2727,6 @@
  ],
  "enquiries": [
   {
-   "id": "e-1793896525630",
-   "day": "2026-11-24",
-   "col": "del",
-   "customer": "jake",
-   "postcode": "",
-   "po": "",
-   "items": [
-    "jake airside manchester airport"
-   ],
-   "notes": "",
-   "created_at": "2026-11-05T16:35:25",
-   "created_by": "office",
-   "edited_at": "2026-11-09T09:23:40"
-  },
-  {
    "id": "e-1793983528507",
    "day": "2026-11-25",
    "col": "col",
@@ -2902,6 +2887,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-12T12:54:47+00:00",
+ "updated_at": "2026-11-12T13:29:20+00:00",
  "updated_by": "office"
 }
