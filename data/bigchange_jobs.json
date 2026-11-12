@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T00:00:03",
+ "generated_at": "2026-11-12T09:44:31",
  "window": [
   "2026-07-15",
   "2027-03-07"
@@ -11476,28 +11476,28 @@
       "bigchange_id": 203321348,
       "ref": "AES/64425",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
       "bigchange_id": 203321438,
       "ref": "AES/64426",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
     "notes": "delivery of 20ft store / deliver 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      203321348,
      203321438
@@ -11561,17 +11561,17 @@
       "bigchange_id": 204303255,
       "ref": "AES/65127",
       "desc": "24ft",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
     "notes": "collection of 24ft  unit",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      204303255
     ],
@@ -11619,7 +11619,7 @@
       "bigchange_id": 201968416,
       "ref": "AES/62198",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11629,7 +11629,7 @@
     ],
     "notes": "coll 32ft",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      201967867,
      201967941,
@@ -12924,6 +12924,42 @@
     ],
     "pc_key": "PR23XL",
     "miles": 29
+   },
+   {
+    "id": "bc-204434115",
+    "type": "Collection",
+    "col": "col",
+    "customer": "John Reilly Civil Engineering Ltd",
+    "postcode": "CW1 4QR",
+    "address": "Bloor Homes, Flowers Lane, Crewe, CW1 4QR",
+    "order_number": "01-003527",
+    "units": {
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204434115,
+      "ref": "AES/65264",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collect 20ft store 8466",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204434115
+    ],
+    "refs": [
+     "AES/65264"
+    ],
+    "pc_key": "CW14QR",
+    "miles": 36
    },
    {
     "id": "bc-204039581",
