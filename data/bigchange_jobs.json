@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T16:47:30",
+ "generated_at": "2026-11-13T17:43:29",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -11663,7 +11663,7 @@
       "bigchange_id": 204627614,
       "ref": "AES/65404",
       "desc": "toilet stairs",
-      "status": "live",
+      "status": "complete",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -11673,7 +11673,7 @@
     ],
     "notes": "HT; steps",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204627614
     ],
@@ -11699,7 +11699,7 @@
       "bigchange_id": 204628120,
       "ref": "AES/65405",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-25m Hiab Delivery",
       "price": 220.0,
       "est_price": null,
@@ -11709,7 +11709,7 @@
     ],
     "notes": "4+2 toilet",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204628120
     ],
