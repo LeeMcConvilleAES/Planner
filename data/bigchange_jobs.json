@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T13:18:28",
+ "generated_at": "2026-11-13T13:35:31",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -13242,6 +13242,77 @@
     ],
     "refs": [
      "AES/65392"
+    ],
+    "pc_key": "L80WN",
+    "miles": 27
+   },
+   {
+    "id": "bc-204613286",
+    "type": "Collection",
+    "col": "col",
+    "customer": "M Group",
+    "postcode": "L8 0WN",
+    "address": "Bishops Court Sefton Park Road, Liverpool, L8 0WN",
+    "order_number": "01-003571",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204613286,
+      "ref": "AES/65402",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 24ft",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204613286
+    ],
+    "refs": [
+     "AES/65402"
+    ],
+    "pc_key": "L80WN",
+    "miles": 27
+   },
+   {
+    "id": "bc-204613424",
+    "type": "Site Move",
+    "col": "move",
+    "customer": "M Group",
+    "postcode": "L8 0WN",
+    "address": "Bishops Court Sefton Park Road, Liverpool, L8 0WN",
+    "order_number": "01-003572",
+    "units": {
+     "onsite move of a 20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204613424,
+      "ref": "AES/65403",
+      "desc": "onsite move of a 20ft store",
+      "status": "booked",
+      "type": "Site Move / Exchange",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "onsite move of a 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204613424
+    ],
+    "refs": [
+     "AES/65403"
     ],
     "pc_key": "L80WN",
     "miles": 27
