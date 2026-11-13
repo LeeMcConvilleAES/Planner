@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T00:00:06",
+ "generated_at": "2026-11-13T09:32:39",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -11663,17 +11663,17 @@
       "bigchange_id": 204538369,
       "ref": "AES/65319",
       "desc": "Generator",
-      "status": "booked",
+      "status": "complete",
       "type": "0-25m Hiab Delivery",
       "price": 250.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 250.0
      }
     ],
     "notes": "275KVA Generator & Fuel tank  onsite contact will be",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      204538369
     ],
@@ -11699,17 +11699,17 @@
       "bigchange_id": 204526452,
       "ref": "AES/65313",
       "desc": "please go",
-      "status": "booked",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
     "notes": "please go to site and complete the erecting of stair case and landing",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      204526452
     ],
@@ -11735,7 +11735,7 @@
       "bigchange_id": 203091989,
       "ref": "AES/64245",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 600.0,
       "est_price": null,
@@ -11745,7 +11745,7 @@
     ],
     "notes": "TO COLLECT 20FT UNIT NEC BIRMIGHAM",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203091989
     ],
@@ -11773,7 +11773,7 @@
       "bigchange_id": 203088921,
       "ref": "AES/64240",
       "desc": "20ft store",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11795,18 +11795,18 @@
       "bigchange_id": 203089572,
       "ref": "AES/64242",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
       "bigchange_id": 203090051,
       "ref": "AES/64243",
       "desc": "3+1 toilet",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11816,7 +11816,7 @@
     ],
     "notes": "20ft 8731 / 20ft office 8672 / 20ft canteen 8665 / 3+1 toilet block (ibc, effluent tank, steps) 8584",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203088921,
      203089226,
