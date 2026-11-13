@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T15:21:17",
+ "generated_at": "2026-11-13T15:23:27",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -13652,8 +13652,9 @@
     "address": "Higher End Park, Bootle, L30 0QR",
     "order_number": "01-003573",
     "units": {
-     "32ft": 1,
-     "Static welfare": 1
+     "32ft": 2,
+     "Static welfare": 1,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -13668,6 +13669,17 @@
       "last_price": 365.0
      },
      {
+      "bigchange_id": 204630143,
+      "ref": "AES/65407",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
       "bigchange_id": 204630825,
       "ref": "AES/65408",
       "desc": "Static welfare",
@@ -13676,18 +13688,33 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 204631628,
+      "ref": "AES/65409",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "32ft de-stack / 3+1 toilet,",
+    "notes": "32ft de-stack / 3+1 toilet, / staircase/landing",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204629802,
-     204630825
+     204630143,
+     204630825,
+     204631628
     ],
     "refs": [
      "AES/65406",
-     "AES/65408"
+     "AES/65407",
+     "AES/65408",
+     "AES/65409"
     ],
     "pc_key": "L300QR",
     "miles": 25
