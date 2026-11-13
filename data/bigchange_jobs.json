@@ -1,51 +1,12 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-12T22:32:02",
+ "generated_at": "2026-11-13T00:00:06",
  "window": [
-  "2026-07-15",
-  "2027-03-07"
+  "2026-07-16",
+  "2027-03-08"
  ],
  "jobs": {
-  "2026-07-15": [
-   {
-    "id": "bc-192974266",
-    "type": "Site Move",
-    "col": "move",
-    "customer": "GRS Contractors",
-    "postcode": "OL9 8DY",
-    "address": "Butterworth Lane, Chadderton, OL9 8DY",
-    "order_number": "01-002403",
-    "units": {
-     "ibc, ht, steps and staircase": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 192974266,
-      "ref": "AES/53846",
-      "desc": "ibc, ht, steps and staircase",
-      "status": "complete",
-      "type": "Site Move / Exchange",
-      "price": 465.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 465.0
-     }
-    ],
-    "notes": "COLLECT IBC, HT, STEPS AND STAIRCASE FROM BORSODI BOULEVARD, WA5 3YY AND DELIVER TO THE ABOVE",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     192974266
-    ],
-    "refs": [
-     "AES/53846"
-    ],
-    "archived": true,
-    "pc_key": "OL98DY",
-    "miles": 18
-   }
-  ],
   "2026-09-12": [
    {
     "id": "bc-197941149",
@@ -10187,6 +10148,7 @@
      "AES/64248",
      "AES/64249"
     ],
+    "archived": true,
     "pc_key": "DN161XA",
     "miles": 99
    },
@@ -10223,6 +10185,7 @@
     "refs": [
      "AES/64745"
     ],
+    "archived": true,
     "pc_key": "M36WP",
     "miles": 11
    },
@@ -10259,6 +10222,7 @@
     "refs": [
      "AES/64254"
     ],
+    "archived": true,
     "pc_key": "BD62AN",
     "miles": 45
    },
@@ -10295,6 +10259,7 @@
     "refs": [
      "AES/64632"
     ],
+    "archived": true,
     "pc_key": "WA11LD",
     "miles": 14
    },
@@ -10344,6 +10309,7 @@
      "AES/61885",
      "AES/61886"
     ],
+    "archived": true,
     "pc_key": "WN67DD",
     "miles": 8
    },
