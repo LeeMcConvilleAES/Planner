@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T12:34:09",
+ "generated_at": "2026-11-13T13:12:10",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -11699,7 +11699,7 @@
       "bigchange_id": 203770236,
       "ref": "AES/64738",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -11709,7 +11709,7 @@
     ],
     "notes": "boss unit collection",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203770236
     ],
