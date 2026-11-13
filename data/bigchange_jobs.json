@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T11:25:40",
+ "generated_at": "2026-11-13T11:53:11",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -12131,6 +12131,42 @@
     ],
     "pc_key": "CW122GH",
     "miles": 34
+   },
+   {
+    "id": "bc-204595680",
+    "type": "Collection",
+    "col": "col",
+    "customer": "CoOp Live Arena",
+    "postcode": "M11 3DL",
+    "address": "Manchester, M11 3DL",
+    "order_number": "ryan greans",
+    "units": {
+     "Generator": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204595680,
+      "ref": "AES/65391",
+      "desc": "Generator",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": 250.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 250.0
+     }
+    ],
+    "notes": "collection of generator and other bits co-op live",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204595680
+    ],
+    "refs": [
+     "AES/65391"
+    ],
+    "pc_key": "M113DL",
+    "miles": null
    }
   ],
   "2026-11-17": [
