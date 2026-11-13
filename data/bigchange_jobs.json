@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-13T11:53:11",
+ "generated_at": "2026-11-13T12:29:59",
  "window": [
   "2026-07-16",
   "2027-03-08"
@@ -11771,7 +11771,7 @@
       "bigchange_id": 203091989,
       "ref": "AES/64245",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 600.0,
       "est_price": null,
@@ -11781,7 +11781,7 @@
     ],
     "notes": "TO COLLECT 20FT UNIT NEC BIRMIGHAM",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203091989
     ],
@@ -11820,7 +11820,7 @@
       "bigchange_id": 203089226,
       "ref": "AES/64241",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -11852,7 +11852,7 @@
     ],
     "notes": "20ft 8731 / 20ft office 8672 / 20ft canteen 8665 / 3+1 toilet block (ibc, effluent tank, steps) 8584",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203088921,
      203089226,
