@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-16T12:29:55",
+ "generated_at": "2026-11-16T12:32:02",
  "window": [
   "2026-07-19",
   "2027-03-11"
@@ -12137,7 +12137,7 @@
       "bigchange_id": 203637268,
       "ref": "AES/64649",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 320.0,
       "est_price": null,
@@ -12158,7 +12158,7 @@
     ],
     "notes": "8050 - 3+1, HT, steps collect / 8010 - 20ft canteen collect / de-stack 8273 20ft office - collect / collect staircase/landing",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203636782,
      203637050,
