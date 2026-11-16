@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-16T11:47:27",
+ "generated_at": "2026-11-16T12:29:55",
  "window": [
   "2026-07-19",
   "2027-03-11"
@@ -13621,6 +13621,41 @@
     ],
     "pc_key": "CW124QQ",
     "miles": 36
+   },
+   {
+    "id": "bc-204763434",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Peak Platforms Ltd",
+    "postcode": "M43 6AF",
+    "address": "fairfield primary school  fairfield road , Droylsden, M43 6AF",
+    "order_number": "01-003579",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204763434,
+      "ref": "AES/65555",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-25miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collection of a 20ft store pre 8am  call",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204763434
+    ],
+    "refs": [
+     "AES/65555"
+    ],
+    "pc_key": "M436AF",
+    "miles": 23
    },
    {
     "id": "bc-204508666",
