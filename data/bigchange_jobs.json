@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-16T00:00:06",
+ "generated_at": "2026-11-16T05:30:45",
  "window": [
   "2026-07-19",
   "2027-03-11"
@@ -12012,7 +12012,7 @@
       "bigchange_id": 204161309,
       "ref": "AES/65074",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 365.0,
       "est_price": null,
@@ -12033,7 +12033,7 @@
     ],
     "notes": "delivery of 32ft canteen / DELIVERY OF 32FT UNIT / DELIVERY OF STAIRCASE",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204160698,
      204161309,
