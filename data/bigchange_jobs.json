@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-16T10:23:18",
+ "generated_at": "2026-11-16T11:01:06",
  "window": [
   "2026-07-19",
   "2027-03-11"
@@ -12234,7 +12234,7 @@
       "last_price": 250.0
      }
     ],
-    "notes": "collection of generator and other bits co-op live",
+    "notes": "collection of 2 200kva 2x1000 tanks stillage and other bits someone onsite there",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
