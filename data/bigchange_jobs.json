@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-16T12:39:07",
+ "generated_at": "2026-11-16T12:50:58",
  "window": [
   "2026-07-19",
   "2027-03-11"
@@ -12001,7 +12001,7 @@
       "bigchange_id": 204160698,
       "ref": "AES/65073",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
