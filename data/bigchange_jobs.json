@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T16:42:59",
+ "generated_at": "2026-11-17T21:16:02",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -14444,9 +14444,10 @@
       "desc": "3+1 toilet",
       "status": "booked",
       "type": "0-15m Hiab Collection",
-      "price": null,
+      "price": 190.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 190.0
      },
      {
       "bigchange_id": 204914907,
