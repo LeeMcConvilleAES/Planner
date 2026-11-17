@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T10:36:41",
+ "generated_at": "2026-11-17T10:42:49",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -12048,7 +12048,7 @@
       "type": "Site Move / Exchange",
       "price": 321.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 321.0
      }
     ],
@@ -12318,7 +12318,7 @@
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      },
      {
@@ -12329,7 +12329,7 @@
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      }
     ],
