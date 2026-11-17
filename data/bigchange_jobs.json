@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T09:59:15",
+ "generated_at": "2026-11-17T10:07:42",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13853,7 +13853,7 @@
     "units": {
      "32ft": 2,
      "Effluent Tank Steps & IBC": 1,
-     "staircase landing 2 bay boot wash x 2": 1
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -13892,7 +13892,7 @@
      {
       "bigchange_id": 204844603,
       "ref": "AES/65576",
-      "desc": "staircase landing 2 bay boot wash x 2",
+      "desc": "stairs c/w landing",
       "status": "booked",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
