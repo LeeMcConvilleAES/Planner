@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T15:39:23",
+ "generated_at": "2026-11-17T15:58:33",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13780,9 +13780,10 @@
       "desc": "24ft",
       "status": "booked",
       "type": "0-15m Hiab Collection",
-      "price": null,
+      "price": 290.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 290.0
      }
     ],
     "notes": "collection of 24ft unit pre 7.30 am",
