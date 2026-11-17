@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T09:25:39",
+ "generated_at": "2026-11-17T09:27:42",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13817,7 +13817,8 @@
     "order_number": "01-003583",
     "units": {
      "32ft": 2,
-     "Effluent Tank Steps & IBC": 1
+     "Effluent Tank Steps & IBC": 1,
+     "staircase landing 2 bay boot wash x 2": 1
     },
     "loads": [
      {
@@ -13852,20 +13853,33 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 290.0
+     },
+     {
+      "bigchange_id": 204844603,
+      "ref": "AES/65576",
+      "desc": "staircase landing 2 bay boot wash x 2",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
      }
     ],
-    "notes": "collection 32ft / collection of 2+1 tank steps ibc",
+    "notes": "collection 32ft / collection of 2+1 tank steps ibc / collection of staircase landing 2 bay boot wash x 2",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204843082,
      204843215,
-     204843427
+     204843427,
+     204844603
     ],
     "refs": [
      "AES/65573",
      "AES/65574",
-     "AES/65575"
+     "AES/65575",
+     "AES/65576"
     ],
     "pc_key": "BL12NP",
     "miles": 6
