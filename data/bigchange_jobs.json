@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T09:27:42",
+ "generated_at": "2026-11-17T09:57:11",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13726,6 +13726,41 @@
     ],
     "pc_key": "WN60PY",
     "miles": 14
+   },
+   {
+    "id": "bc-204849135",
+    "type": "Collection",
+    "col": "col",
+    "customer": "The Red lion",
+    "postcode": "WA4 6HN",
+    "address": "London Road, Warrington, WA4 6HN",
+    "order_number": "01-003589",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204849135,
+      "ref": "AES/65577",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     }
+    ],
+    "notes": "collection of 24ft unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204849135
+    ],
+    "refs": [
+     "AES/65577"
+    ],
+    "pc_key": "WA46HN",
+    "miles": 15
    }
   ],
   "2026-11-25": [
