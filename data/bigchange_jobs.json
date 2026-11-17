@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T21:46:16",
+ "generated_at": "2026-11-17T22:31:22",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -14456,9 +14456,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "0-15m Hiab Collection",
-      "price": null,
+      "price": 290.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 290.0
      }
     ],
     "notes": "collection of 20ft office / collection 20ft canteen / 3+1 tank steps / collection of 20ft store and staircase  and landing",
