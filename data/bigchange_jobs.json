@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T13:43:45",
+ "generated_at": "2026-11-17T13:56:30",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -12930,7 +12930,7 @@
       "last_price": 190.0
      }
     ],
-    "notes": "del 3+1 toilet,HT, steps,IBC / deliver 3+1 toilet, HT, steps, IBC / del 32ft canteen, / del32ft canteen / del 4 x IBC's",
+    "notes": "del 3+1 toilet,HT, steps,IBC / deliver 3+1 toilet, HT, steps, IBC / del 32ft canteen, / del32ft canteen / del 2 x IBC's",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
