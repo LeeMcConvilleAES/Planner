@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T09:21:35",
+ "generated_at": "2026-11-17T09:23:36",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13816,7 +13816,8 @@
     "address": "Prince Street , Bolton, BL1 2NP",
     "order_number": "01-003583",
     "units": {
-     "32ft": 2
+     "32ft": 2,
+     "Effluent Tank Steps & IBC": 1
     },
     "loads": [
      {
@@ -13840,18 +13841,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 190.0
+     },
+     {
+      "bigchange_id": 204843427,
+      "ref": "AES/65575",
+      "desc": "Effluent Tank Steps & IBC",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 290.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 290.0
      }
     ],
-    "notes": "collection 32ft",
+    "notes": "collection 32ft / collection of 2+1 tank steps ibc",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204843082,
-     204843215
+     204843215,
+     204843427
     ],
     "refs": [
      "AES/65573",
-     "AES/65574"
+     "AES/65574",
+     "AES/65575"
     ],
     "pc_key": "BL12NP",
     "miles": 6
