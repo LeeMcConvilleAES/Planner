@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T14:02:36",
+ "generated_at": "2026-11-17T14:19:33",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -12399,7 +12399,7 @@
       "bigchange_id": 203794923,
       "ref": "AES/64744",
       "desc": "20ft",
-      "status": "booked",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -12409,7 +12409,7 @@
     ],
     "notes": "collection of 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      203794923
     ],
