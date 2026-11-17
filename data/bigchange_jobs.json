@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T15:05:35",
+ "generated_at": "2026-11-17T15:09:53",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -14034,6 +14034,42 @@
    }
   ],
   "2026-11-27": [
+   {
+    "id": "bc-204901957",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Brookfield School",
+    "postcode": "FY6 7HE",
+    "address": "Fouldrey Avenue, Poulton-le-Fylde, FY6 7HE",
+    "order_number": "01-003593",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 204901957,
+      "ref": "AES/65582",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of new 24ft (wide load)",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     204901957
+    ],
+    "refs": [
+     "AES/65582"
+    ],
+    "pc_key": "FY67HE",
+    "miles": 40
+   },
    {
     "id": "bc-204839737",
     "type": "Collection",
