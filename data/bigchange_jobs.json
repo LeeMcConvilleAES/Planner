@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T11:55:02",
+ "generated_at": "2026-11-17T11:57:06",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -12435,7 +12435,7 @@
       "bigchange_id": 204595680,
       "ref": "AES/65391",
       "desc": "Generator",
-      "status": "live",
+      "status": "complete",
       "type": "0-25miles Hiab Collection",
       "price": 250.0,
       "est_price": null,
@@ -12445,7 +12445,7 @@
     ],
     "notes": "collection of 2 200kva 2x1000 tanks stillage and other bits someone onsite there",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204595680
     ],
