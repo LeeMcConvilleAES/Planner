@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T21:16:02",
+ "generated_at": "2026-11-17T21:46:16",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -13499,9 +13499,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "delivery of 32ft meeting room unit to be linked to unit onsite",
