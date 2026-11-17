@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-17T07:46:49",
+ "generated_at": "2026-11-17T07:59:37",
  "window": [
   "2026-07-20",
   "2027-03-12"
@@ -12044,7 +12044,7 @@
       "bigchange_id": 203791832,
       "ref": "AES/64742",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 321.0,
       "est_price": null,
@@ -12054,7 +12054,7 @@
     ],
     "notes": "SITE MOVE UNIT NUMBER 7769 FROM BD10 9NF  TO BD19 3PX / SITE MOVE 20FT STORE FROM BD10 9NF TO BD19 3PX UNIT NUMBER 7678",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203791506,
      203791832
