@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T09:45:40",
+ "generated_at": "2026-11-18T10:02:51",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12556,7 +12556,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -12567,14 +12567,14 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
       "bigchange_id": 204260837,
       "ref": "AES/65103",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -12584,7 +12584,7 @@
     ],
     "notes": "Delivery of a 20ft store / delivery of 24ft boss unit",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204260376,
      204260570,
@@ -14397,9 +14397,10 @@
       "desc": "mobile welfare",
       "status": "booked",
       "type": "7.5t Transport Collection",
-      "price": null,
+      "price": 100.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
     "notes": "collection of 24ft boss unit",
