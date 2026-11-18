@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T14:41:13",
+ "generated_at": "2026-11-18T15:02:39",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -13061,6 +13061,56 @@
     ],
     "pc_key": "PR23XL",
     "miles": 29
+   },
+   {
+    "id": "bc-205020160",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Elite Access",
+    "postcode": "M50 3SP",
+    "address": "The Quays, Salford, M50 3SP",
+    "order_number": "01-003523",
+    "units": {
+     "a 25ft static": 1,
+     "20ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205020160,
+      "ref": "AES/65660",
+      "desc": "a 25ft static",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 205020382,
+      "ref": "AES/65661",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "collection of a 25ft static / collection of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205020160,
+     205020382
+    ],
+    "refs": [
+     "AES/65660",
+     "AES/65661"
+    ],
+    "pc_key": "M503SP",
+    "miles": 11
    },
    {
     "id": "bc-204434115",
