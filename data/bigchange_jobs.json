@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T08:16:49",
+ "generated_at": "2026-11-18T08:21:06",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14123,8 +14123,7 @@
     "order_number": "01-003586",
     "units": {
      "3+1 toilet": 1,
-     "10ft store": 1,
-     "20ft": 1
+     "10ft store": 1
     },
     "loads": [
      {
@@ -14148,31 +14147,18 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
-     },
-     {
-      "bigchange_id": 204840020,
-      "ref": "AES/65572",
-      "desc": "20ft",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
      }
     ],
-    "notes": "collection of 3+1 tank and steps / collection of 10ft store / collection of 20ft store",
+    "notes": "collection of 3+1 tank and steps / collection of 10ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204839737,
-     204839849,
-     204840020
+     204839849
     ],
     "refs": [
      "AES/65570",
-     "AES/65571",
-     "AES/65572"
+     "AES/65571"
     ],
     "pc_key": "FY55EE",
     "miles": 41
@@ -14245,7 +14231,7 @@
   ],
   "2026-12-01": [
    {
-    "id": "bc-204954655",
+    "id": "bc-204840020",
     "type": "Collection",
     "col": "col",
     "customer": "F PARKINSON",
@@ -14253,56 +14239,29 @@
     "address": "DWP Blackpool Hassra Fylde Community Pavillion, Thornton-Cleveleys, FY5 5EE",
     "order_number": "01-003586",
     "units": {
-     "3+1 toilet": 1,
-     "10ft store": 1,
      "20ft": 1
     },
     "loads": [
      {
-      "bigchange_id": 204954655,
-      "ref": "AES/65637",
-      "desc": "3+1 toilet",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     },
-     {
-      "bigchange_id": 204954865,
-      "ref": "AES/65638",
-      "desc": "10ft store",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 265.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
-     },
-     {
-      "bigchange_id": 204954991,
-      "ref": "AES/65639",
+      "bigchange_id": 204840020,
+      "ref": "AES/65572",
       "desc": "20ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "3+1 tank and steps / 10ft store / collection of 20ft store",
+    "notes": "collection of 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204954655,
-     204954865,
-     204954991
+     204840020
     ],
     "refs": [
-     "AES/65637",
-     "AES/65638",
-     "AES/65639"
+     "AES/65572"
     ],
     "pc_key": "FY55EE",
     "miles": 41
