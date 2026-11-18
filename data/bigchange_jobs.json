@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T11:48:24",
+ "generated_at": "2026-11-18T11:50:27",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12897,41 +12897,6 @@
     ],
     "pc_key": "LL130TS",
     "miles": 55
-   },
-   {
-    "id": "bc-204988693",
-    "type": "Collection",
-    "col": "col",
-    "customer": "The Royal Horticultural Society",
-    "postcode": "M28 2LJ",
-    "address": "RHS BRIDGEWATER , OCCUPATION ROAD , WORSLEY, M28 2LJ",
-    "order_number": "01-003497",
-    "units": {
-     "5ltrs blu loo monthly": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 204988693,
-      "ref": "AES/65651",
-      "desc": "5ltrs blu loo monthly",
-      "status": "booked",
-      "type": "0-25miles Hiab Collection",
-      "price": null,
-      "est_price": null,
-      "price_source": null
-     }
-    ],
-    "notes": "please deliver 5ltrs blu loo monthly",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     204988693
-    ],
-    "refs": [
-     "AES/65651"
-    ],
-    "pc_key": "M282LJ",
-    "miles": 5
    }
   ],
   "2026-11-19": [
