@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T14:39:09",
+ "generated_at": "2026-11-18T14:41:13",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14212,6 +14212,40 @@
     ],
     "pc_key": "FY67HE",
     "miles": 40
+   },
+   {
+    "id": "bc-205015951",
+    "type": "Collection",
+    "col": "col",
+    "customer": "H H Smith & Sons Co Ltd",
+    "postcode": "M24 6XH",
+    "address": "Milnrow Chappel, Hopwood Hall College, Rochdale Road, Middleton, M24 6XH",
+    "order_number": "01-003616",
+    "units": {
+     "a chemical toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205015951,
+      "ref": "",
+      "desc": "a chemical toilet",
+      "status": "booked",
+      "type": "Toilet Collection",
+      "price": 45.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 45.0
+     }
+    ],
+    "notes": "collection of a chemical toilet",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205015951
+    ],
+    "refs": [],
+    "pc_key": "M246XH",
+    "miles": 20
    }
   ],
   "2026-12-01": [
