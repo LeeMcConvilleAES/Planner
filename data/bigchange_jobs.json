@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T13:33:45",
+ "generated_at": "2026-11-18T13:59:26",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12648,7 +12648,7 @@
       "bigchange_id": 204197737,
       "ref": "AES/65077",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -12658,7 +12658,7 @@
     ],
     "notes": "delivery of 24ft boss unit",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204197737
     ],
@@ -12782,7 +12782,7 @@
       "bigchange_id": 204026638,
       "ref": "AES/64896",
       "desc": "Static welfare",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -12803,7 +12803,7 @@
     ],
     "notes": "collection of 25ft static / collection of 20ft store",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204026638,
      204026769
