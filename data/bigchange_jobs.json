@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T08:10:12",
+ "generated_at": "2026-11-18T08:12:42",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14253,7 +14253,8 @@
     "address": "Veolia Staffordshire E R F Enterprise Drive, Four Ashes, WV10 7DF",
     "order_number": "01-003600",
     "units": {
-     "32ft": 2
+     "32ft": 2,
+     "24ft": 1
     },
     "loads": [
      {
@@ -14277,18 +14278,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 372.0
+     },
+     {
+      "bigchange_id": 204954361,
+      "ref": "AES/65636",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 372.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 372.0
      }
     ],
-    "notes": "collection of 32ft shower / collection of 32ft dry room",
+    "notes": "collection of 32ft shower / collection of 32ft dry room / collection of 24ft canteen",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      204954136,
-     204954199
+     204954199,
+     204954361
     ],
     "refs": [
      "AES/65634",
-     "AES/65635"
+     "AES/65635",
+     "AES/65636"
     ],
     "pc_key": "WV107DF",
     "miles": 72
