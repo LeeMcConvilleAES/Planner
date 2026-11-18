@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T16:46:12",
+ "generated_at": "2026-11-18T16:52:31",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14242,7 +14242,8 @@
     "units": {
      "20ft": 2,
      "24ft": 2,
-     "32ft": 1
+     "32ft": 1,
+     "stairs c/w landing": 1
     },
     "loads": [
      {
@@ -14298,9 +14299,20 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205047108,
+      "ref": "AES/65671",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 365.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 365.0
      }
     ],
-    "notes": "collection of 20ft store / collection 20ft store / collection of 24ft unit / collection of 32ft unit",
+    "notes": "collection of 20ft store / collection 20ft store / collection of 24ft unit / collection of 32ft unit / collection of x2 ibc x1 tank  staircase x 2 water barrel",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
@@ -14308,14 +14320,16 @@
      205045935,
      205046074,
      205046255,
-     205046471
+     205046471,
+     205047108
     ],
     "refs": [
      "AES/65666",
      "AES/65667",
      "AES/65668",
      "AES/65669",
-     "AES/65670"
+     "AES/65670",
+     "AES/65671"
     ],
     "pc_key": "FY45LB",
     "miles": 39
