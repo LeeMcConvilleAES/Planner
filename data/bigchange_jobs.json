@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T10:17:42",
+ "generated_at": "2026-11-18T10:26:01",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -13669,29 +13669,29 @@
    },
    {
     "id": "bc-204493650",
-    "type": "Site Move",
-    "col": "move",
+    "type": "Collection",
+    "col": "col",
     "customer": "Bellway Homes Ltd North West",
     "postcode": "CW12 4QQ",
     "address": "SOMERFORD GATE, Black Firs Lane, Somerford, CW12 4QQ",
     "order_number": "01-003565",
     "units": {
-     "onsite move of a solar toilet": 1
+     "Solar Loo": 1
     },
     "loads": [
      {
       "bigchange_id": 204493650,
       "ref": "AES/65307",
-      "desc": "onsite move of a solar toilet",
+      "desc": "Solar Loo",
       "status": "booked",
-      "type": "Site Move / Exchange",
+      "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
      }
     ],
-    "notes": "onsite move of a solar toilet",
+    "notes": "collection of solar loo",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
