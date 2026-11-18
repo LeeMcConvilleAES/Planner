@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T10:04:01",
+ "generated_at": "2026-11-18T11:04:12",
  "window": [
   "2026-08-24",
   "2026-11-16"
@@ -553,12 +553,12 @@
     "miles": 0
    },
    "JM": {
-    "jobs": 31,
-    "booked": 52,
+    "jobs": 33,
+    "booked": 48,
     "charged": 1735.0,
     "invoiced": 25,
-    "unpriced": 5,
-    "miles": 966.0
+    "unpriced": 7,
+    "miles": 990.0
    },
    "JP": {
     "jobs": 6,
@@ -569,20 +569,20 @@
     "miles": 108.0
    },
    "SB": {
-    "jobs": 19,
+    "jobs": 20,
     "booked": 60,
-    "charged": 850.0,
+    "charged": 870.0,
     "invoiced": 19,
     "unpriced": 0,
-    "miles": 551.0
+    "miles": 574.0
    },
    "SE": {
-    "jobs": 25,
+    "jobs": 27,
     "booked": 38,
     "charged": 930.0,
     "invoiced": 24,
-    "unpriced": 1,
-    "miles": 550.0
+    "unpriced": 3,
+    "miles": 593.0
    }
   }
  },
@@ -593,7 +593,7 @@
   "unknown_driver": {
    "rob sawyer": 180,
    "re schedule temp": 1,
-   "wasteline": 151,
+   "wasteline": 155,
    "universal tankers": 12,
    "darren fishwick": 4,
    "ste longworth": 1,
