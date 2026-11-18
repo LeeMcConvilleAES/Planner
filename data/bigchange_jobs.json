@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T12:07:15",
+ "generated_at": "2026-11-18T12:28:20",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12782,7 +12782,7 @@
       "bigchange_id": 204026638,
       "ref": "AES/64896",
       "desc": "Static welfare",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -12803,7 +12803,7 @@
     ],
     "notes": "collection of 25ft static / collection of 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204026638,
      204026769
