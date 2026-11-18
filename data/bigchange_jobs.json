@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T15:38:59",
+ "generated_at": "2026-11-18T15:53:48",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12747,7 +12747,7 @@
       "bigchange_id": 203975009,
       "ref": "",
       "desc": "chemical toilet",
-      "status": "live",
+      "status": "complete",
       "type": "Toilet Collection",
       "price": 15.0,
       "est_price": null,
@@ -12757,7 +12757,7 @@
     ],
     "notes": "collection of chemical toilet",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203975009
     ],
