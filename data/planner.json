@@ -2415,7 +2415,8 @@
    "day": "2026-11-20",
    "driver": "RS",
    "run": 1,
-   "seq": 2
+   "seq": 2,
+   "dropped_at": "2026-11-18"
   },
   "204463694": {
    "day": "2026-11-12",
@@ -2774,6 +2775,14 @@
    "driver": "",
    "from": "2026-11-13",
    "to": "2026-11-13"
+  },
+  {
+   "id": "v-1795007765932",
+   "reg": "PN25 FKT",
+   "type": "PMI",
+   "driver": "",
+   "from": "2026-11-20",
+   "to": "2026-11-20"
   }
  ],
  "enquiries": [
@@ -2938,6 +2947,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-18T09:34:51+00:00",
+ "updated_at": "2026-11-18T13:16:06+00:00",
  "updated_by": "office"
 }
