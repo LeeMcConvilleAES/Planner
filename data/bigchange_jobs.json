@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T08:14:46",
+ "generated_at": "2026-11-18T08:16:49",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14253,7 +14253,9 @@
     "address": "DWP Blackpool Hassra Fylde Community Pavillion, Thornton-Cleveleys, FY5 5EE",
     "order_number": "01-003586",
     "units": {
-     "3+1 toilet": 1
+     "3+1 toilet": 1,
+     "10ft store": 1,
+     "20ft": 1
     },
     "loads": [
      {
@@ -14266,16 +14268,41 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204954865,
+      "ref": "AES/65638",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 204954991,
+      "ref": "AES/65639",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
      }
     ],
-    "notes": "3+1 tank and steps",
+    "notes": "3+1 tank and steps / 10ft store / collection of 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     204954655
+     204954655,
+     204954865,
+     204954991
     ],
     "refs": [
-     "AES/65637"
+     "AES/65637",
+     "AES/65638",
+     "AES/65639"
     ],
     "pc_key": "FY55EE",
     "miles": 41
