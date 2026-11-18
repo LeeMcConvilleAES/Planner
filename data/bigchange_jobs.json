@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T16:56:42",
+ "generated_at": "2026-11-18T18:44:10",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -12751,7 +12751,7 @@
       "type": "Toilet Collection",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
