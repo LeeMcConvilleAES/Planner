@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-18T16:44:10",
+ "generated_at": "2026-11-18T16:46:12",
  "window": [
   "2026-07-21",
   "2027-03-13"
@@ -14241,7 +14241,8 @@
     "order_number": "01-003618",
     "units": {
      "20ft": 2,
-     "24ft": 2
+     "24ft": 2,
+     "32ft": 1
     },
     "loads": [
      {
@@ -14286,22 +14287,35 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205046471,
+      "ref": "AES/65670",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collection of 20ft store / collection 20ft store / collection of 24ft unit",
+    "notes": "collection of 20ft store / collection 20ft store / collection of 24ft unit / collection of 32ft unit",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      205045853,
      205045935,
      205046074,
-     205046255
+     205046255,
+     205046471
     ],
     "refs": [
      "AES/65666",
      "AES/65667",
      "AES/65668",
-     "AES/65669"
+     "AES/65669",
+     "AES/65670"
     ],
     "pc_key": "FY45LB",
     "miles": 39
