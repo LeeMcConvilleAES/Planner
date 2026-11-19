@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T11:33:06",
+ "generated_at": "2026-11-19T11:54:45",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -14456,7 +14456,7 @@
   ],
   "2026-12-01": [
    {
-    "id": "bc-205043346",
+    "id": "bc-205043063",
     "type": "Delivery",
     "col": "del",
     "customer": "BROOKHOUSE CONTRACTING",
@@ -14464,9 +14464,21 @@
     "address": "St Gabriels CPS Queensway Higher Fold, Leigh, WN7 2XG",
     "order_number": "01-003619",
     "units": {
+     "24ft": 1,
      "20ft": 1
     },
     "loads": [
+     {
+      "bigchange_id": 205043063,
+      "ref": "AES/65664",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
      {
       "bigchange_id": 205043346,
       "ref": "AES/65665",
@@ -14479,50 +14491,16 @@
       "last_price": 190.0
      }
     ],
-    "notes": "delivery 20ft store",
+    "notes": "delivery 24ft office / delivery 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
+     205043063,
      205043346
     ],
     "refs": [
+     "AES/65664",
      "AES/65665"
-    ],
-    "pc_key": "WN72XG",
-    "miles": 3
-   },
-   {
-    "id": "bc-205043063",
-    "type": "Collection",
-    "col": "col",
-    "customer": "BROOKHOUSE CONTRACTING",
-    "postcode": "WN7 2XG",
-    "address": "St Gabriels CPS Queensway Higher Fold, Leigh, WN7 2XG",
-    "order_number": "01-003619",
-    "units": {
-     "24ft": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 205043063,
-      "ref": "AES/65664",
-      "desc": "24ft",
-      "status": "booked",
-      "type": "0-15m Hiab Collection",
-      "price": 190.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 190.0
-     }
-    ],
-    "notes": "delivery 24ft office",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     205043063
-    ],
-    "refs": [
-     "AES/65664"
     ],
     "pc_key": "WN72XG",
     "miles": 3
