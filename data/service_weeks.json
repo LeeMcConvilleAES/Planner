@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T08:23:06",
+ "generated_at": "2026-11-19T09:23:13",
  "window": [
   "2026-08-24",
   "2026-11-16"
@@ -562,27 +562,27 @@
    },
    "JM": {
     "jobs": 38,
-    "booked": 50,
+    "booked": 53,
     "charged": 2180.0,
     "invoiced": 32,
     "unpriced": 6,
     "miles": 1090.0
    },
    "JP": {
-    "jobs": 22,
+    "jobs": 23,
     "booked": 55,
-    "charged": 1350.0,
-    "invoiced": 19,
-    "unpriced": 3,
-    "miles": 395.0
+    "charged": 1580.0,
+    "invoiced": 22,
+    "unpriced": 1,
+    "miles": 431.0
    },
    "SB": {
-    "jobs": 31,
+    "jobs": 33,
     "booked": 60,
-    "charged": 1366.0,
-    "invoiced": 30,
-    "unpriced": 1,
-    "miles": 701.0
+    "charged": 1461.0,
+    "invoiced": 33,
+    "unpriced": 0,
+    "miles": 723.0
    },
    "SE": {
     "jobs": 34,
@@ -595,9 +595,9 @@
   }
  },
  "skipped": {
-  "transport_or_stack": 705,
+  "transport_or_stack": 703,
   "cancelled": 0,
-  "unallocated": 29,
+  "unallocated": 30,
   "unknown_driver": {
    "rob sawyer": 180,
    "re schedule temp": 1,
