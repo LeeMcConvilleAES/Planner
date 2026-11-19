@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T09:59:36",
+ "generated_at": "2026-11-19T10:05:55",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -14247,7 +14247,8 @@
     "address": "Cranmer Gardens, Leeds, LS17 5LA",
     "order_number": "01-003609",
     "units": {
-     "24ft": 2
+     "24ft": 2,
+     "Effluent Tank Steps & IBC": 1
     },
     "loads": [
      {
@@ -14271,18 +14272,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 309.0
+     },
+     {
+      "bigchange_id": 205110362,
+      "ref": "AES/65760",
+      "desc": "Effluent Tank Steps & IBC",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 309.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 309.0
      }
     ],
-    "notes": "delivery of 24ft office / delivery 24ft canteen",
+    "notes": "delivery of 24ft office / delivery 24ft canteen / delivery 2+1 toilet block  1 x effluent tank 2 ibc and steps",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      205107732,
-     205108374
+     205108374,
+     205110362
     ],
     "refs": [
      "AES/65758",
-     "AES/65759"
+     "AES/65759",
+     "AES/65760"
     ],
     "pc_key": "LS175LA",
     "miles": 54
