@@ -2524,13 +2524,15 @@
    "day": "2026-11-19",
    "driver": "RB",
    "run": 1,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-11-19"
   },
   "205020382": {
    "day": "2026-11-19",
    "driver": "RB",
    "run": 3,
-   "seq": 1
+   "seq": 1,
+   "dropped_at": "2026-11-19"
   }
  },
  "run_starts": {},
@@ -2809,6 +2811,14 @@
    "driver": "RB",
    "from": "2026-11-20",
    "to": "2026-11-20"
+  },
+  {
+   "id": "v-1795089574765",
+   "reg": "BV73 EWG",
+   "type": "SERVICE",
+   "driver": "CR",
+   "from": "2026-12-03",
+   "to": "2026-12-03"
   }
  ],
  "enquiries": [
@@ -2973,6 +2983,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-18T15:21:25+00:00",
+ "updated_at": "2026-11-19T11:59:35+00:00",
  "updated_by": "office"
 }
