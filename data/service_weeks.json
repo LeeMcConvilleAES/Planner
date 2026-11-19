@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T15:23:42",
+ "generated_at": "2026-11-19T16:23:47",
  "window": [
   "2026-08-24",
   "2026-11-16"
@@ -562,7 +562,7 @@
    },
    "JM": {
     "jobs": 45,
-    "booked": 53,
+    "booked": 54,
     "charged": 2675.0,
     "invoiced": 37,
     "unpriced": 6,
@@ -577,12 +577,12 @@
     "miles": 999.0
    },
    "SB": {
-    "jobs": 41,
+    "jobs": 42,
     "booked": 59,
     "charged": 1681.0,
     "invoiced": 41,
-    "unpriced": 0,
-    "miles": 917.0
+    "unpriced": 1,
+    "miles": 918.0
    },
    "SE": {
     "jobs": 42,
@@ -595,9 +595,9 @@
   }
  },
  "skipped": {
-  "transport_or_stack": 703,
+  "transport_or_stack": 704,
   "cancelled": 0,
-  "unallocated": 30,
+  "unallocated": 29,
   "unknown_driver": {
    "rob sawyer": 180,
    "re schedule temp": 1,
