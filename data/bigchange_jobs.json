@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T06:15:56",
+ "generated_at": "2026-11-19T07:39:53",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -12968,7 +12968,7 @@
       "bigchange_id": 204040518,
       "ref": "AES/64913",
       "desc": "bowser",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
