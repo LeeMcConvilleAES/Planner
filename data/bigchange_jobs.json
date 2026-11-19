@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T11:01:24",
+ "generated_at": "2026-11-19T11:16:29",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -14515,7 +14515,7 @@
       "last_price": 190.0
      }
     ],
-    "notes": "collection of 24ft",
+    "notes": "delivery 24ft office",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
