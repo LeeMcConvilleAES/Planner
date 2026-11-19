@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T15:49:28",
+ "generated_at": "2026-11-19T15:53:31",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -13364,13 +13364,13 @@
     "address": "THE ROYAL WILTON PLACE SALFORD, Salford, M3 6WP",
     "order_number": "01-003635",
     "units": {
-     "boss": 1
+     "boss - take a boss key with you": 1
     },
     "loads": [
      {
       "bigchange_id": 205179720,
       "ref": "AES/65799",
-      "desc": "boss",
+      "desc": "boss - take a boss key with you",
       "status": "booked",
       "type": "Site Move / Exchange",
       "price": null,
@@ -13378,7 +13378,7 @@
       "price_source": null
      }
     ],
-    "notes": "on site move of BOSS",
+    "notes": "on site move of BOSS - take a BOSS key with you",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
