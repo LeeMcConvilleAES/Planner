@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T09:55:29",
+ "generated_at": "2026-11-19T09:57:33",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -12929,7 +12929,7 @@
       "bigchange_id": 203697618,
       "ref": "AES/64682",
       "desc": "20ft store",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -12939,7 +12939,7 @@
     ],
     "notes": "collection 20ft store 7764",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      203697618
     ],
@@ -14238,6 +14238,42 @@
    }
   ],
   "2026-11-27": [
+   {
+    "id": "bc-205107732",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A Connolly Ltd",
+    "postcode": "LS17 5LA",
+    "address": "Cranmer Gardens, Leeds, LS17 5LA",
+    "order_number": "01-003609",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205107732,
+      "ref": "AES/65758",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 309.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 309.0
+     }
+    ],
+    "notes": "delivery of 24ft office",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205107732
+    ],
+    "refs": [
+     "AES/65758"
+    ],
+    "pc_key": "LS175LA",
+    "miles": 54
+   },
    {
     "id": "bc-204971704",
     "type": "Delivery",
