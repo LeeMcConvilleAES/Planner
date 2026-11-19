@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T09:53:25",
+ "generated_at": "2026-11-19T09:55:29",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -13997,6 +13997,55 @@
    }
   ],
   "2026-11-26": [
+   {
+    "id": "bc-205106932",
+    "type": "Delivery",
+    "col": "del",
+    "customer": "A Connolly Ltd",
+    "postcode": "LS17 5LA",
+    "address": "Cranmer Gardens, Leeds, LS17 5LA",
+    "order_number": "01-003609",
+    "units": {
+     "20ft": 2
+    },
+    "loads": [
+     {
+      "bigchange_id": 205106932,
+      "ref": "AES/65756",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 309.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 309.0
+     },
+     {
+      "bigchange_id": 205107224,
+      "ref": "AES/65757",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 309.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 309.0
+     }
+    ],
+    "notes": "deliver 20ft store / delivery of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205106932,
+     205107224
+    ],
+    "refs": [
+     "AES/65756",
+     "AES/65757"
+    ],
+    "pc_key": "LS175LA",
+    "miles": 54
+   },
    {
     "id": "bc-204843082",
     "type": "Collection",
