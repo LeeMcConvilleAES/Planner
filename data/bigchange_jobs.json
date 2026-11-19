@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T15:22:09",
+ "generated_at": "2026-11-19T15:24:27",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -12845,7 +12845,7 @@
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      },
      {
@@ -12856,7 +12856,7 @@
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 190.0
      },
      {
@@ -13075,7 +13075,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -13147,7 +13147,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
