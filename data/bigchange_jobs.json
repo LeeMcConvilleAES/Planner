@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T17:14:20",
+ "generated_at": "2026-11-19T22:00:43",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -13409,9 +13409,10 @@
       "desc": "boss - take a boss key with you",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 250.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 250.0
      }
     ],
     "notes": "on site move of BOSS - take a BOSS key with you",
