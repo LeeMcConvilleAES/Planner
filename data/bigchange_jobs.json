@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T09:49:17",
+ "generated_at": "2026-11-19T09:51:22",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -13878,7 +13878,8 @@
     "address": "Cranmer Gardens, Leeds, LS17 5LA",
     "order_number": "01-003609",
     "units": {
-     "20ft": 1
+     "20ft": 1,
+     "20ft store": 1
     },
     "loads": [
      {
@@ -13891,16 +13892,29 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 309.0
+     },
+     {
+      "bigchange_id": 205106100,
+      "ref": "AES/65755",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 309.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 309.0
      }
     ],
-    "notes": "delivery 20ft store",
+    "notes": "delivery 20ft store / deliver 20ft store",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     205105710
+     205105710,
+     205106100
     ],
     "refs": [
-     "AES/65754"
+     "AES/65754",
+     "AES/65755"
     ],
     "pc_key": "LS175LA",
     "miles": 54
