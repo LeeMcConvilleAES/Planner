@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-19T00:00:07",
+ "generated_at": "2026-11-19T05:45:44",
  "window": [
   "2026-07-22",
   "2027-03-14"
@@ -12957,7 +12957,7 @@
       "bigchange_id": 204040394,
       "ref": "AES/64910",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Delivery",
       "price": 190.0,
       "est_price": null,
@@ -12978,7 +12978,7 @@
     ],
     "notes": "del 3+1 toilet,HT, steps,IBC / deliver 3+1 toilet, HT, steps, IBC / del 32ft canteen, / del32ft canteen / del 2 x IBC's",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204039673,
      204039882,
