@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T14:14:13",
+ "generated_at": "2026-11-20T14:22:39",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13443,7 +13443,7 @@
       "last_price": 100.0
      }
     ],
-    "notes": "delivery of BOSS UNIT",
+    "notes": "delivery of BOSS UNIT  number 8431",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
