@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T11:43:43",
+ "generated_at": "2026-11-20T12:26:15",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13169,7 +13169,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -13295,7 +13295,7 @@
       "type": "Toilet Collection",
       "price": 25.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 25.0
      }
     ],
