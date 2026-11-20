@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T00:00:11",
+ "generated_at": "2026-11-20T05:30:36",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13187,7 +13187,7 @@
       "bigchange_id": 204040977,
       "ref": "AES/64915",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -13197,7 +13197,7 @@
     ],
     "notes": "delivery of 24ft canteen / delivery of 24ft office/meeting room / 20ft store / delivery  a 32ft 3+1 toilet with dry room",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204040417,
      204040514,
