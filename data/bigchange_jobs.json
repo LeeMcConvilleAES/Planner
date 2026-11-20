@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T11:39:37",
+ "generated_at": "2026-11-20T11:43:43",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13165,7 +13165,7 @@
       "bigchange_id": 204040514,
       "ref": "AES/64912",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
@@ -13325,7 +13325,7 @@
       "bigchange_id": 205192115,
       "ref": "AES/65823",
       "desc": "Generator",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 450.0,
       "est_price": null,
@@ -13335,7 +13335,7 @@
     ],
     "notes": "60kVA Skid Mounted",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      205192115
     ],
