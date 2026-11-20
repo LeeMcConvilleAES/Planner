@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T13:51:20",
+ "generated_at": "2026-11-20T13:53:23",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -15310,7 +15310,7 @@
       "ref": "AES/65911",
       "desc": "20ft",
       "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
+      "type": "Hiab Collection",
       "price": 295.0,
       "est_price": null,
       "price_source": "job",
@@ -15325,6 +15325,42 @@
     ],
     "refs": [
      "AES/65911"
+    ],
+    "pc_key": "LA46AY",
+    "miles": 49
+   },
+   {
+    "id": "bc-205268005",
+    "type": "Collection",
+    "col": "col",
+    "customer": "pinington",
+    "postcode": "LA4 6AY",
+    "address": "Morecambe, LA4 6AY",
+    "order_number": "",
+    "units": {
+     "10ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205268005,
+      "ref": "AES/65912",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 295.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 295.0
+     }
+    ],
+    "notes": "collection of 10ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205268005
+    ],
+    "refs": [
+     "AES/65912"
     ],
     "pc_key": "LA46AY",
     "miles": 49
