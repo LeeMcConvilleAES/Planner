@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T15:00:38",
+ "generated_at": "2026-11-20T15:26:28",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13158,7 +13158,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      },
      {
@@ -13242,10 +13242,10 @@
       "desc": "32ft",
       "status": "complete",
       "type": "25-50m Hiab Delivery",
-      "price": 265.0,
+      "price": 530.0,
       "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
+      "price_source": "invoice",
+      "last_price": 530.0
      },
      {
       "bigchange_id": 204046362,
@@ -13253,10 +13253,10 @@
       "desc": "32ft",
       "status": "complete",
       "type": "25-50m Hiab Delivery",
-      "price": 265.0,
+      "price": 530.0,
       "est_price": null,
-      "price_source": "job",
-      "last_price": 265.0
+      "price_source": "invoice",
+      "last_price": 530.0
      }
     ],
     "notes": "delivery of 32ft",
@@ -13329,7 +13329,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 450.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 450.0
      }
     ],
@@ -13365,7 +13365,7 @@
       "type": "Toilet Collection",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
