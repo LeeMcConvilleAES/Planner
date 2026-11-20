@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T14:50:00",
+ "generated_at": "2026-11-20T15:00:38",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -14498,6 +14498,56 @@
    }
   ],
   "2026-11-30": [
+   {
+    "id": "bc-205278165",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Calson Solutions",
+    "postcode": "M31 4LW",
+    "address": "The Anex, Golmore House, Partington, M31 4LW",
+    "order_number": "01-003648",
+    "units": {
+     "2+1 toilet": 1,
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205278165,
+      "ref": "AES/65913",
+      "desc": "2+1 toilet",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 205278265,
+      "ref": "AES/65914",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-15m Hiab Collection",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     }
+    ],
+    "notes": "collection of a 2+1 / collection of 20ft canteen",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205278165,
+     205278265
+    ],
+    "refs": [
+     "AES/65913",
+     "AES/65914"
+    ],
+    "pc_key": "M314LW",
+    "miles": 16
+   },
    {
     "id": "bc-205045853",
     "type": "Collection",
