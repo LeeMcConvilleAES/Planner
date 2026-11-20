@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T13:53:23",
+ "generated_at": "2026-11-20T13:59:37",
  "window": [
   "2026-07-23",
   "2027-03-15"
@@ -13346,7 +13346,7 @@
     "miles": 41
    },
    {
-    "id": "bc-203877046",
+    "id": "bc-203877345",
     "type": "Collection",
     "col": "col",
     "customer": "Perfect Associates LTD",
@@ -13354,20 +13354,9 @@
     "address": "Tinsley Industrial Estate Shepcote Lane, Cross Lanes, LL13 0TS",
     "order_number": "01-003508",
     "units": {
-     "20ft": 2
+     "20ft": 1
     },
     "loads": [
-     {
-      "bigchange_id": 203877046,
-      "ref": "AES/64810",
-      "desc": "20ft",
-      "status": "booked",
-      "type": "25-50 Miles Hiab Collection",
-      "price": 330.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 330.0
-     },
      {
       "bigchange_id": 203877345,
       "ref": "AES/64811",
@@ -13384,11 +13373,9 @@
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     203877046,
      203877345
     ],
     "refs": [
-     "AES/64810",
      "AES/64811"
     ],
     "pc_key": "LL130TS",
@@ -15125,6 +15112,42 @@
     ],
     "pc_key": "WA168QR",
     "miles": 25
+   },
+   {
+    "id": "bc-203877046",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Perfect Associates LTD",
+    "postcode": "LL13 0TS",
+    "address": "Tinsley Industrial Estate Shepcote Lane, Cross Lanes, LL13 0TS",
+    "order_number": "01-003508",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203877046,
+      "ref": "AES/64810",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 330.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 330.0
+     }
+    ],
+    "notes": "collection of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     203877046
+    ],
+    "refs": [
+     "AES/64810"
+    ],
+    "pc_key": "LL130TS",
+    "miles": 55
    }
   ],
   "2026-12-07": [
