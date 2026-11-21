@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-21T00:00:05",
+ "generated_at": "2026-11-21T10:23:41",
  "window": [
   "2026-07-24",
   "2027-03-16"
@@ -13404,7 +13404,7 @@
       "bigchange_id": 205179720,
       "ref": "AES/65799",
       "desc": "boss - take a boss key with you",
-      "status": "booked",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 250.0,
       "est_price": null,
@@ -13414,7 +13414,7 @@
     ],
     "notes": "on site move of BOSS - take a BOSS key with you",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      205179720
     ],
