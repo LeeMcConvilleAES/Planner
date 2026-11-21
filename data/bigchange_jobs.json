@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-20T16:10:43",
+ "generated_at": "2026-11-21T00:00:05",
  "window": [
-  "2026-07-23",
-  "2027-03-15"
+  "2026-07-24",
+  "2027-03-16"
  ],
  "jobs": {
   "2026-09-12": [
@@ -11708,6 +11708,7 @@
     "refs": [
      "AES/65404"
     ],
+    "archived": true,
     "pc_key": "WN87SF",
     "miles": 23
    },
@@ -11744,6 +11745,7 @@
     "refs": [
      "AES/65405"
     ],
+    "archived": true,
     "pc_key": "WN87SF",
     "miles": 23
    },
@@ -11780,44 +11782,9 @@
     "refs": [
      "AES/65319"
     ],
+    "archived": true,
     "pc_key": "M146HD",
     "miles": 15
-   },
-   {
-    "id": "bc-203770236",
-    "type": "Collection",
-    "col": "col",
-    "customer": "A CONNOLLY",
-    "postcode": "M25 1DZ",
-    "address": "49 bannerman , Prestwich, m25 1dz",
-    "order_number": "01-003494",
-    "units": {
-     "mobile welfare": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 203770236,
-      "ref": "AES/64738",
-      "desc": "mobile welfare",
-      "status": "complete",
-      "type": "7.5t Transport Collection",
-      "price": 100.0,
-      "est_price": null,
-      "price_source": "invoice",
-      "last_price": 100.0
-     }
-    ],
-    "notes": "boss unit collection",
-    "destack": "",
-    "status": "complete",
-    "bigchange_ids": [
-     203770236
-    ],
-    "refs": [
-     "AES/64738"
-    ],
-    "pc_key": "M251DZ",
-    "miles": 12
    },
    {
     "id": "bc-204526452",
@@ -11852,8 +11819,46 @@
     "refs": [
      "AES/65313"
     ],
+    "archived": true,
     "pc_key": "CH53EY",
     "miles": 43
+   },
+   {
+    "id": "bc-203770236",
+    "type": "Collection",
+    "col": "col",
+    "customer": "A CONNOLLY",
+    "postcode": "M25 1DZ",
+    "address": "49 bannerman , Prestwich, m25 1dz",
+    "order_number": "01-003494",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 203770236,
+      "ref": "AES/64738",
+      "desc": "mobile welfare",
+      "status": "complete",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "invoice",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "boss unit collection",
+    "destack": "",
+    "status": "complete",
+    "bigchange_ids": [
+     203770236
+    ],
+    "refs": [
+     "AES/64738"
+    ],
+    "archived": true,
+    "pc_key": "M251DZ",
+    "miles": 12
    },
    {
     "id": "bc-203091989",
@@ -11888,6 +11893,7 @@
     "refs": [
      "AES/64245"
     ],
+    "archived": true,
     "pc_key": "B401NT",
     "miles": 99
    },
@@ -11965,6 +11971,7 @@
      "AES/64242",
      "AES/64243"
     ],
+    "archived": true,
     "pc_key": "SK121AG",
     "miles": 23
    }
