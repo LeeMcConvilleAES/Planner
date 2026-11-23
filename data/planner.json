@@ -2996,14 +2996,6 @@
    "to": "2026-12-03"
   },
   {
-   "id": "v-1795443921833",
-   "reg": "BV73 EWG",
-   "type": "MOT",
-   "driver": "CR",
-   "from": "2026-12-17",
-   "to": "2026-12-17"
-  },
-  {
    "id": "v-1795443962909",
    "reg": "YK25 CXE",
    "type": "PMI",
@@ -3158,6 +3150,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-23T14:26:04+00:00",
+ "updated_at": "2026-11-23T14:26:28+00:00",
  "updated_by": "office"
 }
