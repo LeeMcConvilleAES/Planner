@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-21T10:24:58",
+ "generated_at": "2026-11-23T00:29:06",
  "window": [
-  "2026-08-24",
-  "2026-11-16"
+  "2026-08-31",
+  "2026-11-23"
  ],
  "drivers": {
   "AU": "Alan Unsworth",
@@ -15,48 +15,6 @@
   "SE": "Stephen Ennion"
  },
  "weeks": {
-  "2026-08-24": {
-   "AU": {
-    "jobs": 20,
-    "booked": 20,
-    "charged": 566.0,
-    "invoiced": 17,
-    "unpriced": 2,
-    "miles": 873.0
-   },
-   "JM": {
-    "jobs": 46,
-    "booked": 46,
-    "charged": 3130.0,
-    "invoiced": 44,
-    "unpriced": 2,
-    "miles": 1212.0
-   },
-   "JP": {
-    "jobs": 89,
-    "booked": 89,
-    "charged": 6080.0,
-    "invoiced": 86,
-    "unpriced": 3,
-    "miles": 1773.0
-   },
-   "SB": {
-    "jobs": 59,
-    "booked": 59,
-    "charged": 1901.0,
-    "invoiced": 50,
-    "unpriced": 6,
-    "miles": 1219.0
-   },
-   "SE": {
-    "jobs": 62,
-    "booked": 62,
-    "charged": 1691.0,
-    "invoiced": 62,
-    "unpriced": 0,
-    "miles": 1156.0
-   }
-  },
   "2026-08-31": {
    "AU": {
     "jobs": 18,
@@ -584,16 +542,58 @@
     "unpriced": 0,
     "miles": 1054.0
    }
+  },
+  "2026-11-23": {
+   "AU": {
+    "jobs": 0,
+    "booked": 23,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "JM": {
+    "jobs": 0,
+    "booked": 42,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "JP": {
+    "jobs": 0,
+    "booked": 86,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SB": {
+    "jobs": 0,
+    "booked": 57,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   },
+   "SE": {
+    "jobs": 0,
+    "booked": 34,
+    "charged": 0.0,
+    "invoiced": 0,
+    "unpriced": 0,
+    "miles": 0
+   }
   }
  },
  "skipped": {
-  "transport_or_stack": 704,
+  "transport_or_stack": 699,
   "cancelled": 0,
-  "unallocated": 29,
+  "unallocated": 30,
   "unknown_driver": {
-   "rob sawyer": 190,
    "re schedule temp": 1,
-   "wasteline": 151,
+   "rob sawyer": 181,
+   "wasteline": 148,
    "universal tankers": 12,
    "darren fishwick": 4,
    "ste longworth": 1,
