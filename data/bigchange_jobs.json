@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T11:03:10",
+ "generated_at": "2026-11-23T11:05:18",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13442,7 +13442,7 @@
       "bigchange_id": 205099269,
       "ref": "AES/65745",
       "desc": "mobile welfare",
-      "status": "live",
+      "status": "complete",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -13452,7 +13452,7 @@
     ],
     "notes": "delivery of BOSS UNIT  number 8431",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      205099269
     ],
@@ -13636,7 +13636,7 @@
       "bigchange_id": 203877046,
       "ref": "AES/64810",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 330.0,
       "est_price": null,
@@ -13657,7 +13657,7 @@
     ],
     "notes": "collection of 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      203877046,
      203877345
