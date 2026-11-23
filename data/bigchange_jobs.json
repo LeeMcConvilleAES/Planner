@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T11:11:28",
+ "generated_at": "2026-11-23T11:23:36",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13490,7 +13490,7 @@
       "bigchange_id": 204478232,
       "ref": "AES/65296",
       "desc": "24ft office",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -13500,7 +13500,7 @@
     ],
     "notes": "collection of 3+1 toilet block steps ibcs / collection 24ft office",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204478078,
      204478232
