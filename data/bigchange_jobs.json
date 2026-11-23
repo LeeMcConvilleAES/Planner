@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T16:41:56",
+ "generated_at": "2026-11-23T16:44:02",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -15243,7 +15243,8 @@
     "order_number": "01-003654",
     "units": {
      "32ft": 1,
-     "24ft": 1
+     "24ft": 1,
+     "Effluent Tank & Steps": 1
     },
     "loads": [
      {
@@ -15267,18 +15268,31 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205446254,
+      "ref": "AES/66036",
+      "desc": "Effluent Tank & Steps",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "collwction of 32ft office / collection of 24ft canteen",
+    "notes": "collwction of 32ft office / collection of 24ft canteen / collection of tank and steps",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      205446128,
-     205446184
+     205446184,
+     205446254
     ],
     "refs": [
      "AES/66034",
-     "AES/66035"
+     "AES/66035",
+     "AES/66036"
     ],
     "pc_key": "WN60PY",
     "miles": 14
