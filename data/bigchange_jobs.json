@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T12:35:30",
+ "generated_at": "2026-11-23T12:37:33",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13528,7 +13528,7 @@
       "bigchange_id": 204610814,
       "ref": "AES/65392",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -13538,7 +13538,7 @@
     ],
     "notes": "collection of 20ft store ibc and water barrel",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204610814
     ],
@@ -13564,7 +13564,7 @@
       "bigchange_id": 204613286,
       "ref": "AES/65402",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -13574,7 +13574,7 @@
     ],
     "notes": "collection of 24ft",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204613286
     ],
@@ -13600,7 +13600,7 @@
       "bigchange_id": 204613424,
       "ref": "AES/65403",
       "desc": "onsite move of a 20ft store",
-      "status": "booked",
+      "status": "complete",
       "type": "Site Move / Exchange",
       "price": 100.0,
       "est_price": null,
@@ -13610,7 +13610,7 @@
     ],
     "notes": "onsite move of a 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      204613424
     ],
