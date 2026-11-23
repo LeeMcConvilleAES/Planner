@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T15:08:12",
+ "generated_at": "2026-11-23T15:22:26",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -15183,6 +15183,55 @@
     ],
     "pc_key": "WA168QR",
     "miles": 25
+   },
+   {
+    "id": "bc-205429339",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Perfect Associates LTD",
+    "postcode": "LL13 0TS",
+    "address": "Tinsley Industrial Estate Shepcote Lane, Cross Lanes, LL13 0TS",
+    "order_number": "01-003652",
+    "units": {
+     "20ft store": 2
+    },
+    "loads": [
+     {
+      "bigchange_id": 205429339,
+      "ref": "AES/66032",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 330.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 330.0
+     },
+     {
+      "bigchange_id": 205429635,
+      "ref": "AES/66033",
+      "desc": "20ft store",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": 330.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 330.0
+     }
+    ],
+    "notes": "collection of 20ft store Laurentiu -",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205429339,
+     205429635
+    ],
+    "refs": [
+     "AES/66032",
+     "AES/66033"
+    ],
+    "pc_key": "LL130TS",
+    "miles": 55
    }
   ],
   "2026-12-07": [
