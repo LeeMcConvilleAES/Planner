@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T12:37:33",
+ "generated_at": "2026-11-23T13:26:14",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13528,7 +13528,7 @@
       "bigchange_id": 204610814,
       "ref": "AES/65392",
       "desc": "20ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -13538,7 +13538,7 @@
     ],
     "notes": "collection of 20ft store ibc and water barrel",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204610814
     ],
