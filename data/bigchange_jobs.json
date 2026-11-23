@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T16:35:47",
+ "generated_at": "2026-11-23T16:41:56",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -15232,6 +15232,56 @@
     ],
     "pc_key": "LL130TS",
     "miles": 55
+   },
+   {
+    "id": "bc-205446128",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Persimmon Homes",
+    "postcode": "WN6 0PY",
+    "address": "Pepper Lane, Standish, WN6 0PY",
+    "order_number": "01-003654",
+    "units": {
+     "32ft": 1,
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205446128,
+      "ref": "AES/66034",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205446184,
+      "ref": "AES/66035",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collwction of 32ft office / collection of 24ft canteen",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205446128,
+     205446184
+    ],
+    "refs": [
+     "AES/66034",
+     "AES/66035"
+    ],
+    "pc_key": "WN60PY",
+    "miles": 14
    }
   ],
   "2026-12-07": [
