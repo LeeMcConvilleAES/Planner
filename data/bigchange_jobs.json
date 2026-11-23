@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T14:06:50",
+ "generated_at": "2026-11-23T15:04:03",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13952,7 +13952,7 @@
       "bigchange_id": 204508822,
       "ref": "AES/65310",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -13963,7 +13963,7 @@
       "bigchange_id": 204509025,
       "ref": "AES/65311",
       "desc": "Effluent Tank & Steps",
-      "status": "booked",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -13973,7 +13973,7 @@
     ],
     "notes": "32ft office / collection of 24ft canteen / collection of steps tank ibcs",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204508666,
      204508822,
