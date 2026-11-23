@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T11:23:36",
+ "generated_at": "2026-11-23T12:33:25",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13685,7 +13685,7 @@
       "bigchange_id": 205159685,
       "ref": "AES/65794",
       "desc": "boss unit",
-      "status": "booked",
+      "status": "complete",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -13695,7 +13695,7 @@
     ],
     "notes": "collection of boss unit",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      205159685
     ],
