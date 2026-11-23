@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T13:34:23",
+ "generated_at": "2026-11-23T14:06:50",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13494,7 +13494,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -13532,7 +13532,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -13568,7 +13568,7 @@
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 265.0
      }
     ],
@@ -13604,7 +13604,7 @@
       "type": "Site Move / Exchange",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
@@ -13689,7 +13689,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
