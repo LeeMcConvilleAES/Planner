@@ -3010,6 +3010,14 @@
    "driver": "CR",
    "from": "2026-12-17",
    "to": "2026-12-17"
+  },
+  {
+   "id": "v-1795444057871",
+   "reg": "MV75 BXZ",
+   "type": "PMI",
+   "driver": "SL",
+   "from": "2026-12-02",
+   "to": "2026-12-17"
   }
  ],
  "enquiries": [],
@@ -3158,6 +3166,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-23T14:26:39+00:00",
+ "updated_at": "2026-11-23T14:27:38+00:00",
  "updated_by": "office"
 }
