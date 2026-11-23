@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T10:22:11",
+ "generated_at": "2026-11-23T11:03:10",
  "window": [
   "2026-07-26",
   "2027-03-18"
@@ -13442,7 +13442,7 @@
       "bigchange_id": 205099269,
       "ref": "AES/65745",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Delivery",
       "price": 100.0,
       "est_price": null,
@@ -13452,7 +13452,7 @@
     ],
     "notes": "delivery of BOSS UNIT  number 8431",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      205099269
     ],
