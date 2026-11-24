@@ -3134,6 +3134,23 @@
    "created_at": "2026-11-24T08:39:10",
    "created_by": "office",
    "edited_at": "2026-11-24T08:39:52"
+  },
+  {
+   "id": "e-1795509674904",
+   "day": "2026-12-08",
+   "col": "del",
+   "customer": "THURSTON GROUP",
+   "postcode": "WF4 6AJ",
+   "po": "",
+   "items": [
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT"
+   ],
+   "notes": "",
+   "created_at": "2026-11-24T08:41:14",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -3281,6 +3298,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T08:39:54+00:00",
+ "updated_at": "2026-11-24T08:41:15+00:00",
  "updated_by": "office"
 }
