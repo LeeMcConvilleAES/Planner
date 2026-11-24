@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T06:00:54",
+ "generated_at": "2026-11-24T08:12:32",
  "window": [
   "2026-07-27",
   "2027-03-19"
@@ -14091,7 +14091,7 @@
       "bigchange_id": 204849135,
       "ref": "AES/65577",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 290.0,
       "est_price": null,
@@ -14101,7 +14101,7 @@
     ],
     "notes": "collection of 24ft unit pre 7.30 am",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204849135
     ],
