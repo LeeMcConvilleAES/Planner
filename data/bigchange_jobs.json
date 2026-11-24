@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T10:09:00",
+ "generated_at": "2026-11-24T10:29:34",
  "window": [
   "2026-07-27",
   "2027-03-19"
@@ -13834,7 +13834,7 @@
       "bigchange_id": 204764050,
       "ref": "AES/65556",
       "desc": "24ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -13844,7 +13844,7 @@
     ],
     "notes": "collection of 24ft office  jason -",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204764050
     ],
