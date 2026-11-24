@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T15:34:13",
+ "generated_at": "2026-11-24T16:34:30",
  "window": [
   "2026-08-31",
   "2026-11-23"
@@ -489,7 +489,7 @@
   "2026-11-23": {
    "JM": {
     "jobs": 17,
-    "booked": 42,
+    "booked": 39,
     "charged": 855.0,
     "invoiced": 14,
     "unpriced": 3,
@@ -505,7 +505,7 @@
    },
    "SB": {
     "jobs": 17,
-    "booked": 56,
+    "booked": 57,
     "charged": 770.0,
     "invoiced": 17,
     "unpriced": 0,
@@ -522,17 +522,17 @@
   }
  },
  "skipped": {
-  "transport_or_stack": 703,
+  "transport_or_stack": 702,
   "cancelled": 0,
-  "unallocated": 29,
+  "unallocated": 28,
   "unknown_driver": {
-   "kirt seddon": 116,
+   "kirt seddon": 119,
    "re schedule temp": 1,
    "rob sawyer": 192,
    "wasteline": 149,
    "universal tankers": 11,
    "darren fishwick": 4,
-   "ste longworth": 1,
+   "paul atkinson": 1,
    "rob brown": 1,
    "colin rogers": 1
   },
