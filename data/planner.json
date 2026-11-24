@@ -3229,6 +3229,20 @@
    "created_at": "2026-11-24T08:56:59",
    "created_by": "office",
    "edited_at": "2026-11-24T08:57:31"
+  },
+  {
+   "id": "e-1795517602870",
+   "day": "2026-11-27",
+   "col": "del",
+   "customer": "elite access",
+   "postcode": "",
+   "po": "",
+   "items": [
+    "boss unit delivery"
+   ],
+   "notes": "",
+   "created_at": "2026-11-24T10:53:22",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -3376,6 +3390,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T10:13:35+00:00",
+ "updated_at": "2026-11-24T10:53:24+00:00",
  "updated_by": "office"
 }
