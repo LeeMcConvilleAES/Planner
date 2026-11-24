@@ -3114,7 +3114,27 @@
    "to": "2026-12-10"
   }
  ],
- "enquiries": [],
+ "enquiries": [
+  {
+   "id": "e-1795509550673",
+   "day": "2026-11-24",
+   "col": "del",
+   "customer": "ELDERPOINT",
+   "postcode": "L337SG",
+   "po": "",
+   "items": [
+    "32ft",
+    "32ft",
+    "32ft",
+    "32FT",
+    "32FT",
+    "32FT"
+   ],
+   "notes": "",
+   "created_at": "2026-11-24T08:39:10",
+   "created_by": "office"
+  }
+ ],
  "conversions": {
   "e-j-cfe2675e3b": {
    "card": "bc-200296895",
@@ -3260,6 +3280,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T08:36:52+00:00",
+ "updated_at": "2026-11-24T08:39:12+00:00",
  "updated_by": "office"
 }
