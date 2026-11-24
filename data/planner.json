@@ -2468,7 +2468,7 @@
   },
   "204505146": {
    "day": "2026-11-24",
-   "driver": "RB",
+   "driver": "CR",
    "run": 1,
    "seq": 1
   },
@@ -2614,7 +2614,7 @@
    "day": "2026-11-24",
    "driver": "CR",
    "run": 1,
-   "seq": 1
+   "seq": 2
   },
   "204907013": {
    "day": "2026-11-23",
@@ -3164,6 +3164,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T08:12:54+00:00",
+ "updated_at": "2026-11-24T08:13:08+00:00",
  "updated_by": "office"
 }
