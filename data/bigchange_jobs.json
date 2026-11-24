@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T14:22:12",
+ "generated_at": "2026-11-24T14:38:42",
  "window": [
   "2026-07-27",
   "2027-03-19"
@@ -14580,7 +14580,7 @@
       "last_price": 100.0
      }
     ],
-    "notes": "deliver boss unit",
+    "notes": "deliver boss unit  24ft",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
