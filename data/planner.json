@@ -2556,6 +2556,12 @@
    "run": 4,
    "seq": 1
   },
+  "204629802": {
+   "day": "2026-11-26",
+   "driver": "DF",
+   "run": 2,
+   "seq": 1
+  },
   "204732893": {
    "day": "2026-11-17",
    "driver": "RS",
@@ -3194,6 +3200,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T08:14:23+00:00",
+ "updated_at": "2026-11-24T08:14:35+00:00",
  "updated_by": "office"
 }
