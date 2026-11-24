@@ -1,14 +1,13 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T12:10:10",
+ "generated_at": "2026-11-24T13:10:15",
  "window": [
   "2026-08-31",
   "2026-11-23"
  ],
  "drivers": {
   "AU": "Alan Unsworth",
-  "DB": "Danny Ball",
   "JM": "Jeff Matthews",
   "JP": "John Purtill",
   "SB": "Stephen Bond",
@@ -23,14 +22,6 @@
     "invoiced": 18,
     "unpriced": 0,
     "miles": 826.0
-   },
-   "DB": {
-    "jobs": 0,
-    "booked": 13,
-    "charged": 0.0,
-    "invoiced": 0,
-    "unpriced": 0,
-    "miles": 0
    },
    "JM": {
     "jobs": 44,
@@ -74,14 +65,6 @@
     "unpriced": 0,
     "miles": 656.0
    },
-   "DB": {
-    "jobs": 49,
-    "booked": 49,
-    "charged": 3255.0,
-    "invoiced": 48,
-    "unpriced": 1,
-    "miles": 1393.0
-   },
    "JM": {
     "jobs": 46,
     "booked": 49,
@@ -123,14 +106,6 @@
     "invoiced": 16,
     "unpriced": 0,
     "miles": 734.0
-   },
-   "DB": {
-    "jobs": 21,
-    "booked": 21,
-    "charged": 1235.0,
-    "invoiced": 20,
-    "unpriced": 1,
-    "miles": 827.0
    },
    "JM": {
     "jobs": 33,
@@ -174,14 +149,6 @@
     "unpriced": 0,
     "miles": 684.0
    },
-   "DB": {
-    "jobs": 2,
-    "booked": 2,
-    "charged": 0.0,
-    "invoiced": 0,
-    "unpriced": 2,
-    "miles": 0
-   },
    "JM": {
     "jobs": 48,
     "booked": 48,
@@ -224,14 +191,6 @@
     "unpriced": 0,
     "miles": 442.0
    },
-   "DB": {
-    "jobs": 29,
-    "booked": 29,
-    "charged": 1885.0,
-    "invoiced": 29,
-    "unpriced": 0,
-    "miles": 1068.0
-   },
    "JM": {
     "jobs": 9,
     "booked": 13,
@@ -273,14 +232,6 @@
     "invoiced": 18,
     "unpriced": 1,
     "miles": 786.0
-   },
-   "DB": {
-    "jobs": 1,
-    "booked": 1,
-    "charged": 360.0,
-    "invoiced": 1,
-    "unpriced": 0,
-    "miles": 31.0
    },
    "JM": {
     "jobs": 46,
@@ -384,14 +335,6 @@
    }
   },
   "2026-10-26": {
-   "DB": {
-    "jobs": 0,
-    "booked": 1,
-    "charged": 0.0,
-    "invoiced": 0,
-    "unpriced": 0,
-    "miles": 0
-   },
    "JM": {
     "jobs": 54,
     "booked": 55,
@@ -545,12 +488,12 @@
   },
   "2026-11-23": {
    "JM": {
-    "jobs": 15,
+    "jobs": 17,
     "booked": 42,
     "charged": 545.0,
     "invoiced": 9,
-    "unpriced": 6,
-    "miles": 659.0
+    "unpriced": 8,
+    "miles": 669.0
    },
    "JP": {
     "jobs": 30,
@@ -561,12 +504,12 @@
     "miles": 455.0
    },
    "SB": {
-    "jobs": 14,
+    "jobs": 15,
     "booked": 56,
-    "charged": 535.0,
+    "charged": 555.0,
     "invoiced": 12,
     "unpriced": 2,
-    "miles": 444.0
+    "miles": 469.0
    },
    "SE": {
     "jobs": 19,
@@ -583,6 +526,7 @@
   "cancelled": 0,
   "unallocated": 29,
   "unknown_driver": {
+   "kirt seddon": 116,
    "re schedule temp": 1,
    "rob sawyer": 203,
    "wasteline": 149,
