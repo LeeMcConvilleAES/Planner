@@ -1,10 +1,10 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-23T16:50:14",
+ "generated_at": "2026-11-24T00:00:08",
  "window": [
-  "2026-07-26",
-  "2027-03-18"
+  "2026-07-27",
+  "2027-03-19"
  ],
  "jobs": {
   "2026-09-12": [
@@ -12037,6 +12037,7 @@
      "AES/65074",
      "AES/65075"
     ],
+    "archived": true,
     "pc_key": "ST51LT",
     "miles": 47
    },
@@ -12087,6 +12088,7 @@
      "AES/64741",
      "AES/64742"
     ],
+    "archived": true,
     "pc_key": "BD109NF",
     "miles": 49
    },
@@ -12164,6 +12166,7 @@
      "AES/64649",
      "AES/64650"
     ],
+    "archived": true,
     "pc_key": "OL83RU",
     "miles": 19
    }
