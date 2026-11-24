@@ -3189,6 +3189,26 @@
    "notes": "",
    "created_at": "2026-11-24T08:44:36",
    "created_by": "office"
+  },
+  {
+   "id": "e-1795510577550",
+   "day": "2026-12-10",
+   "col": "col",
+   "customer": "ELDERPOINT",
+   "postcode": "L33 7SG",
+   "po": "",
+   "items": [
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT",
+    "32FT"
+   ],
+   "notes": "",
+   "created_at": "2026-11-24T08:56:17",
+   "created_by": "office"
   }
  ],
  "conversions": {
@@ -3336,6 +3356,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-24T08:44:58+00:00",
+ "updated_at": "2026-11-24T08:56:18+00:00",
  "updated_by": "office"
 }
