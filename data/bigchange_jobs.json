@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-24T08:53:18",
+ "generated_at": "2026-11-24T09:11:51",
  "window": [
   "2026-07-27",
   "2027-03-19"
@@ -13925,6 +13925,42 @@
     ],
     "pc_key": "BB79PW",
     "miles": 35
+   },
+   {
+    "id": "bc-205475463",
+    "type": "Collection",
+    "col": "col",
+    "customer": "M Group",
+    "postcode": "L11 9DX",
+    "address": "Stonedale Crescent, Liverpool, L11 9DX",
+    "order_number": "01-003661",
+    "units": {
+     "24ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205475463,
+      "ref": "AES/66039",
+      "desc": "24ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "COLLECTION OF 24FT OFFICE",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205475463
+    ],
+    "refs": [
+     "AES/66039"
+    ],
+    "pc_key": "L119DX",
+    "miles": 21
    },
    {
     "id": "bc-204763434",
