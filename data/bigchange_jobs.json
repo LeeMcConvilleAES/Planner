@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T15:05:27",
+ "generated_at": "2026-11-25T15:15:44",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -16015,12 +16015,22 @@
     "address": "BB CONTRACTS SYMMETRY PARK, Dunchurch, CV23 9LP",
     "order_number": "01-003679",
     "units": {
-     "32ft": 1
+     "32ft": 2
     },
     "loads": [
      {
       "bigchange_id": 205653643,
       "ref": "AES/66167",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "Hiab Collection",
+      "price": null,
+      "est_price": null,
+      "price_source": null
+     },
+     {
+      "bigchange_id": 205655312,
+      "ref": "AES/66168",
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
@@ -16033,10 +16043,12 @@
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     205653643
+     205653643,
+     205655312
     ],
     "refs": [
-     "AES/66167"
+     "AES/66167",
+     "AES/66168"
     ],
     "pc_key": "CV239LP",
     "miles": 120
