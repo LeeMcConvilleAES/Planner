@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T09:15:09",
+ "generated_at": "2026-11-25T09:37:39",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -14095,7 +14095,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      },
      {
@@ -14106,7 +14106,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      }
     ],
@@ -14421,6 +14421,42 @@
     ],
     "pc_key": "BL12NP",
     "miles": 6
+   },
+   {
+    "id": "bc-205598367",
+    "type": "Collection",
+    "col": "col",
+    "customer": "H H Smith",
+    "postcode": "ST5 1LT",
+    "address": "GOOSE STREET , Newcastle-under-Lyme, ST5 1LT",
+    "order_number": "01-003680",
+    "units": {
+     "stairs c/w landing": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205598367,
+      "ref": "AES/66138",
+      "desc": "stairs c/w landing",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "collection of staircase site will load you",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205598367
+    ],
+    "refs": [
+     "AES/66138"
+    ],
+    "pc_key": "ST51LT",
+    "miles": 47
    },
    {
     "id": "bc-204629802",
