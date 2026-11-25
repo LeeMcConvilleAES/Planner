@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T14:36:53",
+ "generated_at": "2026-11-25T14:47:13",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -15957,7 +15957,7 @@
       "price_source": null
      }
     ],
-    "notes": "Deliver 1 x 20ft from M46 9BE",
+    "notes": "Site Move 32ft  from PR7 6DH",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
