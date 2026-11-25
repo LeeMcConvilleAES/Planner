@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T10:47:40",
+ "generated_at": "2026-11-25T10:53:50",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -14493,6 +14493,40 @@
     ],
     "pc_key": "ST51LT",
     "miles": 47
+   },
+   {
+    "id": "bc-205612121",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Rowland Homes",
+    "postcode": "PR4 0FY",
+    "address": "Tom Benson Way, Ingo, Fulwood, PR4 0FY",
+    "order_number": "01-002607",
+    "units": {
+     "chemical toilet": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205612121,
+      "ref": "",
+      "desc": "chemical toilet",
+      "status": "booked",
+      "type": "Toilet Collection",
+      "price": 45.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 45.0
+     }
+    ],
+    "notes": "collection of chemical toilet",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205612121
+    ],
+    "refs": [],
+    "pc_key": "PR40FY",
+    "miles": 28
    },
    {
     "id": "bc-204629802",
