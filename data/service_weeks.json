@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T15:36:38",
+ "generated_at": "2026-11-25T17:36:44",
  "window": [
   "2026-08-31",
   "2026-11-23"
@@ -497,7 +497,7 @@
    },
    "JP": {
     "jobs": 58,
-    "booked": 87,
+    "booked": 88,
     "charged": 4060.0,
     "invoiced": 57,
     "unpriced": 1,
@@ -513,7 +513,7 @@
    },
    "SE": {
     "jobs": 28,
-    "booked": 47,
+    "booked": 48,
     "charged": 1020.0,
     "invoiced": 28,
     "unpriced": 0,
