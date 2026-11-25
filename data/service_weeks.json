@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T08:35:58",
+ "generated_at": "2026-11-25T09:35:58",
  "window": [
   "2026-08-31",
   "2026-11-23"
@@ -489,35 +489,35 @@
   "2026-11-23": {
    "JM": {
     "jobs": 17,
-    "booked": 39,
+    "booked": 37,
     "charged": 855.0,
     "invoiced": 14,
     "unpriced": 3,
     "miles": 669.0
    },
    "JP": {
-    "jobs": 39,
+    "jobs": 40,
     "booked": 87,
-    "charged": 2620.0,
-    "invoiced": 37,
-    "unpriced": 2,
-    "miles": 683.0
+    "charged": 2795.0,
+    "invoiced": 39,
+    "unpriced": 1,
+    "miles": 741.0
    },
    "SB": {
-    "jobs": 19,
+    "jobs": 20,
     "booked": 57,
-    "charged": 770.0,
-    "invoiced": 17,
-    "unpriced": 2,
-    "miles": 533.0
+    "charged": 915.0,
+    "invoiced": 20,
+    "unpriced": 0,
+    "miles": 545.0
    },
    "SE": {
-    "jobs": 19,
+    "jobs": 20,
     "booked": 48,
-    "charged": 740.0,
-    "invoiced": 19,
+    "charged": 790.0,
+    "invoiced": 20,
     "unpriced": 0,
-    "miles": 464.0
+    "miles": 505.0
    }
   }
  },
@@ -526,7 +526,7 @@
   "cancelled": 0,
   "unallocated": 28,
   "unknown_driver": {
-   "kirt seddon": 119,
+   "kirt seddon": 120,
    "re schedule temp": 1,
    "rob sawyer": 190,
    "wasteline": 149,
