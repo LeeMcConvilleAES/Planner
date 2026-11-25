@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T14:20:13",
+ "generated_at": "2026-11-25T14:24:28",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -15943,13 +15943,13 @@
     "address": "Buckshaw Village, PR7 7DW",
     "order_number": "ste PR7 7DW",
     "units": {
-     "32ft ( movement order )": 1
+     "a 20ft store": 1
     },
     "loads": [
      {
       "bigchange_id": 205644738,
       "ref": "AES/66163",
-      "desc": "32ft ( movement order )",
+      "desc": "a 20ft store",
       "status": "booked",
       "type": "Site Move / Exchange",
       "price": 350.0,
@@ -15958,7 +15958,7 @@
       "last_price": 350.0
      }
     ],
-    "notes": "Collect 32ft ( movement order ) from PR7 6DH",
+    "notes": "Deliver a 20ft store to PR7 6DH - then Collect 32ft ( movement order ) from PR7 6DH and",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
