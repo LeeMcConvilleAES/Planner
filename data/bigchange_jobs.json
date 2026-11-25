@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T06:30:04",
+ "generated_at": "2026-11-25T07:47:32",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -14324,7 +14324,7 @@
       "bigchange_id": 205535326,
       "ref": "AES/66082",
       "desc": "boss unit kyle 075169",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Collection",
       "price": null,
       "est_price": null,
@@ -14333,7 +14333,7 @@
     ],
     "notes": "collection boss unit  kyle 075169 11217",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      205535326
     ],
