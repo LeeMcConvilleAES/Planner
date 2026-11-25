@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T20:44:35",
+ "generated_at": "2026-11-25T21:14:56",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -16050,9 +16050,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Collection",
-      "price": null,
+      "price": 513.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 513.0
      },
      {
       "bigchange_id": 205655312,
