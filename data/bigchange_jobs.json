@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T20:29:26",
+ "generated_at": "2026-11-25T20:44:35",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -15976,9 +15976,10 @@
       "desc": "32ft",
       "status": "booked",
       "type": "Hiab Delivery",
-      "price": null,
+      "price": 350.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 350.0
      }
     ],
     "notes": "Site Move 32ft  from PR7 6DH",
@@ -16011,9 +16012,10 @@
       "desc": "20ft",
       "status": "booked",
       "type": "25-50 Miles Hiab Collection",
-      "price": null,
+      "price": 265.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
     "notes": "collection of a 20ft office",
