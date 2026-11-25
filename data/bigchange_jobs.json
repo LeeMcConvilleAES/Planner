@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-25T13:44:58",
+ "generated_at": "2026-11-25T13:47:07",
  "window": [
   "2026-07-28",
   "2027-03-20"
@@ -15678,7 +15678,8 @@
     "address": "Caroline Street, Shipley, BD18 3JZ",
     "order_number": "01-003683",
     "units": {
-     "32ft": 1
+     "32ft": 2,
+     "3+1 toilet": 1
     },
     "loads": [
      {
@@ -15691,16 +15692,42 @@
       "est_price": null,
       "price_source": "job",
       "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205640239,
+      "ref": "AES/66159",
+      "desc": "32ft",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     },
+     {
+      "bigchange_id": 205640408,
+      "ref": "AES/66160",
+      "desc": "3+1 toilet",
+      "status": "booked",
+      "type": "25-50m Hiab Delivery",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
      }
     ],
-    "notes": "delivery of 32ft unit",
+    "notes": "delivery of 32ft unit / delivery of 3+1 toilet block",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
-     205639921
+     205639921,
+     205640239,
+     205640408
     ],
     "refs": [
-     "AES/66158"
+     "AES/66158",
+     "AES/66159",
+     "AES/66160"
     ],
     "pc_key": "BD183JZ",
     "miles": 49
