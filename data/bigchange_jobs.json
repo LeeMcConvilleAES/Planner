@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T09:32:34",
+ "generated_at": "2026-11-26T09:38:56",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14186,7 +14186,7 @@
       "type": "Hiab Collection",
       "price": 750.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 750.0
      }
     ],
@@ -14471,7 +14471,7 @@
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 100.0
      }
     ],
