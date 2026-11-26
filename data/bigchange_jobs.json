@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T14:17:13",
+ "generated_at": "2026-11-26T14:25:24",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -15695,6 +15695,42 @@
    }
   ],
   "2026-12-03": [
+   {
+    "id": "bc-205763662",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Almond Civils",
+    "postcode": "BB2 3UY",
+    "address": "Fishmoor Drive, Blackburn, BB2 3UY",
+    "order_number": "01-003708",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205763662,
+      "ref": "AES/66260",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "collection of 16ft boss unit",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205763662
+    ],
+    "refs": [
+     "AES/66260"
+    ],
+    "pc_key": "BB23UY",
+    "miles": 26
+   },
    {
     "id": "bc-204474089",
     "type": "Collection",
