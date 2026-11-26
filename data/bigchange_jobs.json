@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T10:24:08",
+ "generated_at": "2026-11-26T10:32:22",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14537,7 +14537,7 @@
       "bigchange_id": 204532124,
       "ref": "AES/65318",
       "desc": "20ft",
-      "status": "booked",
+      "status": "live",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -14547,7 +14547,7 @@
     ],
     "notes": "collection of 20ft store",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204532124
     ],
