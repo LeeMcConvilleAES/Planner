@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T08:45:26",
+ "generated_at": "2026-11-26T08:47:28",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -16134,7 +16134,8 @@
     "address": "compound between no9 and no11Broad Walk, Westhoughton, BL5 2AA",
     "order_number": "01-003686",
     "units": {
-     "20ft": 3
+     "20ft": 4,
+     "mobile welfare": 1
     },
     "loads": [
      {
@@ -16168,20 +16169,46 @@
       "price": null,
       "est_price": null,
       "price_source": null
+     },
+     {
+      "bigchange_id": 205714905,
+      "ref": "AES/66228",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "0-15m Hiab Delivery",
+      "price": 190.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 190.0
+     },
+     {
+      "bigchange_id": 205715045,
+      "ref": "AES/66229",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Delivery",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
      }
     ],
-    "notes": "deliver 20ft store / delivery of 20ft store",
+    "notes": "deliver 20ft store / delivery of 20ft store / delivery 20ft store / delivery of 24ft boss unit",
     "destack": "",
     "status": "booked",
     "bigchange_ids": [
      205714669,
      205714744,
-     205714821
+     205714821,
+     205714905,
+     205715045
     ],
     "refs": [
      "AES/66225",
      "AES/66226",
-     "AES/66227"
+     "AES/66227",
+     "AES/66228",
+     "AES/66229"
     ],
     "pc_key": "BL52AA",
     "miles": 4
