@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T08:47:28",
+ "generated_at": "2026-11-26T09:01:45",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -16035,6 +16035,42 @@
     ],
     "pc_key": "CH647TE",
     "miles": 43
+   },
+   {
+    "id": "bc-205716621",
+    "type": "Collection",
+    "col": "col",
+    "customer": "M Group",
+    "postcode": "L11 9DX",
+    "address": "Stonedale Crescent, Liverpool, L11 9DX",
+    "order_number": "01-003692",
+    "units": {
+     "20ft": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205716621,
+      "ref": "AES/66230",
+      "desc": "20ft",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 20ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205716621
+    ],
+    "refs": [
+     "AES/66230"
+    ],
+    "pc_key": "L119DX",
+    "miles": 21
    }
   ],
   "2026-12-09": [
