@@ -3250,6 +3250,14 @@
    "driver": "",
    "from": "2026-12-08",
    "to": "2026-12-08"
+  },
+  {
+   "id": "v-1795682786659",
+   "reg": "PN24 RXS",
+   "type": "SERVICE",
+   "driver": "",
+   "from": "2026-12-08",
+   "to": "2026-12-08"
   }
  ],
  "enquiries": [
@@ -3434,6 +3442,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-26T08:45:36+00:00",
+ "updated_at": "2026-11-26T08:46:26+00:00",
  "updated_by": "office"
 }
