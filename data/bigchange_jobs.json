@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T13:07:35",
+ "generated_at": "2026-11-26T13:31:58",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14433,7 +14433,7 @@
       "last_price": 190.0
      }
     ],
-    "notes": "collection 32ft / collection of 2+1 tank steps ibc 2bay boot wash / collection of staircase landing 2 bay boot wash x 2",
+    "notes": "collection 32ft / collection of 2+1 tank steps / collection of staircase landing 2 bay boot wash x 2",
     "destack": "",
     "status": "live",
     "bigchange_ids": [
