@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T08:14:25",
+ "generated_at": "2026-11-26T08:43:23",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14182,7 +14182,7 @@
       "bigchange_id": 205233021,
       "ref": "AES/65886",
       "desc": "32ft",
-      "status": "live",
+      "status": "complete",
       "type": "Hiab Collection",
       "price": 750.0,
       "est_price": null,
@@ -14192,7 +14192,7 @@
     ],
     "notes": "COLLECT 32FT FROM Siemens, National Grid, Bramford Substation. IP8 4JL AND DELIVER TO THE ABOVE",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      205233021
     ],
