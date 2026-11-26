@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T11:44:04",
+ "generated_at": "2026-11-26T11:58:16",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14597,7 +14597,7 @@
       "bigchange_id": 204630825,
       "ref": "AES/65408",
       "desc": "3+1 toilet",
-      "status": "live",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -14608,7 +14608,7 @@
       "bigchange_id": 204631628,
       "ref": "AES/65409",
       "desc": "stairs c/w landing",
-      "status": "booked",
+      "status": "complete",
       "type": "25-50 Miles Hiab Collection",
       "price": 265.0,
       "est_price": null,
@@ -14618,7 +14618,7 @@
     ],
     "notes": "32ft de-stack / 3+1 toilet, / staircase/landing",
     "destack": "",
-    "status": "live",
+    "status": "complete",
     "bigchange_ids": [
      204629802,
      204630143,
