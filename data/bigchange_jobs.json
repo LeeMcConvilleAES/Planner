@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T18:44:44",
+ "generated_at": "2026-11-26T20:30:17",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -15505,9 +15505,10 @@
       "desc": "exchange of boss unit",
       "status": "booked",
       "type": "Site Move / Exchange",
-      "price": null,
+      "price": 200.0,
       "est_price": null,
-      "price_source": null
+      "price_source": "job",
+      "last_price": 200.0
      }
     ],
     "notes": "exchange of boss unit",
