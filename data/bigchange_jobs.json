@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T12:45:15",
+ "generated_at": "2026-11-26T13:07:35",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14403,7 +14403,7 @@
       "bigchange_id": 204843215,
       "ref": "AES/65574",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-15m Hiab Collection",
       "price": 190.0,
       "est_price": null,
