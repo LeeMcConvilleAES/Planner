@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T10:58:53",
+ "generated_at": "2026-11-26T11:37:53",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14392,7 +14392,7 @@
       "bigchange_id": 204843082,
       "ref": "AES/65573",
       "desc": "32ft",
-      "status": "booked",
+      "status": "live",
       "type": "0-25miles Hiab Collection",
       "price": 190.0,
       "est_price": null,
@@ -14435,7 +14435,7 @@
     ],
     "notes": "collection 32ft / collection of 2+1 tank steps ibc / collection of staircase landing 2 bay boot wash x 2",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      204843082,
      204843215,
