@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-26T15:51:38",
+ "generated_at": "2026-11-26T16:30:28",
  "window": [
   "2026-07-29",
   "2027-03-21"
@@ -14414,7 +14414,7 @@
       "bigchange_id": 204843427,
       "ref": "AES/65575",
       "desc": "Effluent Tank Steps & IBC",
-      "status": "booked",
+      "status": "complete",
       "type": "0-15m Hiab Collection",
       "price": 290.0,
       "est_price": null,
@@ -14435,7 +14435,7 @@
     ],
     "notes": "collection 32ft / collection of 2+1 tank steps / collection of staircase landing 2 bay boot wash x 2",
     "destack": "",
-    "status": "booked",
+    "status": "complete",
     "bigchange_ids": [
      204843082,
      204843215,
