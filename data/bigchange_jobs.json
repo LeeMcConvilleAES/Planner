@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-27T15:16:35",
+ "generated_at": "2026-11-27T15:26:42",
  "window": [
   "2026-07-30",
   "2027-03-22"
@@ -15455,6 +15455,42 @@
     ],
     "pc_key": "M231EQ",
     "miles": 17
+   },
+   {
+    "id": "bc-205915659",
+    "type": "Collection",
+    "col": "col",
+    "customer": "TOTAL UK",
+    "postcode": "L30 0QR",
+    "address": "Higher End Park, Bootle, L30 0QR",
+    "order_number": "01-003718",
+    "units": {
+     "10ft store": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205915659,
+      "ref": "AES/66391",
+      "desc": "10ft store",
+      "status": "booked",
+      "type": "25-50 Miles Hiab Collection",
+      "price": 265.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 265.0
+     }
+    ],
+    "notes": "collection of 10ft store",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205915659
+    ],
+    "refs": [
+     "AES/66391"
+    ],
+    "pc_key": "L300QR",
+    "miles": 25
    }
   ],
   "2026-12-02": [
