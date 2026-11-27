@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-27T10:29:26",
+ "generated_at": "2026-11-27T10:35:32",
  "window": [
   "2026-07-30",
   "2027-03-22"
@@ -14694,7 +14694,7 @@
       "bigchange_id": 205108374,
       "ref": "AES/65759",
       "desc": "24ft",
-      "status": "live",
+      "status": "complete",
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
@@ -14715,7 +14715,7 @@
     ],
     "notes": "deliver 20ft store / delivery of 20ft store / delivery of 24ft office / delivery 24ft canteen / delivery 2+1 toilet block  1 x effluent tank 2 ibc and steps",
     "destack": "",
-    "status": "live",
+    "status": "booked",
     "bigchange_ids": [
      205106932,
      205107224,
