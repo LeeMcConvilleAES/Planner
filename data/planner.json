@@ -3048,12 +3048,6 @@
    "to": "2026-12-11"
   },
   {
-   "id": "h-1795509354989",
-   "driver": "DF",
-   "from": "2026-12-03",
-   "to": "2026-12-03"
-  },
-  {
    "id": "h-1795509361155",
    "driver": "DF",
    "from": "2026-12-04",
@@ -3537,6 +3531,6 @@
    "week 2026-12-14: holiday 'Jeff Matthews' not migrated (no driver match), re-enter by hand"
   ]
  },
- "updated_at": "2026-11-27T11:32:36+00:00",
+ "updated_at": "2026-11-27T14:01:44+00:00",
  "updated_by": "office"
 }
