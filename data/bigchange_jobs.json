@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-27T09:26:08",
+ "generated_at": "2026-11-27T09:40:28",
  "window": [
   "2026-07-30",
   "2027-03-22"
@@ -14753,7 +14753,7 @@
       "type": "Toilet Delivery",
       "price": 45.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 45.0
      },
      {
@@ -14764,7 +14764,7 @@
       "type": "Toilet Delivery",
       "price": 45.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 45.0
      }
     ],
