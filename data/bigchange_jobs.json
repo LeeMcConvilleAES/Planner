@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-27T13:56:20",
+ "generated_at": "2026-11-27T14:57:56",
  "window": [
   "2026-07-30",
   "2027-03-22"
@@ -14935,7 +14935,7 @@
       "bigchange_id": 205720996,
       "ref": "AES/66231",
       "desc": "mobile welfare",
-      "status": "booked",
+      "status": "live",
       "type": "7.5t Transport Collection",
       "price": 100.0,
       "est_price": null,
@@ -14945,7 +14945,7 @@
     ],
     "notes": "collection of boss unit",
     "destack": "",
-    "status": "booked",
+    "status": "live",
     "bigchange_ids": [
      205720996
     ],
@@ -15306,42 +15306,6 @@
     ],
     "pc_key": "FY67BY",
     "miles": 40
-   },
-   {
-    "id": "bc-205863215",
-    "type": "Site Move",
-    "col": "move",
-    "customer": "Chandos Civil Engineering Limited",
-    "postcode": "OL2 7EQ",
-    "address": "MILLER HOMES, BRIARS VIEW, Shaw, OL2 7EQ",
-    "order_number": "01-003713",
-    "units": {
-     "boss unit": 1
-    },
-    "loads": [
-     {
-      "bigchange_id": 205863215,
-      "ref": "AES/66358",
-      "desc": "boss unit",
-      "status": "booked",
-      "type": "Site Move / Exchange",
-      "price": 100.0,
-      "est_price": null,
-      "price_source": "job",
-      "last_price": 100.0
-     }
-    ],
-    "notes": "on site move of boss unit",
-    "destack": "",
-    "status": "booked",
-    "bigchange_ids": [
-     205863215
-    ],
-    "refs": [
-     "AES/66358"
-    ],
-    "pc_key": "OL27EQ",
-    "miles": 23
    },
    {
     "id": "bc-204839737",
@@ -16113,6 +16077,42 @@
     ],
     "pc_key": "CW97LU",
     "miles": 26
+   },
+   {
+    "id": "bc-205863215",
+    "type": "Collection",
+    "col": "col",
+    "customer": "Chandos Civil Engineering Limited",
+    "postcode": "OL2 7EQ",
+    "address": "MILLER HOMES, BRIARS VIEW, Shaw, OL2 7EQ",
+    "order_number": "01-003713",
+    "units": {
+     "mobile welfare": 1
+    },
+    "loads": [
+     {
+      "bigchange_id": 205863215,
+      "ref": "AES/66358",
+      "desc": "mobile welfare",
+      "status": "booked",
+      "type": "7.5t Transport Collection",
+      "price": 100.0,
+      "est_price": null,
+      "price_source": "job",
+      "last_price": 100.0
+     }
+    ],
+    "notes": "BOSS UNIT COLLECTION",
+    "destack": "",
+    "status": "booked",
+    "bigchange_ids": [
+     205863215
+    ],
+    "refs": [
+     "AES/66358"
+    ],
+    "pc_key": "OL27EQ",
+    "miles": 23
    }
   ],
   "2026-12-07": [
