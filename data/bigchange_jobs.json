@@ -1,7 +1,7 @@
 {
  "version": 1,
  "source": "Big Change, written by Ken",
- "generated_at": "2026-11-27T11:23:10",
+ "generated_at": "2026-11-27T12:40:38",
  "window": [
   "2026-07-30",
   "2027-03-22"
@@ -14665,7 +14665,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      },
      {
@@ -14676,7 +14676,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      },
      {
@@ -14687,7 +14687,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      },
      {
@@ -14698,7 +14698,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      },
      {
@@ -14709,7 +14709,7 @@
       "type": "25-50m Hiab Delivery",
       "price": 309.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 309.0
      }
     ],
@@ -14835,7 +14835,7 @@
       "type": "Toilet Delivery",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
@@ -14905,7 +14905,7 @@
       "type": "Toilet Collection",
       "price": 15.0,
       "est_price": null,
-      "price_source": "job",
+      "price_source": "invoice",
       "last_price": 15.0
      }
     ],
